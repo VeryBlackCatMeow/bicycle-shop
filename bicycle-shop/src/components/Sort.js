@@ -20,7 +20,7 @@ import { Nav, NavItem, NavLink} from 'reactstrap';
                     <NavLink 
                         //name='all' 
                         //active={activeNav==='all'}
-                        active={sortBy==='all'}
+                        active={sortBy==='all'||sortBy==='standart'}
                         onClick={setSortFunc.bind(this, 'all')}
                         href='#'>All
                     </NavLink>

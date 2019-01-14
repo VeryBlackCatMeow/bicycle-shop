@@ -1,30 +1,83 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import axios from 'axios';
-import { Container, Row, Col } from 'reactstrap';
 
-import { setBikesAction, setSortAction } from '../actions/index.js'
-import Menu from '../components/Menu.js';
+import axios from 'axios';
+import { Row, Col, Button } from 'reactstrap';
+
+
+
 import ProductCard from '../components/ProductCard';
 import Filter from '../components/Filter.js';
 import Sort from '../components/Sort.js';
 
 class Gallery extends Component {
-    componentDidMount() {
+    constructor(props) {
+        super(props);
+        this.state = { 
+            blockToggle: true,
+            filterToggle: true
+         };
+        this.handToggle = this.handToggle.bind(this);
+        this.handToggle2 = this.handToggle2.bind(this);
+        this.sortingBy = this.sortingBy.bind(this);
+    } 
+    
+    componentWillMount = () => {
         const { setBikesFunc } = this.props;
         axios.get('/database/bikesdatabase.json').then(({ data }) => {
         setBikesFunc(data);        
         });
     }
 
+    handToggle = () => {
+        this.setState({ blockToggle: !this.state.blockToggle });
+    }
+    
+    handToggle2 = () => {
+        this.setState({ filterToggle: !this.state.filterToggle });
+    }
+
+    sortingBy = (items, sortBy) => {
+        switch(sortBy) {
+            case 'all':
+                items.sort(function (a , b) {
+                if (a.id > b.id) return 1;
+                if (a.id < b.id) return -1;});
+                return items;
+            case 'high':
+                items.sort(function (a , b) {
+                if (a.price < b.price) return 1;
+                if (a.price > b.price) return -1;});
+                return items;
+            case 'low':
+                items.sort(function (a , b) {
+                if (a.price > b.price) return 1;
+                if (a.price < b.price) return -1;});
+                return items;
+            case 'name':
+                items.sort(function (a , b) {
+                if (a.title > b.title) return 1;
+                if (a.title < b.title) return -1;});
+                return items;
+            case 'avg':
+                return items; 
+            default:
+                return items;        
+        }
+      }
+
     render() {
-        const { isReady, items, setSortFunc, sortBy } = this.props;
+        const { isReady, items, setSortFunc, sortBy, setFilterFunc, filterBy } = this.props;
+        this.sortingBy(items, sortBy);
         return (
-            <Container>
-                <Menu/>
                 <Row>
                     <Col sm="12" md="2">
-                        <Filter/>
+                        <Button color="primary" onClick={this.handToggle}>Filters:</Button>
+                        {
+                            this.state.blockToggle
+                            ? <Filter setFilterFunc={setFilterFunc} filterBy={filterBy}
+                             handToggle2={this.handToggle2} filterToggle={this.state.filterToggle}/>
+                            : null
+                        }
                     </Col>
                     <Col sm="12" md="10">
                         <Row>
@@ -33,36 +86,19 @@ class Gallery extends Component {
                             <hr/>
                         </Row>    
                         <Row>
-                        {!isReady
+                        {
+                            !isReady
                             ? 'Loading'
                             : items.map( (item, id) => (<ProductCard key={id} {...item}/>))
                         }
                         </Row>
                     </Col>
                 </Row>
-            </Container>
         );
     }
 }
 
-const mapStateToProps = ({bikesreducers}) => ({
-    items: bikesreducers.items, 
-    isReady: bikesreducers.isReady,
-    sortBy: bikesreducers.sortBy 
-                //items, isReady==props for Gallery 
-                //sortBy==props for Sort
-                //bikesreducers from allreducers.  
-               //items from reducer bikes 
-});
-
-const mapDispatchToProps = (dispatch) => ({
-    setBikesFunc: bike => dispatch(setBikesAction(bike)),
-    setSortFunc: sort => dispatch(setSortAction(sort))
-             //setBikesFunc==props for Gallery 
-             //setSortFunc==props for Sort
-             //bike==from Actions
-             // setBikesAction(bike)== action from '../actions/index.js'
-});
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Gallery);
+
+export default Gallery;

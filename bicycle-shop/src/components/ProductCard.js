@@ -2,13 +2,14 @@ import React from 'react';
 import { Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button, Col } from 'reactstrap';
 
-const ProductCard = ({title, description, price, img}) => (
+const ProductCard = ({title, description, price, type, img}) => (
     <Col className="col-sm-12 col-md-6 col-lg-4 py-3 d-flex">
         <Card>
             <CardImg top width="100%" src={img} alt="Product image" />
             <CardBody>
                 <CardTitle>{title}</CardTitle>
                 <CardSubtitle>{description}</CardSubtitle>
+                <CardText>{type}</CardText>
                 <div className="d-flex justify-content-between">
                     <h4>{price} $</h4>
                     <Button color="primary">Add To Cart</Button>
