@@ -2,7 +2,7 @@ const initialState = {
     isReady: false,
     items: null,
     sortBy: 'standart',
-    filterBy: true
+    filterBy: 'all'
 };
 
 export default (state = initialState, action) => {

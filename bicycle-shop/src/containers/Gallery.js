@@ -14,50 +14,73 @@ class Gallery extends Component {
         super(props);
         this.state = { 
             blockToggle: true,
-            filterToggle: true
+            filterToggles: {type: true, brand: true}
          };
-        this.handToggle = this.handToggle.bind(this);
-        this.handToggle2 = this.handToggle2.bind(this);
+        this.handleBlockToggle = this.handleBlockToggle.bind(this);
+        this.handleFilterToggle = this.handleFilterToggle.bind(this);
         this.sortingBy = this.sortingBy.bind(this);
+        this.filteringBy = this.filteringBy.bind(this);
+        this.handleCheck = this.handleCheck.bind(this);
+        const { setBikesFunc, filterBy } = this.props;
+        axios.get('/database/bikesdatabase.json').then(({ data }) => {
+        /*setBikesFunc(data.filter(item => (item.type===filterBy)));        
+        });*/
+        //setBikesFunc(this.filteringBy(data, "type", filterBy));  
+        setBikesFunc(data);      
+        });
     } 
     
-    componentWillMount = () => {
+    /*componentDidMount = () => {
         const { setBikesFunc } = this.props;
         axios.get('/database/bikesdatabase.json').then(({ data }) => {
         setBikesFunc(data);        
         });
-    }
+    }*/
 
-    handToggle = () => {
+    handleBlockToggle = () => {
         this.setState({ blockToggle: !this.state.blockToggle });
     }
+                //object in state
+    /*let clone = Object.assign({}, this.state.filterToggles);    //creating copy of object
+    clone.name = 'someothername';                               //updating value
+    this.setState({clone});*/
     
-    handToggle2 = () => {
-        this.setState({ filterToggle: !this.state.filterToggle });
+    handleFilterToggle = ({target: {name}}) => {
+        this.setState(
+            prevState => ({ filterToggles: { 
+                            ...prevState.filterToggles, 
+                            [name]: !prevState.filterToggles[name]
+            }})
+        );
+    }
+
+    handleCheck = ({target: {value, name, checked}}) => {
+       const { setFilterFunc } = this.props;
+       setFilterFunc(value);
     }
 
     sortingBy = (items, sortBy) => {
         switch(sortBy) {
             case 'all':
-                items.sort(function (a , b) {
-                if (a.id > b.id) return 1;
-                if (a.id < b.id) return -1;});
-                return items;
+            return items.concat().sort( (a , b) => {
+                    if (a.id > b.id) return 1;
+                    if (a.id < b.id) return -1;});
+                
             case 'high':
-                items.sort(function (a , b) {
-                if (a.price < b.price) return 1;
-                if (a.price > b.price) return -1;});
-                return items;
+            return items.sort( (a , b) => {
+                    if (a.price < b.price) return 1;
+                    if (a.price > b.price) return -1;});
+                
             case 'low':
-                items.sort(function (a , b) {
-                if (a.price > b.price) return 1;
-                if (a.price < b.price) return -1;});
-                return items;
+            return items.sort( (a , b) => {
+                    if (a.price > b.price) return 1;
+                    if (a.price < b.price) return -1;});
+                
             case 'name':
-                items.sort(function (a , b) {
-                if (a.title > b.title) return 1;
-                if (a.title < b.title) return -1;});
-                return items;
+            return items.sort( (a , b) => {
+                    if (a.title > b.title) return 1;
+                    if (a.title < b.title) return -1;});
+                
             case 'avg':
                 return items; 
             default:
@@ -65,17 +88,24 @@ class Gallery extends Component {
         }
       }
 
+    filteringBy = (items, field, filterBy) => {
+        if(filterBy==='all'){return items;}
+        else {return items.filter(item => item[field]===filterBy);}
+      }
+    
+
     render() {
-        const { isReady, items, setSortFunc, sortBy, setFilterFunc, filterBy } = this.props;
+        const { isReady, items, setSortFunc, sortBy, filterBy } = this.props;
         this.sortingBy(items, sortBy);
-        return (
+            return (
                 <Row>
                     <Col sm="12" md="2">
-                        <Button color="primary" onClick={this.handToggle}>Filters:</Button>
+                        <Button color="primary" onClick={this.handleBlockToggle}>Filters:</Button>
                         {
                             this.state.blockToggle
-                            ? <Filter setFilterFunc={setFilterFunc} filterBy={filterBy}
-                             handToggle2={this.handToggle2} filterToggle={this.state.filterToggle}/>
+                            ? <Filter /*setFilterFunc={setFilterFunc} filterBy={filterBy}*/
+                            handleFilterToggle={this.handleFilterToggle} filterToggles={this.state.filterToggles}
+                            handleCheck={this.handleCheck}/>
                             : null
                         }
                     </Col>
@@ -89,7 +119,7 @@ class Gallery extends Component {
                         {
                             !isReady
                             ? 'Loading'
-                            : items.map( (item, id) => (<ProductCard key={id} {...item}/>))
+                            : this.filteringBy(items, "type", filterBy).map( (item, id) => (<ProductCard key={id} {...item}/>))
                         }
                         </Row>
                     </Col>

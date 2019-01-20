@@ -16,9 +16,9 @@ export const setSortAction = sort => ({
     payload: sort
 });
 
-export const setFilterAction = x => ({
+export const setFilterAction = filter => ({
     type: 'SET_FILTER',
-    payload: x
+    payload: filter
 });
 
 //export default setBikesAction;

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setBikesAction, setSortAction, setFilterAction } from './actions/index.js'
 
-import { Container, Row, Col, Button } from 'reactstrap';
+import { Container} from 'reactstrap';
 import Menu from './components/Menu.js';
 import Gallery from './containers/Gallery.js';
 import './App.css';
@@ -38,7 +38,7 @@ const mapStateToProps = ({bikesreducers}) => ({
 const mapDispatchToProps = (dispatch) => ({
   setBikesFunc: bike => dispatch(setBikesAction(bike)),
   setSortFunc: sort => dispatch(setSortAction(sort)),
-  setFilterFunc: x => dispatch(setFilterAction(x))
+  setFilterFunc: filter => dispatch(setFilterAction(filter))
            //setBikesFunc==props for Gallery 
            //setSortFunc==props for Sort
            //bike==from Actions
