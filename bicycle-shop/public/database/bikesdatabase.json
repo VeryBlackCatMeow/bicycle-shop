@@ -2,6 +2,7 @@
   {
     "id": 0,
     "sku": 12064273040195392,
+    "product": "Bicycle",
     "title": "ZE Best U-0",
     "description": "Godlike vehicle",
     "type": "Business",
@@ -15,6 +16,7 @@
   {
     "id": 1,
     "sku": 12064273040195392,
+    "product": "Bicycle",
     "title": "Urbanbike U-1",
     "description": "Cheap&Nice",
     "type": "Economy",
@@ -31,6 +33,7 @@
   {
     "id": 2,
     "sku": 12064273040195392,
+    "product": "Bicycle",
     "title": "Girlsenjoyer Dil-25",
     "description": "Faster, Harder",
     "type": "Sport",
@@ -47,6 +50,7 @@
   {
     "id": 3,
     "sku": 12064273040195392,
+    "product": "Bicycle",
     "title": "Alfa-14",
     "description": "Be 1-st everytime",
     "type": "Sport",
@@ -63,6 +67,7 @@
   {
     "id": 4,
     "sku": 12064273040195392,
+    "product": "Bicycle",
     "title": "CheapBike C-1",
     "description": "Cheap vehicle",
     "type": "Economy",
@@ -76,6 +81,7 @@
   {
     "id": 5,
     "sku": 12064273040195392,
+    "product": "Bicycle",
     "title": "Nistep Maraphone",
     "description": "Vehicle for poors",
     "type": "Economy",
@@ -89,6 +95,7 @@
   {
     "id": 6,
     "sku": 12064273040195392,
+    "product": "Bicycle",
     "title": "SAW",
     "description": "Be Yourself",
     "type": "Gourmet",
@@ -102,6 +109,7 @@
   {
     "id": 7,
     "sku": 12064273040195392,
+    "product": "Bicycle",
     "title": "Woman's Enjoy",
     "description": "Godlike vehicle",
     "type": "Gourmet",
@@ -115,6 +123,7 @@
   {
     "id": 8,
     "sku": 12064273040195392,
+    "product": "Bicycle",
     "title": "Futurama 3000",
     "description": "Back in the Future!!!",
     "type": "Future",

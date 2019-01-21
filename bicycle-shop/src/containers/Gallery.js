@@ -18,13 +18,12 @@ class Gallery extends Component {
          };
         this.handleBlockToggle = this.handleBlockToggle.bind(this);
         this.handleFilterToggle = this.handleFilterToggle.bind(this);
-        this.sortingBy = this.sortingBy.bind(this);
+        //this.sortingBy = this.sortingBy.bind(this);
         this.filteringBy = this.filteringBy.bind(this);
         this.handleCheck = this.handleCheck.bind(this);
         const { setBikesFunc, filterBy } = this.props;
         axios.get('/database/bikesdatabase.json').then(({ data }) => {
-        /*setBikesFunc(data.filter(item => (item.type===filterBy)));        
-        });*/
+        //setBikesFunc(data.filter(item => (item.type===filterBy)));      
         //setBikesFunc(this.filteringBy(data, "type", filterBy));  
         setBikesFunc(data);      
         });
@@ -59,34 +58,7 @@ class Gallery extends Component {
        setFilterFunc(value);
     }
 
-    sortingBy = (items, sortBy) => {
-        switch(sortBy) {
-            case 'all':
-            return items.concat().sort( (a , b) => {
-                    if (a.id > b.id) return 1;
-                    if (a.id < b.id) return -1;});
-                
-            case 'high':
-            return items.sort( (a , b) => {
-                    if (a.price < b.price) return 1;
-                    if (a.price > b.price) return -1;});
-                
-            case 'low':
-            return items.sort( (a , b) => {
-                    if (a.price > b.price) return 1;
-                    if (a.price < b.price) return -1;});
-                
-            case 'name':
-            return items.sort( (a , b) => {
-                    if (a.title > b.title) return 1;
-                    if (a.title < b.title) return -1;});
-                
-            case 'avg':
-                return items; 
-            default:
-                return items;        
-        }
-      }
+    
 
     filteringBy = (items, field, filterBy) => {
         if(filterBy==='all'){return items;}
@@ -95,8 +67,8 @@ class Gallery extends Component {
     
 
     render() {
-        const { isReady, items, setSortFunc, sortBy, filterBy } = this.props;
-        this.sortingBy(items, sortBy);
+        const { isReady, items, setSortFunc, sortBy, setSearchFunc, searchBy} = this.props;
+        //this.sortingBy(items, sortBy);
             return (
                 <Row>
                     <Col sm="12" md="2">
@@ -112,14 +84,16 @@ class Gallery extends Component {
                     <Col sm="12" md="10">
                         <Row>
                             <h3>Bicycles:</h3>
-                            <Sort setSortFunc={setSortFunc} sortBy={sortBy}/>
+                            <Sort setSortFunc={setSortFunc} sortBy={sortBy}
+                            setSearchFunc={setSearchFunc} sortBy={searchBy}/>
                             <hr/>
                         </Row>    
                         <Row>
                         {
                             !isReady
                             ? 'Loading'
-                            : this.filteringBy(items, "type", filterBy).map( (item, id) => (<ProductCard key={id} {...item}/>))
+                            : items.map( (item, id) => (<ProductCard key={id} {...item}/>))
+                             // this.filteringBy(items, "type", filterBy).map( (item, id) => (<ProductCard key={id} {...item}/>))
                         }
                         </Row>
                     </Col>

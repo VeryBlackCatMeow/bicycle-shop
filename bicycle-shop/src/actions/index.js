@@ -21,4 +21,9 @@ export const setFilterAction = filter => ({
     payload: filter
 });
 
+export const setSearchAction = query => ({
+    type: 'SET_SEARCH',
+    payload: query
+});
+
 //export default setBikesAction;

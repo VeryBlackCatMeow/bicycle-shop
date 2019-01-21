@@ -1,5 +1,6 @@
 import React from 'react';
-import { Nav, NavItem, NavLink} from 'reactstrap';
+import { Nav, NavItem, NavLink, 
+    InputGroup, InputGroupText, InputGroupAddon, Input} from 'reactstrap';
 
 
 /*class Sort extends Component {
@@ -10,17 +11,14 @@ import { Nav, NavItem, NavLink} from 'reactstrap';
         const { setSortFunc } = this.props;
         setSortFunc(name);
     };  */
-    const Sort = ({ setSortFunc, sortBy }) => {
-    
-    //render() {
-      //  const { activeNav } = this.state;   
+    const Sort = ({ setSortFunc, sortBy, setSearchFunc, searchBy }) => {
         return(
             <Nav pills >
                 <NavItem>
                     <NavLink 
                         //name='all' 
                         //active={activeNav==='all'}
-                        active={sortBy==='all'||sortBy==='standart'}
+                        active={sortBy==='all'}
                         onClick={setSortFunc.bind(this, 'all')}
                         href='#'>All
                     </NavLink>
@@ -61,11 +59,16 @@ import { Nav, NavItem, NavLink} from 'reactstrap';
                         href='#'>Avg customer review
                     </NavLink>
                 </NavItem>
+                <NavItem>
+                    <InputGroup>
+                        <InputGroupAddon addonType="prepend">
+                            <InputGroupText>Search By Product</InputGroupText>
+                        </InputGroupAddon>
+                        <Input value={searchBy} OnChange={e => setSearchFunc(e.target.value)}/>
+                    </InputGroup>
+                </NavItem>
             </Nav>
         );
     }
-//}
-
-
 
 export default Sort;
