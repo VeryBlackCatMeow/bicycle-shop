@@ -26,4 +26,14 @@ export const setSearchAction = query => ({
     payload: query
 });
 
+export const addToCartAction = obj => ({
+    type: 'ADD_ITEM_TO_CART',
+    payload: obj
+});
+
+export const removeFromCartAction = id => ({
+    type: 'REMOVE_ITEM_FROM_CART',
+    payload: id
+});
+
 //export default setBikesAction;

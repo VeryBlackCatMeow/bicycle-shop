@@ -15,19 +15,19 @@ class Menu extends Component {
     }
 };*/
 
-const Menu = () => (
+const Menu = ( {totalPrice, totalCount, addToCartFunc, removeFromCartFunc} ) => (
     <Nav tabs className="p-5">
     <NavItem>
       <NavLink href="#" active>Link</NavLink>
     </NavItem>
     <NavItem>
-      <NavLink href="#">Link</NavLink>
+      <NavLink disabled href="#">Disabled Link</NavLink>
     </NavItem>
     <NavItem>
-      <NavLink href="#">Amount</NavLink>
+      <NavLink href="#">Amount: &nbsp; {totalPrice}</NavLink>
     </NavItem>
     <NavItem>
-      <NavLink disabled href="#">Cart</NavLink>
+      <NavLink href="#">Items: &nbsp; {totalCount}</NavLink>
     </NavItem>
   </Nav>
 );

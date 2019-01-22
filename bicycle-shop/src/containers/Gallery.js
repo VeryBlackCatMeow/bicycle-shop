@@ -18,13 +18,11 @@ class Gallery extends Component {
          };
         this.handleBlockToggle = this.handleBlockToggle.bind(this);
         this.handleFilterToggle = this.handleFilterToggle.bind(this);
-        //this.sortingBy = this.sortingBy.bind(this);
         this.filteringBy = this.filteringBy.bind(this);
         this.handleCheck = this.handleCheck.bind(this);
-        const { setBikesFunc, filterBy } = this.props;
+        const { setBikesFunc } = this.props;
         axios.get('/database/bikesdatabase.json').then(({ data }) => {
-        //setBikesFunc(data.filter(item => (item.type===filterBy)));      
-        //setBikesFunc(this.filteringBy(data, "type", filterBy));  
+        //setBikesFunc(data.filter(item => (item.type===filterBy)));       
         setBikesFunc(data);      
         });
     } 
@@ -63,12 +61,11 @@ class Gallery extends Component {
     filteringBy = (items, field, filterBy) => {
         if(filterBy==='all'){return items;}
         else {return items.filter(item => item[field]===filterBy);}
-      }
+    }
     
 
     render() {
-        const { isReady, items, setSortFunc, sortBy, setSearchFunc, searchBy} = this.props;
-        //this.sortingBy(items, sortBy);
+        const { items, setSortFunc, sortBy, setSearchFunc, searchBy, addToCartFunc} = this.props;
             return (
                 <Row>
                     <Col sm="12" md="2">
@@ -85,14 +82,14 @@ class Gallery extends Component {
                         <Row>
                             <h3>Bicycles:</h3>
                             <Sort setSortFunc={setSortFunc} sortBy={sortBy}
-                            setSearchFunc={setSearchFunc} sortBy={searchBy}/>
+                            setSearchFunc={setSearchFunc} searchBy={searchBy}/>
                             <hr/>
                         </Row>    
                         <Row>
                         {
-                            !isReady
+                            !items.length
                             ? 'Loading'
-                            : items.map( (item, id) => (<ProductCard key={id} {...item}/>))
+                            : items.map( (item, id) => (<ProductCard key={id} {...item} addToCartFunc={addToCartFunc}/>))
                              // this.filteringBy(items, "type", filterBy).map( (item, id) => (<ProductCard key={id} {...item}/>))
                         }
                         </Row>

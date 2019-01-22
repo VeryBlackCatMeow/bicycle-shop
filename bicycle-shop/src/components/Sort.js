@@ -2,11 +2,7 @@ import React from 'react';
 import { Nav, NavItem, NavLink, 
     InputGroup, InputGroupText, InputGroupAddon, Input} from 'reactstrap';
 
-
-/*class Sort extends Component {
-    state = { activeNav: 'all'};
-    
-    handleItemClick = ({target: {name}}) => {
+    /*handleItemClick = ({target: {name}}) => {
         this.setState({activeNav: name});
         const { setSortFunc } = this.props;
         setSortFunc(name);
@@ -64,7 +60,8 @@ import { Nav, NavItem, NavLink,
                         <InputGroupAddon addonType="prepend">
                             <InputGroupText>Search By Product</InputGroupText>
                         </InputGroupAddon>
-                        <Input value={searchBy} OnChange={e => setSearchFunc(e.target.value)}/>
+                        <Input value={searchBy} 
+                               onChange={e => setSearchFunc(e.target.value)}/>
                     </InputGroup>
                 </NavItem>
             </Nav>

@@ -9,7 +9,6 @@
     "brand": "ZE Best",
     "wheelSizes": ["26", "27.5", "29"],
     "price": 2999.99,
-    "currencyId": "USD",
     "currencyFormat": "$",
     "img": "http://localhost:3000/database/img/business01.jpg"
   },
@@ -23,11 +22,7 @@
     "brand": "Urban",
     "availableSizes": ["26"],
     "price": 19.99,
-    "installments": 9,
-    "currencyId": "USD",
     "currencyFormat": "$",
-    "style": "Black with custom print",
-    "isFreeShipping": true,
     "img": "http://localhost:3000/database/img/eco01.jpg"
   },
   {
@@ -40,11 +35,7 @@
     "brand": "Dil",
     "availableSizes": ["26", "27.5"],
     "price": 899.99,
-    "installments": 9,
-    "currencyId": "USD",
     "currencyFormat": "$",
-    "style": "Black with custom print",
-    "isFreeShipping": true,
     "img": "http://localhost:3000/database/img/sport01.jpg"
   },
   {
@@ -58,7 +49,6 @@
     "availableSizes": ["26", "27.5"],
     "price": 659.99,
     "installments": 9,
-    "currencyId": "USD",
     "currencyFormat": "$",
     "style": "Black with custom print",
     "isFreeShipping": true,
@@ -74,7 +64,6 @@
     "brand": "CheapBike",
     "wheelSizes": ["26"],
     "price": 94.99,
-    "currencyId": "USD",
     "currencyFormat": "$",
     "img": "http://localhost:3000/database/img/eco02.jpg"
   },
@@ -88,7 +77,6 @@
     "brand": "CheapBike",
     "wheelSizes": ["26"],
     "price": 105.99,
-    "currencyId": "USD",
     "currencyFormat": "$",
     "img": "http://localhost:3000/database/img/eco03.jpg"
   },
@@ -102,7 +90,6 @@
     "brand": "MasterBike",
     "wheelSizes": ["29"],
     "price": 1799.99,
-    "currencyId": "USD",
     "currencyFormat": "$",
     "img": "http://localhost:3000/database/img/gourmet01.jpg"
   },
@@ -116,7 +103,6 @@
     "brand": "MasterBike",
     "wheelSizes": ["27.5", "29"],
     "price": 1499.99,
-    "currencyId": "USD",
     "currencyFormat": "$",
     "img": "http://localhost:3000/database/img/gourmet02.jpg"
   },
@@ -130,7 +116,6 @@
     "brand": "Futurama",
     "wheelSizes": ["29"],
     "price": 1999.99,
-    "currencyId": "USD",
     "currencyFormat": "$",
     "img": "http://localhost:3000/database/img/future01.jpg"
   }
