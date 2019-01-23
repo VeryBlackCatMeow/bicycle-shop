@@ -10,7 +10,7 @@
     "wheelSizes": ["26", "27.5", "29"],
     "price": 2999.99,
     "currencyFormat": "$",
-    "img": "http://localhost:3000/database/img/business01.jpg"
+    "image": "http://localhost:3000/database/img/business01.jpg"
   },
   {
     "id": 1,
@@ -23,7 +23,7 @@
     "availableSizes": ["26"],
     "price": 19.99,
     "currencyFormat": "$",
-    "img": "http://localhost:3000/database/img/eco01.jpg"
+    "image": "http://localhost:3000/database/img/eco01.jpg"
   },
   {
     "id": 2,
@@ -36,7 +36,7 @@
     "availableSizes": ["26", "27.5"],
     "price": 899.99,
     "currencyFormat": "$",
-    "img": "http://localhost:3000/database/img/sport01.jpg"
+    "image": "http://localhost:3000/database/img/sport01.jpg"
   },
   {
     "id": 3,
@@ -52,7 +52,7 @@
     "currencyFormat": "$",
     "style": "Black with custom print",
     "isFreeShipping": true,
-    "img": "http://localhost:3000/database/img/sport02.jpg"
+    "image": "http://localhost:3000/database/img/sport02.jpg"
   },
   {
     "id": 4,
@@ -65,7 +65,7 @@
     "wheelSizes": ["26"],
     "price": 94.99,
     "currencyFormat": "$",
-    "img": "http://localhost:3000/database/img/eco02.jpg"
+    "image": "http://localhost:3000/database/img/eco02.jpg"
   },
   {
     "id": 5,
@@ -78,7 +78,7 @@
     "wheelSizes": ["26"],
     "price": 105.99,
     "currencyFormat": "$",
-    "img": "http://localhost:3000/database/img/eco03.jpg"
+    "image": "http://localhost:3000/database/img/eco03.jpg"
   },
   {
     "id": 6,
@@ -91,7 +91,7 @@
     "wheelSizes": ["29"],
     "price": 1799.99,
     "currencyFormat": "$",
-    "img": "http://localhost:3000/database/img/gourmet01.jpg"
+    "image": "http://localhost:3000/database/img/gourmet01.jpg"
   },
   {
     "id": 7,
@@ -104,7 +104,7 @@
     "wheelSizes": ["27.5", "29"],
     "price": 1499.99,
     "currencyFormat": "$",
-    "img": "http://localhost:3000/database/img/gourmet02.jpg"
+    "image": "http://localhost:3000/database/img/gourmet02.jpg"
   },
   {
     "id": 8,
@@ -117,7 +117,7 @@
     "wheelSizes": ["29"],
     "price": 1999.99,
     "currencyFormat": "$",
-    "img": "http://localhost:3000/database/img/future01.jpg"
+    "image": "http://localhost:3000/database/img/future01.jpg"
   }
   
 

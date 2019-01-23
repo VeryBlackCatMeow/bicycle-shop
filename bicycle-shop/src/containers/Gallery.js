@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import axios from 'axios';
-import { Row, Col, Button } from 'reactstrap';
+import { Row, Col, Button, Spinner } from 'reactstrap';
 
 
 
@@ -65,7 +65,7 @@ class Gallery extends Component {
     
 
     render() {
-        const { items, setSortFunc, sortBy, setSearchFunc, searchBy, addToCartFunc} = this.props;
+        const { items, setSortFunc, sortBy, setSearchFunc, searchBy, addToCartFunc, itemCount} = this.props;
             return (
                 <Row>
                     <Col sm="12" md="2">
@@ -88,8 +88,8 @@ class Gallery extends Component {
                         <Row>
                         {
                             !items.length
-                            ? 'Loading'
-                            : items.map( (item, id) => (<ProductCard key={id} {...item} addToCartFunc={addToCartFunc}/>))
+                            ? <Spinner size="sm" color="primary">LOADING &nbsp;</Spinner>
+                            : items.map( (item, id) => (<ProductCard key={id} {...item} addToCartFunc={addToCartFunc} itemCount={itemCount}/>))
                              // this.filteringBy(items, "type", filterBy).map( (item, id) => (<ProductCard key={id} {...item}/>))
                         }
                         </Row>

@@ -13,15 +13,16 @@ class App extends Component {
   render() {
     const { items, setBikesFunc, setSortFunc, 
         sortBy, setFilterFunc, filterBy, setSearchFunc, searchBy,
-        totalPrice, totalCount, addToCartFunc, removeFromCartFunc } = this.props;
+        totalPrice, totalCount, addToCartFunc, removeFromCartFunc, itemCount, cartItems, lastItem } = this.props;
     return (
         <Container>
-            <Menu totalPrice={totalPrice} totalCount={totalCount}  removeFromCartFunc={removeFromCartFunc} />
+            <Menu totalPrice={totalPrice} totalCount={totalCount} removeFromCartFunc={removeFromCartFunc} cartItems={cartItems}/>
             <Gallery 
                 items={items} setBikesFunc={setBikesFunc} 
                 setSortFunc={setSortFunc} sortBy={sortBy} setFilterFunc={setFilterFunc} filterBy={filterBy}
                 setSearchFunc={setSearchFunc} searchBy={searchBy}
-                addToCartFunc={addToCartFunc} 
+                addToCartFunc={addToCartFunc} itemCount={itemCount}
+                lastItem={lastItem}
                 />
         </Container>
     );
@@ -61,22 +62,30 @@ const finalFiltration = (items, searchBy, sortBy) =>  {
     return sortingBy(searchingBy(items, searchBy), sortBy)
 };
 
-const mapStateToProps = ( {bikesreducers, filtersreducers, cartreducers} ) => ({
+const mapStateToProps = ( 
+    {bikesreducers, filtersreducers, cartreducers}) => ({
   items: finalFiltration(bikesreducers.items, filtersreducers.searchBy, filtersreducers.sortBy),
   
   sortBy: filtersreducers.sortBy,
   filterBy: filtersreducers.filterBy,
   searchBy: filtersreducers.searchBy,
 
-  totalPrice: cartreducers.items.reduce((total, item) => ((total*100+item.price*100)/100).toFixed(2), 0),
-  totalCount: cartreducers.items.length
+  totalPrice: cartreducers.items.reduce( (total, item) => 
+                        ((total*100 + item.price*100) /100).toFixed(2), 0),
+  totalCount: cartreducers.items.length,
+  itemCount: cartreducers.items.reduce( (count, item) => 
+                        count + (item.id === cartreducers.lastItem.id ? 1 : 0), 0),
+  cartItems: cartreducers.items,
+  lastItem: cartreducers.lastItem
 });
 
 const mapDispatchToProps = (dispatch) => ({
   setBikesFunc: bike => dispatch(setBikesAction(bike)),
+  
   setSortFunc: sort => dispatch(setSortAction(sort)),
   setFilterFunc: filter => dispatch(setFilterAction(filter)),
   setSearchFunc: query => dispatch(setSearchAction(query)),
+  
   addToCartFunc: obj => dispatch(addToCartAction(obj)),
   removeFromCartFunc: id => dispatch(removeFromCartAction(id)),
 });

@@ -1,6 +1,27 @@
 const initialState = {
-    items: [
-        /*{
+    items: [],
+    lastItem: null
+};
+
+export default (state = initialState, action) => {
+    switch (action.type) {
+        case 'ADD_ITEM_TO_CART':
+            return {
+                ...state,
+                items: [...state.items, action.payload],
+                lastItem: action.payload
+            };
+        case 'REMOVE_ITEM_FROM_CART':
+            return {
+                ...state,
+                items: state.items.filter(item => item.id !== action.payload)
+            };
+        default:
+            return state;
+    }
+}
+
+ /*{
             "id": 0,
             "sku": 12064273040195392,
             "product": "Bicycle",
@@ -39,22 +60,3 @@ const initialState = {
             "currencyFormat": "$",
             "img": "http://localhost:3000/database/img/sport01.jpg"
           }*/
-    ]
-};
-
-export default (state = initialState, action) => {
-    switch (action.type) {
-        case 'ADD_ITEM_TO_CART':
-            return {
-                ...state,
-                items: [...state.items, action.payload]
-            };
-        case 'REMOVE_ITEM_FROM_CART':
-            return {
-                ...state,
-                items: state.items.filter(item => item.id !== action.payload)
-            };
-        default:
-            return state;
-    }
-}
