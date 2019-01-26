@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
+//import axios from 'axios';
+import { Row, Col, Button } from 'reactstrap';
 
-import axios from 'axios';
-import { Row, Col, Button, Spinner } from 'reactstrap';
-
-
-
-import ProductCard from '../components/ProductCard';
+import Showcase from './Showcase';
 import Filter from '../components/Filter.js';
-import Sort from '../components/Sort.js';
+import Sort from './Sort.js';
 
 class Gallery extends Component {
     constructor(props) {
@@ -16,15 +13,15 @@ class Gallery extends Component {
             blockToggle: true,
             filterToggles: {type: true, brand: true}
          };
-        this.handleBlockToggle = this.handleBlockToggle.bind(this);
+       /* this.handleBlockToggle = this.handleBlockToggle.bind(this);
         this.handleFilterToggle = this.handleFilterToggle.bind(this);
         this.filteringBy = this.filteringBy.bind(this);
         this.handleCheck = this.handleCheck.bind(this);
-        const { setBikesFunc } = this.props;
+        //const { setBikesFunc } = this.props;
         axios.get('/database/bikesdatabase.json').then(({ data }) => {
         //setBikesFunc(data.filter(item => (item.type===filterBy)));       
-        setBikesFunc(data);      
-        });
+        //setBikesFunc(data);      
+        });*/
     } 
     
     /*componentDidMount = () => {
@@ -56,45 +53,39 @@ class Gallery extends Component {
        setFilterFunc(value);
     }
 
-    
-
     filteringBy = (items, field, filterBy) => {
         if(filterBy==='all'){return items;}
         else {return items.filter(item => item[field]===filterBy);}
     }
     
-
     render() {
-        const { items, setSortFunc, sortBy, setSearchFunc, searchBy, addToCartFunc, itemCount} = this.props;
-            return (
-                <Row>
-                    <Col sm="12" md="2">
-                        <Button color="primary" onClick={this.handleBlockToggle}>Filters:</Button>
-                        {
-                            this.state.blockToggle
-                            ? <Filter /*setFilterFunc={setFilterFunc} filterBy={filterBy}*/
+        //const { extraProps} = this.props;
+        //const extraProps = '/database/bikesdatabase.json';
+        const extraProps = '/database/girlsdatabase.json';
+        return (
+            <Row>
+                <Col sm="12" md="2">
+                    <Button color="primary" onClick={this.handleBlockToggle}>Filters:</Button>
+                    {
+                        this.state.blockToggle
+                        ? <Filter /*setFilterFunc={setFilterFunc} filterBy={filterBy}*/
                             handleFilterToggle={this.handleFilterToggle} filterToggles={this.state.filterToggles}
                             handleCheck={this.handleCheck}/>
-                            : null
-                        }
-                    </Col>
-                    <Col sm="12" md="10">
-                        <Row>
-                            <h3>Bicycles:</h3>
-                            <Sort setSortFunc={setSortFunc} sortBy={sortBy}
-                            setSearchFunc={setSearchFunc} searchBy={searchBy}/>
-                            <hr/>
-                        </Row>    
-                        <Row>
-                        {
-                            !items.length
-                            ? <Spinner size="sm" color="primary">LOADING &nbsp;</Spinner>
-                            : items.map( (item, id) => (<ProductCard key={id} {...item} addToCartFunc={addToCartFunc} itemCount={itemCount}/>))
-                             // this.filteringBy(items, "type", filterBy).map( (item, id) => (<ProductCard key={id} {...item}/>))
-                        }
-                        </Row>
-                    </Col>
-                </Row>
+                        : null
+                    }
+                </Col>
+                
+                <Col sm="12" md="10">
+                    <Row>
+                        <h3>Bicycles:</h3>
+                        <Sort/>
+                        <hr/>
+                    </Row>    
+                    <Row>
+                       <Showcase extraProps={extraProps}/>
+                    </Row>
+                </Col>
+            </Row>
         );
     }
 }

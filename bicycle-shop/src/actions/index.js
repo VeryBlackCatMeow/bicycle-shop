@@ -1,11 +1,3 @@
-/*export const setBikesAction = (bike) => {
-    alert ("now bike is:" + bike.title)
-    return {
-        type: 'SET_BIKES',
-        payload: bike
-    }
-};*/
-
 export const setBikesAction = bike => ({
     type: 'SET_BIKES',
     payload: bike
@@ -35,5 +27,3 @@ export const removeFromCartAction = id => ({
     type: 'REMOVE_ITEM_FROM_CART',
     payload: id
 });
-
-//export default setBikesAction;

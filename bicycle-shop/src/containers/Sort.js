@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { setSortAction, setSearchAction } from '../actions/index.js'
 import { Nav, NavItem, NavLink, 
     InputGroup, InputGroupText, InputGroupAddon, Input} from 'reactstrap';
 
@@ -7,7 +9,7 @@ import { Nav, NavItem, NavLink,
         const { setSortFunc } = this.props;
         setSortFunc(name);
     };  */
-    const Sort = ({ setSortFunc, sortBy, setSearchFunc, searchBy }) => {
+const Sort = ({ setSortFunc, sortBy, setSearchFunc, searchBy }) => {
         return(
             <Nav pills >
                 <NavItem>
@@ -66,6 +68,16 @@ import { Nav, NavItem, NavLink,
                 </NavItem>
             </Nav>
         );
-    }
+}
 
-export default Sort;
+const mapStateToProps = ( { filtersreducers }) => ({
+    sortBy: filtersreducers.sortBy,
+    searchBy: filtersreducers.searchBy,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+    setSortFunc: sort => dispatch(setSortAction(sort)),
+    setSearchFunc: query => dispatch(setSearchAction(query)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Sort);
