@@ -11,15 +11,17 @@ import './index.css';
 import App from './App';
 
 const store = createStore(Reducers);
-const extraProps = '/database/bikesdatabase.json';
+
 
 ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
-            <App extraProps={extraProps} />
+            <App />
         </BrowserRouter>
     </Provider>, 
     document.getElementById('root')
 );
+
+
 
 

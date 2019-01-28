@@ -1,7 +1,8 @@
 import React from 'react';
 import { Nav, NavItem, NavLink,} from 'reactstrap';
-import Cart from '../containers/Cart.js';
 import { Link } from 'react-router-dom';
+
+import Cart from '../containers/Cart.js';
 
 const Menu = () => (
     <Nav tabs className="p-5">

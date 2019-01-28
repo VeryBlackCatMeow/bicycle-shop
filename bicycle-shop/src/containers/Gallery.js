@@ -59,9 +59,9 @@ class Gallery extends Component {
     }
     
     render() {
-        //const { extraProps} = this.props;
-        //const extraProps = '/database/bikesdatabase.json';
-        const extraProps = '/database/girlsdatabase.json';
+        const { extraProps } = this.props;
+        //const extraProps = {link:'/database/bikesdatabase.json', height: '55%'};
+        //const extraProps = {link:'/database/girlsdatabase.json', height: '72%'};
         return (
             <Row>
                 <Col sm="12" md="2">

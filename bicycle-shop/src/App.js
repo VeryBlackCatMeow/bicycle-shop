@@ -10,17 +10,25 @@ import './App.css';
 import { Route, Switch } from 'react-router-dom';
 
 class App extends Component {
+    
   
   render() {
-    const { extraProps } = this.props;
+    const bikes = {link:'/database/bikesdatabase.json', height: '55%'};
+    const girls = {link:'/database/girlsdatabase.json', height: '72%'};
     return (
         <Container>
             <Menu/>
             <Switch>
                 <Route exact path="/" component={Home} />
-                <Route path="/bikes" component={Gallery} />
                 <Route path="/about" component={About} />
-                <Route path="/rent" component={Gallery} />
+                
+                <Route path="/bikes"
+                       key="/bikes"
+                       render={props => <Gallery {...props} extraProps={bikes} />}/>
+                
+                <Route path="/rent"
+                       key="/rent"
+                       render={props => <Gallery {...props} extraProps={girls} />}/>
             </Switch>
         </Container>
     );
@@ -29,3 +37,5 @@ class App extends Component {
 
 
 export default App;
+
+

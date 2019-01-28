@@ -1,0 +1,51 @@
+[
+  {
+    "src": "http://localhost:3000/database/carousel/1.jpg",
+    "altText": "Slide Img",
+    "caption": "",
+    "header": "Slide 1 Header"
+  },
+  {
+    "src": "http://localhost:3000/database/carousel/2.jpg",
+    "altText": "Slide Img",
+    "caption": "",
+    "header": "Slide 2 Header"
+  },
+  {
+    "src": "http://localhost:3000/database/carousel/3.jpg",
+    "altText": "Slide Img",
+    "caption": "",
+    "header": "Slide 1 Header"
+  },
+  {
+    "src": "http://localhost:3000/database/carousel/4.jpg",
+    "altText": "Slide Img",
+    "caption": "",
+    "header": "Slide 2 Header"
+  },
+  {
+    "src": "http://localhost:3000/database/carousel/5.jpg",
+    "altText": "Slide Img",
+    "caption": "",
+    "header": "Slide 1 Header"
+  },
+  {
+    "src": "http://localhost:3000/database/carousel/6.jpg",
+    "altText": "Slide Img",
+    "caption": "",
+    "header": "Slide 2 Header"
+  },
+  {
+    "src": "http://localhost:3000/database/carousel/7.jpg",
+    "altText": "Slide Img",
+    "caption": "",
+    "header": "Slide 1 Header"
+  },
+  {
+    "src": "http://localhost:3000/database/carousel/8.jpg",
+    "altText": "Slide Img",
+    "caption": "",
+    "header": "Slide 2 Header"
+  }
+ 
+]

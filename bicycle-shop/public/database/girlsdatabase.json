@@ -10,7 +10,7 @@
       "wheelSizes": ["26", "27.5", "29"],
       "price": 2999.99,
       "currencyFormat": "$",
-      "image": "http://localhost:3000/database/img/rent01.jpg"
+      "image": "http://localhost:3000/database/girls/rent01.jpg"
     },
     {
       "id": 1,
@@ -23,7 +23,7 @@
       "availableSizes": ["26"],
       "price": 19.99,
       "currencyFormat": "$",
-      "image": "http://localhost:3000/database/img/rent02.jpg"
+      "image": "http://localhost:3000/database/girls/rent02.jpg"
     },
     {
       "id": 2,
@@ -36,7 +36,7 @@
       "availableSizes": ["26", "27.5"],
       "price": 899.99,
       "currencyFormat": "$",
-      "image": "http://localhost:3000/database/img/rent03.jpg"
+      "image": "http://localhost:3000/database/girls/rent03.jpg"
     },
     {
       "id": 3,
@@ -52,7 +52,7 @@
       "currencyFormat": "$",
       "style": "Black with custom print",
       "isFreeShipping": true,
-      "image": "http://localhost:3000/database/img/rent04.jpg"
+      "image": "http://localhost:3000/database/girls/rent04.jpg"
     },
     {
       "id": 4,
@@ -65,7 +65,7 @@
       "wheelSizes": ["26"],
       "price": 94.99,
       "currencyFormat": "$",
-      "image": "http://localhost:3000/database/img/rent05.jpg"
+      "image": "http://localhost:3000/database/girls/rent05.jpg"
     },
     {
       "id": 5,
@@ -78,7 +78,7 @@
       "wheelSizes": ["26"],
       "price": 105.99,
       "currencyFormat": "$",
-      "image": "http://localhost:3000/database/img/rent06.jpg"
+      "image": "http://localhost:3000/database/girls/rent06.jpg"
     },
     {
       "id": 6,
@@ -91,7 +91,7 @@
       "wheelSizes": ["29"],
       "price": 1799.99,
       "currencyFormat": "$",
-      "image": "http://localhost:3000/database/img/rent07.jpg"
+      "image": "http://localhost:3000/database/girls/rent07.jpg"
     },
     {
       "id": 7,
@@ -104,7 +104,7 @@
       "wheelSizes": ["27.5", "29"],
       "price": 1499.99,
       "currencyFormat": "$",
-      "image": "http://localhost:3000/database/img/rent08.jpg"
+      "image": "http://localhost:3000/database/girls/rent08.jpg"
     },
     {
       "id": 8,
@@ -117,7 +117,7 @@
       "wheelSizes": ["29"],
       "price": 1999.99,
       "currencyFormat": "$",
-      "image": "http://localhost:3000/database/img/rent09.jpg"
+      "image": "http://localhost:3000/database/girls/rent09.jpg"
     },
     {
       "id": 9,
@@ -130,7 +130,7 @@
       "wheelSizes": ["29"],
       "price": 1799.99,
       "currencyFormat": "$",
-      "image": "http://localhost:3000/database/img/rent10.jpg"
+      "image": "http://localhost:3000/database/girls/rent10.jpg"
     },
     {
       "id": 10,
@@ -143,7 +143,7 @@
       "wheelSizes": ["27.5", "29"],
       "price": 1499.99,
       "currencyFormat": "$",
-      "image": "http://localhost:3000/database/img/rent11.jpg"
+      "image": "http://localhost:3000/database/girls/rent11.jpg"
     },
     {
       "id": 11,
@@ -156,7 +156,7 @@
       "wheelSizes": ["29"],
       "price": 1999.99,
       "currencyFormat": "$",
-      "image": "http://localhost:3000/database/img/rent12.jpg"
+      "image": "http://localhost:3000/database/girls/rent12.jpg"
     }
     
   

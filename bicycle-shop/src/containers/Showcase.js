@@ -5,26 +5,30 @@ import { connect } from 'react-redux';
 import { setBikesAction, addToCartAction, setFilterAction } from '../actions/index.js'
 import ProductCard from '../components/ProductCard';
 import { Row, Col, Button, Spinner } from 'reactstrap';
+import { withRouter } from 'react-router-dom'
 
 class Showcase extends Component {
     
     constructor(props) {
         super(props);
-        const { setBikesFunc, extraProps } = this.props;
-        axios.get(/*'/database/bikesdatabase.json'*/extraProps).then(({ data }) => {
-        //setBikesFunc(data.filter(item => (item.type===filterBy)));       
-        setBikesFunc(data);      
-        });
+      
     } 
 
+    componentDidMount = () => {
+        const { setBikesFunc, extraProps } = this.props;
+        axios.get(/*'/database/bikesdatabase.json'*/extraProps.link).then(({ data }) => {    
+        setBikesFunc(data);      
+        });
+    }
+
     render() { 
-        const { items, addToCartFunc, itemCount } = this.props;
+        const { items, addToCartFunc, itemCount, extraProps } = this.props;
         return (
     <Row>
          {
             !items.length
             ? <Spinner size="sm" color="primary">LOADING &nbsp;</Spinner>
-            : items.map( (item, id) => (<ProductCard key={id} {...item} addToCartFunc={addToCartFunc} itemCount={itemCount}/>))
+            : items.map( (item, id) => (<ProductCard key={id} {...item} extraProps={extraProps} addToCartFunc={addToCartFunc} itemCount={itemCount}/>))
             // this.filteringBy(items, "type", filterBy).map( (item, id) => (<ProductCard key={id} {...item}/>))
         }
     </Row>
@@ -90,4 +94,4 @@ const mapDispatchToProps = (dispatch) => ({
   
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Showcase);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Showcase));
