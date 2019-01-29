@@ -5,16 +5,31 @@ import Menu from './components/Menu.js';
 import Gallery from './containers/Gallery.js';
 import About from './components/About.js';
 import Home from './components/Home.js';
+import Product from './components/Product.js';
+import Product2 from './components/Product2.js';
+import PageIsNotFound from './components/PageIsNotFound.js';
 import './App.css';
 
 import { Route, Switch } from 'react-router-dom';
 
 class App extends Component {
-    
-  
   render() {
-    const bikes = {link:'/database/bikesdatabase.json', height: '55%'};
-    const girls = {link:'/database/girlsdatabase.json', height: '72%'};
+    const bikes = {link:'/database/bikesdatabase.json', height: '200px', path: '/bikes'};
+    const girls = {link:'/database/girlsdatabase.json', height: '450px', path: '/rent'};
+    const item = {
+        id: 0,
+        sku: 10000000000000000,
+        product: "Bicycle",
+        title: "ZE Best U-0",
+        description: "Godlike vehicle",
+        type: "Business",
+        brand: "ZE Best",
+        wheelSizes: ["26", "27.5", "29"],
+        price: 2999.99,
+        currencyFormat: "$",
+        image: "/database/bikes/business01.jpg"
+    };
+   
     return (
         <Container>
             <Menu/>
@@ -22,13 +37,21 @@ class App extends Component {
                 <Route exact path="/" component={Home} />
                 <Route path="/about" component={About} />
                 
-                <Route path="/bikes"
+                <Route exact path="/bikes"
                        key="/bikes"
                        render={props => <Gallery {...props} extraProps={bikes} />}/>
                 
-                <Route path="/rent"
+                <Route exact path="/rent"
                        key="/rent"
                        render={props => <Gallery {...props} extraProps={girls} />}/>
+
+                <Route exact path="/bikes/:id"
+                       render={() => <Product  {...item} />}/>
+
+                <Route exact path="/rent/:id"
+                       render={props => <Product2 {...props} item={item} />}/>
+
+                <Route path="*" component ={PageIsNotFound}/>
             </Switch>
         </Container>
     );

@@ -28,7 +28,8 @@ class Showcase extends Component {
          {
             !items.length
             ? <Spinner size="sm" color="primary">LOADING &nbsp;</Spinner>
-            : items.map( (item, id) => (<ProductCard key={id} {...item} extraProps={extraProps} addToCartFunc={addToCartFunc} itemCount={itemCount}/>))
+            : items.map( (item, id) => (<ProductCard key={id} {...item} 
+                    extraProps={extraProps} addToCartFunc={addToCartFunc} itemCount={itemCount}/>))
             // this.filteringBy(items, "type", filterBy).map( (item, id) => (<ProductCard key={id} {...item}/>))
         }
     </Row>

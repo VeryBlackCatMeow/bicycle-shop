@@ -1,57 +1,57 @@
 [
     {
-      "id": "01",
+      "id": 0,
       "menu": "Bicycles",
-      "link": "Slide Img",
-      "src": "http://localhost:3000/database/homemenu/1.jpg"  
+      "link": "/bikes",
+      "image": "/database/homemenu/1.jpg"  
     },
     {
-      "id": "02",
-      "menu": "Bicycles",
+      "id": 1,
+      "menu": "Components",
       "link": "Slide Img",
-      "src": "http://localhost:3000/database/homemenu/2.jpg"  
+      "image": "/database/homemenu/2.jpg"  
     },
     {
-      "id": "03",
-      "menu": "Bicycles",
+      "id": 2,
+      "menu": "Tools",
       "link": "Slide Img",
-      "src": "http://localhost:3000/database/homemenu/3.jpg"  
+      "image": "/database/homemenu/3.jpg"  
     },
     {
-      "id": "04",
-      "menu": "Bicycles",
+      "id": 3,
+      "menu": "Apparel",
       "link": "Slide Img",
-      "src": "http://localhost:3000/database/homemenu/4.jpg"  
+      "image": "/database/homemenu/4.jpg"  
     },
     {
-      "id": "04",
-      "menu": "Bicycles",
+      "id": 4,
+      "menu": "Accessories",
       "link": "Slide Img",
-      "src": "http://localhost:3000/database/homemenu/5.jpg"  
+      "image": "/database/homemenu/5.jpg"  
     },
     {
-      "id": "05",
-      "menu": "Bicycles",
+      "id": 5,
+      "menu": "Backpacks",
       "link": "Slide Img",
-      "src": "http://localhost:3000/database/homemenu/6.jpg"  
+      "image": "/database/homemenu/6.jpg"  
     },
     {
-      "id": "07",
-      "menu": "Bicycles",
+      "id": 6,
+      "menu": "News",
       "link": "Slide Img",
-      "src": "http://localhost:3000/database/homemenu/7.jpg"  
+      "image": "/database/homemenu/7.jpg"  
     },
     {
-      "id": "08",
-      "menu": "Bicycles",
+      "id": 7,
+      "menu": "Sale",
       "link": "Slide Img",
-      "src": "http://localhost:3000/database/homemenu/8.jpg"  
+      "image": "/database/homemenu/8.jpg"  
     },
     {
-        "id": "09",
-        "menu": "Bicycles",
-        "link": "Slide Img",
-        "src": "http://localhost:3000/database/homemenu/9.jpg"  
+      "id": 8,
+      "menu": "Rent",
+      "link": "/rent",
+      "image": "/database/homemenu/9.jpg"  
     }
   ]
   

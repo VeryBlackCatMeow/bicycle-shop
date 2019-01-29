@@ -25,10 +25,11 @@ const Cart = ({totalPrice, totalCount, cartItems, removeFromCartFunc}) => (
 
 
 
-const CartItem = ({image, price, id, removeFromCartFunc}) => (
+const CartItem = ({image, price, sku, removeFromCartFunc}) => 
+        (
       <ListGroupItem>
           <img src={image} class="rounded-circle img-fluid w-25" alt="Cart Item Image"/> {price}
-          <Button color="danger" onClick={removeFromCartFunc.bind(this, id)}>Remove</Button>
+          <Button color="danger" onClick={removeFromCartFunc.bind(this, sku)}>Remove</Button>
       </ListGroupItem>
 );
 

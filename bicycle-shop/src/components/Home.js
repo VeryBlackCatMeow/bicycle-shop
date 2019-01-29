@@ -9,39 +9,42 @@ import HomeMenu from '../components/HomeMenu.js';
 class Home extends Component {
     constructor(props) {
         super(props);
-        this.onLoad = this.onLoad.bind(this);
         this.state = { 
-            slides: []
+            slides: [],
+            homemenu: []
          };
     } 
 
     componentDidMount = () => {
         axios.get('/database/carousel.json').then(({ data }) => {       
-        this.onLoad(data);    
+            this.setState({ slides: data});
+        });
+        axios.get('/database/homemenu.json').then(({ data }) => {       
+            this.setState({ homemenu: data});
         });
     }
 
-    onLoad = (data) => {
-        this.setState({
-          slides: data
-        });
-      }
     
     
     render() {
         const slides = this.state.slides;
+        const homemenu = this.state.homemenu;
         return( 
-            <Row className="py-3">
+            <Row className="py-3 align-items-end text-center">
                 <Col sm="12" md="9">
                     
                         {
-                        slides
-                        ? <UncontrolledCarousel items={slides} />
-                        : null 
+                            slides
+                            ? <UncontrolledCarousel items={slides} />
+                            : null 
                         }
             
                     <Row className="my-4">
-                        <HomeMenu/>
+                        {
+                            homemenu
+                            ? homemenu.map( (menu, id) => (<HomeMenu key={id} {...menu} />))
+                            : null
+                        }
                     </Row>
                 </Col>
     
