@@ -1,38 +1,38 @@
 import React from 'react';
-import { Nav, NavItem, NavLink,} from 'reactstrap';
-import { Link } from 'react-router-dom';
+import { Nav, NavItem } from 'reactstrap';
+import { NavLink } from 'react-router-dom';
 
 import Cart from '../containers/Cart.js';
-
+//<NavLink href="#" active>       <NavLink disabled href="#">Disabled Link
 const Menu = () => (
-    <Nav tabs className="p-5">
-        <NavItem>
-            <NavLink href="#" active>
-                <Link to="/">Home</Link>
-            </NavLink>
-        </NavItem>
-
-        <NavItem>
-            <NavLink href="#">
-                <Link to="/bikes">Bikes</Link>
-            </NavLink>
-        </NavItem>
-
-        <NavItem>
-            <NavLink href="#">
-                <Link to="/about">About Us</Link>
-            </NavLink>
-        </NavItem>
-
-        <NavItem>
-            <NavLink href="#">
-                <Link to="/rent">Rent</Link>
-            </NavLink>
-        </NavItem>
+    <Nav tabs className="pb-4 sticky-top" style={{backgroundColor: '#DCDCDC'}}>
         
-        <NavItem>
-            <NavLink disabled href="#">Disabled Link<Link to=""></Link></NavLink>
-        </NavItem>
+            
+                <NavLink exact to="/" activeStyle={{color: "red", fontWeight: "bold", border: "solid black 1px" }} style={{padding: "10px"}}>Home</NavLink>
+            
+        
+
+        
+            
+                <NavLink to="/bikes" activeStyle={{color: "red", fontWeight: "bold", border: "solid black 1px" }} style={{padding: "10px"}}>Bikes</NavLink>
+           
+        
+
+        
+            
+                <NavLink to="/about" activeStyle={{color: "red", fontWeight: "bold", border: "solid black 1px" }} style={{padding: "10px"}}>About Us</NavLink>
+            
+        
+
+        
+            
+                <NavLink to="/rent" activeStyle={{color: "red", fontWeight: "bold", border: "solid black 1px" }} style={{padding: "10px"}}>Rent</NavLink>
+            
+        
+        
+        
+            <NavLink to=""></NavLink>
+        
         
         <Cart/>
    </Nav>

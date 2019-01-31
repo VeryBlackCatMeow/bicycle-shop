@@ -8,7 +8,7 @@ const ProductCard = (item) => { //width="100%" height={extraProps.height} style=
     return(
         <Col className="col-sm-12 col-md-6 col-lg-4 py-3 d-flex"> 
             <Card>
-                <Link to={`${extraProps.path}/${id}`}>
+                <Link to={{pathname:`${extraProps.path}/${id}`, item: item}}>
                     <CardImg top width="100%" height={extraProps.height} d-block src={image} alt="Product image" /> 
                 </Link>  
                 <CardBody>
@@ -19,8 +19,7 @@ const ProductCard = (item) => { //width="100%" height={extraProps.height} style=
                     </div>
                     <div className="d-flex justify-content-between align-items-center">
                         <h5>{price} $</h5>
-                        <Button color="primary" onClick={addToCartFunc.bind(this, item)}>Add To Cart &nbsp;
-                        {itemCount > 0 && `(${itemCount})`}
+                        <Button color="primary" onClick={addToCartFunc.bind(this, item)}>Add To Cart
                         </Button>
                     </div>
                 </CardBody>

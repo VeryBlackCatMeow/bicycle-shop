@@ -16,7 +16,7 @@ class App extends Component {
   render() {
     const bikes = {link:'/database/bikesdatabase.json', height: '200px', path: '/bikes'};
     const girls = {link:'/database/girlsdatabase.json', height: '450px', path: '/rent'};
-    const item = {
+    /*const item = {
         id: 0,
         sku: 10000000000000000,
         product: "Bicycle",
@@ -28,7 +28,7 @@ class App extends Component {
         price: 2999.99,
         currencyFormat: "$",
         image: "/database/bikes/business01.jpg"
-    };
+    };*/
    
     return (
         <Container>
@@ -45,11 +45,9 @@ class App extends Component {
                        key="/rent"
                        render={props => <Gallery {...props} extraProps={girls} />}/>
 
-                <Route exact path="/bikes/:id"
-                       render={() => <Product  {...item} />}/>
+                <Route exact path="/bikes/:id" component={Product}/>
 
-                <Route exact path="/rent/:id"
-                       render={props => <Product2 {...props} item={item} />}/>
+                <Route exact path="/rent/:id" component={Product}/>
 
                 <Route path="*" component ={PageIsNotFound}/>
             </Switch>

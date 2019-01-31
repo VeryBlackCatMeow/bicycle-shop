@@ -6,8 +6,8 @@ import {NavItem, NavLink,
                         ListGroup, ListGroupItem} from 'reactstrap';
 
 const Cart = ({totalPrice, totalCount, cartItems, removeFromCartFunc}) => (
-    <NavItem id="PopoverLegacy" >
-        <NavLink href="#">Amount: &nbsp; {totalPrice} &nbsp; Items: &nbsp; {totalCount}</NavLink>
+    <NavItem id="PopoverLegacy">
+        <NavLink href="#"> Amount: &nbsp; {totalPrice} &nbsp; Items: &nbsp; {totalCount}</NavLink>
             <UncontrolledPopover trigger="legacy" placement="bottom" target="PopoverLegacy">
                 <PopoverHeader>Shoping Cart</PopoverHeader>
                 <PopoverBody>
@@ -19,6 +19,11 @@ const Cart = ({totalPrice, totalCount, cartItems, removeFromCartFunc}) => (
                         }
                     </ListGroup>
                 </PopoverBody>
+                <PopoverHeader>
+                    <Button color="primary">View Cart</Button>
+                    <Button color="primary" style={{ float: 'right'}}>To Checkout</Button>
+                </PopoverHeader>
+
             </UncontrolledPopover>
     </NavItem>
 );

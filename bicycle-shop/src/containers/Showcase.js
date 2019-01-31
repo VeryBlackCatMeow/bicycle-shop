@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import axios from 'axios';
 import { connect } from 'react-redux';
-import { setBikesAction, addToCartAction, setFilterAction } from '../actions/index.js'
+import { setProductsAction, addToCartAction, setFilterAction } from '../actions/index.js'
 import ProductCard from '../components/ProductCard';
 import { Row, Col, Button, Spinner } from 'reactstrap';
 import { withRouter } from 'react-router-dom'
@@ -73,8 +73,8 @@ const finalFiltration = (items, searchBy, sortBy) =>  {
 };
 
 const mapStateToProps = ( 
-    {bikesreducers, filtersreducers, cartreducers}) => ({
-    items: finalFiltration(bikesreducers.items, filtersreducers.searchBy, filtersreducers.sortBy),
+    {productreducers, filtersreducers, cartreducers}) => ({
+    items: finalFiltration(productreducers.items, filtersreducers.searchBy, filtersreducers.sortBy),
     itemCount: cartreducers.items.reduce( (count, item) => 
                             count + (item.id === cartreducers.lastItem.id ? 1 : 0), 0),
     lastItem: cartreducers.lastItem,
@@ -86,7 +86,7 @@ const mapStateToProps = (
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    setBikesFunc: bike => dispatch(setBikesAction(bike)),
+    setBikesFunc: item => dispatch(setProductsAction(item)),
     addToCartFunc: obj => dispatch(addToCartAction(obj)),
 
 

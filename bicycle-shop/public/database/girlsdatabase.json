@@ -1,7 +1,7 @@
 [
     {
       "id": 0,
-      "sku": 11111111111111110,
+      "sku": 11111110,
       "product": "Rent",
       "title": "Emma",
       "description": "Godlike vehicle",
@@ -14,7 +14,7 @@
     },
     {
       "id": 1,
-      "sku": 11111111111111111,
+      "sku": 11111111,
       "product": "Rent",
       "title": "Elisabeth",
       "description": "Cheap&Nice",
@@ -27,7 +27,7 @@
     },
     {
       "id": 2,
-      "sku": 11111111111111112,
+      "sku": 11111112,
       "product": "Rent",
       "title": "Zoe",
       "description": "Faster, Harder",
@@ -40,7 +40,7 @@
     },
     {
       "id": 3,
-      "sku": 11111111111111113,
+      "sku": 11111113,
       "product": "Rent",
       "title": "Victoria",
       "description": "Be 1-st everytime",
@@ -56,7 +56,7 @@
     },
     {
       "id": 4,
-      "sku": 11111111111111114,
+      "sku": 11111114,
       "product": "Rent",
       "title": "Sheila",
       "description": "Cheap vehicle",
@@ -69,7 +69,7 @@
     },
     {
       "id": 5,
-      "sku": 11111111111111115,
+      "sku": 11111115,
       "product": "Rent",
       "title": "Belle",
       "description": "Vehicle for poors",
@@ -82,7 +82,7 @@
     },
     {
       "id": 6,
-      "sku": 11111111111111116,
+      "sku": 11111116,
       "product": "Rent",
       "title": "Francine",
       "description": "Be Yourself",
@@ -95,7 +95,7 @@
     },
     {
       "id": 7,
-      "sku": 11111111111111117,
+      "sku": 11111117,
       "product": "Rent",
       "title": "Marianna",
       "description": "Godlike vehicle",
@@ -108,7 +108,7 @@
     },
     {
       "id": 8,
-      "sku": 11111111111111118,
+      "sku": 11111118,
       "product": "Rent",
       "title": "Christine",
       "description": "Back in the Future!!!",
@@ -121,7 +121,7 @@
     },
     {
       "id": 9,
-      "sku": 11111111111111119,
+      "sku": 11111119,
       "product": "Rent",
       "title": "Olivia",
       "description": "Be Yourself",
@@ -134,7 +134,7 @@
     },
     {
       "id": 10,
-      "sku": 11111111111111120,
+      "sku": 11111120,
       "product": "Rent",
       "title": "Annabel",
       "description": "Godlike vehicle",
@@ -147,7 +147,7 @@
     },
     {
       "id": 11,
-      "sku": 11111111111111121,
+      "sku": 11111121,
       "product": "Rent",
       "title": "Pamela",
       "description": "Back in the Future!!!",

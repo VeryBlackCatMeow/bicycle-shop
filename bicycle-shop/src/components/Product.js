@@ -6,7 +6,7 @@ import { addToCartAction } from '../actions/index.js'
 import { withRouter } from 'react-router-dom'
 
 const Product = (props) => {
-    const {title, description, type, price, image, itemCount, addToCartFunc} = props;
+    const {title, description, type, price, image, itemCount, addToCartFunc} = props.location.item;
     return(
         <Row className="d-flex">
             <Card>

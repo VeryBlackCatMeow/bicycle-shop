@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import bikesreducers from './bikes.js';
+import productreducers from './products.js';
 import filtersreducers from './filters.js';
 import cartreducers from './cart.js';
 
 export default combineReducers({
-    bikesreducers,
+    productreducers,
     filtersreducers,
     cartreducers
 });

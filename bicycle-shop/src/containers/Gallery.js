@@ -63,7 +63,7 @@ class Gallery extends Component {
         //const extraProps = {link:'/database/bikesdatabase.json', height: '55%'};
         //const extraProps = {link:'/database/girlsdatabase.json', height: '72%'};
         return (
-            <Row>
+            <Row className="pr-3"> 
                 <Col sm="12" md="2">
                     <Button color="primary" onClick={this.handleBlockToggle}>Filters:</Button>
                     {

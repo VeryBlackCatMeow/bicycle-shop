@@ -1,6 +1,11 @@
-export const setBikesAction = bike => ({
-    type: 'SET_BIKES',
-    payload: bike
+export const setProductsAction = items => ({
+    type: 'SET_PRODUCTS',
+    payload: items
+});
+
+export const selectProductAction = item => ({
+    type: 'SELECT_PRODUCT',
+    payload: item
 });
 
 export const setSortAction = sort => ({
@@ -23,7 +28,7 @@ export const addToCartAction = obj => ({
     payload: obj
 });
 
-export const removeFromCartAction = id => ({
+export const removeFromCartAction = sku => ({
     type: 'REMOVE_ITEM_FROM_CART',
-    payload: id
+    payload: sku
 });

@@ -1,7 +1,7 @@
 [
   {
     "id": 0,
-    "sku": 10000000000000000,
+    "sku": 10000000,
     "product": "Bicycle",
     "title": "ZE Best U-0",
     "description": "Godlike vehicle",
@@ -14,7 +14,7 @@
   },
   {
     "id": 1,
-    "sku": 10000000000000001,
+    "sku": 10000001,
     "product": "Bicycle",
     "title": "Urbanbike U-1",
     "description": "Cheap&Nice",
@@ -27,7 +27,7 @@
   },
   {
     "id": 2,
-    "sku": 10000000000000002,
+    "sku": 10000002,
     "product": "Bicycle",
     "title": "Girlsenjoyer Dil-25",
     "description": "Faster, Harder",
@@ -40,7 +40,7 @@
   },
   {
     "id": 3,
-    "sku": 10000000000000003,
+    "sku": 10000003,
     "product": "Bicycle",
     "title": "Alfa-14",
     "description": "Be 1-st everytime",
@@ -56,7 +56,7 @@
   },
   {
     "id": 4,
-    "sku": 10000000000000004,
+    "sku": 10000004,
     "product": "Bicycle",
     "title": "CheapBike C-1",
     "description": "Cheap vehicle",
@@ -69,7 +69,7 @@
   },
   {
     "id": 5,
-    "sku": 10000000000000005,
+    "sku": 10000005,
     "product": "Bicycle",
     "title": "Nistep Maraphone",
     "description": "Vehicle for poors",
@@ -82,7 +82,7 @@
   },
   {
     "id": 6,
-    "sku": 10000000000000006,
+    "sku": 10000006,
     "product": "Bicycle",
     "title": "SAW",
     "description": "Be Yourself",
@@ -95,7 +95,7 @@
   },
   {
     "id": 7,
-    "sku": 10000000000000007,
+    "sku": 10000007,
     "product": "Bicycle",
     "title": "Woman's Enjoy",
     "description": "Godlike vehicle",
@@ -108,7 +108,7 @@
   },
   {
     "id": 8,
-    "sku": 10000000000000008,
+    "sku": 10000008,
     "product": "Bicycle",
     "title": "Futurama 3000",
     "description": "Back in the Future!!!",
