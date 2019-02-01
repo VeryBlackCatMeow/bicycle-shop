@@ -1,16 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { removeFromCartAction } from '../actions/index.js'
-import {NavItem, NavLink,
-  UncontrolledPopover, PopoverHeader, PopoverBody, Button,
-                        ListGroup, ListGroupItem} from 'reactstrap';
+import { Button, ButtonGroup, Input, Row, Col,
+         ListGroup, ListGroupItem} from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 const Cart = ({totalPrice, totalCount, cartItems, removeFromCartFunc}) => (
-    <NavItem id="PopoverLegacy">
-        <NavLink href="#"> Amount: &nbsp; {totalPrice} &nbsp; Items: &nbsp; {totalCount}</NavLink>
-            <UncontrolledPopover trigger="legacy" placement="bottom" target="PopoverLegacy">
-                <PopoverHeader>Shoping Cart</PopoverHeader>
-                <PopoverBody>
+    <Row>
+        <div> Amount: &nbsp; {totalPrice} &nbsp; Items: &nbsp; {totalCount}</div>
+            
+                <div>Shoping Cart</div>
+                <div>
                     <ListGroup>
                         { 
                             !cartItems.length
@@ -18,23 +18,49 @@ const Cart = ({totalPrice, totalCount, cartItems, removeFromCartFunc}) => (
                             : cartItems.map( item => (<CartItem {...item} removeFromCartFunc={removeFromCartFunc}/>))
                         }
                     </ListGroup>
-                </PopoverBody>
-                <PopoverHeader>
-                    <Button color="primary">View Cart</Button>
-                    <Button color="primary" style={{ float: 'right'}}>To Checkout</Button>
-                </PopoverHeader>
-
-            </UncontrolledPopover>
-    </NavItem>
+                </div>
+                <div>
+                    <Link to="/checkout">
+                    <Button size="sm" color="primary" style={{ float: 'right'}}>Proceed To Checkout</Button>
+                    </Link>
+                </div>
+    </Row>
+            
+    
 );
 
 
 
-const CartItem = ({image, price, sku, removeFromCartFunc}) => 
+const CartItem = ({sku, image, title, price, removeFromCartFunc}) => 
         (
       <ListGroupItem>
-          <img src={image} class="rounded-circle img-fluid w-25" alt="Cart Item Image"/> {price}
-          <Button color="danger" onClick={removeFromCartFunc.bind(this, sku)}>Remove</Button>
+          <Row>
+              <Col sm="4">
+                <img src={image} class="rounded-circle img-fluid w-25" alt="Cart Item Image"/>
+              </Col>
+              <Col sm="4">
+                <span>{title}</span> &nbsp; 
+              </Col>
+              <Col sm="2">
+                <span>{price}</span> &nbsp; 
+              </Col>
+              <Col sm="1">
+                <ButtonGroup>
+                    <Button size="sm" color="primary" onClick={removeFromCartFunc.bind(this, sku)}>-</Button>
+                    <Input type="text"/>
+                    <Button size="sm" color="primary" onClick={removeFromCartFunc.bind(this, sku)}>+</Button>
+                </ButtonGroup>
+              </Col>
+              <Col sm="1">
+                <Button size="sm" color="danger" close onClick={removeFromCartFunc.bind(this, sku)}/>
+              </Col>
+            
+            
+            
+            
+            
+            
+          </Row>
       </ListGroupItem>
 );
 

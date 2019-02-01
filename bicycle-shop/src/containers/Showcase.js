@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import axios from 'axios';
 import { connect } from 'react-redux';
-import { setProductsAction, addToCartAction, setFilterAction } from '../actions/index.js'
+import { setProductsAction, addToCartAction, removeFromCartAction, setFilterAction } from '../actions/index.js'
 import ProductCard from '../components/ProductCard';
 import { Row, Col, Button, Spinner } from 'reactstrap';
 import { withRouter } from 'react-router-dom'
@@ -16,20 +16,23 @@ class Showcase extends Component {
 
     componentDidMount = () => {
         const { setBikesFunc, extraProps } = this.props;
+    
         axios.get(/*'/database/bikesdatabase.json'*/extraProps.link).then(({ data }) => {    
         setBikesFunc(data);      
         });
     }
 
     render() { 
-        const { items, addToCartFunc, itemCount, extraProps } = this.props;
+        const { items, cartItems, addToCartFunc, removeFromCartFunc, itemCount, extraProps } = this.props;
         return (
     <Row>
-         {
-            !items.length
-            ? <Spinner size="sm" color="primary">LOADING &nbsp;</Spinner>
-            : items.map( (item, id) => (<ProductCard key={id} {...item} 
-                    extraProps={extraProps} addToCartFunc={addToCartFunc} itemCount={itemCount}/>))
+        {
+          !items.length
+          ? <Spinner size="sm" color="primary">LOADING &nbsp;</Spinner>
+          : items.map( (item, id) => (<ProductCard key={id} {...item} 
+                    extraProps={extraProps} cartItems={cartItems}
+                    addToCartFunc={addToCartFunc} removeFromCartFunc={removeFromCartFunc }
+                    itemCount={itemCount}/>))
             // this.filteringBy(items, "type", filterBy).map( (item, id) => (<ProductCard key={id} {...item}/>))
         }
     </Row>
@@ -78,7 +81,7 @@ const mapStateToProps = (
     itemCount: cartreducers.items.reduce( (count, item) => 
                             count + (item.id === cartreducers.lastItem.id ? 1 : 0), 0),
     lastItem: cartreducers.lastItem,
-
+    cartItems: cartreducers.items,
 
 
     filterBy: filtersreducers.filterBy,
@@ -88,7 +91,7 @@ const mapStateToProps = (
 const mapDispatchToProps = (dispatch) => ({
     setBikesFunc: item => dispatch(setProductsAction(item)),
     addToCartFunc: obj => dispatch(addToCartAction(obj)),
-
+    removeFromCartFunc: sku => dispatch(removeFromCartAction(sku)),
 
 
     setFilterFunc: filter => dispatch(setFilterAction(filter)),

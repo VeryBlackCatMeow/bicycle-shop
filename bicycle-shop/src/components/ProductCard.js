@@ -2,26 +2,26 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button, Col} from 'reactstrap';
-
-const ProductCard = (item) => { //width="100%" height={extraProps.height} style={{height: '100%'}}
-    const {id, title, description, type, price, image, itemCount, addToCartFunc, extraProps} = item;
+    //className="d-flex justify-content-between align-items-center"
+const ProductCard = (props) => { //width="100%" height={extraProps.height} style={{height: '100%'}}
+    const {id, sku, title, description, type, price, image, 
+                cartItems, addToCartFunc, removeFromCartFunc, extraProps} = props;
     return(
         <Col className="col-sm-12 col-md-6 col-lg-4 py-3 d-flex"> 
             <Card>
-                <Link to={{pathname:`${extraProps.path}/${id}`, item: item}}>
+                <Link to={{pathname:`${extraProps.path}/${id}`, item: props}}>
                     <CardImg top width="100%" height={extraProps.height} d-block src={image} alt="Product image" /> 
                 </Link>  
                 <CardBody>
-                    <div>
-                        <CardTitle>{title}</CardTitle>
-                        <CardSubtitle>{description}</CardSubtitle>
-                        <CardText>{type}</CardText>
-                    </div>
-                    <div className="d-flex justify-content-between align-items-center">
-                        <h5>{price} $</h5>
-                        <Button color="primary" onClick={addToCartFunc.bind(this, item)}>Add To Cart
-                        </Button>
-                    </div>
+                    <CardTitle>{title}</CardTitle>
+                    <CardSubtitle>{description}</CardSubtitle>
+                    <CardText>{type}</CardText>
+                    <h5>{price} $</h5>
+                    {
+                      cartItems.some( a => (a.sku===sku) )
+                      ? <Button color="danger" block onClick={removeFromCartFunc.bind(this, sku)}>Remove From Cart</Button>
+                      : <Button color="primary" block onClick={addToCartFunc.bind(this, props)}>Add To Cart</Button>
+                    }   
                 </CardBody>
             </Card>
         </Col>

@@ -7,6 +7,7 @@ import About from './components/About.js';
 import Home from './components/Home.js';
 import Product from './components/Product.js';
 import Product2 from './components/Product2.js';
+import Cart from './containers/Cart.js';
 import PageIsNotFound from './components/PageIsNotFound.js';
 import './App.css';
 
@@ -36,6 +37,7 @@ class App extends Component {
             <Switch>
                 <Route exact path="/" component={Home} />
                 <Route path="/about" component={About} />
+                <Route exact path="/cart" component={Cart} />
                 
                 <Route exact path="/bikes"
                        key="/bikes"
