@@ -9,25 +9,27 @@ const ProductCard = (props) => { //width="100%" height={extraProps.height} style
     return(
         <Col className="col-sm-12 col-md-6 col-lg-4 py-3 d-flex"> 
             <Card>
-                <Link to={{pathname:`${extraProps.path}/${id}`, item: props}}>
-                    <CardImg top width="100%" height={extraProps.height} d-block src={image} alt="Product image" /> 
+                <Link to={{pathname:`${extraProps.path}/${id}`/*, item: props*/}}>
+                    <CardImg top width="100%" height={extraProps.height} d-block="true" src={image} alt="Product image" /> 
                 </Link>  
                 <CardBody>
                     <CardTitle>{title}</CardTitle>
                     <CardSubtitle>{description}</CardSubtitle>
                     <CardText>{type}</CardText>
                     <h5>{price} $</h5>
-                    {
-                      cartItems.some( a => (a.sku===sku) )
-                      ? <Button color="danger" block onClick={removeFromCartFunc.bind(this, sku)}>Remove From Cart</Button>
-                      : <Button color="primary" block onClick={addToCartFunc.bind(this, props)}>Add To Cart</Button>
-                    }   
+                    <Button color="primary" block onClick={addToCartFunc.bind(this, props)}>Add To Cart</Button>
                 </CardBody>
             </Card>
         </Col>
     );
 }
 export default ProductCard;
+
+/*{
+    cartItems.some( a => (a.sku===sku) )
+    ? <Button color="danger" block onClick={removeFromCartFunc.bind(this, sku)}>Remove From Cart</Button>
+    : <Button color="primary" block onClick={addToCartFunc.bind(this, props)}>Add To Cart</Button>
+  }  */
 
 /*const ProductCard = ({item, addToCartFunc, itemCount}) => {
     return(

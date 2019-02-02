@@ -1,8 +1,8 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
-import { Row } from 'reactstrap';
+//import { Row } from 'reactstrap';
 
-const PageIsNotFound = ( {menu, link, image} ) => {
+const PageIsNotFound = ( /*{menu, link, image}*/ ) => {
     return(
         <Redirect to="/"/>
        /* <Row>

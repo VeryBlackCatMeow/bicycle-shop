@@ -15,7 +15,7 @@ const Cart = ({totalPrice, totalCount, cartItems, removeFromCartFunc}) => (
                         { 
                             !cartItems.length
                             ? 'Your Cart Is Empty :('
-                            : cartItems.map( item => (<CartItem {...item} removeFromCartFunc={removeFromCartFunc}/>))
+                            : cartItems.map( (item, id) => (<CartItem key={id} {...item} removeFromCartFunc={removeFromCartFunc}/>))
                         }
                     </ListGroup>
                 </div>
@@ -36,7 +36,7 @@ const CartItem = ({sku, image, title, price, removeFromCartFunc}) =>
       <ListGroupItem>
           <Row>
               <Col sm="4">
-                <img src={image} class="rounded-circle img-fluid w-25" alt="Cart Item Image"/>
+                <img src={image} className="rounded-circle img-fluid w-25" alt="Cart Item Image"/>
               </Col>
               <Col sm="4">
                 <span>{title}</span> &nbsp; 
@@ -54,21 +54,27 @@ const CartItem = ({sku, image, title, price, removeFromCartFunc}) =>
               <Col sm="1">
                 <Button size="sm" color="danger" close onClick={removeFromCartFunc.bind(this, sku)}/>
               </Col>
-            
-            
-            
-            
-            
-            
           </Row>
       </ListGroupItem>
 );
+
+const unique = (array) => {
+    var newArr = [];
+    array.filter( item => {
+        var i = newArr.findIndex(x => (x.sku == item.sku));
+        if(i <= -1){
+        newArr.push({...item});
+        }
+    return null;
+    })
+    return newArr
+}
 
 const mapStateToProps = ( { cartreducers }) => ({
     totalPrice: cartreducers.items.reduce( (total, item) => 
                         ((total*100 + item.price*100) /100).toFixed(2), 0),
     totalCount: cartreducers.items.length,
-    cartItems: cartreducers.items,
+    cartItems: unique(cartreducers.items),
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -6,7 +6,7 @@ const HomeMenu = ( {menu, link, image} ) => {
     return(
         <Col className="col-sm-4 my-3">
             <Link to={link}>
-                <img src={image} class="img-thumbnail" alt="HomeMenuImage"/>
+                <img src={image} className="img-thumbnail" alt="HomeMenuImage"/>
             </Link> 
             <h5>{menu}</h5>
         </Col>

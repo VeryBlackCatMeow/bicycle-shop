@@ -4,21 +4,17 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { setProductsAction, addToCartAction, removeFromCartAction, setFilterAction } from '../actions/index.js'
 import ProductCard from '../components/ProductCard';
-import { Row, Col, Button, Spinner } from 'reactstrap';
+import Loading from '../components/Loading';
+import { Row } from 'reactstrap';
 import { withRouter } from 'react-router-dom'
 
 class Showcase extends Component {
-    
-    constructor(props) {
-        super(props);
-      
-    } 
 
     componentDidMount = () => {
-        const { setBikesFunc, extraProps } = this.props;
+        const { setProductsFunc, extraProps } = this.props;
     
         axios.get(/*'/database/bikesdatabase.json'*/extraProps.link).then(({ data }) => {    
-        setBikesFunc(data);      
+            setProductsFunc(data);      
         });
     }
 
@@ -28,7 +24,7 @@ class Showcase extends Component {
     <Row>
         {
           !items.length
-          ? <Spinner size="sm" color="primary">LOADING &nbsp;</Spinner>
+          ? <Loading/>
           : items.map( (item, id) => (<ProductCard key={id} {...item} 
                     extraProps={extraProps} cartItems={cartItems}
                     addToCartFunc={addToCartFunc} removeFromCartFunc={removeFromCartFunc }
@@ -89,7 +85,7 @@ const mapStateToProps = (
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    setBikesFunc: item => dispatch(setProductsAction(item)),
+    setProductsFunc: item => dispatch(setProductsAction(item)),
     addToCartFunc: obj => dispatch(addToCartAction(obj)),
     removeFromCartFunc: sku => dispatch(removeFromCartAction(sku)),
 

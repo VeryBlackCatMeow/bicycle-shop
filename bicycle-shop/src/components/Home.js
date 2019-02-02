@@ -72,13 +72,13 @@ class Home extends Component {
                     <h4>Покоряй вселенную вместе с ВелоКосмос</h4>
                     <Row>
                         <Col sm="12" md="4">
-                            <img class="img-thumbnail" src="/database/another/g2.jpg" alt="" />
+                            <img className="img-thumbnail" src="/database/another/g2.jpg" alt="" />
                         </Col>
                         <Col sm="12" md="4">
-                            <img class="img-thumbnail" src="/database/another/g3.jpg" alt="" />
+                            <img className="img-thumbnail" src="/database/another/g3.jpg" alt="" />
                         </Col>
                         <Col sm="12" md="4">
-                            <img class="img-thumbnail" src="/database/another/g1.jpg" alt="" />
+                            <img className="img-thumbnail" src="/database/another/g1.jpg" alt="" />
                         </Col>
                     </Row>
                 </Col>

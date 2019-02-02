@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { removeFromCartAction } from '../actions/index.js'
 import {NavItem, NavLink,
          UncontrolledPopover, PopoverHeader, PopoverBody, 
-         Button, Input, Row, Col,
+         Button,
          ListGroup, ListGroupItem} from 'reactstrap';
 import { Link } from 'react-router-dom';
 
@@ -17,7 +17,7 @@ const DropCart = ({totalPrice, totalCount, cartItems, removeFromCartFunc}) => (
                         { 
                             !cartItems.length
                             ? 'Your Cart Is Empty :('
-                            : cartItems.map( item => (<DropCartItem {...item} removeFromCartFunc={removeFromCartFunc}/>))
+                            : cartItems.map( (item, id) => (<DropCartItem key={id} {...item} removeFromCartFunc={removeFromCartFunc}/>))
                         }
                     </ListGroup>
                 </PopoverBody>
@@ -32,29 +32,32 @@ const DropCart = ({totalPrice, totalCount, cartItems, removeFromCartFunc}) => (
     </NavItem>
 );
 
-
-
-const DropCartItem = ({sku, image, title, price, removeFromCartFunc}) => 
-        (
-      <ListGroupItem>
-             
-                <img src={image} class="rounded-circle img-fluid w-25" alt="Cart Item Image"/>
-              
-                <span>{title}</span> &nbsp; 
-              
-                <span>{price}</span> &nbsp; 
-             
-                <Button size="sm" color="danger" close onClick={removeFromCartFunc.bind(this, sku)}/>
-             
-          
-      </ListGroupItem>
+const DropCartItem = ({sku, image, title, price, removeFromCartFunc}) => (
+    <ListGroupItem>
+         <img src={image} className="rounded-circle img-fluid w-25" alt="Cart Item Image"/>
+        <span>{title}</span> &nbsp; 
+        <span>{price}</span> &nbsp; 
+        <Button size="sm" color="danger" close onClick={removeFromCartFunc.bind(this, sku)}/>
+    </ListGroupItem>
 );
+
+const unique = (array) => {
+    var newArr = [];
+    array.filter( item => {
+        var i = newArr.findIndex(x => (x.sku == item.sku));
+        if(i <= -1){
+        newArr.push({...item});
+        }
+    return null;
+    })
+    return newArr
+}
 
 const mapStateToProps = ( { cartreducers }) => ({
     totalPrice: cartreducers.items.reduce( (total, item) => 
                         ((total*100 + item.price*100) /100).toFixed(2), 0),
     totalCount: cartreducers.items.length,
-    cartItems: cartreducers.items,
+    cartItems: unique(cartreducers.items),
 });
 
 const mapDispatchToProps = (dispatch) => ({
