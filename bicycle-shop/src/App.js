@@ -14,8 +14,6 @@ import { Route, Switch } from 'react-router-dom';
 
 class App extends Component {
   render() {
-    const bikes = {link:'/database/bikes.json', height: '200px', path: '/bikes'};
-    const girls = {link:'/database/rent.json', height: '450px', path: '/rent'};
    
     return (
         <Container>
@@ -25,17 +23,13 @@ class App extends Component {
                 <Route path="/about" component={About} />
                 <Route exact path="/cart" component={Cart} />
                 
-                <Route exact path="/bikes"
-                       key="/bikes"
-                       render={props => <Gallery {...props} extraProps={bikes} />}/>
-                
-                <Route exact path="/rent"
-                       key="/rent"
-                       render={props => <Gallery {...props} extraProps={girls} />}/>
+                <Route exact path="/:product"
+                       key={Math.random()}
+                       component={Gallery}/>
 
                 <Route exact path="/:product/:id" component={Product}/>
 
-                <Route path="*" component ={PageIsNotFound}/>
+                <Route path="*" component={PageIsNotFound}/>
             </Switch>
         </Container>
     );
@@ -45,4 +39,16 @@ class App extends Component {
 
 export default App;
 
+/*
+ 
+*/
+/*
+<Route exact path="/bikes"
+                       key="/bikes"
+                       render={props => <Gallery {...props} extraProps={bikes} />}/>
+                
+                <Route exact path="/rent"
+                       key="/rent"
+                       render={props => <Gallery {...props} extraProps={girls} />}/>
+*/
 

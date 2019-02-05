@@ -11,9 +11,9 @@ import { withRouter } from 'react-router-dom'
 class Showcase extends Component {
 
     componentDidMount = () => {
-        const { setProductsFunc, extraProps } = this.props;
+        const { setProductsFunc} = this.props;
     
-        axios.get(/*'/database/bikesdatabase.json'*/extraProps.link).then(({ data }) => {    
+        axios.get(`/database/${this.props.match.params.product}.json`).then(({ data }) => {    
             setProductsFunc(data);      
         });
     }
@@ -37,7 +37,7 @@ class Showcase extends Component {
 }
 
 
-const sortingBy = (items, sortBy) => {
+export const sortingBy = (items, sortBy) => {
     switch(sortBy) {
         case 'high':
             return items.slice().sort( (a , b) => {      //or concat()

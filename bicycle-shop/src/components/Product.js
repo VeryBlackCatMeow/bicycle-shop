@@ -11,7 +11,7 @@ class Product extends Component {
     componentDidMount = () => {
         const { setProductsFunc } = this.props;
     
-        axios.get(`/database/${this.props.match.params}.json`).then(({ data }) => {    
+        axios.get(`/database/${this.props.match.params.product}.json`).then(({ data }) => {    
             setProductsFunc(data);      
         });
     }

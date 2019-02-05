@@ -13,16 +13,24 @@ class Gallery extends Component {
             blockToggle: true,
             filterToggles: {type: true, brand: true}
          };
-       /* this.handleBlockToggle = this.handleBlockToggle.bind(this);
-        this.handleFilterToggle = this.handleFilterToggle.bind(this);
-        this.filteringBy = this.filteringBy.bind(this);
-        this.handleCheck = this.handleCheck.bind(this);
-        //const { setBikesFunc } = this.props;
-        axios.get('/database/bikesdatabase.json').then(({ data }) => {
-        //setBikesFunc(data.filter(item => (item.type===filterBy)));       
-        //setBikesFunc(data);      
-        });*/
-    } 
+    }
+
+
+    config = (props) => {
+        const bikes = { heightImg: '200px', filters: ['type', 'brand', 'wheelSizes'] };
+        const rent = { heightImg: '450px', filters: ['type', 'brand', 'wheelSizes'] };
+        
+        switch (props) {
+            case 'bikes':
+                return bikes;
+            case 'rent':
+                return rent;
+            case 'components':
+                return bikes;
+            default:
+                return bikes;
+        }
+    }
     
     /*componentDidMount = () => {
         const { setBikesFunc } = this.props;
@@ -34,10 +42,6 @@ class Gallery extends Component {
     handleBlockToggle = () => {
         this.setState({ blockToggle: !this.state.blockToggle });
     }
-                //object in state
-    /*let clone = Object.assign({}, this.state.filterToggles);    //creating copy of object
-    clone.name = 'someothername';                               //updating value
-    this.setState({clone});*/
     
     handleFilterToggle = ({target: {name}}) => {
         this.setState(
@@ -59,9 +63,7 @@ class Gallery extends Component {
     }
     
     render() {
-        const { extraProps } = this.props;
-        //const extraProps = {link:'/database/bikesdatabase.json', height: '55%'};
-        //const extraProps = {link:'/database/girlsdatabase.json', height: '72%'};
+        const extraProps = this.config(this.props.match.params.product);    //тут буду прокидывать все настройки для элементов галлереи
         return (
             <Row className="pr-3"> 
                 <Col sm="12" md="2">
@@ -70,7 +72,7 @@ class Gallery extends Component {
                         this.state.blockToggle
                         ? <Filter /*setFilterFunc={setFilterFunc} filterBy={filterBy}*/
                             handleFilterToggle={this.handleFilterToggle} filterToggles={this.state.filterToggles}
-                            handleCheck={this.handleCheck}/>
+                            handleCheck={this.handleCheck} extraProps={extraProps}/> 
                         : null
                     }
                 </Col>
