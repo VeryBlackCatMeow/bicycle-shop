@@ -11,7 +11,8 @@ class Gallery extends Component {
         super(props);
         this.state = { 
             blockToggle: true,
-            filterToggles: {type: true, brand: true}
+            //filterToggles: {type: true, brand: true, wheelSizes: true}
+            filterToggles: {}
          };
     }
 

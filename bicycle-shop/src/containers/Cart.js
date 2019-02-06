@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { removeFromCartAction } from '../actions/index.js'
+import { addToCartAction, removeFromCartAction } from '../actions/index.js'
 import { Button, ButtonGroup, Input, Row, Col,
          ListGroup, ListGroupItem} from 'reactstrap';
 import { Link } from 'react-router-dom';
 
-const Cart = ({totalPrice, totalCount, cartItems, removeFromCartFunc}) => (
+const Cart = ({totalPrice, totalCount, cartItems, addToCartFunc, removeFromCartFunc}) => (
     <Row>
         <div> Amount: &nbsp; {totalPrice} &nbsp; Items: &nbsp; {totalCount}</div>
             
@@ -15,7 +15,8 @@ const Cart = ({totalPrice, totalCount, cartItems, removeFromCartFunc}) => (
                         { 
                             !cartItems.length
                             ? 'Your Cart Is Empty :('
-                            : cartItems.map( (item, id) => (<CartItem key={id} {...item} removeFromCartFunc={removeFromCartFunc}/>))
+                            : cartItems.map( (item, id) => (<CartItem key={id} item={item}
+                                    removeFromCartFunc={removeFromCartFunc} addToCartFunc={addToCartFunc} />))
                         }
                     </ListGroup>
                 </div>
@@ -31,28 +32,28 @@ const Cart = ({totalPrice, totalCount, cartItems, removeFromCartFunc}) => (
 
 
 
-const CartItem = ({sku, image, title, price, removeFromCartFunc}) => 
+const CartItem = ({item, addToCartFunc, removeFromCartFunc}) => 
         (
       <ListGroupItem>
           <Row>
               <Col sm="4">
-                <img src={image} className="rounded-circle img-fluid w-25" alt="Cart Item Image"/>
+                <img src={item.image} className="rounded-circle img-fluid w-25" alt="Cart Item Image"/>
               </Col>
               <Col sm="4">
-                <span>{title}</span> &nbsp; 
+                <span>{item.title}</span> &nbsp; 
               </Col>
               <Col sm="2">
-                <span>{price}</span> &nbsp; 
+                <span>{item.price}</span> &nbsp; 
               </Col>
               <Col sm="1">
                 <ButtonGroup>
-                    <Button size="sm" color="primary" onClick={removeFromCartFunc.bind(this, sku)}>-</Button>
+                    <Button size="sm" color="primary" onClick={removeFromCartFunc.bind(this, item.sku)}>-</Button>
                     <Input type="text"/>
-                    <Button size="sm" color="primary" onClick={removeFromCartFunc.bind(this, sku)}>+</Button>
+                    <Button size="sm" color="primary" onClick={addToCartFunc.bind(this, item)}>+</Button>
                 </ButtonGroup>
               </Col>
               <Col sm="1">
-                <Button size="sm" color="danger" close onClick={removeFromCartFunc.bind(this, sku)}/>
+                <Button size="sm" color="danger" close onClick={removeFromCartFunc.bind(this, item.sku)}/>
               </Col>
           </Row>
       </ListGroupItem>
@@ -78,6 +79,7 @@ const mapStateToProps = ( { cartreducers }) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
+    addToCartFunc: obj => dispatch(addToCartAction(obj)),
     removeFromCartFunc: id => dispatch(removeFromCartAction(id)),
 });
 

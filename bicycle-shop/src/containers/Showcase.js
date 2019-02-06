@@ -75,8 +75,9 @@ const mapStateToProps = (
     {productreducers, filtersreducers, cartreducers}) => ({
     items: finalFiltration(productreducers.items, filtersreducers.searchBy, filtersreducers.sortBy),
     itemCount: cartreducers.items.reduce( (count, item) => 
-                            count + (item.id === cartreducers.lastItem.id ? 1 : 0), 0),
+                            count + (item.sku === cartreducers.lastItem.sku ? 1 : 0), 0),
     lastItem: cartreducers.lastItem,
+    
     cartItems: cartreducers.items,
 
 
