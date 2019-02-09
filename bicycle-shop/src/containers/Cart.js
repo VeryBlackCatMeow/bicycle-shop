@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addToCartAction, removeFromCartAction } from '../actions/index.js'
+import { addToCartAction, removeFromCartAction, setQuantityAction, decreaseAction } from '../actions/index.js'
 import { Button, ButtonGroup, Input, Row, Col,
          ListGroup, ListGroupItem} from 'reactstrap';
 import { Link } from 'react-router-dom';
 
-const Cart = ({totalPrice, totalCount, cartItems, addToCartFunc, removeFromCartFunc}) => (
+const Cart = ({totalPrice, totalCount, cartItems, addToCartFunc, removeFromCartFunc, quantity, setQuantityFunc, decreaseFunc}) => (
     <Row>
         <div> Amount: &nbsp; {totalPrice} &nbsp; Items: &nbsp; {totalCount}</div>
             
@@ -15,8 +15,10 @@ const Cart = ({totalPrice, totalCount, cartItems, addToCartFunc, removeFromCartF
                         { 
                             !cartItems.length
                             ? 'Your Cart Is Empty :('
-                            : cartItems.map( (item, id) => (<CartItem key={id} item={item}
-                                    removeFromCartFunc={removeFromCartFunc} addToCartFunc={addToCartFunc} />))
+                            : cartItems.map( (item, id) => (<CartItem key={id} item={item} 
+                                    removeFromCartFunc={removeFromCartFunc} addToCartFunc={addToCartFunc} 
+                                    setQuantityFunc={setQuantityFunc} quantity={quantity}
+                                    decreaseFunc={decreaseFunc} />))
                         }
                     </ListGroup>
                 </div>
@@ -32,7 +34,7 @@ const Cart = ({totalPrice, totalCount, cartItems, addToCartFunc, removeFromCartF
 
 
 
-const CartItem = ({item, addToCartFunc, removeFromCartFunc}) => 
+const CartItem = ({item, addToCartFunc, removeFromCartFunc, quantity, setQuantityFunc, decreaseFunc}) => 
         (
       <ListGroupItem>
           <Row>
@@ -46,11 +48,11 @@ const CartItem = ({item, addToCartFunc, removeFromCartFunc}) =>
                 <span>{item.price}</span> &nbsp; 
               </Col>
               <Col sm="1">
-                <ButtonGroup>
-                    <Button size="sm" color="primary" onClick={removeFromCartFunc.bind(this, item.sku)}>-</Button>
-                    <Input type="text"/>
+                
+                    <Button size="sm" color="primary" onClick={decreaseFunc.bind(this, item.sku)}  disabled={quantity[item.sku] > 1 ? '' : 'disabled'}>-</Button>
+                    <Input type="text" value={quantity[item.sku]} name={item.sku} onChange={e => setQuantityFunc(e.target)} />
                     <Button size="sm" color="primary" onClick={addToCartFunc.bind(this, item)}>+</Button>
-                </ButtonGroup>
+                
               </Col>
               <Col sm="1">
                 <Button size="sm" color="danger" close onClick={removeFromCartFunc.bind(this, item.sku)}/>
@@ -58,6 +60,7 @@ const CartItem = ({item, addToCartFunc, removeFromCartFunc}) =>
           </Row>
       </ListGroupItem>
 );
+
 
 const unique = (array) => {
     var newArr = [];
@@ -71,16 +74,19 @@ const unique = (array) => {
     return newArr
 }
 
-const mapStateToProps = ( { cartreducers }) => ({
+const mapStateToProps = ( { cartreducers } ) => ({
     totalPrice: cartreducers.items.reduce( (total, item) => 
                         ((total*100 + item.price*100) /100).toFixed(2), 0),
     totalCount: cartreducers.items.length,
     cartItems: unique(cartreducers.items),
+    quantity: cartreducers.quantity,
 });
 
 const mapDispatchToProps = (dispatch) => ({
     addToCartFunc: obj => dispatch(addToCartAction(obj)),
-    removeFromCartFunc: id => dispatch(removeFromCartAction(id)),
+    removeFromCartFunc: sku => dispatch(removeFromCartAction(sku)),
+    setQuantityFunc: count => dispatch(setQuantityAction(count)),
+    decreaseFunc: sku => dispatch(decreaseAction(sku)),
 });
 
 

@@ -32,3 +32,13 @@ export const removeFromCartAction = sku => ({
     type: 'REMOVE_ITEM_FROM_CART',
     payload: sku
 });
+
+export const decreaseAction = sku => ({
+    type: 'DECREASE_QUANTITY',
+    payload: sku
+});
+
+export const setQuantityAction = count => ({
+    type: 'SET_QUANTITY',
+    payload: count
+});
