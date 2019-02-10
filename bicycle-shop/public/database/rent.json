@@ -1,6 +1,6 @@
 [
     {
-      "id": 0,
+      "id": 100,
       "sku": 11111110,
       "product": "rent",
       "good": "Bicycle",
@@ -11,10 +11,10 @@
       "wheelSizes": [3],
       "price": 99.99,
       "currencyFormat": "$/hour",
-      "image": "/database/girls/rent01.jpg"
+      "image": "/database/rent/rent01.jpg"
     },
     {
-      "id": 1,
+      "id": 101,
       "sku": 11111111,
       "product": "rent",
       "good": "Bicycle",
@@ -25,10 +25,10 @@
       "wheelSizes": [2],
       "price": 99.99,
       "currencyFormat": "$/hour",
-      "image": "/database/girls/rent02.jpg"
+      "image": "/database/rent/rent02.jpg"
     },
     {
-      "id": 2,
+      "id": 102,
       "sku": 11111112,
       "product": "rent",
       "good": "Bicycle",
@@ -39,10 +39,10 @@
       "wheelSizes": [3],
       "price": 89.99,
       "currencyFormat": "$/hour",
-      "image": "/database/girls/rent03.jpg"
+      "image": "/database/rent/rent03.jpg"
     },
     {
-      "id": 3,
+      "id": 103,
       "sku": 11111113,
       "product": "rent",
       "good": "Bicycle",
@@ -53,10 +53,10 @@
       "wheelSizes": [2.5],
       "price": 79.99,
       "currencyFormat": "$/hour",
-      "image": "/database/girls/rent04.jpg"
+      "image": "/database/rent/rent04.jpg"
     },
     {
-      "id": 4,
+      "id": 104,
       "sku": 11111114,
       "product": "rent",
       "good": "Bicycle",
@@ -67,10 +67,10 @@
       "wheelSizes": [2],
       "price": 95.99,
       "currencyFormat": "$/hour",
-      "image": "/database/girls/rent05.jpg"
+      "image": "/database/rent/rent05.jpg"
     },
     {
-      "id": 5,
+      "id": 105,
       "sku": 11111115,
       "product": "rent",
       "good": "Bicycle",
@@ -81,10 +81,10 @@
       "wheelSizes": [1],
       "price": 105.99,
       "currencyFormat": "$/hour",
-      "image": "/database/girls/rent06.jpg"
+      "image": "/database/rent/rent06.jpg"
     },
     {
-      "id": 6,
+      "id": 106,
       "sku": 11111116,
       "product": "rent",
       "good": "Bicycle",
@@ -95,10 +95,10 @@
       "wheelSizes": [0],
       "price": 89.99,
       "currencyFormat": "$/hour",
-      "image": "/database/girls/rent07.jpg"
+      "image": "/database/rent/rent07.jpg"
     },
     {
-      "id": 7,
+      "id": 107,
       "sku": 11111117,
       "product": "rent",
       "good": "Bicycle",
@@ -109,10 +109,10 @@
       "wheelSizes": [1],
       "price": 85.99,
       "currencyFormat": "$/hour",
-      "image": "/database/girls/rent08.jpg"
+      "image": "/database/rent/rent08.jpg"
     },
     {
-      "id": 8,
+      "id": 108,
       "sku": 11111118,
       "product": "rent",
       "good": "Bicycle",
@@ -123,10 +123,10 @@
       "wheelSizes": [2],
       "price": 99.99,
       "currencyFormat": "$/hour",
-      "image": "/database/girls/rent09.jpg"
+      "image": "/database/rent/rent09.jpg"
     },
     {
-      "id": 9,
+      "id": 109,
       "sku": 11111119,
       "product": "rent",
       "good": "Bicycle",
@@ -137,10 +137,10 @@
       "wheelSizes": [1],
       "price": 89.99,
       "currencyFormat": "$/hour",
-      "image": "/database/girls/rent10.jpg"
+      "image": "/database/rent/rent10.jpg"
     },
     {
-      "id": 10,
+      "id": 110,
       "sku": 11111120,
       "product": "rent",
       "good": "Bicycle",
@@ -151,10 +151,10 @@
       "wheelSizes": [4],
       "price": 94.99,
       "currencyFormat": "$/hour",
-      "image": "/database/girls/rent11.jpg"
+      "image": "/database/rent/rent11.jpg"
     },
     {
-      "id": 11,
+      "id": 111,
       "sku": 11111121,
       "product": "rent",
       "good": "Bicycle",
@@ -165,9 +165,7 @@
       "wheelSizes": [3],
       "price": 89.99,
       "currencyFormat": "$/hour",
-      "image": "/database/girls/rent12.jpg"
+      "image": "/database/rent/rent12.jpg"
     }
-    
-  
     
   ]

@@ -7,7 +7,7 @@ const initialState = {
 const decrease = (items, action) => {
     for(var i = items.length-1; i >= 0; i--) {
         var item = items[i];
-        if(action === item.sku) {
+        if(action === item.id) {
             items.splice(i, 1);
             break;
         }
@@ -22,14 +22,14 @@ export default (state = initialState, action) => {
                 ...state,
                 items: [...state.items, action.payload],
                 lastItem: action.payload,
-                quantity: isNaN(state.quantity[action.payload.sku])
-                    ?{ ...state.quantity, [action.payload.sku]: 1 }
-                    :{ ...state.quantity, [action.payload.sku]: state.quantity[action.payload.sku]+1 },
+                quantity: isNaN(state.quantity[action.payload.id])
+                    ?{ ...state.quantity, [action.payload.id]: 1 }
+                    :{ ...state.quantity, [action.payload.id]: state.quantity[action.payload.id]+1 },
             };
         case 'REMOVE_ITEM_FROM_CART':
             return {
                 ...state,
-                items: state.items.filter(item => item.sku !== action.payload),
+                items: state.items.filter(item => item.id !== action.payload),
                 quantity: { ...state.quantity, [action.payload]: 0 },
             };
 

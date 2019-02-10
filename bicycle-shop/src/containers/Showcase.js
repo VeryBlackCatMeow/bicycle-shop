@@ -25,7 +25,7 @@ class Showcase extends Component {
         {
           !items.length
           ? <Loading/>
-          : items.map( (item, id) => (<ProductCard key={id} {...item} 
+        : items.map( (item) => (<ProductCard key={item.id/*.toString()*/} {...item} 
                     extraProps={extraProps} cartItems={cartItems}
                     addToCartFunc={addToCartFunc} removeFromCartFunc={removeFromCartFunc }
                     itemCount={itemCount}/>))
@@ -75,7 +75,7 @@ const mapStateToProps = (
     {productreducers, filtersreducers, cartreducers}) => ({
     items: finalFiltration(productreducers.items, filtersreducers.searchBy, filtersreducers.sortBy),
     itemCount: cartreducers.items.reduce( (count, item) => 
-                            count + (item.sku === cartreducers.lastItem.sku ? 1 : 0), 0),
+                            count + (item.id === cartreducers.lastItem.id ? 1 : 0), 0),
     lastItem: cartreducers.lastItem,
     
     cartItems: cartreducers.items,
@@ -88,7 +88,7 @@ const mapStateToProps = (
 const mapDispatchToProps = (dispatch) => ({
     setProductsFunc: item => dispatch(setProductsAction(item)),
     addToCartFunc: obj => dispatch(addToCartAction(obj)),
-    removeFromCartFunc: sku => dispatch(removeFromCartAction(sku)),
+    removeFromCartFunc: id => dispatch(removeFromCartAction(id)),
 
 
     setFilterFunc: filter => dispatch(setFilterAction(filter)),

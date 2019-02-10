@@ -18,10 +18,11 @@ class Product extends Component {
 
     render() { 
         const {cartItems, itemCount, addToCartFunc, removeFromCartFunc, items} = this.props;
-        const item = items[parseInt(this.props.match.params.id, 10)];
+        const item = items.find( i => i.id === +(this.props.match.params.id));
+        //const item = items[parseInt(this.props.match.params.id, 10)]; //тупо находит n-й элемент в массиве а надо чтоб по id
         if(!item) return <Loading/>;
-
-        const { sku, title, description, type, price, image } = item;
+        console.log(item);
+        const { id, title, description, type, price, image } = item;
            
         return( 
             <Row>
@@ -40,8 +41,8 @@ class Product extends Component {
                     <h5>{price} $</h5>
                     {itemCount > 0 && `(${itemCount})`}
                     {
-                        cartItems.some( a => (a.sku===sku) )
-                        ? <Button color="danger" block onClick={removeFromCartFunc.bind(this, sku)}>Remove From Cart</Button>
+                        cartItems.some( a => (a.id===id) )
+                        ? <Button color="danger" block onClick={removeFromCartFunc.bind(this, id)}>Remove From Cart</Button>
                         : <Button color="primary" block onClick={addToCartFunc.bind(this, item)}>Add To Cart</Button>
                     } 
                 </Col>
@@ -60,7 +61,7 @@ const mapStateToProps = ( {cartreducers, productreducers} ) => ({
 const mapDispatchToProps = (dispatch) => ({
     setProductsFunc: item => dispatch(setProductsAction(item)),
     addToCartFunc: obj => dispatch(addToCartAction(obj)),
-    removeFromCartFunc: sku => dispatch(removeFromCartAction(sku)),
+    removeFromCartFunc: id => dispatch(removeFromCartAction(id)),
   });
 
   export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Product));

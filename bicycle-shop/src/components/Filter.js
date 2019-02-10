@@ -15,7 +15,7 @@ const Filter = ({ /*setFilterFunc, filterBy,*/ handleFilterToggle, filterToggles
         });
     };
 
-    const filterBlocks =  extraProps.filters.map( i => (
+    const filterBlocks =  extraProps.filters.map( i => ( 
         {
          tab: i, 
          list: sorting( [...new Set([].concat(...items.map(item =>item[i])))] )
@@ -46,8 +46,7 @@ const FilterList = ({checkbox}) => (                 //filterBy   //checked={fil
     <CustomInput id={checkbox} type="checkbox" value={checkbox} label={checkbox}/>
 );
 
-const mapStateToProps = ( 
-    {productreducers}) => ({
+const mapStateToProps = ({productreducers}) => ({
     items: productreducers.items,
 });
 

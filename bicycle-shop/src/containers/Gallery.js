@@ -43,15 +43,29 @@ class Gallery extends Component {
     handleBlockToggle = () => {
         this.setState({ blockToggle: !this.state.blockToggle });
     }
-    
+
     handleFilterToggle = ({target: {name}}) => {
+        this.setState({ filterToggles: {...this.state.filterToggles, 
+                                        [name]: !this.state.filterToggles[name] }}
+        );
+    }
+    
+    /*handleFilterToggle = ({target: {name}}) => {
         this.setState(
             prevState => ({ filterToggles: { 
                             ...prevState.filterToggles, 
                             [name]: !prevState.filterToggles[name]
             }})
         );
-    }
+    }*/
+
+    /*handleFilterToggle = ({target: {name}}) => {
+        this.setState( { filterToggles:
+            isNaN(this.state.filterToggles[name])
+            ?{ ...this.state.filterToggles, [name]: true } 
+            :{ ...this.state.filterToggles, [name]: !this.state.filterToggles[name] } 
+        });
+    }*/
 
     handleCheck = ({target: {value, name, checked}}) => {
        const { setFilterFunc } = this.props;

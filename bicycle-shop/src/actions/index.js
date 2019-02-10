@@ -28,14 +28,14 @@ export const addToCartAction = obj => ({
     payload: obj
 });
 
-export const removeFromCartAction = sku => ({
+export const removeFromCartAction = id => ({
     type: 'REMOVE_ITEM_FROM_CART',
-    payload: sku
+    payload: id
 });
 
-export const decreaseAction = sku => ({
+export const decreaseAction = id => ({
     type: 'DECREASE_QUANTITY',
-    payload: sku
+    payload: id
 });
 
 export const setQuantityAction = count => ({

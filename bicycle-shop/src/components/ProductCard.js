@@ -4,7 +4,7 @@ import { Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button, Col} from 'reactstrap';
     //className="d-flex justify-content-between align-items-center"
 const ProductCard = (props) => { //width="100%" height={extraProps.height} style={{height: '100%'}}
-    const {id, sku, title, description, type, price, image, product,
+    const {id, title, description, type, price, image, product,
                 cartItems, addToCartFunc, removeFromCartFunc, extraProps} = props;
     return(
         <Col className="col-sm-12 col-md-6 col-lg-4 py-3 d-flex"> 
@@ -26,8 +26,8 @@ const ProductCard = (props) => { //width="100%" height={extraProps.height} style
 export default ProductCard;
 
 /*{
-    cartItems.some( a => (a.sku===sku) )
-    ? <Button color="danger" block onClick={removeFromCartFunc.bind(this, sku)}>Remove From Cart</Button>
+    cartItems.some( a => (a.id===id) )
+    ? <Button color="danger" block onClick={removeFromCartFunc.bind(this, id)}>Remove From Cart</Button>
     : <Button color="primary" block onClick={addToCartFunc.bind(this, props)}>Add To Cart</Button>
   }  */
 

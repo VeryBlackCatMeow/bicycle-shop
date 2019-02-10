@@ -15,7 +15,7 @@ const Cart = ({totalPrice, totalCount, cartItems, addToCartFunc, removeFromCartF
                         { 
                             !cartItems.length
                             ? 'Your Cart Is Empty :('
-                            : cartItems.map( (item, id) => (<CartItem key={id} item={item} 
+                            : cartItems.map( (item) => (<CartItem key={item.id} item={item} 
                                     removeFromCartFunc={removeFromCartFunc} addToCartFunc={addToCartFunc} 
                                     setQuantityFunc={setQuantityFunc} quantity={quantity}
                                     decreaseFunc={decreaseFunc} />))
@@ -49,13 +49,13 @@ const CartItem = ({item, addToCartFunc, removeFromCartFunc, quantity, setQuantit
               </Col>
               <Col sm="1">
                 
-                    <Button size="sm" color="primary" onClick={decreaseFunc.bind(this, item.sku)}  disabled={quantity[item.sku] > 1 ? '' : 'disabled'}>-</Button>
-                    <Input type="text" value={quantity[item.sku]} name={item.sku} onChange={e => setQuantityFunc(e.target)} />
+                    <Button size="sm" color="primary" onClick={decreaseFunc.bind(this, item.id)}  disabled={quantity[item.id] > 1 ? false : true}>-</Button>
+                    <Input type="text" value={quantity[item.id]} name={item.id} onChange={e => setQuantityFunc(e.target)} />
                     <Button size="sm" color="primary" onClick={addToCartFunc.bind(this, item)}>+</Button>
                 
               </Col>
               <Col sm="1">
-                <Button size="sm" color="danger" close onClick={removeFromCartFunc.bind(this, item.sku)}/>
+                <Button size="sm" color="danger" close onClick={removeFromCartFunc.bind(this, item.id)}/>
               </Col>
           </Row>
       </ListGroupItem>
@@ -65,7 +65,7 @@ const CartItem = ({item, addToCartFunc, removeFromCartFunc, quantity, setQuantit
 const unique = (array) => {
     var newArr = [];
     array.filter( item => {
-        var i = newArr.findIndex(x => (x.sku == item.sku));
+        var i = newArr.findIndex(x => (x.id == item.id));
         if(i <= -1){
         newArr.push({...item});
         }
@@ -84,9 +84,9 @@ const mapStateToProps = ( { cartreducers } ) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     addToCartFunc: obj => dispatch(addToCartAction(obj)),
-    removeFromCartFunc: sku => dispatch(removeFromCartAction(sku)),
+    removeFromCartFunc: id => dispatch(removeFromCartAction(id)),
     setQuantityFunc: count => dispatch(setQuantityAction(count)),
-    decreaseFunc: sku => dispatch(decreaseAction(sku)),
+    decreaseFunc: id => dispatch(decreaseAction(id)),
 });
 
 
