@@ -14,7 +14,9 @@ export default (state = initialState, action) => {
         case 'SET_FILTER':
             return {
                 ...state,
-                filterBy: [ ...state.filterBy, { filterName: action.payload.name, value: action.payload.value} ],
+                filterBy: action.payload.checked
+                    ?[ ...state.filterBy, { filterName: action.payload.name, value: action.payload.value} ]
+                    :state.filterBy.filter( f => f.filterName !== action.payload.name || f.value !== action.payload.value )
             };
         case 'SET_SEARCH':
             return {
@@ -26,3 +28,4 @@ export default (state = initialState, action) => {
     }
 }
 
+/**/
