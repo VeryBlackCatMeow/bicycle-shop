@@ -1,11 +1,12 @@
 import React from 'react';
 import { Button, CustomInput } from 'reactstrap';
+import { setFilterAction } from '../actions/index.js'
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom'
 
 //import { sortingBy } from '../containers/Showcase';
 
-const Filter = ({ /*setFilterFunc, filterBy,*/ handleFilterToggle, filterToggles, handleCheck, extraProps, items }) => {
+const Filter = ({ setFilterFunc, filterBy, handleFilterToggle, filterToggles, extraProps, items }) => {
     //onClick={setFilterFunc.bind(this, !filterBy)}
     
     const sorting = (items) => {
@@ -18,36 +19,48 @@ const Filter = ({ /*setFilterFunc, filterBy,*/ handleFilterToggle, filterToggles
     const filterBlocks =  extraProps.filters.map( i => ( 
         {
          tab: i, 
-         list: sorting( [...new Set([].concat(...items.map(item =>item[i])))] )
-        }
+         list: sorting( [...new Set([].concat(...items.map(item =>item[i])))] ) //array of checkboxes names/values from items
+        }          //собираем все возможные значения фильтров (фильтры из extraProps, значения из items)
     ));
 
-    
     return(
-        filterBlocks.map( (block, index) => <FilterBlock key={index}  block={block} 
+        filterBlocks.map( (block, index) => <FilterBlock key={index} block={block} 
                                         handleFilterToggle={handleFilterToggle}
-                                        filterToggles={filterToggles} handleCheck={handleCheck}
+                                        filterToggles={filterToggles} setFilterFunc={setFilterFunc}
                                         /> 
         )
     );
 };
 
-const FilterBlock = ({handleFilterToggle, filterToggles, handleCheck, block}) => (
+
+
+
+const FilterBlock = ({handleFilterToggle, filterToggles, setFilterFunc, block}) => (
     <div>
         <Button color="primary" name={block.tab} onClick={handleFilterToggle}>{block.tab}:</Button>
-        {
-          filterToggles[block.tab]                    
-          ? block.list.map( (checkbox, index) => <div onChange={handleCheck}><FilterList key={index} checkbox={checkbox} /></div>  )     
-          : null
-        } 
+            <div onChange={e=>setFilterFunc(e.target)}>
+                {
+                filterToggles[block.tab]                    
+                ? block.list.map( (checkbox, index) => <FilterList key={index} checkbox={checkbox} name={block.tab}/> )    
+                : null
+                
+                }
+            </div> 
     </div>);
 
-const FilterList = ({checkbox}) => (                 //filterBy   //checked={filterBy==='checked'}
-    <CustomInput id={checkbox} type="checkbox" value={checkbox} label={checkbox}/>
+
+const FilterList = ({checkbox, name}) => (                 //filterBy   //checked={filterBy==='checked'}
+    <CustomInput id={checkbox} type="checkbox" name={name} value={checkbox} label={checkbox}/>
 );
 
-const mapStateToProps = ({productreducers}) => ({
+const mapStateToProps = ( {productreducers, filtersreducers} ) => ({
     items: productreducers.items,
+    filterBy: filtersreducers.filterBy,
 });
 
-export default withRouter(connect(mapStateToProps/*, mapDispatchToProps*/)(Filter));
+const mapDispatchToProps = (dispatch) => ({
+    setFilterFunc: filter => dispatch(setFilterAction(filter)),
+  
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Filter);

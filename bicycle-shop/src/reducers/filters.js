@@ -1,6 +1,6 @@
 const initialState = {
     sortBy: 'all',
-    filterBy: 'all',
+    filterBy: [],
     searchBy: ''
 };
 
@@ -14,7 +14,7 @@ export default (state = initialState, action) => {
         case 'SET_FILTER':
             return {
                 ...state,
-                filterBy: action.payload,
+                filterBy: [ ...state.filterBy, { filterName: action.payload.name, value: action.payload.value} ],
             };
         case 'SET_SEARCH':
             return {
@@ -25,3 +25,4 @@ export default (state = initialState, action) => {
             return state;
     }
 }
+

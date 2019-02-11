@@ -11,11 +11,10 @@ class Gallery extends Component {
         super(props);
         this.state = { 
             blockToggle: true,
-            //filterToggles: {type: true, brand: true, wheelSizes: true}
-            filterToggles: {}
+            filterToggles: {type: true, brand: true, wheelSizes: true}
+            //filterToggles: {}
          };
     }
-
 
     config = (props) => {
         const bikes = { heightImg: '200px', filters: ['type', 'brand', 'wheelSizes'] };
@@ -33,13 +32,6 @@ class Gallery extends Component {
         }
     }
     
-    /*componentDidMount = () => {
-        const { setBikesFunc } = this.props;
-        axios.get('/database/bikesdatabase.json').then(({ data }) => {
-        setBikesFunc(data);        
-        });
-    }*/
-
     handleBlockToggle = () => {
         this.setState({ blockToggle: !this.state.blockToggle });
     }
@@ -50,33 +42,6 @@ class Gallery extends Component {
         );
     }
     
-    /*handleFilterToggle = ({target: {name}}) => {
-        this.setState(
-            prevState => ({ filterToggles: { 
-                            ...prevState.filterToggles, 
-                            [name]: !prevState.filterToggles[name]
-            }})
-        );
-    }*/
-
-    /*handleFilterToggle = ({target: {name}}) => {
-        this.setState( { filterToggles:
-            isNaN(this.state.filterToggles[name])
-            ?{ ...this.state.filterToggles, [name]: true } 
-            :{ ...this.state.filterToggles, [name]: !this.state.filterToggles[name] } 
-        });
-    }*/
-
-    handleCheck = ({target: {value, name, checked}}) => {
-       const { setFilterFunc } = this.props;
-       setFilterFunc(value);
-    }
-
-    filteringBy = (items, field, filterBy) => {
-        if(filterBy==='all'){return items;}
-        else {return items.filter(item => item[field]===filterBy);}
-    }
-    
     render() {
         const extraProps = this.config(this.props.match.params.product);    //тут буду прокидывать все настройки для элементов галлереи
         return (
@@ -84,11 +49,11 @@ class Gallery extends Component {
                 <Col sm="12" md="2">
                     <Button color="primary" onClick={this.handleBlockToggle}>Filters:</Button>
                     {
-                        this.state.blockToggle
-                        ? <Filter /*setFilterFunc={setFilterFunc} filterBy={filterBy}*/
-                            handleFilterToggle={this.handleFilterToggle} filterToggles={this.state.filterToggles}
-                            handleCheck={this.handleCheck} extraProps={extraProps}/> 
-                        : null
+                      this.state.blockToggle
+                      ? <Filter /*setFilterFunc={setFilterFunc} filterBy={filterBy}*/
+                          handleFilterToggle={this.handleFilterToggle} filterToggles={this.state.filterToggles}
+                            extraProps={extraProps}/> 
+                      : null
                     }
                 </Col>
                 
@@ -111,3 +76,27 @@ class Gallery extends Component {
 
 
 export default Gallery;
+
+ /*componentDidMount = () => {
+        const { setBikesFunc } = this.props;
+        axios.get('/database/bikesdatabase.json').then(({ data }) => {
+        setBikesFunc(data);        
+        });
+    }*/
+
+     /*handleFilterToggle = ({target: {name}}) => {
+        this.setState(
+            prevState => ({ filterToggles: { 
+                            ...prevState.filterToggles, 
+                            [name]: !prevState.filterToggles[name]
+            }})
+        );
+    }*/
+
+    /*handleFilterToggle = ({target: {name}}) => {
+        this.setState( { filterToggles:
+            isNaN(this.state.filterToggles[name])
+            ?{ ...this.state.filterToggles, [name]: true } 
+            :{ ...this.state.filterToggles, [name]: !this.state.filterToggles[name] } 
+        });
+    }*/
