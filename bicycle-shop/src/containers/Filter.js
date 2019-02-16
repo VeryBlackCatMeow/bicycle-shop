@@ -53,6 +53,8 @@ const FilterList = ({checkbox, name}) => (                 //filterBy   //checke
     <CustomInput id={checkbox} type="checkbox" name={name} value={checkbox} label={checkbox}/>
 );
 
+
+
 const mapStateToProps = ( {productreducers, filtersreducers} ) => ({
     items: productreducers.items,
     filterBy: filtersreducers.filterBy,

@@ -1,6 +1,6 @@
 const initialState = {
     items: [],
-    lastItem: null,
+    //lastItem: null,
     quantity: {}
 };
 
@@ -21,7 +21,7 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 items: [...state.items, action.payload],
-                lastItem: action.payload,
+                //lastItem: action.payload,
                 quantity: isNaN(state.quantity[action.payload.id])
                     ?{ ...state.quantity, [action.payload.id]: 1 }
                     :{ ...state.quantity, [action.payload.id]: state.quantity[action.payload.id]+1 },

@@ -19,7 +19,6 @@ class Product extends Component {
     render() { 
         const {cartItems, itemCount, addToCartFunc, removeFromCartFunc, items} = this.props;
         const item = items.find( i => i.id === +(this.props.match.params.id));
-        //const item = items[parseInt(this.props.match.params.id, 10)]; //тупо находит n-й элемент в массиве а надо чтоб по id
         if(!item) return <Loading/>;
         console.log(item);
         const { id, title, description, type, price, image } = item;

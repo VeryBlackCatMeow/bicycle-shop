@@ -5,7 +5,7 @@ import Menu from './components/Menu.js';
 import Gallery from './containers/Gallery.js';
 import About from './components/About.js';
 import Home from './components/Home.js';
-import Product from './components/Product.js';
+import Product from './containers/Product.js';
 import Cart from './containers/Cart.js';
 import PageIsNotFound from './components/PageIsNotFound.js';
 import './App.css';

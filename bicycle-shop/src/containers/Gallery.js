@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Row, Col, Button } from 'reactstrap';
 
 import Showcase from './Showcase';
-import Filter from '../components/Filter.js';
+import Filter from '../containers/Filter.js';
 import Sort from './Sort.js';
 
 class Gallery extends Component {
@@ -12,13 +12,12 @@ class Gallery extends Component {
         this.state = { 
             blockToggle: true,
             filterToggles: {type: true, brand: true, wheelSizes: true}
-            //filterToggles: {}
          };
     }
 
     config = (props) => {
         const bikes = { heightImg: '200px', filters: ['type', 'brand', 'wheelSizes'] };
-        const rent = { heightImg: '450px', filters: ['type', 'brand', 'wheelSizes'] };
+        const rent = { heightImg: '450px', filters: ['type', 'brand', 'wheelSizes', 'title'] };
         
         switch (props) {
             case 'bikes':
@@ -43,14 +42,14 @@ class Gallery extends Component {
     }
     
     render() {
-        const extraProps = this.config(this.props.match.params.product);    //тут буду прокидывать все настройки для элементов галлереи
+        const extraProps = this.config(this.props.match.params.product);//тут буду прокидывать все настройки для элементов галлереи
         return (
             <Row className="pr-3"> 
                 <Col sm="12" md="2">
                     <Button color="primary" onClick={this.handleBlockToggle}>Filters:</Button>
                     {
                       this.state.blockToggle
-                      ? <Filter /*setFilterFunc={setFilterFunc} filterBy={filterBy}*/
+                      ? <Filter
                           handleFilterToggle={this.handleFilterToggle} filterToggles={this.state.filterToggles}
                             extraProps={extraProps}/> 
                       : null

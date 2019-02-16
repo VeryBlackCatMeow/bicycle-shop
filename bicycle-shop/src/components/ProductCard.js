@@ -30,25 +30,3 @@ export default ProductCard;
     ? <Button color="danger" block onClick={removeFromCartFunc.bind(this, id)}>Remove From Cart</Button>
     : <Button color="primary" block onClick={addToCartFunc.bind(this, props)}>Add To Cart</Button>
   }  */
-
-/*const ProductCard = ({item, addToCartFunc, itemCount}) => {
-    return(
-        <Col className="col-sm-12 col-md-6 col-lg-4 py-3 d-flex">
-            <Card>
-                <CardImg top width="100%" src={item.img} alt="Product image" />
-                <CardBody>
-                    <CardTitle>{item.title}</CardTitle>
-                    <CardSubtitle>{item.description}</CardSubtitle>
-                    <CardText>{item.type}</CardText>
-                    <div className="d-flex justify-content-between">
-                        <h4>{item.price} $</h4>
-                        <Button color="primary" onClick={addToCartFunc.bind(this, item)}>Add To Cart &nbsp;
-                        {itemCount > 0 && `(${itemCount})`}
-                        </Button>
-                    </div>
-                </CardBody>
-            </Card>
-        </Col>
-    );
-}
-export default ProductCard;*/

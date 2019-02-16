@@ -23,6 +23,11 @@ export const setSearchAction = query => ({
     payload: query
 });
 
+export const resetFiltersAction = obj => ({
+    type: 'RESET_FILTERS',
+    payload: obj
+});
+
 export const addToCartAction = obj => ({
     type: 'ADD_ITEM_TO_CART',
     payload: obj

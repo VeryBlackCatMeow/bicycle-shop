@@ -8,7 +8,7 @@
       "description": "Godlike vehicle",
       "type": "Business",
       "brand": "ZE Best",
-      "wheelSizes": [3],
+      "wheelSizes": ["3"],
       "price": 99.99,
       "currencyFormat": "$/hour",
       "image": "/database/rent/rent01.jpg"
@@ -22,7 +22,7 @@
       "description": "Cheap&Nice",
       "type": "Extreme",
       "brand": "Urban",
-      "wheelSizes": [2],
+      "wheelSizes": ["2"],
       "price": 99.99,
       "currencyFormat": "$/hour",
       "image": "/database/rent/rent02.jpg"
@@ -36,7 +36,7 @@
       "description": "Faster, Harder",
       "type": "Sport",
       "brand": "Dil",
-      "wheelSizes": [3],
+      "wheelSizes": ["3"],
       "price": 89.99,
       "currencyFormat": "$/hour",
       "image": "/database/rent/rent03.jpg"
@@ -50,7 +50,7 @@
       "description": "Be 1-st everytime",
       "type": "Sport",
       "brand": "Alfa",
-      "wheelSizes": [2.5],
+      "wheelSizes": ["2.5"],
       "price": 79.99,
       "currencyFormat": "$/hour",
       "image": "/database/rent/rent04.jpg"
@@ -64,7 +64,7 @@
       "description": "Cheap vehicle",
       "type": "Extreme",
       "brand": "CheapBike",
-      "wheelSizes": [2],
+      "wheelSizes": ["2"],
       "price": 95.99,
       "currencyFormat": "$/hour",
       "image": "/database/rent/rent05.jpg"
@@ -78,7 +78,7 @@
       "description": "Vehicle for poors",
       "type": "Extreme",
       "brand": "CheapBike",
-      "wheelSizes": [1],
+      "wheelSizes": ["1"],
       "price": 105.99,
       "currencyFormat": "$/hour",
       "image": "/database/rent/rent06.jpg"
@@ -92,7 +92,7 @@
       "description": "Be Yourself",
       "type": "Gourmet",
       "brand": "MasterBike",
-      "wheelSizes": [0],
+      "wheelSizes": ["0"],
       "price": 89.99,
       "currencyFormat": "$/hour",
       "image": "/database/rent/rent07.jpg"
@@ -106,7 +106,7 @@
       "description": "Godlike vehicle",
       "type": "Gourmet",
       "brand": "MasterBike",
-      "wheelSizes": [1],
+      "wheelSizes": ["1"],
       "price": 85.99,
       "currencyFormat": "$/hour",
       "image": "/database/rent/rent08.jpg"
@@ -120,7 +120,7 @@
       "description": "Back in the Future!!!",
       "type": "Glamour",
       "brand": "Futurama",
-      "wheelSizes": [2],
+      "wheelSizes": ["2"],
       "price": 99.99,
       "currencyFormat": "$/hour",
       "image": "/database/rent/rent09.jpg"
@@ -134,7 +134,7 @@
       "description": "Be Yourself",
       "type": "Gourmet",
       "brand": "MasterBike",
-      "wheelSizes": [1],
+      "wheelSizes": ["1"],
       "price": 89.99,
       "currencyFormat": "$/hour",
       "image": "/database/rent/rent10.jpg"
@@ -148,7 +148,7 @@
       "description": "Godlike vehicle",
       "type": "Gourmet",
       "brand": "MasterBike",
-      "wheelSizes": [4],
+      "wheelSizes": ["4"],
       "price": 94.99,
       "currencyFormat": "$/hour",
       "image": "/database/rent/rent11.jpg"
@@ -162,7 +162,7 @@
       "description": "Back in the Future!!!",
       "type": "Glamour",
       "brand": "Futurama",
-      "wheelSizes": [3],
+      "wheelSizes": ["3"],
       "price": 89.99,
       "currencyFormat": "$/hour",
       "image": "/database/rent/rent12.jpg"

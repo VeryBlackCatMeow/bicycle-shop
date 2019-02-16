@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import axios from 'axios';
 import { connect } from 'react-redux';
-import { setProductsAction, addToCartAction, removeFromCartAction } from '../actions/index.js'
+import { setProductsAction, addToCartAction, removeFromCartAction, resetFiltersAction  } from '../actions/index.js'
 import ProductCard from '../components/ProductCard';
 import Loading from '../components/Loading';
 import { Row } from 'reactstrap';
@@ -11,10 +11,15 @@ import { withRouter } from 'react-router-dom'
 class Showcase extends Component {
 
     componentDidMount = () => {
-        const { setProductsFunc} = this.props;
-    
+        const { setProductsFunc, resetFiltersFunc, extraProps} = this.props;
+        const reset = {
+            searchBy: '',
+            sortBy: 'all',
+            filterBy: extraProps.filters.reduce((o, key) => ( {...o, [key]:[]} ), {})
+        } // все фильтры из массива в extraProps устанавливаем как свойства объекта в filterBy, со значением []
         axios.get(`/database/${this.props.match.params.product}.json`).then(({ data }) => {    
-            setProductsFunc(data);      
+            setProductsFunc(data);
+            resetFiltersFunc(reset)      
         });
     }
 
@@ -67,23 +72,28 @@ const searchingBy = (items, searchBy) => {
     );
 }
 
+
 const filteringBy = (items, filterBy) => {
-    if(filterBy.length === 0) return items;
-    else return items.filter(item => {
-        for( let i = 0; i < filterBy.length; i++) {
-            if(item[filterBy[i].filterName].indexOf(filterBy[i].value) >= 0) return true
+    for ( var key in filterBy) {
+        if (filterBy[key].length !== 0){ 
+            items = items.filter(item => {
+                for( let i = 0; i < filterBy[key].length; i++) {
+                        if(item[key].indexOf(filterBy[key][i]) >= 0) return true;
+                }
+            });
         }
-    });
+    }
+    return items;
 }
 
-const finalFiltration = (items, searchBy, sortBy) =>  {
-    return sortingBy(searchingBy(items, searchBy), sortBy)
+const finalFiltration = (items, searchBy, sortBy, filterBy) =>  {
+    return sortingBy(filteringBy(searchingBy(items, searchBy), filterBy), sortBy)
 };
 
 const mapStateToProps = ( 
     {productreducers, filtersreducers, cartreducers}) => ({
-    //items: finalFiltration(productreducers.items, filtersreducers.searchBy, filtersreducers.sortBy),
-    items: filteringBy(productreducers.items, filtersreducers.filterBy),
+    items: finalFiltration(productreducers.items, filtersreducers.searchBy,
+                            filtersreducers.sortBy, filtersreducers.filterBy),
     itemCount: cartreducers.items.reduce( (count, item) => 
                             count + (item.id === cartreducers.lastItem.id ? 1 : 0), 0),
     lastItem: cartreducers.lastItem,
@@ -96,6 +106,8 @@ const mapDispatchToProps = (dispatch) => ({
     setProductsFunc: item => dispatch(setProductsAction(item)),
     addToCartFunc: obj => dispatch(addToCartAction(obj)),
     removeFromCartFunc: id => dispatch(removeFromCartAction(id)),
+    resetFiltersFunc: obj => dispatch(resetFiltersAction (obj)),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Showcase));
+//обязательно withRouter
