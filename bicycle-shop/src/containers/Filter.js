@@ -1,59 +1,66 @@
-import React from 'react';
-import { Button, CustomInput } from 'reactstrap';
+import React, { Component } from 'react';
+import { Button } from 'reactstrap';
 import { setFilterAction } from '../actions/index.js'
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom'
+//import { withRouter } from 'react-router-dom';
+import FilterBlock  from '../components/FilterBlock.js';
 
-//import { sortingBy } from '../containers/Showcase';
+class Filter extends Component {  //onClick={setFilterFunc.bind(this, !filterBy)}
+    constructor(props) {
+        super(props);
+        this.state = { 
+            blockToggle: true,
+            filterToggles: {type: true, brand: true, wheelSizes: true}
+         };
+    }
 
-const Filter = ({ setFilterFunc, filterBy, handleFilterToggle, filterToggles, extraProps, items }) => {
-    //onClick={setFilterFunc.bind(this, !filterBy)}
+    handleBlockToggle = () => {
+        this.setState({ blockToggle: !this.state.blockToggle });
+    }
+
+    handleFilterToggle = ({target: {name}}) => {
+        this.setState({ filterToggles: {...this.state.filterToggles, 
+                                        [name]: !this.state.filterToggles[name] }}
+        );
+    }
     
-    const sorting = (items) => {
+    sorting = (items) => items.slice().sort( (a , b) => {
+                        if (a >= b) return 1;
+                        else return -1;
+                        });
+
+    /*sorting = (items) => {
         return items.slice().sort( (a , b) => {
                         if (a > b) return 1;
                         if (a < b) return -1;
         });
-    };
+    };*/
 
-    const filterBlocks =  extraProps.filters.map( i => ( 
-        {
-         tab: i, 
-         list: sorting( [...new Set([].concat(...items.map(item =>item[i])))] ) //array of checkboxes names/values from items
-        }          //собираем все возможные значения фильтров (фильтры из extraProps, значения из items)
-    ));
+    render() {
+        const { setFilterFunc, extraProps, items } = this.props
+        const filterBlocks =  extraProps.filters.map( i => ( 
+            {
+             tab: i, 
+             list: this.sorting( [...new Set([].concat(...items.map(item =>item[i])))] ) //array of checkboxes names/values from items
+            }          //собираем все возможные значения фильтров (фильтры из extraProps, значения из items)
+        ));
 
-    return(
-        filterBlocks.map( (block, index) => <FilterBlock key={index} block={block} 
-                                        handleFilterToggle={handleFilterToggle}
-                                        filterToggles={filterToggles} setFilterFunc={setFilterFunc}
-                                        /> 
-        )
-    );
-};
-
-
-
-
-const FilterBlock = ({handleFilterToggle, filterToggles, setFilterFunc, block}) => (
-    <div>
-        <Button color="primary" name={block.tab} onClick={handleFilterToggle}>{block.tab}:</Button>
-            <div onChange={e=>setFilterFunc(e.target)}>
+        return(
+            <div>
+                <Button color="primary" onClick={this.handleBlockToggle}>Filters:</Button>
                 {
-                filterToggles[block.tab]                    
-                ? block.list.map( (checkbox, index) => <FilterList key={index} checkbox={checkbox} name={block.tab}/> )    
-                : null
-                
+                    this.state.blockToggle
+                    ? filterBlocks.map( (block, index) => <FilterBlock 
+                        key={index} block={block} 
+                        handleFilterToggle={this.handleFilterToggle}
+                        filterToggles={this.state.filterToggles}
+                        setFilterFunc={setFilterFunc}/> )
+                    : null
                 }
-            </div> 
-    </div>);
-
-
-const FilterList = ({checkbox, name}) => (                 //filterBy   //checked={filterBy==='checked'}
-    <CustomInput id={checkbox} type="checkbox" name={name} value={checkbox} label={checkbox}/>
-);
-
-
+            </div>
+        );
+    }
+}
 
 const mapStateToProps = ( {productreducers, filtersreducers} ) => ({
     items: productreducers.items,

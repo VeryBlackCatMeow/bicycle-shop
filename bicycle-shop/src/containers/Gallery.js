@@ -1,25 +1,16 @@
-import React, { Component } from 'react';
-//import axios from 'axios';
-import { Row, Col, Button } from 'reactstrap';
+import React from 'react';
+import { Row, Col } from 'reactstrap';
 
 import Showcase from './Showcase';
 import Filter from '../containers/Filter.js';
 import Sort from './Sort.js';
 
-class Gallery extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { 
-            blockToggle: true,
-            filterToggles: {type: true, brand: true, wheelSizes: true}
-         };
-    }
-
-    config = (props) => {
+const Gallery = (props) => {
+    const config = (product) => {
         const bikes = { heightImg: '200px', filters: ['type', 'brand', 'wheelSizes'] };
         const rent = { heightImg: '450px', filters: ['type', 'brand', 'wheelSizes', 'title'] };
         
-        switch (props) {
+        switch (product) {
             case 'bikes':
                 return bikes;
             case 'rent':
@@ -31,57 +22,34 @@ class Gallery extends Component {
         }
     }
     
-    handleBlockToggle = () => {
-        this.setState({ blockToggle: !this.state.blockToggle });
-    }
-
-    handleFilterToggle = ({target: {name}}) => {
-        this.setState({ filterToggles: {...this.state.filterToggles, 
-                                        [name]: !this.state.filterToggles[name] }}
-        );
-    }
+    const extraProps = config(props.match.params.product);//тут буду прокидывать все настройки для элементов галлереи   
     
-    render() {
-        const extraProps = this.config(this.props.match.params.product);//тут буду прокидывать все настройки для элементов галлереи
-        return (
-            <Row className="pr-3"> 
-                <Col sm="12" md="2">
-                    <Button color="primary" onClick={this.handleBlockToggle}>Filters:</Button>
-                    {
-                      this.state.blockToggle
-                      ? <Filter
-                          handleFilterToggle={this.handleFilterToggle} filterToggles={this.state.filterToggles}
-                            extraProps={extraProps}/> 
-                      : null
-                    }
-                </Col>
+    return (
+        <Row className="pr-3"> 
+            <Col sm="12" md="2">
+                <Filter extraProps={extraProps}/> 
+            </Col>
                 
-                <Col sm="12" md="10">
-                    <Row>
-                        <h3>Bicycles:</h3>
-                        <Sort/>
-                        <hr/>
-                    </Row>    
-                    <Row>
-                       <Showcase extraProps={extraProps}/>
-                    </Row>
-                </Col>
-            </Row>
-        );
-    }
+            <Col sm="12" md="10">
+                <Row>
+                    <h3>Bicycles:</h3>
+                    <Sort/>
+                    <hr/>
+                </Row>    
+                    <Showcase extraProps={extraProps}/>
+            </Col>
+        </Row>
+    );
 }
 
-
+/*
+<Row> 
+    <Showcase extraProps={extraProps}/>
+</Row>
+*/
 
 
 export default Gallery;
-
- /*componentDidMount = () => {
-        const { setBikesFunc } = this.props;
-        axios.get('/database/bikesdatabase.json').then(({ data }) => {
-        setBikesFunc(data);        
-        });
-    }*/
 
      /*handleFilterToggle = ({target: {name}}) => {
         this.setState(

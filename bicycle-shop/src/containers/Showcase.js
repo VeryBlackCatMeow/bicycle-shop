@@ -34,7 +34,6 @@ class Showcase extends Component {
                     extraProps={extraProps} cartItems={cartItems}
                     addToCartFunc={addToCartFunc} removeFromCartFunc={removeFromCartFunc }
                     itemCount={itemCount}/>))
-            // this.filteringBy(items, "type", filterBy).map( (item, id) => (<ProductCard key={id} {...item}/>))
         }
     </Row>
         );
@@ -42,22 +41,22 @@ class Showcase extends Component {
 }
 
 
-export const sortingBy = (items, sortBy) => {
+const sortingBy = (items, sortBy) => {
     switch(sortBy) {
         case 'high':
             return items.slice().sort( (a , b) => {      //slice or concat()
-                    if (a.price < b.price) return 1;
-                    if (a.price > b.price) return -1;
+                    if (a.price <= b.price) return 1;
+                    else return -1;
             });
         case 'low':
             return items.slice().sort( (a , b) => {
-                    if (a.price > b.price) return 1;
-                    if (a.price < b.price) return -1;
+                    if (a.price >= b.price) return 1;
+                    else return -1;
             });
         case 'name':
             return items.slice().sort( (a , b) => {
-                    if (a.title > b.title) return 1;
-                    if (a.title < b.title) return -1;
+                    if (a.title >= b.title) return 1;
+                    else return -1;
             });
         default:
             return items;        
@@ -74,7 +73,7 @@ const searchingBy = (items, searchBy) => {
 
 
 const filteringBy = (items, filterBy) => {
-    for ( var key in filterBy) {
+    for ( let key in filterBy) {
         if (filterBy[key].length !== 0){ 
             items = items.filter(item => {
                 for( let i = 0; i < filterBy[key].length; i++) {
@@ -94,9 +93,9 @@ const mapStateToProps = (
     {productreducers, filtersreducers, cartreducers}) => ({
     items: finalFiltration(productreducers.items, filtersreducers.searchBy,
                             filtersreducers.sortBy, filtersreducers.filterBy),
-    itemCount: cartreducers.items.reduce( (count, item) => 
+    /*itemCount: cartreducers.items.reduce( (count, item) => 
                             count + (item.id === cartreducers.lastItem.id ? 1 : 0), 0),
-    lastItem: cartreducers.lastItem,
+    lastItem: cartreducers.lastItem,*/
     
     cartItems: cartreducers.items,
 

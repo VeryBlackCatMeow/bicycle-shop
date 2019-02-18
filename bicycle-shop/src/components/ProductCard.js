@@ -17,7 +17,11 @@ const ProductCard = (props) => { //width="100%" height={extraProps.height} style
                     <CardSubtitle>{description}</CardSubtitle>
                     <CardText>{type}</CardText>
                     <h5>{price} $</h5>
-                    <Button color="primary" block onClick={addToCartFunc.bind(this, props)}>Add To Cart</Button>
+                    {
+                      cartItems.some( a => (a.id===id) )
+                      ? <Button color="danger" block onClick={removeFromCartFunc.bind(this, id)}>Remove From Cart</Button>
+                      : <Button color="primary" block onClick={addToCartFunc.bind(this, props)}>Add To Cart</Button>
+                    } 
                 </CardBody>
             </Card>
         </Col>
@@ -25,8 +29,3 @@ const ProductCard = (props) => { //width="100%" height={extraProps.height} style
 }
 export default ProductCard;
 
-/*{
-    cartItems.some( a => (a.id===id) )
-    ? <Button color="danger" block onClick={removeFromCartFunc.bind(this, id)}>Remove From Cart</Button>
-    : <Button color="primary" block onClick={addToCartFunc.bind(this, props)}>Add To Cart</Button>
-  }  */

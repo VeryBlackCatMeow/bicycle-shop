@@ -17,7 +17,8 @@ const DropCart = ({totalPrice, totalCount, cartItems, removeFromCartFunc}) => (
                         { 
                             !cartItems.length
                             ? 'Your Cart Is Empty :('
-                            : cartItems.map( (item) => (<DropCartItem key={item.id} {...item} removeFromCartFunc={removeFromCartFunc}/>))
+                            : cartItems.map( (item) => (<DropCartItem key={item.id} {...item}
+                                                        removeFromCartFunc={removeFromCartFunc}/>))
                         }
                     </ListGroup>
                 </PopoverBody>
@@ -34,7 +35,7 @@ const DropCart = ({totalPrice, totalCount, cartItems, removeFromCartFunc}) => (
 
 const DropCartItem = ({id, image, title, price, removeFromCartFunc}) => (
     <ListGroupItem>
-         <img src={image} className="rounded-circle img-fluid w-25" alt="Cart Item Image"/>
+         <img src={image} className="rounded-circle img-fluid w-25" alt="Cart Item"/>
         <span>{title}</span> &nbsp; 
         <span>{price}</span> &nbsp; 
         <Button size="sm" color="danger" close onClick={removeFromCartFunc.bind(this, id)}/>
@@ -44,7 +45,7 @@ const DropCartItem = ({id, image, title, price, removeFromCartFunc}) => (
 const unique = (array) => {
     var newArr = [];
     array.filter( item => {
-        var i = newArr.findIndex(x => (x.id == item.id));
+        var i = newArr.findIndex(x => (x.id === item.id));
         if(i <= -1){
         newArr.push({...item});
         }

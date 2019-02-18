@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addToCartAction, removeFromCartAction, setQuantityAction, decreaseAction } from '../actions/index.js'
-import { Button, ButtonGroup, Input, Row, Col,
+import { addToCartAction, removeFromCartAction, /*setQuantityAction,*/ decreaseAction } from '../actions/index.js'
+import { Button, Row, Col,
          ListGroup, ListGroupItem} from 'reactstrap';
 import { Link } from 'react-router-dom';
 
@@ -13,12 +13,12 @@ const Cart = ({totalPrice, totalCount, cartItems, addToCartFunc, removeFromCartF
                 <div>
                     <ListGroup>
                         { 
-                            !cartItems.length
-                            ? 'Your Cart Is Empty :('
-                            : cartItems.map( (item) => (<CartItem key={item.id} item={item} 
-                                    removeFromCartFunc={removeFromCartFunc} addToCartFunc={addToCartFunc} 
-                                    setQuantityFunc={setQuantityFunc} quantity={quantity}
-                                    decreaseFunc={decreaseFunc} />))
+                          !cartItems.length
+                          ? 'Your Cart Is Empty :('
+                          : cartItems.map( (item) => (<CartItem key={item.id} item={item} 
+                                removeFromCartFunc={removeFromCartFunc} addToCartFunc={addToCartFunc} 
+                                setQuantityFunc={setQuantityFunc} quantity={quantity}
+                                decreaseFunc={decreaseFunc} />))
                         }
                     </ListGroup>
                 </div>
@@ -34,12 +34,12 @@ const Cart = ({totalPrice, totalCount, cartItems, addToCartFunc, removeFromCartF
 
 
 
-const CartItem = ({item, addToCartFunc, removeFromCartFunc, quantity, setQuantityFunc, decreaseFunc}) => 
+const CartItem = ({item, addToCartFunc, removeFromCartFunc, quantity, /*setQuantityFunc,*/ decreaseFunc}) => 
         (
       <ListGroupItem>
           <Row>
               <Col sm="4">
-                <img src={item.image} className="rounded-circle img-fluid w-25" alt="Cart Item Image"/>
+                <img src={item.image} className="rounded-circle img-fluid w-25" alt="Cart Item"/>
               </Col>
               <Col sm="4">
                 <span>{item.title}</span> &nbsp; 
@@ -50,7 +50,7 @@ const CartItem = ({item, addToCartFunc, removeFromCartFunc, quantity, setQuantit
               <Col sm="1">
                 
                     <Button size="sm" color="primary" onClick={decreaseFunc.bind(this, item.id)}  disabled={quantity[item.id] > 1 ? false : true}>-</Button>
-                    <Input type="text" value={quantity[item.id]} name={item.id} onChange={e => setQuantityFunc(e.target)} />
+                    <span>{quantity[item.id]}</span>
                     <Button size="sm" color="primary" onClick={addToCartFunc.bind(this, item)}>+</Button>
                 
               </Col>
@@ -65,7 +65,7 @@ const CartItem = ({item, addToCartFunc, removeFromCartFunc, quantity, setQuantit
 const unique = (array) => {
     var newArr = [];
     array.filter( item => {
-        var i = newArr.findIndex(x => (x.id == item.id));
+        var i = newArr.findIndex(x => (x.id === item.id));
         if(i <= -1){
         newArr.push({...item});
         }
@@ -85,9 +85,11 @@ const mapStateToProps = ( { cartreducers } ) => ({
 const mapDispatchToProps = (dispatch) => ({
     addToCartFunc: obj => dispatch(addToCartAction(obj)),
     removeFromCartFunc: id => dispatch(removeFromCartAction(id)),
-    setQuantityFunc: count => dispatch(setQuantityAction(count)),
+    //setQuantityFunc: count => dispatch(setQuantityAction(count)),
     decreaseFunc: id => dispatch(decreaseAction(id)),
 });
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cart);
+
+//<Input type="text" value={quantity[item.id]} name={item.id} onChange={e => setQuantityFunc(e.target)} />

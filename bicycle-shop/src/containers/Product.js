@@ -17,7 +17,7 @@ class Product extends Component {
     }
 
     render() { 
-        const {cartItems, itemCount, addToCartFunc, removeFromCartFunc, items} = this.props;
+        const {cartItems, addToCartFunc, removeFromCartFunc, items} = this.props;
         const item = items.find( i => i.id === +(this.props.match.params.id));
         if(!item) return <Loading/>;
         console.log(item);
@@ -38,7 +38,6 @@ class Product extends Component {
                     <p>{description}</p>
                     <p>{type}</p>
                     <h5>{price} $</h5>
-                    {itemCount > 0 && `(${itemCount})`}
                     {
                         cartItems.some( a => (a.id===id) )
                         ? <Button color="danger" block onClick={removeFromCartFunc.bind(this, id)}>Remove From Cart</Button>
@@ -52,8 +51,8 @@ class Product extends Component {
 
 const mapStateToProps = ( {cartreducers, productreducers} ) => ({
     items: productreducers.items,
-    itemCount: cartreducers.items.reduce( (count, item) => 
-                            count + (item.id === cartreducers.lastItem.id ? 1 : 0), 0),
+    /*itemCount: cartreducers.items.reduce( (count, item) => 
+                            count + (item.id === cartreducers.lastItem.id ? 1 : 0), 0),*/
     cartItems: cartreducers.items,
 });
 
@@ -64,3 +63,5 @@ const mapDispatchToProps = (dispatch) => ({
   });
 
   export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Product));
+
+  //{itemCount > 0 && `(${itemCount})`}
