@@ -1,16 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { removeFromCartAction } from '../actions/index.js'
-import {NavItem, NavLink,
+import { Row, Col,
          UncontrolledPopover, PopoverHeader, PopoverBody, 
          Button,
          ListGroup, ListGroupItem} from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 const DropCart = ({totalPrice, totalCount, cartItems, removeFromCartFunc}) => (
-    <NavItem id="PopoverLegacy">
-        <NavLink href="#"> Amount: &nbsp; {totalPrice} &nbsp; Items: &nbsp; {totalCount}</NavLink>
-            <UncontrolledPopover trigger="legacy" placement="bottom" target="PopoverLegacy">
+    <div >
+        <Button id="PopoverLegacy"> 
+            <span>&nbsp; {totalPrice} &nbsp;({totalCount})</span>
+        </Button>
+        <UncontrolledPopover trigger="legacy" placement="bottom" target="PopoverLegacy">
                 <PopoverHeader>Shoping Cart</PopoverHeader>
                 <PopoverBody>
                     <ListGroup>
@@ -23,22 +25,37 @@ const DropCart = ({totalPrice, totalCount, cartItems, removeFromCartFunc}) => (
                     </ListGroup>
                 </PopoverBody>
                 <PopoverHeader>
+                <div>Amount: &nbsp; {totalPrice} &nbsp; Items: &nbsp; {totalCount}</div>
+                <div>
                     <Link to="/cart">
                         <Button size="sm" color="primary" >View Cart</Button>
                     </Link>
                     <Button size="sm" color="primary" style={{ float: 'right'}}>Proceed To Checkout</Button>
+                </div>
                 </PopoverHeader>
 
             </UncontrolledPopover>
-    </NavItem>
+    </div>
 );
 
 const DropCartItem = ({id, image, title, price, removeFromCartFunc}) => (
     <ListGroupItem>
-         <img src={image} className="rounded-circle img-fluid w-25" alt="Cart Item"/>
-        <span>{title}</span> &nbsp; 
-        <span>{price}</span> &nbsp; 
-        <Button size="sm" color="danger" close onClick={removeFromCartFunc.bind(this, id)}/>
+        <Row>
+            <Col sm="4">
+                <img src={image} className="rounded-circle img-fluid" alt="Cart Item"/>
+            </Col>
+            <Col sm="6">
+                <Row>
+                <span>{title}</span> &nbsp;
+                </Row>
+                <Row>
+                <span>{price}</span> &nbsp;
+                </Row>
+            </Col>
+            <Col sm="2">
+                <Button size="sm" color="danger" close onClick={removeFromCartFunc.bind(this, id)}/>
+            </Col>
+        </Row>
     </ListGroupItem>
 );
 

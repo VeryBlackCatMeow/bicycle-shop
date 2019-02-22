@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col } from 'reactstrap';
+import {Container, Row, Col } from 'reactstrap';
 
 import Showcase from './Showcase';
 import Filter from '../containers/Filter.js';
@@ -25,20 +25,22 @@ const Gallery = (props) => {
     const extraProps = config(props.match.params.product);//тут буду прокидывать все настройки для элементов галлереи   
     
     return (
-        <Row className="pr-3"> 
-            <Col sm="12" md="2">
-                <Filter extraProps={extraProps}/> 
-            </Col>
-                
-            <Col sm="12" md="10">
-                <Row>
-                    <h3>Bicycles:</h3>
-                    <Sort/>
-                    <hr/>
-                </Row>    
-                    <Showcase extraProps={extraProps}/>
-            </Col>
-        </Row>
+        <Container>
+            <Row className="pr-3"> 
+                <Col sm="12" md="2">
+                    <Filter extraProps={extraProps}/> 
+                </Col>
+                    
+                <Col sm="12" md="10">
+                    <Row>
+                        <h3>Bicycles:</h3>
+                        <Sort/>
+                        <hr/>
+                    </Row>    
+                        <Showcase extraProps={extraProps}/>
+                </Col>
+            </Row>
+        </Container>
     );
 }
 

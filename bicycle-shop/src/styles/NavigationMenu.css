@@ -1,0 +1,19 @@
+
+.nav {
+    padding: 20px 0px;
+    }
+
+.nav-item {
+    margin: 0px 0px; 
+}
+
+a { 
+    padding: 10px;
+    margin: 10px 5px; 
+}
+.active {
+    color: red;
+    font-weight: bold; 
+    border: solid black 1px; 
+    background-color: black;
+    }

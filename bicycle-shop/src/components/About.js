@@ -1,9 +1,10 @@
 import React from 'react';
+import { Container } from 'reactstrap';
 
 const About = () => (
-<div>
+<Container>
     About Us!!!!
-</div>);
+</Container>);
 
 
 export default About;

@@ -1,36 +1,44 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { addToCartAction, removeFromCartAction, /*setQuantityAction,*/ decreaseAction } from '../actions/index.js'
-import { Button, Row, Col,
-         ListGroup, ListGroupItem} from 'reactstrap';
+import { Container,  Row, Col,
+    Button,ListGroup, ListGroupItem} from 'reactstrap';
 import { Link } from 'react-router-dom';
 
-const Cart = ({totalPrice, totalCount, cartItems, addToCartFunc, removeFromCartFunc, quantity, setQuantityFunc, decreaseFunc}) => (
-    <Row>
-        <div> Amount: &nbsp; {totalPrice} &nbsp; Items: &nbsp; {totalCount}</div>
-            
+const Cart = ({totalPrice, totalCount, cartItems, addToCartFunc, removeFromCartFunc, quantity, setQuantityFunc, decreaseFunc}) => {
+
+    if(!cartItems.length) {
+        return (
+            <div>
+                <div>Shoping Cart</div>
+                <div>'Your Cart Is Empty :('</div>
+            </div>
+        );
+    }
+    else {
+        return (
+            <Container>
                 <div>Shoping Cart</div>
                 <div>
                     <ListGroup>
-                        { 
-                          !cartItems.length
-                          ? 'Your Cart Is Empty :('
-                          : cartItems.map( (item) => (<CartItem key={item.id} item={item} 
+                        {             
+                        cartItems.map( (item) => (<CartItem key={item.id} item={item} 
                                 removeFromCartFunc={removeFromCartFunc} addToCartFunc={addToCartFunc} 
                                 setQuantityFunc={setQuantityFunc} quantity={quantity}
                                 decreaseFunc={decreaseFunc} />))
                         }
                     </ListGroup>
                 </div>
+                <div> Amount: &nbsp; {totalPrice} &nbsp; Items: &nbsp; {totalCount}</div>
                 <div>
                     <Link to="/checkout">
                     <Button size="sm" color="primary" style={{ float: 'right'}}>Proceed To Checkout</Button>
                     </Link>
                 </div>
-    </Row>
-            
-    
-);
+            </Container>
+        );
+    }
+};
 
 
 
@@ -38,21 +46,19 @@ const CartItem = ({item, addToCartFunc, removeFromCartFunc, quantity, /*setQuant
         (
       <ListGroupItem>
           <Row>
-              <Col sm="4">
+              <Col sm="3">
                 <img src={item.image} className="rounded-circle img-fluid w-25" alt="Cart Item"/>
               </Col>
               <Col sm="4">
-                <span>{item.title}</span> &nbsp; 
+                <span>{item.title}</span>
               </Col>
               <Col sm="2">
-                <span>{item.price}</span> &nbsp; 
+                <span>{item.price} &nbsp; $</span> 
               </Col>
-              <Col sm="1">
-                
-                    <Button size="sm" color="primary" onClick={decreaseFunc.bind(this, item.id)}  disabled={quantity[item.id] > 1 ? false : true}>-</Button>
-                    <span>{quantity[item.id]}</span>
-                    <Button size="sm" color="primary" onClick={addToCartFunc.bind(this, item)}>+</Button>
-                
+              <Col sm="2">
+                <Button size="sm" color="primary" onClick={decreaseFunc.bind(this, item.id)}  disabled={quantity[item.id] > 1 ? false : true}>-</Button>
+                <span>{quantity[item.id]}</span>
+                <Button size="sm" color="primary" onClick={addToCartFunc.bind(this, item)}>+</Button>
               </Col>
               <Col sm="1">
                 <Button size="sm" color="danger" close onClick={removeFromCartFunc.bind(this, item.id)}/>

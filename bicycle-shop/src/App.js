@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
 import { Container} from 'reactstrap';
-import Menu from './components/Menu.js';
+import Header from './components/Header.js';
+import NavigationMenu from './components/NavigationMenu.js';
 import Gallery from './containers/Gallery.js';
 import About from './components/About.js';
 import Home from './components/Home.js';
@@ -16,8 +17,11 @@ class App extends Component {
   render() {
    
     return (
-        <Container>
-            <Menu/>
+        <div>
+            <div className="sticky-top" style={{backgroundColor: '#DCDCDC'}}>
+              <Header/>
+              <NavigationMenu/>
+            </div>
             <Switch>
                 <Route exact path="/" component={Home} />
                 <Route path="/about" component={About} />
@@ -31,7 +35,7 @@ class App extends Component {
 
                 <Route path="*" component={PageIsNotFound}/>
             </Switch>
-        </Container>
+        </div>
     );
   }
 };
@@ -40,7 +44,7 @@ class App extends Component {
 export default App;
 
 /*
- 
+ <Container fluid="true">
 */
 /*
 <Route exact path="/bikes"

@@ -8,10 +8,11 @@ import FilterBlock  from '../components/FilterBlock.js';
 class Filter extends Component {  //onClick={setFilterFunc.bind(this, !filterBy)}
     constructor(props) {
         super(props);
+        const { extraProps } = this.props;
         this.state = { 
             blockToggle: true,
-            filterToggles: {type: true, brand: true, wheelSizes: true}
-         };
+            filterToggles: extraProps.filters.reduce((o, key) => ( {...o, [key]: true} ), {})
+         }; // all filterToggles are true
     }
 
     handleBlockToggle = () => {
@@ -28,13 +29,6 @@ class Filter extends Component {  //onClick={setFilterFunc.bind(this, !filterBy)
                         if (a >= b) return 1;
                         else return -1;
                         });
-
-    /*sorting = (items) => {
-        return items.slice().sort( (a , b) => {
-                        if (a > b) return 1;
-                        if (a < b) return -1;
-        });
-    };*/
 
     render() {
         const { setFilterFunc, extraProps, items } = this.props
