@@ -49,8 +49,8 @@
     },
     {
       "id": 8,
-      "menu": "Rent",
-      "link": "/rent",
+      "menu": "Rental",
+      "link": "/rental",
       "image": "/database/homemenu/9.jpg"  
     }
   ]

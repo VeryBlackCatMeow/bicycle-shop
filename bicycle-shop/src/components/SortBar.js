@@ -1,5 +1,5 @@
 import React from 'react';
-import { Nav, NavItem, NavLink, 
+import { Nav, NavItem, NavLink, Col,
     InputGroup, InputGroupText, InputGroupAddon, Input} from 'reactstrap';
 
     /*handleItemClick = ({target: {name}}) => {
@@ -9,6 +9,7 @@ import { Nav, NavItem, NavLink,
     };  */
 const SortBar = ({ setSortFunc, sortBy, setSearchFunc, searchBy }) => {
         return(
+            <Col className="col-sm-12">
             <Nav pills >
                 <NavItem>
                     <NavLink 
@@ -57,6 +58,7 @@ const SortBar = ({ setSortFunc, sortBy, setSearchFunc, searchBy }) => {
                     </InputGroup>
                 </NavItem>
             </Nav>
+            </Col>
         );
 }
 

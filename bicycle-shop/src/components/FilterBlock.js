@@ -2,8 +2,8 @@ import React from 'react';
 import { Button, CustomInput } from 'reactstrap';
 
 const FilterBlock = ({handleFilterToggle, filterToggles, setFilterFunc, block}) => (
-    <div>
-        <Button color="primary" name={block.tab} onClick={handleFilterToggle}>{block.tab}:</Button>
+    <div className="pt-2">
+        <Button block color="primary" name={block.tab} onClick={handleFilterToggle}>{block.tab}:</Button>
             <div onChange={e=>setFilterFunc(e.target)}>
                 {
                 filterToggles[block.tab]                    

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import { Container} from 'reactstrap';
 import Header from './components/Header.js';
-import NavigationMenu from './components/NavigationMenu.js';
 import Gallery from './containers/Gallery.js';
 import About from './components/About.js';
 import Home from './components/Home.js';
@@ -20,7 +19,7 @@ class App extends Component {
         <div>
             <div className="sticky-top" style={{backgroundColor: '#DCDCDC'}}>
               <Header/>
-              <NavigationMenu/>
+              
             </div>
             <Switch>
                 <Route exact path="/" component={Home} />

@@ -41,7 +41,7 @@ class Filter extends Component {  //onClick={setFilterFunc.bind(this, !filterBy)
 
         return(
             <div>
-                <Button color="primary" onClick={this.handleBlockToggle}>Filters:</Button>
+                <Button block color="primary" onClick={this.handleBlockToggle}>Filters:</Button>
                 {
                     this.state.blockToggle
                     ? filterBlocks.map( (block, index) => <FilterBlock 

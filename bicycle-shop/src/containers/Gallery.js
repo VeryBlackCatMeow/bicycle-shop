@@ -7,14 +7,14 @@ import Sort from './Sort.js';
 
 const Gallery = (props) => {
     const config = (product) => {
-        const bikes = { heightImg: '200px', filters: ['type', 'brand', 'wheelSizes'] };
-        const rent = { heightImg: '450px', filters: ['type', 'brand', 'wheelSizes', 'title'] };
+        const bikes = { filters: ['type', 'brand', 'wheelSize', 'color'] };
+        const rental = { filters: ['type', 'brand', 'wheelSize', 'title'] };
         
         switch (product) {
             case 'bikes':
                 return bikes;
-            case 'rent':
-                return rent;
+            case 'rental':
+                return rental;
             case 'components':
                 return bikes;
             default:
@@ -27,11 +27,11 @@ const Gallery = (props) => {
     return (
         <Container>
             <Row className="pr-3"> 
-                <Col sm="12" md="2">
+                <Col xs="3" md="2">
                     <Filter extraProps={extraProps}/> 
                 </Col>
                     
-                <Col sm="12" md="10">
+                <Col xs="9" md="10">
                     <Row>
                         <h3>Bicycles:</h3>
                         <Sort/>

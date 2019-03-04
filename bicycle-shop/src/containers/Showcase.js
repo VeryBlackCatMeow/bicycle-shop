@@ -24,14 +24,14 @@ class Showcase extends Component {
     }
 
     render() { 
-        const { items, cartItems, addToCartFunc, removeFromCartFunc, itemCount, extraProps } = this.props;
+        const { items, cartItems, addToCartFunc, removeFromCartFunc, itemCount/*, extraProps*/ } = this.props;
         return (
     <Row>
         {
           !items.length
           ? <Loading/>
         : items.map( (item) => (<ProductCard key={item.id/*.toString()*/} {...item} 
-                    extraProps={extraProps} cartItems={cartItems}
+                    /*extraProps={extraProps}*/ cartItems={cartItems}
                     addToCartFunc={addToCartFunc} removeFromCartFunc={removeFromCartFunc }
                     itemCount={itemCount}/>))
         }

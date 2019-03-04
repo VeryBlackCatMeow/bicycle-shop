@@ -3,17 +3,20 @@ import { connect } from 'react-redux';
 import { removeFromCartAction } from '../actions/index.js'
 import { Row, Col,
          UncontrolledPopover, PopoverHeader, PopoverBody, 
-         Button,
+         Button, Img,
          ListGroup, ListGroupItem} from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 const DropCart = ({totalPrice, totalCount, cartItems, removeFromCartFunc}) => (
-    <div >
-        <Button id="PopoverLegacy"> 
-            <span>&nbsp; {totalPrice} &nbsp;({totalCount})</span>
-        </Button>
+    <div>
+        <div id="PopoverLegacy" style={{backgroundColor: "green", textAlign: "center"}}>
+            <a href="#" style={{textDecoration:"none", color: "white"}}>
+                <img src="Logo.jpg" alt="logo" style={{height:"40px"}}></img><br/>
+                <span> {totalPrice}$</span> <br/><span>{totalCount} &nbsp; items</span>
+            </a> 
+        </div>
         <UncontrolledPopover trigger="legacy" placement="bottom" target="PopoverLegacy">
-                <PopoverHeader>Shoping Cart</PopoverHeader>
+                <PopoverHeader className="py-3" >Shoping Cart</PopoverHeader>
                 <PopoverBody>
                     <ListGroup>
                         { 
@@ -25,12 +28,17 @@ const DropCart = ({totalPrice, totalCount, cartItems, removeFromCartFunc}) => (
                     </ListGroup>
                 </PopoverBody>
                 <PopoverHeader>
-                <div>Amount: &nbsp; {totalPrice} &nbsp; Items: &nbsp; {totalCount}</div>
+                <div className="pb-3" > 
+                    <span>&nbsp; Amount: &nbsp; {totalPrice}</span> 
+                    <span>&nbsp; Items: &nbsp; {totalCount}</span> 
+                </div>
                 <div>
                     <Link to="/cart">
-                        <Button size="sm" color="primary" >View Cart</Button>
+                        <Button size="sm" color="primary">View Cart</Button>
                     </Link>
-                    <Button size="sm" color="primary" style={{ float: 'right'}}>Proceed To Checkout</Button>
+                    <Link to="/cart">
+                        <Button size="sm" color="primary">To Checkout</Button>
+                    </Link>
                 </div>
                 </PopoverHeader>
 
@@ -84,3 +92,13 @@ const mapDispatchToProps = (dispatch) => ({
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(DropCart);
+
+
+/*
+                    <Link to="/cart">
+                        <Button size="sm" color="primary">View Cart</Button>
+                    </Link>
+                    <Link to="/cart">
+                        <Button size="sm" color="primary" style={{ float: 'right'}}>To Checkout</Button>
+                    </Link>
+*/

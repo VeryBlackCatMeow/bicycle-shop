@@ -9,10 +9,10 @@ const Cart = ({totalPrice, totalCount, cartItems, addToCartFunc, removeFromCartF
 
     if(!cartItems.length) {
         return (
-            <div>
+            <Container>
                 <div>Shoping Cart</div>
                 <div>'Your Cart Is Empty :('</div>
-            </div>
+            </Container>
         );
     }
     else {
@@ -44,27 +44,31 @@ const Cart = ({totalPrice, totalCount, cartItems, addToCartFunc, removeFromCartF
 
 const CartItem = ({item, addToCartFunc, removeFromCartFunc, quantity, /*setQuantityFunc,*/ decreaseFunc}) => 
         (
-      <ListGroupItem>
-          <Row>
-              <Col sm="3">
-                <img src={item.image} className="rounded-circle img-fluid w-25" alt="Cart Item"/>
-              </Col>
-              <Col sm="4">
-                <span>{item.title}</span>
-              </Col>
-              <Col sm="2">
-                <span>{item.price} &nbsp; $</span> 
-              </Col>
-              <Col sm="2">
-                <Button size="sm" color="primary" onClick={decreaseFunc.bind(this, item.id)}  disabled={quantity[item.id] > 1 ? false : true}>-</Button>
-                <span>{quantity[item.id]}</span>
-                <Button size="sm" color="primary" onClick={addToCartFunc.bind(this, item)}>+</Button>
-              </Col>
-              <Col sm="1">
-                <Button size="sm" color="danger" close onClick={removeFromCartFunc.bind(this, item.id)}/>
-              </Col>
-          </Row>
-      </ListGroupItem>
+        <ListGroupItem>
+            <Row>
+                <Col sm="3">
+                    <img src={item.image} className="rounded-circle img-fluid w-50" alt="Cart Item"/>
+                </Col>
+                <Col sm="4">
+                    <p>{item.title}</p>
+                    <p>{item.title}</p>
+                    <p>{item.title}</p>
+                </Col>
+                <Col sm="2">
+                    <span>{item.price} &nbsp; $</span> 
+                </Col>
+                <Col sm="2">
+                    <span>
+                        <Button size="sm" color="primary" onClick={decreaseFunc.bind(this, item.id)}  disabled={quantity[item.id] > 1 ? false : true}>-</Button>
+                        {quantity[item.id]}
+                        <Button size="sm" color="primary" onClick={addToCartFunc.bind(this, item)}>+</Button>
+                    </span>
+                </Col>
+                <Col sm="1">
+                    <Button size="sm" color="danger" close onClick={removeFromCartFunc.bind(this, item.id)}/>
+                </Col>
+            </Row>
+        </ListGroupItem>
 );
 
 
