@@ -3,13 +3,13 @@
     padding: 20px 0px;
     }
 
-.nav-item {
-    margin: 0px 0px; 
-}
-
 .navigation-menu a { 
     padding: 10px;
     margin: 10px 5px; 
+}
+
+.navigation-menu .nav { 
+    width: 100%;
 }
 .active {
     color: red;
@@ -17,3 +17,16 @@
     border: solid black 1px; 
     background-color: black;
     }
+
+#PopoverLegacy {
+    text-align: center;
+}
+
+#PopoverLegacy a {
+    text-decoration: none;
+     color: white;
+}
+
+#PopoverLegacy img {
+    height: 40px;
+}

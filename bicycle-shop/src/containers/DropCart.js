@@ -9,9 +9,9 @@ import { Link } from 'react-router-dom';
 
 const DropCart = ({totalPrice, totalCount, cartItems, removeFromCartFunc}) => (
     <div>
-        <div id="PopoverLegacy" style={{backgroundColor: "green", textAlign: "center"}}>
-            <a href="#" style={{textDecoration:"none", color: "white"}}>
-                <img src="Logo.jpg" alt="logo" style={{height:"40px"}}></img><br/>
+        <div id="PopoverLegacy" style={{backgroundColor: "green"}}>
+            <a href="#">
+                <img src="Cart.jpg" alt="logo"/><br/>
                 <span> {totalPrice}$</span> <br/><span>{totalCount} &nbsp; items</span>
             </a> 
         </div>
