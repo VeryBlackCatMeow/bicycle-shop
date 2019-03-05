@@ -17,7 +17,7 @@ class Showcase extends Component {
             sortBy: 'all',
             filterBy: extraProps.filters.reduce((o, key) => ( {...o, [key]:[]} ), {})
         } // все фильтры из массива в extraProps устанавливаем как свойства объекта в filterBy, со значением []
-        axios.get(`/database/${this.props.match.params.product}.json`).then(({ data }) => {    
+        axios.get(`/database/${this.props.match.params.category}.json`).then(({ data }) => {    
             setProductsFunc(data);
             resetFiltersFunc(reset)      
         });
@@ -67,7 +67,8 @@ const searchingBy = (items, searchBy) => {
     return items.filter( item=>
         item.product.toLowerCase().indexOf(searchBy.toLowerCase()) >= 0 ||
         item.type.toLowerCase().indexOf(searchBy.toLowerCase()) >= 0 ||
-        item.brand.toLowerCase().indexOf(searchBy.toLowerCase()) >= 0    
+        item.brand.toLowerCase().indexOf(searchBy.toLowerCase()) >= 0 ||
+        item.category.toLowerCase().indexOf(searchBy.toLowerCase()) >= 0   
     );
 }
 

@@ -3,7 +3,7 @@ import { Container, Row, Col, InputGroup, InputGroupText, InputGroupAddon, Input
  Navbar, Nav, NavItem, NavbarToggler, Collapse, Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
  import { NavLink } from 'react-router-dom';
 import DropCart from '../containers/DropCart.js';
-import '../styles/NavigationMenu.css'
+import '../styles/header.css'
 
 class Header  extends Component {
     state = { navMenuToggler: false };
@@ -20,7 +20,7 @@ class Header  extends Component {
                         <Nav style={{backgroundColor: "black"}}>
                             <NavItem> 
                                 <NavLink exact to="/" activeClassName="active">
-                                    <img src="Logo.jpg" alt="logo" style={{width:"35px"}}></img>
+                                    <img src="logo.jpg" alt="logo" style={{width:"35px"}}></img>
                                     <span style={{fontSize:"25px"}}>BikeGalaxy</span>
                                 </NavLink>
                             </NavItem>

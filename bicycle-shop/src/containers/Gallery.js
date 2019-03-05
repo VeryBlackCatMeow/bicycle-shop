@@ -6,11 +6,11 @@ import Filter from '../containers/Filter.js';
 import Sort from './Sort.js';
 
 const Gallery = (props) => {
-    const config = (product) => {
+    const config = (category) => {
         const bikes = { filters: ['type', 'brand', 'wheelSize', 'color'] };
         const rental = { filters: ['type', 'brand', 'wheelSize', 'title'] };
         
-        switch (product) {
+        switch (category) {
             case 'bikes':
                 return bikes;
             case 'rental':
@@ -22,7 +22,7 @@ const Gallery = (props) => {
         }
     }
     
-    const extraProps = config(props.match.params.product);//тут буду прокидывать все настройки для элементов галлереи   
+    const extraProps = config(props.match.params.category);//тут буду прокидывать все настройки для элементов галлереи   
     
     return (
         <Container>

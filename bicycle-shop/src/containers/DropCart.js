@@ -11,7 +11,7 @@ const DropCart = ({totalPrice, totalCount, cartItems, removeFromCartFunc}) => (
     <div>
         <div id="PopoverLegacy" style={{backgroundColor: "green"}}>
             <a href="#">
-                <img src="Cart.jpg" alt="logo"/><br/>
+                <img src="cart.jpg" alt="cartlogo"/><br/>
                 <span> {totalPrice}$</span> <br/><span>{totalCount} &nbsp; items</span>
             </a> 
         </div>

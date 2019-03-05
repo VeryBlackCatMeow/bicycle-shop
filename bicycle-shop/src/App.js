@@ -26,11 +26,11 @@ class App extends Component {
                 <Route path="/about" component={About} />
                 <Route exact path="/cart" component={Cart} />
                 
-                <Route exact path="/:product"
+                <Route exact path="/:category"
                        key={Math.random()}
                        component={Gallery}/>
 
-                <Route exact path="/:product/:id" component={Product}/>
+                <Route exact path="/:category/:id" component={Product}/>
 
                 <Route path="*" component={PageIsNotFound}/>
             </Switch>

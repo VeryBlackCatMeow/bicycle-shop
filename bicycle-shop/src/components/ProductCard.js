@@ -4,12 +4,12 @@ import { Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button, Col} from 'reactstrap';
     //className="d-flex justify-content-between align-items-center"
 const ProductCard = (props) => { //width="100%" style={{height: '100%'}}
-    const {id, title, description, type, price, image, product,
+    const {id, title, description, type, price, image, category,
                 cartItems, addToCartFunc, removeFromCartFunc/*, extraProps*/} = props;
     return(
         <Col className="col-12 col-md-6 col-lg-4 py-3"> 
             <Card>
-                <Link to={`/${product}/${id}`}>
+                <Link to={`/${category}/${id}`}>
                     <CardImg top /*height={extraProps.heightImg}*/ src={image} alt="Product" /> 
                 </Link>  
                     <CardBody>

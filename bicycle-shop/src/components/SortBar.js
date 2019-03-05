@@ -42,13 +42,6 @@ const SortBar = ({ setSortFunc, sortBy, setSearchFunc, searchBy }) => {
                     </NavLink>
                 </NavItem>
                 <NavItem>
-                    <NavLink 
-                        active={sortBy==='avg'}
-                        onClick={setSortFunc.bind(this, 'avg')}
-                        href='#'>Avg customer review
-                    </NavLink>
-                </NavItem>
-                <NavItem>
                     <InputGroup>
                         <InputGroupAddon addonType="prepend">
                             <InputGroupText>Search By Product</InputGroupText>
@@ -63,3 +56,4 @@ const SortBar = ({ setSortFunc, sortBy, setSearchFunc, searchBy }) => {
 }
 
 export default SortBar;
+/**Avg customer review */

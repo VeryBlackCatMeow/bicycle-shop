@@ -8,43 +8,43 @@
     {
       "id": 1,
       "menu": "Components",
-      "link": "Slide Img",
+      "link": "/components",
       "image": "/database/homemenu/2.jpg"  
     },
     {
       "id": 2,
       "menu": "Tools",
-      "link": "Slide Img",
+      "link": "/tools",
       "image": "/database/homemenu/3.jpg"  
     },
     {
       "id": 3,
       "menu": "Apparel",
-      "link": "Slide Img",
+      "link": "/apparel",
       "image": "/database/homemenu/4.jpg"  
     },
     {
       "id": 4,
       "menu": "Accessories",
-      "link": "Slide Img",
+      "link": "/accessories",
       "image": "/database/homemenu/5.jpg"  
     },
     {
       "id": 5,
       "menu": "Backpacks",
-      "link": "Slide Img",
+      "link": "/backpacks",
       "image": "/database/homemenu/6.jpg"  
     },
     {
       "id": 6,
       "menu": "News",
-      "link": "Slide Img",
+      "link": "/news",
       "image": "/database/homemenu/7.jpg"  
     },
     {
       "id": 7,
       "menu": "Sale",
-      "link": "Slide Img",
+      "link": "/sale",
       "image": "/database/homemenu/8.jpg"  
     },
     {
