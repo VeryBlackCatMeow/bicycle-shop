@@ -8,10 +8,10 @@
       "brand": "",
       "color": ["Galaxy"],
       "size": "",
-      "capacity": "22L",
+      "capacity": "22 L",
       "price": 79.99,
       "currencyFormat": "$",
-      "image": "/database/components/4000.jpg",
+      "image": "/database/backpacks/4000.jpg",
       "description": "We Are The Best. No Comments"
     },
     {
@@ -23,10 +23,10 @@
       "brand": "",
       "color": ["Gold"],
       "size": "",
-      "capacity": "24L",
+      "capacity": "20 L",
       "price": 49.99,
       "currencyFormat": "$",
-      "image": "/database/components/4001.jpg",
+      "image": "/database/backpacks/4001.jpg",
       "description": "Better Than The Crystal Skulls Even"
     },
     {
@@ -38,10 +38,10 @@
       "brand": "",
       "color": ["Black", "White"],
       "size": "",
-      "capacity": "20L",
+      "capacity": "20 L",
       "price": 99.99,
       "currencyFormat": "$",
-      "image": "/database/components/4002.jpg",
+      "image": "/database/backpacks/4002.jpg",
       "description": "Fantastic Backpack Transformer"
     },
     {
@@ -53,10 +53,10 @@
       "brand": "",
       "color": ["Black"],
       "size": "",
-      "capacity": "16L",
+      "capacity": "15 L",
       "price": 69.99,
       "currencyFormat": "$",
-      "image": "/database/components/4003.jpg",
+      "image": "/database/backpacks/4003.jpg",
       "description": "Legend Of The Guardians"
     },
     {
@@ -68,10 +68,10 @@
       "brand": "",
       "color": ["Brown"],
       "size": "",
-      "capacity": "18L",
+      "capacity": "18 L",
       "price": 65.99,
       "currencyFormat": "$",
-      "image": "/database/components/4004.jpg",
+      "image": "/database/backpacks/4004.jpg",
       "description": "Rock'n'Roll Star"
     },
     {
@@ -83,10 +83,10 @@
       "brand": "",
       "color": ["Green"],
       "size": ["XXL"],
-      "capacity": "28L",
+      "capacity": "28 L",
       "price": 59.99,
       "currencyFormat": "$",
-      "image": "/database/components/4005.jpg",
+      "image": "/database/backpacks/4005.jpg",
       "description": "A Home For A Pet"
     },
     {
@@ -98,10 +98,10 @@
       "brand": "",
       "color": ["Grey"],
       "size": ["L", "XXL"],
-      "capacity": "18L",
+      "capacity": "18 L",
       "price": 35.99,
       "currencyFormat": "$",
-      "image": "/database/components/4006.jpg",
+      "image": "/database/backpacks/4006.jpg",
       "description": "Jaws"
     },
     {
@@ -113,10 +113,10 @@
       "brand": "",
       "color": ["Black"],
       "size": ["XL"],
-      "capacity": "15L",
+      "capacity": "15 L",
       "price": 69.99,
       "currencyFormat": "$",
-      "image": "/database/components/4007.jpg",
+      "image": "/database/backpacks/4007.jpg",
       "description": "BatWomen Forever!" 
     },
     {
@@ -128,10 +128,10 @@
       "brand": "",
       "color": ["Galaxy"],
       "size": ["XL", "L"],
-      "capacity": "20L",
+      "capacity": "20 L",
       "price": 45.99,
       "currencyFormat": "$",
-      "image": "/database/components/4008.jpg",
+      "image": "/database/backpacks/4008.jpg",
       "description": "Perfectionist's Dream"
     },
     {
@@ -143,10 +143,10 @@
       "brand": "",
       "color": ["Black"],
       "size": ["S", "L", "XXL"],
-      "capacity": "12L",
+      "capacity": "12 L",
       "price": 65.99,
       "currencyFormat": "$",
-      "image": "/database/components/4009.jpg",
+      "image": "/database/backpacks/4009.jpg",
       "description": "Cats, cats, cats"
     },
     {
@@ -158,10 +158,10 @@
       "brand": "",
       "color": ["Green"],
       "size": ["L", "XXL"],
-      "capacity": "20L",
+      "capacity": "20 L",
       "price": 79.99,
       "currencyFormat": "$",
-      "image": "/database/components/4010.jpg",
+      "image": "/database/backpacks/4010.jpg",
       "description": "Turtle power!"
     },
     {
@@ -173,10 +173,10 @@
       "brand": "",
       "color": ["Galaxy"],
       "size": "",
-      "capacity": "17L",
+      "capacity": "18 L",
       "price": 39.99,
       "currencyFormat": "$",
-      "image": "/database/components/4011.jpg",
+      "image": "/database/backpacks/4011.jpg",
       "description": "Rush Hour Massage"
     },
     {
@@ -188,10 +188,10 @@
       "brand": "",
       "color": ["Brown"],
       "size": "",
-      "capacity": "15L",
+      "capacity": "15 L",
       "price": 99.99,
       "currencyFormat": "$",
-      "image": "/database/components/4012.jpg",
+      "image": "/database/backpacks/4012.jpg",
       "description": "Poor Fox..."
     },
     {
@@ -203,10 +203,10 @@
       "brand": "",
       "color": ["Galaxy"],
       "size": "",
-      "capacity": "35L",
+      "capacity": "35 L",
       "price": 139.99,
       "currencyFormat": "$",
-      "image": "/database/components/4013.jpg",
+      "image": "/database/backpacks/4013.jpg",
       "description": "Wait"
     },
     {
@@ -218,10 +218,10 @@
       "brand": "",
       "color": ["Black"],
       "size": "",
-      "capacity": "18L",
+      "capacity": "18 L",
       "price": 89.99,
       "currencyFormat": "$",
-      "image": "/database/components/4014.jpg",
+      "image": "/database/backpacks/4014.jpg",
       "description": "Sweaming"
     }
     

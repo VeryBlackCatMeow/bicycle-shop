@@ -10,7 +10,7 @@
       "size": ["XL", "XXL"],
       "price": 239.99,
       "currencyFormat": "$",
-      "image": "/database/components/3000.jpg",
+      "image": "/database/apparel/3000.jpg",
       "description": "Ghost Rider"
     },
     {
@@ -24,7 +24,7 @@
       "size": ["L", "XL"],
       "price": 99.99,
       "currencyFormat": "$",
-      "image": "/database/components/3001.jpg",
+      "image": "/database/apparel/3001.jpg",
       "description": "Time to Burn"
     },
     {
@@ -38,7 +38,7 @@
       "size": ["XL"],
       "price": 169.99,
       "currencyFormat": "$",
-      "image": "/database/components/3002.jpg",
+      "image": "/database/apparel/3002.jpg",
       "description": "Armor"
     },
     {
@@ -52,7 +52,7 @@
       "size": ["S", "XXL", "XXL"],
       "price": 29.99,
       "currencyFormat": "$",
-      "image": "/database/components/3003.jpg",
+      "image": "/database/apparel/3003.jpg",
       "description": "Scream 5"
     },
     {
@@ -66,7 +66,7 @@
       "size": ["S", "L", "XL", "XXL"],
       "price": 35.99,
       "currencyFormat": "$",
-      "image": "/database/components/3004.jpg",
+      "image": "/database/apparel/3004.jpg",
       "description": "Call of Jungles"
     },
     {
@@ -80,7 +80,7 @@
       "size": ["XXL"],
       "price": 4.99,
       "currencyFormat": "$",
-      "image": "/database/components/3005.jpg",
+      "image": "/database/apparel/3005.jpg",
       "description": "Work"
     },
     {
@@ -94,7 +94,7 @@
       "size": ["L", "XXL"],
       "price": 69.99,
       "currencyFormat": "$",
-      "image": "/database/components/3006.jpg",
+      "image": "/database/apparel/3006.jpg",
       "description": "Spiders"
     },
     {
@@ -108,7 +108,7 @@
       "size": ["XL"],
       "price": 121.99,
       "currencyFormat": "$",
-      "image": "/database/components/3007.jpg",
+      "image": "/database/apparel/3007.jpg",
       "description": "Nightmare" 
     },
     {
@@ -122,7 +122,7 @@
       "size": ["XL", "L"],
       "price": 85.99,
       "currencyFormat": "$",
-      "image": "/database/components/3008.jpg",
+      "image": "/database/apparel/3008.jpg",
       "description": "Step"
     },
     {
@@ -136,7 +136,7 @@
       "size": ["S", "L", "XXL"],
       "price": 65.99,
       "currencyFormat": "$",
-      "image": "/database/components/3009.jpg",
+      "image": "/database/apparel/3009.jpg",
       "description": "Kick Them All"
     },
     {
@@ -150,7 +150,7 @@
       "size": ["L", "XXL"],
       "price": 27.99,
       "currencyFormat": "$",
-      "image": "/database/components/3010.jpg",
+      "image": "/database/apparel/3010.jpg",
       "description": "Run"
     },
     {
@@ -164,7 +164,7 @@
       "size": ["S", "L"],
       "price": 29.99,
       "currencyFormat": "$",
-      "image": "/database/components/3011.jpg",
+      "image": "/database/apparel/3011.jpg",
       "description": "Apocalypse"
     },
     {
@@ -178,7 +178,7 @@
       "size": ["XL", "XXL"],
       "price": 79.99,
       "currencyFormat": "$",
-      "image": "/database/components/3012.jpg",
+      "image": "/database/apparel/3012.jpg",
       "description": "Rats in the Walls"
     },
     {
@@ -192,7 +192,7 @@
       "size": ["L", "XXL"],
       "price": 119.99,
       "currencyFormat": "$",
-      "image": "/database/components/3013.jpg",
+      "image": "/database/apparel/3013.jpg",
       "description": "Wait"
     },
     {
@@ -206,7 +206,7 @@
       "size": ["XL", "XXL"],
       "price": 33.99,
       "currencyFormat": "$",
-      "image": "/database/components/3014.jpg",
+      "image": "/database/apparel/3014.jpg",
       "description": "Sweaming"
     },
     {
@@ -220,7 +220,7 @@
       "size": ["S","L"],
       "price": 40.99,
       "currencyFormat": "$",
-      "image": "/database/components/3015.jpg",
+      "image": "/database/apparel/3015.jpg",
       "description": "I Believe I Can Fly"
     },
     {
@@ -234,7 +234,7 @@
       "size": ["L", "XL"],
       "price": 110.99,
       "currencyFormat": "$",
-      "image": "/database/components/3016.jpg",
+      "image": "/database/apparel/3016.jpg",
       "description": "Contact Pedals"
     },
     {
@@ -248,7 +248,7 @@
       "size": ["XL", "XXL"],
       "price": 99.99,
       "currencyFormat": "$",
-      "image": "/database/components/3017.jpg",
+      "image": "/database/apparel/3017.jpg",
       "description": "With Glasses"
     },
     {
@@ -262,7 +262,7 @@
       "size": ["L", "XXL"],
       "price": 23.99,
       "currencyFormat": "$",
-      "image": "/database/components/3018.jpg",
+      "image": "/database/apparel/3018.jpg",
       "description": "Contact Pedals"
     },
     {
@@ -276,7 +276,7 @@
       "size": ["S"],
       "price": 178.99,
       "currencyFormat": "$",
-      "image": "/database/components/3019.jpg",
+      "image": "/database/apparel/3019.jpg",
       "description": "Mountain Shoes"
     },
     {
@@ -290,7 +290,7 @@
       "size": ["XXL"],
       "price": 28.99,
       "currencyFormat": "$",
-      "image": "/database/components/3020.jpg",
+      "image": "/database/apparel/3020.jpg",
       "description": "Smile"
     }
     

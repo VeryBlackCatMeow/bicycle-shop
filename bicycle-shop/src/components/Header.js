@@ -5,7 +5,7 @@ import { Container, Row, Col, InputGroup, InputGroupText, InputGroupAddon, Input
 import DropCart from '../containers/DropCart.js';
 import '../styles/header.css'
 
-class Header  extends Component {
+class Header extends Component {
     state = { navMenuToggler: false };
     handleMenuToggle = () => {
         this.setState({
@@ -43,40 +43,54 @@ class Header  extends Component {
                             </NavItem>
                         </Nav> 
                     </Col> 
-                    <Col className="navigation-menu" xs="3" lg={{size:12, order: 4}}>  {/* Меню ссылок */} 
+                    <Col xs="3" lg={{size:12, order: 4}}>  {/* Меню ссылок */} 
                         <Navbar light expand="md">
                             <NavbarToggler onClick={this.handleMenuToggle} />
-                                <Collapse isOpen={this.state.navMenuToggler} navbar>
-                                    <Nav className="justify-content-around">
-                                        <NavItem> 
-                                            <NavLink exact to="/" activeClassName="active">Home</NavLink>
-                                        </NavItem>
-                                        <NavItem>
-                                            <NavLink to="/bikes" activeClassName="active">Bikes</NavLink>
-                                        </NavItem>
-                                        <NavItem>   
-                                            <NavLink to="/about" activeClassName="active">About Us</NavLink>
-                                        </NavItem>
-                                        <NavItem>      
-                                            <NavLink to="/rental" activeClassName="active">Rent</NavLink>
-                                        </NavItem>
-                                    </Nav>
-                                </Collapse>
+
+                            <Collapse className="top-nav-menu" navbar>
+                                <Nav className="justify-content-around">
+                                    <NavItem> 
+                                        <NavLink exact to="/" activeClassName="active">Home</NavLink>
+                                    </NavItem>
+                                    <NavItem>
+                                        <NavLink to="/bikes" activeClassName="active">Bikes</NavLink>
+                                    </NavItem>
+                                    <NavItem>   
+                                        <NavLink to="/about" activeClassName="active">About Us</NavLink>
+                                    </NavItem>
+                                    <NavItem>      
+                                        <NavLink to="/rental" activeClassName="active">Rent</NavLink>
+                                    </NavItem>
+                                </Nav>
+                            </Collapse>    
+                                
+                            <Modal className="side-nav-menu" isOpen={this.state.navMenuToggler} toggle={this.handleMenuToggle}>
+                                    <ModalHeader toggle={this.handleMenuToggle}>Modal title
+                                    </ModalHeader>
+                                    <ModalBody>
+                                        <Nav vertical>
+                                            <NavItem> 
+                                                <NavLink exact to="/" activeClassName="active" onClick={this.handleMenuToggle}>Home</NavLink>
+                                            </NavItem>
+                                            <NavItem>
+                                                <NavLink to="/bikes" activeClassName="active" onClick={this.handleMenuToggle}>Bikes</NavLink>
+                                            </NavItem>
+                                            <NavItem>   
+                                                <NavLink to="/about" activeClassName="active" onClick={this.handleMenuToggle}>About Us</NavLink>
+                                            </NavItem>
+                                            <NavItem>      
+                                                <NavLink to="/rental" activeClassName="active" onClick={this.handleMenuToggle}>Rent</NavLink>
+                                            </NavItem>
+                                        </Nav>
+                                    </ModalBody>
+                                    <ModalFooter>
+                                        <Button color="primary" onClick={this.handleMenuToggle}>Do Something</Button>{' '}
+                                        <Button color="secondary" onClick={this.handleMenuToggle}>Cancel</Button>
+                                    </ModalFooter>
+                            </Modal>
                         </Navbar>
 
-                        <div>
-                            <Button color="danger" onClick={this.handleMenuToggle}>Modal</Button>
-                            <Modal isOpen={this.state.navMenuToggler} toggle={this.handleMenuToggle}>
-                                <ModalHeader toggle={this.handleMenuToggle}>Modal title</ModalHeader>
-                                <ModalBody>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                </ModalBody>
-                                <ModalFooter>
-                                    <Button color="primary" onClick={this.toggle}>Do Something</Button>{' '}
-                                    <Button color="secondary" onClick={this.toggle}>Cancel</Button>
-                                </ModalFooter>
-                            </Modal>
-                        </div>
+                       
 
                     </Col> 
                 </Row>
@@ -88,3 +102,34 @@ class Header  extends Component {
 
 
 export default Header;
+
+/**  <Navbar light expand="md">
+                            <NavbarToggler onClick={this.handleMenuToggle} />
+                            
+                                <Modal isOpen={this.state.navMenuToggler} toggle={this.handleMenuToggle}>
+                                    <ModalHeader toggle={this.handleMenuToggle}>Modal title</ModalHeader>
+                                    <ModalBody>
+                                    <Collapse isOpen={this.state.navMenuToggler} navbar>
+                                        <Nav className="justify-content-around">
+                                            <NavItem  onClick={this.handleMenuToggle}> 
+                                                <NavLink exact to="/" activeClassName="active">Home</NavLink>
+                                            </NavItem>
+                                            <NavItem onClick={this.handleMenuToggle}>
+                                                <NavLink to="/bikes" activeClassName="active" >Bikes</NavLink>
+                                            </NavItem>
+                                            <NavItem onClick={this.handleMenuToggle}>   
+                                                <NavLink to="/about" activeClassName="active">About Us</NavLink>
+                                            </NavItem>
+                                            <NavItem onClick={this.handleMenuToggle}>      
+                                                <NavLink to="/rental" activeClassName="active">Rent</NavLink>
+                                            </NavItem>
+                                        </Nav>
+                                        </Collapse>
+                                    </ModalBody>
+                                    <ModalFooter>
+                                        <Button color="primary" onClick={this.handleMenuToggle}>Do Something</Button>{' '}
+                                        <Button color="secondary" onClick={this.handleMenuToggle}>Cancel</Button>
+                                    </ModalFooter>
+                                </Modal>
+                                
+                        </Navbar>*/
