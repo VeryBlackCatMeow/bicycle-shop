@@ -60,7 +60,7 @@ class Header extends Component {
                         <Nav className="top-search" style={{backgroundColor: "black"}}>
                             <NavItem> 
                                 <InputGroup>
-                                    <InputGroupAddon addonType="prepend"> ? </InputGroupAddon>
+                                    <InputGroupAddon addonType="prepend">Search</InputGroupAddon>
                                     <Input/>
                                 </InputGroup>
                             </NavItem>

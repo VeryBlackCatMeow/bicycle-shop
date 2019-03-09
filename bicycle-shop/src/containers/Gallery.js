@@ -46,11 +46,11 @@ const Gallery = (props) => {
     return (
         <Container>
             <Row className="pr-3"> 
-                <Col xs="3">
+                <Col xs="3" lg="2" >
                     <Filter extraProps={extraProps}/> 
                 </Col>
                     
-                <Col xs="9">
+                <Col xs="9" lg="10">
                     <Row>
                         <Sort/>
                     </Row>

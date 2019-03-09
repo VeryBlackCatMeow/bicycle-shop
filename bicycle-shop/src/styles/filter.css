@@ -1,0 +1,9 @@
+.span_icon {
+    display: inline-block;
+    transition: transform .2s;
+    transform: rotate(90deg);
+  }
+   
+  .span_icon:active {
+    transform: none;
+  }

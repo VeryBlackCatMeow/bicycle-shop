@@ -19,7 +19,10 @@ const ProductCard = (props) => { //width="100%" style={{height: '100%'}}
                         <h5>{price} $</h5>
                         {
                           cartItems.some( a => (a.id===id) )
-                          ? <Button color="danger" block onClick={removeFromCartFunc.bind(this, id)}>Remove From Cart</Button>
+                          ? <Button color="secondary" block onClick={removeFromCartFunc.bind(this, id)}>
+                                    <span className="btn-into">Added To Cart Already</span>
+                                    <span className="btn-remove"> Remove From Cart</span>
+                            </Button>
                           : <Button color="primary" block onClick={addToCartFunc.bind(this, props)}>Add To Cart</Button>
                         } 
                     </CardBody>
