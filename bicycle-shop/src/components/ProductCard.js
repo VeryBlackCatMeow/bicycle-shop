@@ -23,10 +23,10 @@ const ProductCard = (props) => { //width="100%" style={{height: '100%'}}
                           : <Button color="primary" block onClick={addToCartFunc.bind(this, props)}>Add To Cart</Button>
                         } 
                     </CardBody>
-                </Card>
-            </Col>
-        );
-    }
+            </Card>
+        </Col>
+    );
+}
     export default ProductCard;
 
 /*d-block="true"  width="100%" style={{ margin: "auto", textAlign: 'center'}} */

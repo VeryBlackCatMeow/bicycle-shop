@@ -1,16 +1,36 @@
-.nav {
-    padding: 20px 0px;
+.top-logo {
+    padding: 10px 0px;
+}
+.top-logo img {
+    width: 4em;
+}
+.top-logo span {
+    font-size: 25px;
+}
+
+
+.top-search {
+    padding: 10px 0px;
+}
+.top-search .nav-item {
+    width: 100%;
+}
+
+.top-menu {
+    padding: 10px 0px;
+}
+.top-menu a {
+    text-decoration: none;
+    color: white;
 }
 
 .top-nav-menu .nav {
     width: 100%;
 }
-
 .top-nav-menu a { 
     padding: 10px;
     margin: 10px 5px; 
 }
-
 .top-nav-menu .active {
     color: red;
     font-weight: bold; 
@@ -23,7 +43,6 @@
     right: 0px;
     width: 75%;
 }
-
 .side-nav-menu a { 
     padding: 8px;
     margin: 2px 5px;
@@ -33,7 +52,6 @@
     text-decoration: none;
     color: white; 
 }
-    
 .side-nav-menu .active {
     color: red;
     font-weight: bold; 
@@ -43,13 +61,12 @@
 
 #PopoverLegacy {
     text-align: center;
+    background: url("/cart.jpg") no-repeat top /cover;
+    width: 4em;
 }
 
-#PopoverLegacy a {
-    text-decoration: none;
-    color: white;
-}
+/*#PopoverLegacy img {
+    width: 4em;
+    margin-bottom: -3.8em
+}*/
 
-#PopoverLegacy img {
-    height: 40px;
-}

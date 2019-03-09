@@ -6,36 +6,59 @@ import DropCart from '../containers/DropCart.js';
 import '../styles/header.css'
 
 class Header extends Component {
-    state = { navMenuToggler: false };
+    state = { 
+        navMenuToggler: false,
+        popoverToggler: false
+     };
+    
     handleMenuToggle = () => {
         this.setState({
             navMenuToggler: !this.state.navMenuToggler
         });
       }
+
+    handlePopoverToggle = () => {
+        this.setState({
+            popoverToggler: !this.state.popoverToggler
+        });
+      }
+    
     render() {
         return( 
             <Container>
                 <Row>
-                    <Col xs="5" lg={{size:3, order: 1}} style={{backgroundColor: "yellow"}}> {/*Лого */}
-                        <Nav style={{backgroundColor: "black"}}>
+                    <Col xs="5" lg={{size:3, order: 1}}>                                             {/*Лого */}
+                        <Nav  className="top-logo" style={{backgroundColor: "green"}}>
                             <NavItem> 
-                                <NavLink exact to="/" activeClassName="active">
-                                    <img src="logo.jpg" alt="logo" style={{width:"35px"}}></img>
-                                    <span style={{fontSize:"25px"}}>BikeGalaxy</span>
+                                <NavLink exact to="/">
+                                    <img src="logo.jpg" alt="logo"></img>
+                                    <span>BikeGalaxy</span>
                                 </NavLink>
                             </NavItem>
                         </Nav> 
                     </Col> 
-                    <Col xs="7" lg={{size:3, order: 3}} style={{backgroundColor: "grey"}}> {/* аккаунт корзина */}
-                        <Row className="justify-content-end align-items-center">
-                            <NavLink exact to="/rental" activeClassName="active">Ho</NavLink>
-                            <NavLink to="/bikes" activeClassName="active">Bic</NavLink>
-                            <DropCart />
-                        </Row>
+                    <Col xs="7" lg={{size:3, order: 3}} style={{backgroundColor: "blue"}}>        {/* аккаунт корзина */}
+                        <Nav className="top-menu justify-content-end align-items-center">
+                            <NavItem>
+                                <NavLink exact to="/rental" activeClassName="active">
+                                    Hello
+                                </NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink to="/bikes" activeClassName="active">
+                                    Sign In
+                                </NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink to="#" activeClassName="active">
+                                    <DropCart popoverToggler={this.state.popoverToggler} handlePopoverToggle={this.handlePopoverToggle}/>
+                                </NavLink>
+                            </NavItem>
+                        </Nav>
                     </Col>
-                    <Col xs="9" lg={{size:6, order: 2}}> {/*Поиск */} 
-                        <Nav style={{backgroundColor: "black"}}>
-                            <NavItem style={{width: "100%"}}> 
+                    <Col xs="10" lg={{size:6, order: 2}}>                                             {/*Поиск */} 
+                        <Nav className="top-search" style={{backgroundColor: "black"}}>
+                            <NavItem> 
                                 <InputGroup>
                                     <InputGroupAddon addonType="prepend"> ? </InputGroupAddon>
                                     <Input/>
@@ -43,8 +66,8 @@ class Header extends Component {
                             </NavItem>
                         </Nav> 
                     </Col> 
-                    <Col xs="3" lg={{size:12, order: 4}}>  {/* Меню ссылок */} 
-                        <Navbar light expand="md">
+                    <Col xs="2" lg={{size:12, order: 4}}>                                        {/* Меню ссылок */} 
+                        <Navbar light expand="lg">
                             <NavbarToggler onClick={this.handleMenuToggle} />
 
                             <Collapse className="top-nav-menu" navbar>
@@ -102,6 +125,14 @@ class Header extends Component {
 
 
 export default Header;
+
+/**<Row className="justify-content-end align-items-center">
+        <div><NavLink exact to="/rental" activeClassName="active">Ho</NavLink></div>
+        <div><NavLink to="/bikes" activeClassName="active">Bic</NavLink></div>
+        <DropCart />
+    </Row> */
+
+
 
 /**  <Navbar light expand="md">
                             <NavbarToggler onClick={this.handleMenuToggle} />

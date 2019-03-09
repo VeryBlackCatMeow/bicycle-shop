@@ -40,7 +40,7 @@ class Filter extends Component {  //onClick={setFilterFunc.bind(this, !filterBy)
         ));
 
         return(
-            <div>
+            <>
                 <Button block color="primary" onClick={this.handleBlockToggle}>Filters:</Button>
                 {
                     this.state.blockToggle
@@ -51,7 +51,7 @@ class Filter extends Component {  //onClick={setFilterFunc.bind(this, !filterBy)
                         setFilterFunc={setFilterFunc}/> )
                     : null
                 }
-            </div>
+            </>
         );
     }
 }

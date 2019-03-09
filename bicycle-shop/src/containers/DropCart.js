@@ -1,21 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { removeFromCartAction } from '../actions/index.js'
-import { Row, Col,
+import { Row, Col, Popover,
          UncontrolledPopover, PopoverHeader, PopoverBody, 
          Button, Img,
          ListGroup, ListGroupItem} from 'reactstrap';
 import { Link } from 'react-router-dom';
 
-const DropCart = ({totalPrice, totalCount, cartItems, removeFromCartFunc}) => (
-    <div>
-        <div id="PopoverLegacy" style={{backgroundColor: "green"}}>
-            <a href="#">
-                <img src="cart.jpg" alt="cartlogo"/><br/>
-                <span> {totalPrice}$</span> <br/><span>{totalCount} &nbsp; items</span>
-            </a> 
+const DropCart = ({totalPrice, totalCount, cartItems, removeFromCartFunc, popoverToggler, handlePopoverToggle}) => (
+    <> 
+        <div id="PopoverLegacy">
+            {/*<img src="cart.jpg" alt="cartlogo"/><br/>*/}
+            <span>{totalCount}</span><br/>
+            <span> {totalPrice}$</span>
         </div>
-        <UncontrolledPopover trigger="legacy" placement="bottom" target="PopoverLegacy">
+        
+<Popover isOpen={popoverToggler} toggle={handlePopoverToggle} /*trigger="legacy"*/ placement="bottom" target="PopoverLegacy">
                 <PopoverHeader className="py-3" >Shoping Cart</PopoverHeader>
                 <PopoverBody>
                     <ListGroup>
@@ -33,8 +33,8 @@ const DropCart = ({totalPrice, totalCount, cartItems, removeFromCartFunc}) => (
                     <span>&nbsp; Items: &nbsp; {totalCount}</span> 
                 </div>
                 <div>
-                    <Link to="/cart">
-                        <Button size="sm" color="primary">View Cart</Button>
+                    <Link to="/cart" onClick={handlePopoverToggle}>
+                        <Button size="sm" color="primary" >View Cart</Button>
                     </Link>
                     <Link to="/cart">
                         <Button size="sm" color="primary">To Checkout</Button>
@@ -42,8 +42,8 @@ const DropCart = ({totalPrice, totalCount, cartItems, removeFromCartFunc}) => (
                 </div>
                 </PopoverHeader>
 
-            </UncontrolledPopover>
-    </div>
+            </Popover>
+    </>
 );
 
 const DropCartItem = ({id, image, title, price, removeFromCartFunc}) => (

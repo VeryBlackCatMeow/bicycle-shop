@@ -9,7 +9,8 @@ import { Nav, NavItem, NavLink, Col,
     };  */
 const SortBar = ({ setSortFunc, sortBy, setSearchFunc, searchBy }) => {
         return(
-            <Col className="col-sm-12">
+            <>
+            <h3>Bicycles:</h3>
             <Nav pills >
                 <NavItem>
                     <NavLink 
@@ -51,7 +52,7 @@ const SortBar = ({ setSortFunc, sortBy, setSearchFunc, searchBy }) => {
                     </InputGroup>
                 </NavItem>
             </Nav>
-            </Col>
+            </>
         );
 }
 
