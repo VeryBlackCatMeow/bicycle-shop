@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { removeFromCartAction } from '../actions/index.js'
 import { Row, Col, Popover,
          PopoverHeader, PopoverBody, 
-         Button, Badge,
+         Button,
          ListGroup, ListGroupItem} from 'reactstrap';
 import { Link } from 'react-router-dom';
 

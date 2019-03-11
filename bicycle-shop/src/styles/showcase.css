@@ -2,6 +2,9 @@
     color: blue;
     background-color:#DCDCDC;
     border: 1px solid blue;
+
+    transition: transform 1s;
+    transform: scale(1.2);
 }
 
 .card .btn-primary:hover {

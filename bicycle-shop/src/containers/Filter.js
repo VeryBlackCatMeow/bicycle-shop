@@ -68,7 +68,7 @@ class Filter extends Component {  //onClick={setFilterFunc.bind(this, !filterBy)
                     ? filterBlocks.map( (block, index) => <FilterBlock 
                         key={index} block={block} 
                         handleFilterToggle={this.handleFilterToggle}
-                        filterToggle={this.state.filterToggles}
+                        filterToggle={this.state.filterToggles[block.tab]}
                         setFilterFunc={setFilterFunc}/> )
                     : null
                 }

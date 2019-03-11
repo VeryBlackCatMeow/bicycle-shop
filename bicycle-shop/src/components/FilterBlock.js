@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, CustomInput } from 'reactstrap';
 
 const FilterBlock = ({handleFilterToggle, filterToggle, setFilterFunc, block}) => {
-    const blockArrow =!filterToggle[block.tab] ? 'down' : 'right'
+    const blockArrow =!filterToggle ? 'down' : 'right'
     return (
     <div className="mt-2" style={{backgroundColor: 'grey'}}>
         <Button block color="primary" name={block.tab} onClick={handleFilterToggle}>
@@ -11,7 +11,7 @@ const FilterBlock = ({handleFilterToggle, filterToggle, setFilterFunc, block}) =
         </Button>
         <div onChange={e=>setFilterFunc(e.target)}>
             {
-            filterToggle[block.tab]                 
+            filterToggle            
             ? block.list.map( (checkbox, index) => <CustomInput key={index} id={checkbox} 
                                                         type="checkbox" name={block.tab} 
                                                         value={checkbox} label={checkbox}/> )    

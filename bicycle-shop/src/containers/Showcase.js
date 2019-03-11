@@ -18,8 +18,8 @@ class Showcase extends Component {
             filterBy: extraProps.filters.reduce((o, key) => ( {...o, [key]:[]} ), {})
         } // все фильтры из массива в extraProps устанавливаем как свойства объекта в filterBy, со значением []
         axios.get(`/database/${this.props.match.params.category}.json`).then(({ data }) => {    
-            setProductsFunc(data);
-            resetFiltersFunc(reset)      
+            setProductsFunc(data);   
+            resetFiltersFunc(reset);
         });
     }
 
