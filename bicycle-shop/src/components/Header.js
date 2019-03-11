@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Container, Row, Col, InputGroup, InputGroupAddon, Input,
- Navbar, Nav, NavItem, NavbarToggler, Collapse, Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
- import { NavLink } from 'react-router-dom';
+    Navbar, Nav, NavItem, NavbarToggler, Collapse, Button, Modal, 
+    ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { NavLink } from 'react-router-dom';
 import DropCart from '../containers/DropCart.js';
 import '../styles/header.css'
 
@@ -38,14 +39,14 @@ class Header extends Component {
                         </Nav> 
                     </Col> 
                     <Col xs="7" lg={{size:3, order: 3}} style={{backgroundColor: "blue"}}>        {/* аккаунт корзина */}
-                        <Nav className="top-menu justify-content-end align-items-center">
+                        <Nav className="top-account-menu justify-content-end align-items-center">
                             <NavItem>
                                 <NavLink exact to="/rental" activeClassName="active">
                                     Hello
                                 </NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink to="/bikes" activeClassName="active">
+                                <NavLink to="/bicycles" activeClassName="active">
                                     Sign In
                                 </NavLink>
                             </NavItem>
@@ -76,7 +77,7 @@ class Header extends Component {
                                         <NavLink exact to="/" activeClassName="active">Home</NavLink>
                                     </NavItem>
                                     <NavItem>
-                                        <NavLink to="/bikes" activeClassName="active">Bikes</NavLink>
+                                        <NavLink to="/bicycles" activeClassName="active">Bicycles</NavLink>
                                     </NavItem>
                                     <NavItem>   
                                         <NavLink to="/about" activeClassName="active">About Us</NavLink>
@@ -96,7 +97,7 @@ class Header extends Component {
                                                 <NavLink exact to="/" activeClassName="active" onClick={this.handleMenuToggle}>Home</NavLink>
                                             </NavItem>
                                             <NavItem>
-                                                <NavLink to="/bikes" activeClassName="active" onClick={this.handleMenuToggle}>Bikes</NavLink>
+                                                <NavLink to="/bicycles" activeClassName="active" onClick={this.handleMenuToggle}>Bicycles</NavLink>
                                             </NavItem>
                                             <NavItem>   
                                                 <NavLink to="/about" activeClassName="active" onClick={this.handleMenuToggle}>About Us</NavLink>
@@ -128,7 +129,7 @@ export default Header;
 
 /**<Row className="justify-content-end align-items-center">
         <div><NavLink exact to="/rental" activeClassName="active">Ho</NavLink></div>
-        <div><NavLink to="/bikes" activeClassName="active">Bic</NavLink></div>
+        <div><NavLink to="/bicycles" activeClassName="active">Bic</NavLink></div>
         <DropCart />
     </Row> */
 
@@ -146,7 +147,7 @@ export default Header;
                                                 <NavLink exact to="/" activeClassName="active">Home</NavLink>
                                             </NavItem>
                                             <NavItem onClick={this.handleMenuToggle}>
-                                                <NavLink to="/bikes" activeClassName="active" >Bikes</NavLink>
+                                                <NavLink to="/bicycles" activeClassName="active" >bicycles</NavLink>
                                             </NavItem>
                                             <NavItem onClick={this.handleMenuToggle}>   
                                                 <NavLink to="/about" activeClassName="active">About Us</NavLink>

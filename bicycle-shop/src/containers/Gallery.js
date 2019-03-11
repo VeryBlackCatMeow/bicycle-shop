@@ -10,7 +10,7 @@ const Gallery = (props) => {
         const accessories = { filters: ['product', 'color'] };
         const apparel = { filters: ['product', 'type', 'brand', 'color', 'size'] };
         const backpacks = { filters: ['color', 'capacity'] };
-        const bikes = { filters: ['type', 'brand', 'wheel Size', 'color'] };
+        const bicycles = { filters: ['type', 'brand', 'wheel Size', 'color'] };
         const components = { filters: ['product', 'type', 'brand', 'color'] };
         const news = { filters: ['product'] };
         const rental = { filters: ['type', 'brand', 'wheel Size', 'title'] };
@@ -18,8 +18,8 @@ const Gallery = (props) => {
         const tools = { filters: ['product', 'brand', 'color']};
         
         switch (category) {
-            case 'bikes':
-                return bikes;
+            case 'bicycles':
+                return bicycles;
             case 'rental':
                 return rental;
             case 'accessories':
@@ -37,7 +37,7 @@ const Gallery = (props) => {
             case 'tools':
                 return tools;    
             default:
-                return bikes;
+                return bicycles;
         }
     }
     
@@ -51,7 +51,8 @@ const Gallery = (props) => {
                 </Col>
                     
                 <Col xs="9" lg="10"  style={{backgroundColor: 'green'}}>
-                    <Row>
+                    <h3 className="product-category">{props.match.params.category}</h3>
+                    <Row style={{backgroundColor: 'yellow'}}>
                         <Sort/>
                     </Row>
                     <Row>  

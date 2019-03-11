@@ -16,10 +16,10 @@
     width: 100%;
 }
 
-.top-menu {
+.top-account-menu {
     padding: 10px 0px;
 }
-.top-menu a {
+.top-account-menu a {
     text-decoration: none;
     color: white;
 }
@@ -63,8 +63,30 @@
     text-align: center;
     background: url("/cart.jpg") no-repeat top /cover;
     width: 4em;
+    font-weight: bold; 
 }
-
+#PopoverLegacy .cart-count {
+    display: block;
+    float: right;
+    position: relative;
+    right: 0.3em;
+    top: 0.1em;
+    width: 1.7em;
+    height: 1.7em;
+    line-height: 1.7em;
+    border-radius: 50%;
+    background-color:red;
+    text-align: center;
+    font-size: 0.7em;
+    color: white;
+    
+}
+#PopoverLegacy .cart-price {
+    position: relative;
+    top: 0.3em;
+    color: #4B0082;
+    
+}
 /*#PopoverLegacy img {
     width: 4em;
     margin-bottom: -3.8em

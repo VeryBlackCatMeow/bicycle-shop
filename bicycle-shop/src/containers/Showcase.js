@@ -78,7 +78,7 @@ const filteringBy = (items, filterBy) => {
         if (filterBy[key].length !== 0){ 
             items = items.filter(item => {
                 for( let i = 0; i < filterBy[key].length; i++) {
-                        if(item[key].indexOf(filterBy[key][i]) >= 0) return true;
+                    if(item[key].indexOf(filterBy[key][i]) >= 0) return true;
                 }
             });
         }

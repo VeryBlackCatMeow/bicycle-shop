@@ -1,15 +1,17 @@
 import React from 'react';
 import { Button, CustomInput } from 'reactstrap';
 
-const FilterBlock = ({handleFilterToggle, filterToggles, setFilterFunc, block, arrow}) => (
+const FilterBlock = ({handleFilterToggle, filterToggle, setFilterFunc, block}) => {
+    const blockArrow =!filterToggle[block.tab] ? 'down' : 'right'
+    return (
     <div className="mt-2" style={{backgroundColor: 'grey'}}>
         <Button block color="primary" name={block.tab} onClick={handleFilterToggle}>
             <span className="filt-name">{block.tab}</span>
-            <span className="filt-arrow"><i className={arrow}></i></span>
+            <span className="filt-arrow"><i className={blockArrow}></i></span>
         </Button>
         <div onChange={e=>setFilterFunc(e.target)}>
             {
-            filterToggles[block.tab]                    
+            filterToggle[block.tab]                 
             ? block.list.map( (checkbox, index) => <CustomInput key={index} id={checkbox} 
                                                         type="checkbox" name={block.tab} 
                                                         value={checkbox} label={checkbox}/> )    
@@ -17,33 +19,6 @@ const FilterBlock = ({handleFilterToggle, filterToggles, setFilterFunc, block, a
             }
         </div> 
     </div>
-);
+);}
 
 export default FilterBlock;
-
-
-
-/*
-import React from 'react';
-import { Button, CustomInput } from 'reactstrap';
-
-const FilterBlock = ({handleFilterToggle, filterToggles, setFilterFunc, block}) => (
-    <div>
-        <Button color="primary" name={block.tab} onClick={handleFilterToggle}>{block.tab}:</Button>
-            <div onChange={e=>setFilterFunc(e.target)}>
-                {
-                filterToggles[block.tab]                    
-                ? block.list.map( (checkbox, index) => <FilterList key={index} checkbox={checkbox} name={block.tab}/> )    
-                : null
-                }
-            </div> 
-    </div>
-);
-
-const FilterList = ({checkbox, name}) => (
-    <CustomInput id={checkbox} type="checkbox" name={name} value={checkbox} label={checkbox}/>
-);
-
-export default FilterBlock;
-
-*/

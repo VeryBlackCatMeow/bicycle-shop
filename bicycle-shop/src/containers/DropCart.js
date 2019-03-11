@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { removeFromCartAction } from '../actions/index.js'
 import { Row, Col, Popover,
          PopoverHeader, PopoverBody, 
-         Button,
+         Button, Badge,
          ListGroup, ListGroupItem} from 'reactstrap';
 import { Link } from 'react-router-dom';
 
@@ -11,8 +11,8 @@ const DropCart = ({totalPrice, totalCount, cartItems, removeFromCartFunc, popove
     <> 
         <div id="PopoverLegacy">
             {/*<img src="cart.jpg" alt="cartlogo"/><br/>*/}
-            <span>{totalCount}</span><br/>
-            <span> {totalPrice}$</span>
+            <span className="cart-count">{totalCount}</span><br/>
+            <span className="cart-price"> {totalPrice}$</span>
         </div>
         
 <Popover isOpen={popoverToggler} toggle={handlePopoverToggle} /*trigger="legacy"*/ placement="bottom" target="PopoverLegacy">

@@ -10,7 +10,6 @@ import { Nav, NavItem, NavLink,
 const SortBar = ({ setSortFunc, sortBy, setSearchFunc, searchBy }) => {
         return(
             <>
-            <h3>Bicycles:</h3>
             <Nav pills >
                 <NavItem>
                     <NavLink 

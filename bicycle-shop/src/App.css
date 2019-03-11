@@ -1,3 +1,7 @@
 .App {
   text-align: center;
 }
+
+.product-category:first-letter {
+  text-transform: uppercase;
+}

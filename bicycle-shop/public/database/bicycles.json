@@ -1,7 +1,7 @@
 [ 
   {
     "id": 0,
-    "category": "bikes",
+    "category": "bicycles",
     "product": "Bicycle",
     "type": "Mountain",
     "title": "Master Hill-Hop",
@@ -11,12 +11,12 @@
     "wheel Size": ["26", "27.5"],
     "price": 1299.99,
     "currencyFormat": "$",
-    "image": "/database/bikes/0.jpg",
+    "image": "/database/bicycles/0.jpg",
     "description": "Godlike vehicle"
   },
   {
     "id": 1,
-    "category": "bikes",
+    "category": "bicycles",
     "product": "Bicycle",
     "type": "Business",
     "title": "ZE Best Relax",
@@ -26,12 +26,12 @@
     "wheel Size": ["26", "27.5", "29"],
     "price": 2999.99,
     "currencyFormat": "$",
-    "image": "/database/bikes/1.jpg",
+    "image": "/database/bicycles/1.jpg",
     "description": "Godlike vehicle"
   },
   {
     "id": 2,
-    "category": "bikes",
+    "category": "bicycles",
     "product": "Bicycle",
     "type": "Economy",
     "title": "Urban Ground",
@@ -41,12 +41,12 @@
     "wheel Size": ["26"],
     "price": 19.99,
     "currencyFormat": "$",
-    "image": "/database/bikes/2.jpg",
+    "image": "/database/bicycles/2.jpg",
     "description": "Cheap&Nice"
   },
   {
     "id": 3,
-    "category": "bikes",
+    "category": "bicycles",
     "product": "Bicycle",
     "type": "Gourmet",
     "title": "Master SAW",
@@ -56,12 +56,12 @@
     "wheel Size": ["26"],
     "price": 1799.99,
     "currencyFormat": "$",
-    "image": "/database/bikes/3.jpg",
+    "image": "/database/bicycles/3.jpg",
     "description": "Be Yourself"
   },
   {
     "id": 4 ,
-    "category": "bikes",
+    "category": "bicycles",
     "product": "Bicycle",
     "type": "Future",
     "title": "ZE Best Futurama",
@@ -71,12 +71,12 @@
     "wheel Size": ["29"],
     "price": 3999.99,
     "currencyFormat": "$",
-    "image": "/database/bikes/4.jpg",
+    "image": "/database/bicycles/4.jpg",
     "description": "Back in the Future!!!"
   },
   {
     "id": 5,
-    "category": "bikes",
+    "category": "bicycles",
     "product": "Bicycle",
     "type": "Kid",
     "title": "ZE Best It",
@@ -86,12 +86,12 @@
     "wheel Size": ["16"],
     "price": 1799.99,
     "currencyFormat": "$",
-    "image": "/database/bikes/5.jpg",
+    "image": "/database/bicycles/5.jpg",
     "description": "You'll float too"
   },
   {
     "id": 6,
-    "category": "bikes",
+    "category": "bicycles",
     "product": "Bicycle",
     "type": "Economy",
     "title": "Puzzle Nistep",
@@ -101,12 +101,12 @@
     "wheel Size": ["26"],
     "price": 105.99,
     "currencyFormat": "$",
-    "image": "/database/bikes/6.jpg",
+    "image": "/database/bicycles/6.jpg",
     "description": "Vehicle for poors"
   },
   {
     "id": 7,
-    "category": "bikes",
+    "category": "bicycles",
     "product": "Bicycle",
     "type": "Gourmet",
     "title": "ZE Best Rodeo",
@@ -116,12 +116,12 @@
     "wheel Size": ["27.5", "29"],
     "price": 2899.99,
     "currencyFormat": "$",
-    "image": "/database/bikes/7.jpg",
+    "image": "/database/bicycles/7.jpg",
     "description": "Faster, Harder"
   },
   {
     "id": 8,
-    "category": "bikes",
+    "category": "bicycles",
     "product": "Bicycle",
     "type": "Extreme",
     "title": "Master Bridge",
@@ -131,12 +131,12 @@
     "wheel Size": ["20"],
     "price": 399.99,
     "currencyFormat": "$",
-    "image": "/database/bikes/8.jpg",
+    "image": "/database/bicycles/8.jpg",
     "description": "Show me what you got"
   },
   {
     "id": 9,
-    "category": "bikes",
+    "category": "bicycles",
     "product": "Bicycle",
     "type": "Business",
     "title": "My Master",
@@ -146,12 +146,12 @@
     "wheel Size": ["27.5", "29"],
     "price": 3859.99,
     "currencyFormat": "$",
-    "image": "/database/bikes/9.jpg",
+    "image": "/database/bicycles/9.jpg",
     "description": "Be 1-st everytime"
   },
   {
     "id": 10,
-    "category": "bikes",
+    "category": "bicycles",
     "product": "Bicycle",
     "type": "Ecological",
     "title": "Galaxy Tree",
@@ -161,12 +161,12 @@
     "wheel Size": ["20"],
     "price": 659.99,
     "currencyFormat": "$",
-    "image": "/database/bikes/10.jpg",
+    "image": "/database/bicycles/10.jpg",
     "description": "Be 1-st everytime"
   },
   {
     "id": 11,
-    "category": "bikes",
+    "category": "bicycles",
     "product": "Bicycle",
     "type": "Economy",
     "title": "Master Invisible",
@@ -176,12 +176,12 @@
     "wheel Size": ["26", "27.5"],
     "price": 9.99,
     "currencyFormat": "$",
-    "image": "/database/bikes/11.jpg",
+    "image": "/database/bicycles/11.jpg",
     "description": "Faster, Harder"
   },
   {
     "id": 12 ,
-    "category": "bikes",
+    "category": "bicycles",
     "product": "Bicycle",
     "type": "Sport",
     "title": "Galaxy Alfa 5",
@@ -191,12 +191,12 @@
     "wheel Size": ["26", "27.5", "29"],
     "price": 1899.99,
     "currencyFormat": "$",
-    "image": "/database/bikes/12.jpg",
+    "image": "/database/bicycles/12.jpg",
     "description": "Faster, Harder"
   },
   {
     "id": 13,
-    "category": "bikes",
+    "category": "bicycles",
     "product": "Bicycle",
     "type": "Extreme",
     "title": "Urban Kolobok",
@@ -206,12 +206,12 @@
     "wheel Size": ["26", "27.5"],
     "price": 464.99,
     "currencyFormat": "$",
-    "image": "/database/bikes/13.jpg",
+    "image": "/database/bicycles/13.jpg",
     "description": "Cheap vehicle"
   },
   {
     "id": 14,
-    "category": "bikes",
+    "category": "bicycles",
     "product": "Bicycle",
     "type": "Family",
     "title": "Puzzle Kolovrat",
@@ -221,12 +221,12 @@
     "wheel Size": ["29"],
     "price": 1099.99,
     "currencyFormat": "$",
-    "image": "/database/bikes/14.jpg",
+    "image": "/database/bicycles/14.jpg",
     "description": "Godlike vehicle"
   },
   {
     "id": 15,
-    "category": "bikes",
+    "category": "bicycles",
     "product": "Bicycle",
     "type": "Extreme",
     "title": "Puzzle Blade",
@@ -236,12 +236,12 @@
     "wheel Size": ["20"],
     "price": 744.99,
     "currencyFormat": "$",
-    "image": "/database/bikes/15.jpg",
+    "image": "/database/bicycles/15.jpg",
     "description": "Cheap vehicle"
   },
   {
     "id": 16,
-    "category": "bikes",
+    "category": "bicycles",
     "product": "Bicycle",
     "type": "Gourmet",
     "title": "Urban GirlsEnjoyer",
@@ -251,12 +251,12 @@
     "wheel Size": ["26"],
     "price": 699.99,
     "currencyFormat": "$",
-    "image": "/database/bikes/16.jpg",
+    "image": "/database/bicycles/16.jpg",
     "description": "Faster, Harder"
   },
   {
     "id": 17,
-    "category": "bikes",
+    "category": "bicycles",
     "product": "Bicycle",
     "type": "Future",
     "title": "Galaxy Sun",
@@ -266,12 +266,12 @@
     "wheel Size": ["27.5"],
     "price": 3359.99,
     "currencyFormat": "$",
-    "image": "/database/bikes/17.jpg",
+    "image": "/database/bicycles/17.jpg",
     "description": "Faster, Harder"
   },
   {
     "id": 18,
-    "category": "bikes",
+    "category": "bicycles",
     "product": "Bicycle",
     "type": "Service",
     "title": "Urban Truck",
@@ -281,12 +281,12 @@
     "wheel Size": ["29"],
     "price": 2699.99,
     "currencyFormat": "$",
-    "image": "/database/bikes/18.jpg",
+    "image": "/database/bicycles/18.jpg",
     "description": "Faster, Harder"
   },
   {
     "id": 19,
-    "category": "bikes",
+    "category": "bicycles",
     "product": "Bicycle",
     "type": "Family",
     "title": "Puzzle Conference",
@@ -296,12 +296,12 @@
     "wheel Size": ["26"],
     "price": 1859.99,
     "currencyFormat": "$",
-    "image": "/database/bikes/19.jpg",
+    "image": "/database/bicycles/19.jpg",
     "description": "Faster, Harder"
   },
   {
     "id": 20,
-    "category": "bikes",
+    "category": "bicycles",
     "product": "Bicycle",
     "type": "Kid",
     "title": "Galaxy Bug",
@@ -311,12 +311,12 @@
     "wheel Size": ["16"],
     "price": 959.99,
     "currencyFormat": "$",
-    "image": "/database/bikes/20.jpg",
+    "image": "/database/bicycles/20.jpg",
     "description": "Faster, Harder"
   },
   {
     "id": 21,
-    "category": "bikes",
+    "category": "bicycles",
     "product": "Bicycle",
     "type": "Service",
     "title": "Urban Lawnmower",
@@ -326,12 +326,12 @@
     "wheel Size": ["26"],
     "price": 1289.99,
     "currencyFormat": "$",
-    "image": "/database/bikes/21.jpg",
+    "image": "/database/bicycles/21.jpg",
     "description": "Faster, Harder"
   },
   {
     "id": 22,
-    "category": "bikes",
+    "category": "bicycles",
     "product": "Bicycle",
     "type": "Sport",
     "title": "Galaxy Aquarius",
@@ -341,12 +341,12 @@
     "wheel Size": ["29"],
     "price": 1859.99,
     "currencyFormat": "$",
-    "image": "/database/bikes/22.jpg",
+    "image": "/database/bicycles/22.jpg",
     "description": "Faster, Harder"
   },
   {
     "id": 23,
-    "category": "bikes",
+    "category": "bicycles",
     "product": "Bicycle",
     "type": "Service",
     "title": "Urban Fire",
@@ -356,7 +356,7 @@
     "wheel Size": ["26", "27.5"],
     "price": 2119.99,
     "currencyFormat": "$",
-    "image": "/database/bikes/23.jpg",
+    "image": "/database/bicycles/23.jpg",
     "description": "Faster, Harder"
   }
   
