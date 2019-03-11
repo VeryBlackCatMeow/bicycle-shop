@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { removeFromCartAction } from '../actions/index.js'
 import { Row, Col, Popover,
-         UncontrolledPopover, PopoverHeader, PopoverBody, 
-         Button, Img,
+         PopoverHeader, PopoverBody, 
+         Button,
          ListGroup, ListGroupItem} from 'reactstrap';
 import { Link } from 'react-router-dom';
 

@@ -1,18 +1,21 @@
 import React from 'react';
 import { Button, CustomInput } from 'reactstrap';
 
-const FilterBlock = ({handleFilterToggle, filterToggles, setFilterFunc, block}) => (
-    <div className="pt-2">
-        <Button block color="primary" name={block.tab} onClick={handleFilterToggle}>{block.tab}:</Button>
-            <div onChange={e=>setFilterFunc(e.target)}>
-                {
-                filterToggles[block.tab]                    
-                ? block.list.map( (checkbox, index) => <CustomInput key={index} id={checkbox} 
-                                                            type="checkbox" name={block.tab} 
-                                                            value={checkbox} label={checkbox}/> )    
-                : null
-                }
-            </div> 
+const FilterBlock = ({handleFilterToggle, filterToggles, setFilterFunc, block, arrow}) => (
+    <div className="mt-2" style={{backgroundColor: 'grey'}}>
+        <Button block color="primary" name={block.tab} onClick={handleFilterToggle}>
+            <span className="filt-name">{block.tab}</span>
+            <span className="filt-arrow"><i className={arrow}></i></span>
+        </Button>
+        <div onChange={e=>setFilterFunc(e.target)}>
+            {
+            filterToggles[block.tab]                    
+            ? block.list.map( (checkbox, index) => <CustomInput key={index} id={checkbox} 
+                                                        type="checkbox" name={block.tab} 
+                                                        value={checkbox} label={checkbox}/> )    
+            : null
+            }
+        </div> 
     </div>
 );
 

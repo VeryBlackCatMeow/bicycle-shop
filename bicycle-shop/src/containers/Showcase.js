@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import { setProductsAction, addToCartAction, removeFromCartAction, resetFiltersAction  } from '../actions/index.js'
 import ProductCard from '../components/ProductCard';
 import Loading from '../components/Loading';
-import { Row } from 'reactstrap';
 import { withRouter } from 'react-router-dom';
 import '../styles/showcase.css'
 

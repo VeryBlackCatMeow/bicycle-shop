@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-
-import { Container} from 'reactstrap';
 import Header from './components/Header.js';
 import Gallery from './containers/Gallery.js';
 import About from './components/About.js';

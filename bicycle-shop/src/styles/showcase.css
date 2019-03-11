@@ -5,7 +5,7 @@
 }
 
 .card .btn-primary:hover {
-    background-color: green;
+    background-color: blue;
 }
 .card .btn-secondary:hover{
     background-color: red;

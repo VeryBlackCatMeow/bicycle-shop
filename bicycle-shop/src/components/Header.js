@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, InputGroup, InputGroupText, InputGroupAddon, Input,
+import { Container, Row, Col, InputGroup, InputGroupAddon, Input,
  Navbar, Nav, NavItem, NavbarToggler, Collapse, Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
  import { NavLink } from 'react-router-dom';
 import DropCart from '../containers/DropCart.js';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Nav, NavItem, NavLink, Col,
+import { Nav, NavItem, NavLink,
     InputGroup, InputGroupText, InputGroupAddon, Input} from 'reactstrap';
 
     /*handleItemClick = ({target: {name}}) => {
@@ -45,7 +45,7 @@ const SortBar = ({ setSortFunc, sortBy, setSearchFunc, searchBy }) => {
                 <NavItem>
                     <InputGroup>
                         <InputGroupAddon addonType="prepend">
-                            <InputGroupText>Search By Product</InputGroupText>
+                            <InputGroupText>Search</InputGroupText>
                         </InputGroupAddon>
                         <Input value={searchBy} 
                                onChange={e => setSearchFunc(e.target.value)}/>

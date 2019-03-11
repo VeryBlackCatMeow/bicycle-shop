@@ -10,10 +10,10 @@ const Gallery = (props) => {
         const accessories = { filters: ['product', 'color'] };
         const apparel = { filters: ['product', 'type', 'brand', 'color', 'size'] };
         const backpacks = { filters: ['color', 'capacity'] };
-        const bikes = { filters: ['type', 'brand', 'wheelSize', 'color'] };
+        const bikes = { filters: ['type', 'brand', 'wheel Size', 'color'] };
         const components = { filters: ['product', 'type', 'brand', 'color'] };
         const news = { filters: ['product'] };
-        const rental = { filters: ['type', 'brand', 'wheelSize', 'title'] };
+        const rental = { filters: ['type', 'brand', 'wheel Size', 'title'] };
         const sale = { filters: ['product'] };
         const tools = { filters: ['product', 'brand', 'color']};
         
@@ -45,12 +45,12 @@ const Gallery = (props) => {
     
     return (
         <Container>
-            <Row className="pr-3"> 
-                <Col xs="3" lg="2" >
+            <Row style={{backgroundColor: 'yellow'}}> 
+                <Col xs="3" lg="2"  style={{backgroundColor: 'grey'}}>
                     <Filter extraProps={extraProps}/> 
                 </Col>
                     
-                <Col xs="9" lg="10">
+                <Col xs="9" lg="10"  style={{backgroundColor: 'green'}}>
                     <Row>
                         <Sort/>
                     </Row>

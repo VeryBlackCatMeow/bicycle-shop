@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import classnames from 'classnames';
 import { Button } from 'reactstrap';
 import { setFilterAction } from '../actions/index.js'
 import { connect } from 'react-redux';
@@ -13,26 +12,37 @@ class Filter extends Component {  //onClick={setFilterFunc.bind(this, !filterBy)
         const { extraProps } = this.props;
         this.state = { 
             blockToggle: true,
-            filterToggles: extraProps.filters.reduce((o, key) => ( {...o, [key]: true} ), {})
+            filterToggles: extraProps.filters.reduce((o, key) => ( {...o, [key]: true} ), {}),
+            blockArrow: 'down',
+            filterArrows: extraProps.filters.reduce((o, key) => ( {...o, [key]: 'down'} ), {})
          }; // all filterToggles are true
     }
 
     handleBlockToggle = () => {
-        this.setState({ blockToggle: !this.state.blockToggle });
+        this.setState({ 
+            blockToggle: !this.state.blockToggle,
+            blockArrow: !this.state.blockToggle ? 'down' : 'right'
+        });
     }
 
-
-    handleFilterToggle = ({target: {name}}) => {
-        this.setState({ filterToggles: {...this.state.filterToggles, 
-                                        [name]: !this.state.filterToggles[name] }}
-        );
+    handleFilterToggle = (e) => {
+        var target = e.target;
+        while (target != this) {
+            if (target.className == 'btn btn-primary btn-block') {
+                const name=target.name;
+                this.setState({ 
+                    filterToggles: {...this.state.filterToggles, 
+                                                [name]: !this.state.filterToggles[name] },
+                    filterArrows: !this.state.filterToggles[name] 
+                    ? {...this.state.filterArrows, [name]: 'down' }
+                    : {...this.state.filterArrows, [name]: 'right'}
+                });
+            return;
+            }
+        target = target.parentNode;
+        }
     }
 
-    handleArrowRotate = (e) => {
-
-        var el = e ? e.target : window.event.srcElement;
-        el.style.transform = 'rotate(90deg)';
-    }
     
     sorting = (items) => items.slice().sort( (a , b) => {
                         if (a >= b) return 1;
@@ -47,13 +57,12 @@ class Filter extends Component {  //onClick={setFilterFunc.bind(this, !filterBy)
              list: this.sorting( [...new Set([].concat(...items.map(item =>item[i])))] ) //array of checkboxes names/values from items
             }          //собираем все возможные значения фильтров (фильтры из extraProps, значения из items)
         ));
-        //let classes = classnames('span_icon', {active: !this.state.blockToggle });
 
         return(
             <>
                 <Button block color="primary" onClick={this.handleBlockToggle}>
-                    <span style={{float: "left"}}>Filters</span>
-                    <span /*className={classes}*/ className="span_icon" style={{float: "right"}}>></span>
+                    <span className="filt-name">Filters</span>
+                    <span className="filt-arrow"><i className={this.state.blockArrow}></i></span>
                 </Button>
                 {
                     this.state.blockToggle
@@ -61,6 +70,7 @@ class Filter extends Component {  //onClick={setFilterFunc.bind(this, !filterBy)
                         key={index} block={block} 
                         handleFilterToggle={this.handleFilterToggle}
                         filterToggles={this.state.filterToggles}
+                        arrow={this.state.filterArrows[block.tab]}
                         setFilterFunc={setFilterFunc}/> )
                     : null
                 }
