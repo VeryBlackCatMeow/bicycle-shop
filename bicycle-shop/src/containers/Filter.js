@@ -50,14 +50,18 @@ class Filter extends Component {  //onClick={setFilterFunc.bind(this, !filterBy)
 
     render() {
         const { setFilterFunc, extraProps, items } = this.props
+        //console.log(extraProps);
         const filterBlocks =  extraProps.filters.map( i => ( 
             {
-             tab: i, 
+             name: i, 
              list: this.sorting( [...new Set([].concat(...items.map(item =>item[i])))] ) //array of checkboxes names/values from items
             }          //собираем все возможные значения фильтров (фильтры из extraProps, значения из items)
         ));
-        const blockArrow =!this.state.blockToggle ? 'down' : 'right'
-        return(
+        const blockArrow =!this.state.blockToggle ? 'down' : 'right';
+        
+        console.log(filterBlocks);
+        
+         return(
             <>
                 <Button block color="primary" onClick={this.handleBlockToggle}>
                     <span className="filt-name">Filters</span>
@@ -65,10 +69,10 @@ class Filter extends Component {  //onClick={setFilterFunc.bind(this, !filterBy)
                 </Button>
                 {
                     this.state.blockToggle
-                    ? filterBlocks.map( (block, index) => <FilterBlock 
-                        key={index} block={block} 
+                    ? filterBlocks.map( (filterBlock, index) => <FilterBlock 
+                        key={index} filterBlock={filterBlock} 
                         handleFilterToggle={this.handleFilterToggle}
-                        filterToggle={this.state.filterToggles[block.tab]}
+                        filterToggle={this.state.filterToggles[filterBlock.name]}
                         setFilterFunc={setFilterFunc}/> )
                     : null
                 }

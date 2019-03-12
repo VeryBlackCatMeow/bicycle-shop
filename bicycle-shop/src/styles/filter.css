@@ -40,3 +40,15 @@ i {
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
 }
+
+@media (max-width: 768px) {
+  .btn {
+    font-size: 0.8em;
+  }
+}
+
+@media (max-width: 568px) {
+  .btn {
+    font-size: 0.6em;
+  }
+}

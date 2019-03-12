@@ -61,8 +61,8 @@
 
 #PopoverLegacy {
     text-align: center;
-    background: url("/cart.jpg") no-repeat top /cover;
-    width: 4em;
+    /*background: url("/cart.jpg") no-repeat top /cover;
+    width: 4em;*/
     font-weight: bold; 
 }
 #PopoverLegacy .cart-count {

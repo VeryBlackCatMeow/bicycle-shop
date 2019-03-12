@@ -41,16 +41,16 @@ class Header extends Component {
                     <Col xs="7" lg={{size:3, order: 3}} style={{backgroundColor: "blue"}}>        {/* аккаунт корзина */}
                         <Nav className="top-account-menu justify-content-end align-items-center">
                             <NavItem>
-                                <NavLink exact to="/rental" activeClassName="active">
-                                    Hello
+                                <NavLink exact to="/rental" activeClassName="active">	
+                                    <i className='fas fa-spider' style={{fontSize: '32px'}}></i>
                                 </NavLink>
                             </NavItem>
                             <NavItem>
                                 <NavLink to="/bicycles" activeClassName="active">
-                                    Sign In
+                                <i className='fas fa-user-circle' style={{fontSize: '32px'}}></i>
                                 </NavLink>
                             </NavItem>
-                            <NavItem>
+                            <NavItem>	
                                 <NavLink to="#" activeClassName="active">
                                     <DropCart popoverToggler={this.state.popoverToggler} handlePopoverToggle={this.handlePopoverToggle}/>
                                 </NavLink>

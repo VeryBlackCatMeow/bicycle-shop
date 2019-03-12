@@ -1,26 +1,26 @@
-.card:hover {
+.product-card:hover {
     color: blue;
     background-color:#DCDCDC;
     border: 1px solid blue;
 
     transition: transform 1s;
-    transform: scale(1.2);
+    transform: scale(1.05);
 }
 
-.card .btn-primary:hover {
+.product-card .btn-primary:hover {
     background-color: blue;
 }
-.card .btn-secondary:hover{
+.product-card .btn-secondary:hover{
     background-color: red;
 }
 
-.card .btn-secondary:hover .btn-into{
+.product-card .btn-secondary:hover .btn-into{
     background-color: red;
     display: none;
 }
-.card .btn-secondary .btn-remove {
+.product-card .btn-secondary .btn-remove {
     display: none;
 }
-.card .btn-secondary:hover .btn-remove {
+.product-card .btn-secondary:hover .btn-remove {
     display: inline;
 }

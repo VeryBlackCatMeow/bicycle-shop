@@ -8,7 +8,7 @@ const ProductCard = (props) => { //width="100%" style={{height: '100%'}}
                 cartItems, addToCartFunc, removeFromCartFunc/*, extraProps*/} = props;
     return(
         <Col className="col-12 col-md-6 col-lg-4 py-3"> 
-            <Card>
+            <Card className="product-card">
                 <Link to={`/${category}/${id}`}>
                     <CardImg top /*height={extraProps.heightImg}*/ src={image} alt="Product" /> 
                 </Link>  

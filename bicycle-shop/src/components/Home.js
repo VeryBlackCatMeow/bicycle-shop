@@ -36,7 +36,7 @@ class Home extends Component {
                         ? <UncontrolledCarousel items={slides} />
                         : null 
                         }
-                        <Row className="my-4">
+                        <Row className="my-4 justify-content-center">
                             {
                             homemenu
                             ? homemenu.map( (menu, id) => (<HomeMenu key={id} {...menu} />))
@@ -81,6 +81,15 @@ class Home extends Component {
                     </Col>
 
 
+                </Row>
+                <Row>
+                    <i className='fas fa-home' style={{fontSize: '24px'}}></i>
+                                    <i className='fas fa-map-marker-alt' style={{fontSize: '24px'}}></i>
+                                    <i className='fas fa-phone-square' style={{fontSize: '24px'}}></i>
+                                    <i className='fas fa-map-marker' style={{fontSize: '24px'}}></i>
+                                    <i className='fas fa-phone' style={{fontSize: '24px'}}></i>
+                                    <i className='fas fa-search' style={{fontSize: '24px'}}></i>
+                                    <i className='fas fa-bicycle' style={{fontSize: '24px'}}></i>
                 </Row>
              </Container> 
         );
