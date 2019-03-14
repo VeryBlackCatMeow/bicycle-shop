@@ -58,12 +58,9 @@ class Filter extends Component {  //onClick={setFilterFunc.bind(this, !filterBy)
             }          //собираем все возможные значения фильтров (фильтры из extraProps, значения из items)
         ));
         const blockArrow =!this.state.blockToggle ? 'down' : 'right';
-        
-        console.log(filterBlocks);
-        
-         return(
+        return(
             <>
-                <Button block color="primary" onClick={this.handleBlockToggle}>
+                <Button className="filt-button" block color="primary" onClick={this.handleBlockToggle}>
                     <span className="filt-name">Filters</span>
                     <span className="filt-arrow"><i className={blockArrow}></i></span>
                 </Button>

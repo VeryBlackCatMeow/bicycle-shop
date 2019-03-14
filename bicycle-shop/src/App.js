@@ -15,10 +15,8 @@ class App extends Component {
    
     return (
         <>
-            <div className="sticky-top" style={{backgroundColor: '#DCDCDC'}}>
-              <Header/>
-            </div>
-            <Switch>
+          <Header/>
+          <Switch>
                 <Route exact path="/" component={Home} />
                 <Route path="/about" component={About} />
                 <Route exact path="/cart" component={Cart} />
@@ -30,7 +28,7 @@ class App extends Component {
                 <Route exact path="/:category/:id" component={Product}/>
 
                 <Route path="*" component={PageIsNotFound}/>
-            </Switch>
+          </Switch>
         </>
     );
   }

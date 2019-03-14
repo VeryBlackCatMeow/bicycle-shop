@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Row, Col, InputGroup, InputGroupAddon, Input,
-    Navbar, Nav, NavItem, NavbarToggler, Collapse, Button, Modal, 
-    ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+        Navbar, Nav, NavItem, NavbarToggler, Collapse, Button, Modal, 
+        ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 import DropCart from '../containers/DropCart.js';
 import '../styles/header.css'
@@ -26,11 +26,12 @@ class Header extends Component {
     
     render() {
         return( 
+            <Container className="header sticky-top" fluid="true">
             <Container>
                 <Row>
-                    <Col xs="5" lg={{size:3, order: 1}}>                                             {/*Лого */}
-                        <Nav  className="top-logo" style={{backgroundColor: "green"}}>
-                            <NavItem> 
+                    <Col xs="4" lg={{size:3, order: 1}}>                                             {/*Лого */}
+                        <Nav  className="head-logo align-items-center" style={{backgroundColor: "black"}}>
+                            <NavItem className="align-items-center"> 
                                 <NavLink exact to="/">
                                     <img src="logo.jpg" alt="logo"></img>
                                     <span>BikeGalaxy</span>
@@ -38,16 +39,18 @@ class Header extends Component {
                             </NavItem>
                         </Nav> 
                     </Col> 
-                    <Col xs="7" lg={{size:3, order: 3}} style={{backgroundColor: "blue"}}>        {/* аккаунт корзина */}
-                        <Nav className="top-account-menu justify-content-end align-items-center">
+                    <Col xs="8" lg={{size:4, order: 3}}>                                          {/* аккаунт корзина */}
+                        <Nav className="head-account-menu justify-content-end align-items-center" style={{backgroundColor: "black"}}>
                             <NavItem>
                                 <NavLink exact to="/rental" activeClassName="active">	
-                                    <i className='fas fa-spider' style={{fontSize: '32px'}}></i>
+                                    <i className='fas fa-map-marker-alt'></i>
+                                    <span>Stores</span>
                                 </NavLink>
                             </NavItem>
                             <NavItem>
                                 <NavLink to="/bicycles" activeClassName="active">
-                                <i className='fas fa-user-circle' style={{fontSize: '32px'}}></i>
+                                    <i className='fas fa-user-circle'></i>
+                                    <span>Account</span>
                                 </NavLink>
                             </NavItem>
                             <NavItem>	
@@ -57,11 +60,13 @@ class Header extends Component {
                             </NavItem>
                         </Nav>
                     </Col>
-                    <Col xs="10" lg={{size:6, order: 2}}>                                             {/*Поиск */} 
-                        <Nav className="top-search" style={{backgroundColor: "black"}}>
+                    <Col xs="10" lg={{size:5, order: 2}}>                                             {/*Поиск */} 
+                        <Nav className="head-search" style={{backgroundColor: "black"}}>
                             <NavItem> 
                                 <InputGroup>
-                                    <InputGroupAddon addonType="prepend">Search</InputGroupAddon>
+                                    <InputGroupAddon className="align-items-center"  addonType="prepend">
+                                        <i className='fas fa-search'></i>
+                                    </InputGroupAddon>
                                     <Input/>
                                 </InputGroup>
                             </NavItem>
@@ -69,9 +74,9 @@ class Header extends Component {
                     </Col> 
                     <Col xs="2" lg={{size:12, order: 4}}>                                        {/* Меню ссылок */} 
                         <Navbar light expand="lg">
-                            <NavbarToggler onClick={this.handleMenuToggle} />
+                            <NavbarToggler className="head-nav-menu-toggler" onClick={this.handleMenuToggle} />
 
-                            <Collapse className="top-nav-menu" navbar>
+                            <Collapse className="head-nav-menu" navbar>
                                 <Nav className="justify-content-around">
                                     <NavItem> 
                                         <NavLink exact to="/" activeClassName="active">Home</NavLink>
@@ -88,7 +93,7 @@ class Header extends Component {
                                 </Nav>
                             </Collapse>    
                                 
-                            <Modal className="side-nav-menu" isOpen={this.state.navMenuToggler} toggle={this.handleMenuToggle}>
+                            <Modal className="head-side-menu" isOpen={this.state.navMenuToggler} toggle={this.handleMenuToggle}>
                                     <ModalHeader toggle={this.handleMenuToggle}>Modal title
                                     </ModalHeader>
                                     <ModalBody>
@@ -113,11 +118,9 @@ class Header extends Component {
                                     </ModalFooter>
                             </Modal>
                         </Navbar>
-
-                       
-
                     </Col> 
                 </Row>
+            </Container>
             </Container>
         );
     }
@@ -132,36 +135,3 @@ export default Header;
         <div><NavLink to="/bicycles" activeClassName="active">Bic</NavLink></div>
         <DropCart />
     </Row> */
-
-
-
-/**  <Navbar light expand="md">
-                            <NavbarToggler onClick={this.handleMenuToggle} />
-                            
-                                <Modal isOpen={this.state.navMenuToggler} toggle={this.handleMenuToggle}>
-                                    <ModalHeader toggle={this.handleMenuToggle}>Modal title</ModalHeader>
-                                    <ModalBody>
-                                    <Collapse isOpen={this.state.navMenuToggler} navbar>
-                                        <Nav className="justify-content-around">
-                                            <NavItem  onClick={this.handleMenuToggle}> 
-                                                <NavLink exact to="/" activeClassName="active">Home</NavLink>
-                                            </NavItem>
-                                            <NavItem onClick={this.handleMenuToggle}>
-                                                <NavLink to="/bicycles" activeClassName="active" >bicycles</NavLink>
-                                            </NavItem>
-                                            <NavItem onClick={this.handleMenuToggle}>   
-                                                <NavLink to="/about" activeClassName="active">About Us</NavLink>
-                                            </NavItem>
-                                            <NavItem onClick={this.handleMenuToggle}>      
-                                                <NavLink to="/rental" activeClassName="active">Rent</NavLink>
-                                            </NavItem>
-                                        </Nav>
-                                        </Collapse>
-                                    </ModalBody>
-                                    <ModalFooter>
-                                        <Button color="primary" onClick={this.handleMenuToggle}>Do Something</Button>{' '}
-                                        <Button color="secondary" onClick={this.handleMenuToggle}>Cancel</Button>
-                                    </ModalFooter>
-                                </Modal>
-                                
-                        </Navbar>*/

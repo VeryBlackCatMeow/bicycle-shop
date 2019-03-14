@@ -1,49 +1,79 @@
-.top-logo {
-    padding: 10px 0px;
+.header {
+    background-color: #4B0082;
 }
-.top-logo img {
-    width: 4em;
-}
-.top-logo span {
-    font-size: 25px;
-}
-
-
-.top-search {
-    padding: 10px 0px;
-}
-.top-search .nav-item {
-    width: 100%;
-}
-
-.top-account-menu {
-    padding: 10px 0px;
-}
-.top-account-menu a {
+.header a {
     text-decoration: none;
     color: white;
 }
 
-.top-nav-menu .nav {
+
+.head-logo {
+    padding: 1em 0em;
+}
+.head-logo img {
+    width: 3em;
+}
+.head-logo span {
+    font-size: 2em;
+}
+
+
+.head-search {
+    padding: 1em 0em;
+}
+.head-search .nav-item {
     width: 100%;
 }
-.top-nav-menu a { 
+.head-search i {
+    font-size: 1.5em;
+    color: white;
+}
+.head-search input {
+    height: 2em;
+}
+
+
+.head-account-menu {
+    padding: 1em 0em;
+}
+.head-account-menu .nav-item{  /*отступ между ссылками*/
+    margin-left: 0.8em;
+}
+.head-account-menu i {
+    font-size: 1.5em;
+}
+.head-account-menu span {
+    font-size: 0.9em;
+}
+
+
+
+.head-nav-menu .nav {
+    width: 100%;
+}
+.head-nav-menu a { 
     padding: 10px;
     margin: 10px 5px; 
 }
-.top-nav-menu .active {
+.head-nav-menu .active {
     color: red;
     font-weight: bold; 
     border: solid black 1px; 
     background-color: black;
 }
 
-.side-nav-menu {
+
+.head-nav-menu-toggler {
+    background-color:white;
+}
+
+
+.head-side-menu {
     position: fixed;
     right: 0px;
     width: 75%;
 }
-.side-nav-menu a { 
+.head-side-menu a { 
     padding: 8px;
     margin: 2px 5px;
     background-color: grey;
@@ -52,25 +82,21 @@
     text-decoration: none;
     color: white; 
 }
-.side-nav-menu .active {
+.head-side-menu .active {
     color: red;
     font-weight: bold; 
     border: solid black 1px; 
     background-color: black;
 }
 
-#PopoverLegacy {
-    text-align: center;
-    /*background: url("/cart.jpg") no-repeat top /cover;
-    width: 4em;*/
-    font-weight: bold; 
-}
-#PopoverLegacy .cart-count {
+
+#PopoverLegacy .head-cart-count {
     display: block;
-    float: right;
-    position: relative;
-    right: 0.3em;
-    top: 0.1em;
+    float: left;
+    margin-right: -0.8em;
+    /*position: relative;
+    left: 0.1em;
+    top: 0.1em;*/
     width: 1.7em;
     height: 1.7em;
     line-height: 1.7em;
@@ -81,12 +107,38 @@
     color: white;
     
 }
-#PopoverLegacy .cart-price {
-    position: relative;
-    top: 0.3em;
-    color: #4B0082;
-    
+#PopoverLegacy .head-cart-price {
+    color:white;
 }
+
+
+@media (max-width: 780px) {
+    .head-logo {
+        padding: 10px 0px;
+    }
+    .head-logo img {
+        width: 2.5em;
+    }
+    .head-logo span {
+        font-size: 1.5em;
+    }
+    .head-account-menu  i {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 520px) {
+    .head-logo {
+        padding: 10px 0px;
+    }
+    .head-logo img {
+        width: 2.5em;
+    }
+    .head-logo span {
+        font-size: 1.5em;
+    }
+}
+  
 /*#PopoverLegacy img {
     width: 4em;
     margin-bottom: -3.8em

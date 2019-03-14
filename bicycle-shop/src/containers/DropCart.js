@@ -7,16 +7,25 @@ import { Row, Col, Popover,
          ListGroup, ListGroupItem} from 'reactstrap';
 import { Link } from 'react-router-dom';
 
-const DropCart = ({totalPrice, totalCount, cartItems, removeFromCartFunc, popoverToggler, handlePopoverToggle}) => (
+const DropCart = ({totalPrice, totalCount, cartItems, removeFromCartFunc, popoverToggler, handlePopoverToggle}) => {
+    return(
     <> 
         <div id="PopoverLegacy">
-            <i className='fas fa-shopping-cart' style={{fontSize: '32px'}}></i>
-            {/*<img src="cart.jpg" alt="cartlogo"/><br/>*/}
-            <span className="cart-count">{totalCount}</span><br/>
-            {/*<span className="cart-price"> {totalPrice}$</span>*/}
+            {
+                totalPrice=== 0
+                ? <> 
+                    <i className='fas fa-shopping-cart'></i>
+                    <span>Card</span>
+                  </>
+                : <>  
+                    <i className='fas fa-shopping-cart'></i>
+                    <span className="head-cart-count">{totalCount}</span>
+                    <span className="head-cart-price"> {totalPrice}$</span>
+                  </> 
+            }
         </div>
         
-<Popover isOpen={popoverToggler} toggle={handlePopoverToggle} /*trigger="legacy"*/ placement="bottom" target="PopoverLegacy">
+            <Popover isOpen={popoverToggler} toggle={handlePopoverToggle} /*trigger="legacy"*/ placement="bottom" target="PopoverLegacy">
                 <PopoverHeader className="py-3" >Shoping Cart</PopoverHeader>
                 <PopoverBody>
                     <ListGroup>
@@ -45,7 +54,7 @@ const DropCart = ({totalPrice, totalCount, cartItems, removeFromCartFunc, popove
 
             </Popover>
     </>
-);
+);}
 
 const DropCartItem = ({id, image, title, price, removeFromCartFunc}) => (
     <ListGroupItem>

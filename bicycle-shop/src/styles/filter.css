@@ -1,6 +1,7 @@
-.btn:focus, .btn:active {
+.filt-button:focus, .filt-button:active {
   box-shadow: none;
 }
+
 
 .filt-name {
   float: left;
@@ -9,46 +10,43 @@
   text-transform: uppercase;
 }
 
+
 .filt-arrow {
   float: right;
 }
-
-i {
+.filt-arrow i {
   transition: transform .2s;
   border: solid white;
   border-width: 0 2px 2px 0;
   display: inline-block;
   padding: 3px;
 }
-
-.right {
+.filt-arrow .right {
   transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
 }
-
-.left {
+.filt-arrow .left {
   transform: rotate(135deg);
   -webkit-transform: rotate(135deg);
 }
-
-.up {
+.filt-arrow .up {
   transform: rotate(-135deg);
   -webkit-transform: rotate(-135deg);
 }
-
-.down {
+.filt-arrow .down {
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
 }
 
+
 @media (max-width: 768px) {
-  .btn {
+  .filt-button {
     font-size: 0.8em;
   }
 }
 
 @media (max-width: 568px) {
-  .btn {
+  .filt-button {
     font-size: 0.6em;
   }
 }

@@ -8,7 +8,7 @@ const FilterBlock = ({handleFilterToggle, filterToggle, setFilterFunc, filterBlo
         } */
     return (
     <div className="mt-2" style={{backgroundColor: 'grey'}}>
-        <Button block color="primary" name={filterBlock.name} onClick={handleFilterToggle}>
+        <Button className="filt-button" block color="primary" name={filterBlock.name} onClick={handleFilterToggle}>
             <span className="filt-name">{filterBlock.name}</span>
             <span className="filt-arrow"><i className={blockArrow}></i></span>
         </Button>
