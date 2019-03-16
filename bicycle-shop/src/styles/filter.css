@@ -1,3 +1,7 @@
+.filt-block {
+  margin-top: 0.6em;
+}
+
 .filt-button:focus, .filt-button:active {
   box-shadow: none;
 }

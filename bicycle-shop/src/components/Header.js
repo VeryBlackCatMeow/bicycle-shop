@@ -26,21 +26,19 @@ class Header extends Component {
     
     render() {
         return( 
-            <Container className="header sticky-top" fluid="true">
+            <Container className="header sticky-top" fluid>
             <Container>
                 <Row>
-                    <Col xs="4" lg={{size:3, order: 1}}>                                             {/*Лого */}
-                        <Nav  className="head-logo align-items-center" style={{backgroundColor: "black"}}>
-                            <NavItem className="align-items-center"> 
-                                <NavLink exact to="/">
+                    <Col xs="5" lg={{size:3, order: 1}}>     {/*Лого */}
+                        <div  className="head-logo">
+                            <NavLink exact to="/">
                                     <img src="logo.jpg" alt="logo"></img>
                                     <span>BikeGalaxy</span>
-                                </NavLink>
-                            </NavItem>
-                        </Nav> 
+                            </NavLink>
+                        </div> 
                     </Col> 
-                    <Col xs="8" lg={{size:4, order: 3}}>                                          {/* аккаунт корзина */}
-                        <Nav className="head-account-menu justify-content-end align-items-center" style={{backgroundColor: "black"}}>
+                    <Col xs="7" lg={{size:4, order: 3}}>      {/* аккаунт корзина */}
+                        <Nav className="head-account-menu justify-content-end align-items-center">
                             <NavItem>
                                 <NavLink exact to="/rental" activeClassName="active">	
                                     <i className='fas fa-map-marker-alt'></i>
@@ -60,19 +58,17 @@ class Header extends Component {
                             </NavItem>
                         </Nav>
                     </Col>
-                    <Col xs="10" lg={{size:5, order: 2}}>                                             {/*Поиск */} 
-                        <Nav className="head-search" style={{backgroundColor: "black"}}>
-                            <NavItem> 
-                                <InputGroup>
-                                    <InputGroupAddon className="align-items-center"  addonType="prepend">
-                                        <i className='fas fa-search'></i>
-                                    </InputGroupAddon>
-                                    <Input/>
-                                </InputGroup>
-                            </NavItem>
-                        </Nav> 
+                    <Col xs="10" lg={{size:5, order: 2}}>       {/*Поиск */} 
+                        <div className="head-search">
+                            <InputGroup>
+                                <InputGroupAddon className="align-items-center"  addonType="prepend">
+                                    <i className='fas fa-search'></i>
+                                </InputGroupAddon>
+                                <Input/>
+                            </InputGroup>
+                        </div> 
                     </Col> 
-                    <Col xs="2" lg={{size:12, order: 4}}>                                        {/* Меню ссылок */} 
+                    <Col xs="2" lg={{size:12, order: 4}}>                  {/* Меню ссылок */} 
                         <Navbar light expand="lg">
                             <NavbarToggler className="head-nav-menu-toggler" onClick={this.handleMenuToggle} />
 

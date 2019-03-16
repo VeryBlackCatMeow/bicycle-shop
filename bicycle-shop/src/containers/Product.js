@@ -20,7 +20,6 @@ class Product extends Component {
         const {cartItems, addToCartFunc, removeFromCartFunc, items} = this.props;
         const item = items.find( i => i.id === +(this.props.match.params.id));
         if(!item) return <Loading/>;
-        console.log(item);
         const { id, title, description, type, price, image } = item;
            
         return(
@@ -53,8 +52,6 @@ class Product extends Component {
 
 const mapStateToProps = ( {cartreducers, productreducers} ) => ({
     items: productreducers.items,
-    /*itemCount: cartreducers.items.reduce( (count, item) => 
-                            count + (item.id === cartreducers.lastItem.id ? 1 : 0), 0),*/
     cartItems: cartreducers.items,
 });
 
@@ -65,5 +62,3 @@ const mapDispatchToProps = (dispatch) => ({
   });
 
   export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Product));
-
-  //{itemCount > 0 && `(${itemCount})`}

@@ -64,13 +64,6 @@ const Gallery = (props) => {
     );
 }
 
-/*
-<Row> 
-    <Showcase extraProps={extraProps}/>
-</Row>
-*/
-
-
 export default Gallery;
 
      /*handleFilterToggle = ({target: {name}}) => {
@@ -80,12 +73,4 @@ export default Gallery;
                             [name]: !prevState.filterToggles[name]
             }})
         );
-    }*/
-
-    /*handleFilterToggle = ({target: {name}}) => {
-        this.setState( { filterToggles:
-            isNaN(this.state.filterToggles[name])
-            ?{ ...this.state.filterToggles, [name]: true } 
-            :{ ...this.state.filterToggles, [name]: !this.state.filterToggles[name] } 
-        });
     }*/

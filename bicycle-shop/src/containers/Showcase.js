@@ -24,14 +24,14 @@ class Showcase extends Component {
     }
 
     render() { 
-        const { items, cartItems, addToCartFunc, removeFromCartFunc, itemCount/*, extraProps*/ } = this.props;
+        const { items, cartItems, addToCartFunc, removeFromCartFunc, itemCount } = this.props;
         return (
             <>
                 {
                 !items.length
                 ? <Loading/>
                 : items.map( (item) => (<ProductCard key={item.id/*.toString()*/} {...item} 
-                            /*extraProps={extraProps}*/ cartItems={cartItems}
+                            cartItems={cartItems}
                             addToCartFunc={addToCartFunc} removeFromCartFunc={removeFromCartFunc }
                             itemCount={itemCount}/>))
                 }
@@ -94,10 +94,6 @@ const mapStateToProps = (
     {productreducers, filtersreducers, cartreducers}) => ({
     items: finalFiltration(productreducers.items, filtersreducers.searchBy,
                             filtersreducers.sortBy, filtersreducers.filterBy),
-    /*itemCount: cartreducers.items.reduce( (count, item) => 
-                            count + (item.id === cartreducers.lastItem.id ? 1 : 0), 0),
-    lastItem: cartreducers.lastItem,*/
-    
     cartItems: cartreducers.items,
 
 });
@@ -108,6 +104,5 @@ const mapDispatchToProps = (dispatch) => ({
     removeFromCartFunc: id => dispatch(removeFromCartAction(id)),
     resetFiltersFunc: obj => dispatch(resetFiltersAction (obj)),
 });
-
+                        //necessarily withRouter
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Showcase));
-//обязательно withRouter

@@ -1,5 +1,6 @@
 .header {
     background-color: #4B0082;
+    
 }
 .header a {
     text-decoration: none;
@@ -7,23 +8,25 @@
 }
 
 
-.head-logo {
+.head-logo, .head-search, .head-account-menu {
     padding: 1em 0em;
+    background-color: blue;
+}
+
+
+.head-logo a {
+    display: block;
 }
 .head-logo img {
+    vertical-align: middle;
     width: 3em;
 }
 .head-logo span {
+    vertical-align: middle;
     font-size: 2em;
 }
 
 
-.head-search {
-    padding: 1em 0em;
-}
-.head-search .nav-item {
-    width: 100%;
-}
 .head-search i {
     font-size: 1.5em;
     color: white;
@@ -33,33 +36,35 @@
 }
 
 
-.head-account-menu {
-    padding: 1em 0em;
-}
 .head-account-menu .nav-item{  /*отступ между ссылками*/
-    margin-left: 0.8em;
+    padding: 0.4em;
+    margin-left: 0.1em;
+    background-color: black;
 }
 .head-account-menu i {
+    vertical-align: middle;
     font-size: 1.5em;
 }
 .head-account-menu span {
-    font-size: 0.9em;
+    vertical-align: middle;
+    font-size: 0.95em;
 }
 
 
 
 .head-nav-menu .nav {
     width: 100%;
+    background-color: black;
+    padding: 0.6em;
 }
 .head-nav-menu a { 
-    padding: 10px;
-    margin: 10px 5px; 
+    background-color: rgba(75,0,130,.6);
+    padding: 0.5em 1em;
 }
 .head-nav-menu .active {
-    color: red;
     font-weight: bold; 
     border: solid black 1px; 
-    background-color: black;
+    background-color: #4B0082;
 }
 
 
