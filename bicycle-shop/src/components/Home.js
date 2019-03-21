@@ -27,20 +27,21 @@ class Home extends Component {
     render() {
         const slides = this.state.slides;
         const homemenu = this.state.homemenu;
+
         return(
             <Container> 
                 <Row className="py-3 align-items-end text-center">
                     <Col sm="12" md="9">
                         {
-                        slides
-                        ? <UncontrolledCarousel items={slides} />
-                        : null 
+                            slides
+                            ? <UncontrolledCarousel items={slides} />
+                            : null 
                         }
                         <Row className="my-4 justify-content-center">
                             {
-                            homemenu
-                            ? homemenu.map( (menu, id) => (<HomeMenu key={id} {...menu} />))
-                            : null
+                                homemenu
+                                ? homemenu.map( (menu, id) => (<HomeMenu key={id} {...menu} />))
+                                : null
                             }
                         </Row>
                     </Col>

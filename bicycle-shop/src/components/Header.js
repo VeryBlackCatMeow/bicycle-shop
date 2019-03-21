@@ -29,25 +29,25 @@ class Header extends Component {
             <Container className="header sticky-top" fluid>
             <Container>
                 <Row>
-                    <Col xs="5" lg={{size:3, order: 1}}>     {/*Лого */}
+                    <Col xs="4" lg={{size:3, order: 1}}>     {/*Logo */}
                         <div  className="head-logo">
                             <NavLink exact to="/">
-                                    <img src="logo.jpg" alt="logo"></img>
+                                    <img src="logo.jpg" alt="logo"></img>&nbsp;
                                     <span>BikeGalaxy</span>
                             </NavLink>
                         </div> 
                     </Col> 
-                    <Col xs="7" lg={{size:4, order: 3}}>      {/* аккаунт корзина */}
+                    <Col xs="8" lg={{size:4, order: 3}}>      {/* Account Menu List */}
                         <Nav className="head-account-menu justify-content-end align-items-center">
                             <NavItem>
                                 <NavLink exact to="/rental" activeClassName="active">	
-                                    <i className='fas fa-map-marker-alt'></i>
+                                    <i className='fas fa-map-marker-alt'></i>&nbsp;
                                     <span>Stores</span>
                                 </NavLink>
                             </NavItem>
                             <NavItem>
                                 <NavLink to="/bicycles" activeClassName="active">
-                                    <i className='fas fa-user-circle'></i>
+                                    <i className='fas fa-user-circle'></i>	&nbsp;
                                     <span>Account</span>
                                 </NavLink>
                             </NavItem>
@@ -58,7 +58,7 @@ class Header extends Component {
                             </NavItem>
                         </Nav>
                     </Col>
-                    <Col xs="10" lg={{size:5, order: 2}}>       {/*Поиск */} 
+                    <Col xs="10" lg={{size:5, order: 2}}>       {/*Search*/} 
                         <div className="head-search">
                             <InputGroup>
                                 <InputGroupAddon className="align-items-center"  addonType="prepend">
@@ -68,11 +68,11 @@ class Header extends Component {
                             </InputGroup>
                         </div> 
                     </Col> 
-                    <Col xs="2" lg={{size:12, order: 4}}>                  {/* Меню ссылок */} 
-                        <Navbar light expand="lg">
+                    <Col xs="2" lg={{size:12, order: 4}}>                  {/* Navigation Menu */} 
+                        <Navbar light expand="lg" className="head-nav-menu">
                             <NavbarToggler className="head-nav-menu-toggler" onClick={this.handleMenuToggle} />
 
-                            <Collapse className="head-nav-menu" navbar>
+                            <Collapse className="head-nav-bar" navbar>
                                 <Nav className="justify-content-around">
                                     <NavItem> 
                                         <NavLink exact to="/" activeClassName="active">Home</NavLink>
@@ -89,7 +89,7 @@ class Header extends Component {
                                 </Nav>
                             </Collapse>    
                                 
-                            <Modal className="head-side-menu" isOpen={this.state.navMenuToggler} toggle={this.handleMenuToggle}>
+                            <Modal className="head-side-bar" isOpen={this.state.navMenuToggler} toggle={this.handleMenuToggle}>
                                     <ModalHeader toggle={this.handleMenuToggle}>Modal title
                                     </ModalHeader>
                                     <ModalBody>

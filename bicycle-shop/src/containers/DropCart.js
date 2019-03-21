@@ -14,11 +14,11 @@ const DropCart = ({totalPrice, totalCount, cartItems, removeFromCartFunc, popove
             {
                 totalPrice=== 0
                 ? <> 
-                    <i className='fas fa-shopping-cart'></i>
+                    <i className='fas fa-shopping-cart'></i>&nbsp;
                     <span>Card</span>
                   </>
                 : <>  
-                    <i className='fas fa-shopping-cart'></i>
+                    <i className='fas fa-shopping-cart'></i>&nbsp;
                     <span className="head-cart-count">{totalCount}</span>
                     <span className="head-cart-price"> {totalPrice}$</span>
                   </> 
