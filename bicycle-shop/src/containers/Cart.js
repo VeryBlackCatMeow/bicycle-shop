@@ -46,25 +46,25 @@ const CartItem = ({item, addToCartFunc, removeFromCartFunc, quantity, /*setQuant
         (
         <ListGroupItem>
             <Row>
-                <Col sm="3">
+                <Col xs="3">
                     <img src={item.image} className="rounded-circle img-fluid w-50" alt="Cart Item"/>
                 </Col>
-                <Col sm="4">
+                <Col xs="4">
                     <p>{item.title}</p>
                     <p>{item.title}</p>
                     <p>{item.title}</p>
                 </Col>
-                <Col sm="2">
+                <Col xs="2">
                     <span>{item.price} &nbsp; $</span> 
                 </Col>
-                <Col sm="2">
+                <Col xs="2">
                     <span>
                         <Button size="sm" color="primary" onClick={decreaseFunc.bind(this, item.id)}  disabled={quantity[item.id] > 1 ? false : true}>-</Button>
                         {quantity[item.id]}
                         <Button size="sm" color="primary" onClick={addToCartFunc.bind(this, item)}>+</Button>
                     </span>
                 </Col>
-                <Col sm="1">
+                <Col xs="1">
                     <Button size="sm" color="danger" close onClick={removeFromCartFunc.bind(this, item.id)}/>
                 </Col>
             </Row>

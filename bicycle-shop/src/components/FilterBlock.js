@@ -29,7 +29,7 @@ const FilterBlock = ({handleFilterToggle, filterToggle, setFilterFunc, filterBlo
     const blockArrow =!filterToggle ? 'down' : 'right';
 
     if (filterBlock.list.length>1) return (
-        <div className="filt-block" style={{backgroundColor: 'grey'}}>
+        <div className="filt-block">
             <Button className="filt-button" block color="primary" name={filterBlock.name} onClick={handleFilterToggle}>
                 <span className="filt-name">{filterBlock.name}</span>
                 <span className="filt-arrow"><i className={blockArrow}></i></span>

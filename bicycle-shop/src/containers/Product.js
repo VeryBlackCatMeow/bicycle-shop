@@ -25,7 +25,7 @@ class Product extends Component {
         return(
             <Container>
                 <Row>
-                    <Col sm="12" md="6">
+                    <Col xs="12" md="6">
                         <Card>
                             <CardImg top width="100%" src={image} alt="Product" />
                             <CardBody>
@@ -33,7 +33,7 @@ class Product extends Component {
                             </CardBody>
                         </Card>
                     </Col>
-                    <Col sm="12" md="6">
+                    <Col xs="12" md="6">
                         <p>{title}</p>
                         <p>{description}</p>
                         <p>{type}</p>

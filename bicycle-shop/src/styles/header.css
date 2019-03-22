@@ -8,16 +8,16 @@
 }
 
 
-.head-logo, .head-search, .head-account-menu, .head-nav-menu{
+.head-logo,
+.head-search,
+.head-account-menu,
+.head-nav-menu {
     display: flex;
     align-items: center;
-    height: 5em;
-    background-color: blue;
+    height: 4em;
 }
-.head-nav-menu{
-    display: flex;
-    align-items: center;
-    height: 2.6em;
+.head-nav-menu {
+    height: 2.8em;
 }
 
 .head-logo a {
@@ -57,6 +57,10 @@
 }
 
 
+.navbar-toggler {
+    margin-left: auto;
+    background-color:white;
+}
 
 .head-nav-bar .nav {
     width: 100%;
@@ -74,29 +78,28 @@
 }
 
 
-.head-nav-menu-toggler {
-    background-color:white;
-}
-
-
 .head-side-bar {
     position: fixed;
     right: 0px;
     width: 75%;
 }
 .head-side-bar a { 
+    display: block;
+
     padding: 8px;
     margin: 2px 5px;
-    background-color: grey;
-    display: block;
+    
     width: 100%;
+
     text-decoration: none;
+
+    background-color: grey;
     color: white; 
 }
 .head-side-bar .active {
-    color: red;
     font-weight: bold; 
-    border: solid black 1px; 
+    border: solid black 1px;
+    color: red; 
     background-color: black;
 }
 
@@ -104,17 +107,21 @@
 #PopoverLegacy .head-cart-count {
     display: block;
     float: left;
+
     margin-right: -0.8em;
     /*position: relative;
     left: 0.1em;
     top: 0.1em;*/
     width: 1.7em;
     height: 1.7em;
-    line-height: 1.7em;
-    border-radius: 50%;
-    background-color:red;
+
     text-align: center;
     font-size: 0.7em;
+    line-height: 1.7em;
+
+    border-radius: 50%;
+
+    background-color:red;
     color: white;
     
 }
@@ -140,10 +147,16 @@
     .head-account-menu i {
         font-size: 1.5em;
     }
+    .head-nav-menu {
+        height: 4em;
+    }
 }
 
 @media (max-width: 768px) { 
-    .head-logo, .head-search, .head-account-menu, .head-nav-menu{
+    .head-logo,
+    .head-search,
+    .head-account-menu,
+    .head-nav-menu{
         height: 3em;
     }
 
@@ -165,12 +178,23 @@
         padding: 0.2em;    
     }
 
+    .navbar-toggler {
+        height: 1.6em;
+    }
+    .navbar-toggler .navbar-toggler-icon {
+        margin-top: -0.2em;
+        height: 1.5em;
+    }
+
 }
 
 
 
 @media (max-width: 576px) {
-    .head-logo, .head-search, .head-account-menu, .head-nav-menu{
+    .head-logo,
+    .head-search,
+    .head-account-menu,
+    .head-nav-menu{
         height: 2.5em;
     }
 
@@ -186,6 +210,14 @@
     }
     .head-account-menu i {
         font-size: 1em;
+    }
+
+    .navbar-toggler {
+        height: 1.4em;
+        margin-top: -0.1em;
+    }
+    .navbar-toggler .navbar-toggler-icon {
+        margin-top: -0.4em;
     }
 }
   

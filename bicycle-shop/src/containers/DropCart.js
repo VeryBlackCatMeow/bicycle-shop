@@ -59,10 +59,10 @@ const DropCart = ({totalPrice, totalCount, cartItems, removeFromCartFunc, popove
 const DropCartItem = ({id, image, title, price, removeFromCartFunc}) => (
     <ListGroupItem>
         <Row>
-            <Col sm="4">
+            <Col xs="4">
                 <img src={image} className="rounded-circle img-fluid" alt="Cart Item"/>
             </Col>
-            <Col sm="6">
+            <Col xs="6">
                 <Row>
                 <span>{title}</span> &nbsp;
                 </Row>
@@ -70,7 +70,7 @@ const DropCartItem = ({id, image, title, price, removeFromCartFunc}) => (
                 <span>{price}</span> &nbsp;
                 </Row>
             </Col>
-            <Col sm="2">
+            <Col xs="2">
                 <Button size="sm" color="danger" close onClick={removeFromCartFunc.bind(this, id)}/>
             </Col>
         </Row>

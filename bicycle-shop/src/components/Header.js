@@ -58,19 +58,19 @@ class Header extends Component {
                             </NavItem>
                         </Nav>
                     </Col>
-                    <Col xs="10" lg={{size:5, order: 2}}>       {/*Search*/} 
+                    <Col xs="9" md="10" lg={{size:5, order: 2}}>       {/*Search*/} 
                         <div className="head-search">
-                            <InputGroup>
-                                <InputGroupAddon className="align-items-center"  addonType="prepend">
+                            <InputGroup  className="align-items-center" >
+                                <InputGroupAddon addonType="prepend">
                                     <i className='fas fa-search'></i>
                                 </InputGroupAddon>
-                                <Input/>
+                                <Input placeholder="Temporarily Not Working :)"/>
                             </InputGroup>
                         </div> 
                     </Col> 
-                    <Col xs="2" lg={{size:12, order: 4}}>                  {/* Navigation Menu */} 
+                    <Col xs="3" md="2" lg={{size:12, order: 4}}>                 {/* Navigation Menu */} 
                         <Navbar light expand="lg" className="head-nav-menu">
-                            <NavbarToggler className="head-nav-menu-toggler" onClick={this.handleMenuToggle} />
+                            <NavbarToggler onClick={this.handleMenuToggle} />
 
                             <Collapse className="head-nav-bar" navbar>
                                 <Nav className="justify-content-around">
