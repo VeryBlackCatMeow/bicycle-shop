@@ -16,7 +16,7 @@ const DropCartItem = ({id, image, title, price, removeFromCartFunc}) => (
                 </Row>
             </Col>
             <Col xs="2">
-                <Button size="sm" color="danger" close onClick={removeFromCartFunc.bind(this, id)}/>
+                <Button close onClick={removeFromCartFunc.bind(this, id)}/>
             </Col>
         </Row>
     </ListGroupItem>

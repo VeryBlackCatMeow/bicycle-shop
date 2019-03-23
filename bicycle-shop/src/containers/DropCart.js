@@ -27,9 +27,13 @@ const DropCart = ({totalPrice, totalCount, cartItems, removeFromCartFunc, popove
             }
         </div>
         
-            <Popover isOpen={popoverToggler} toggle={handlePopoverToggle} /*trigger="legacy"*/ 
-                    placement="bottom" target="PopoverLegacy">
-                <PopoverHeader className="py-3">Shoping Cart</PopoverHeader>
+            <Popover className="drop-cart" isOpen={popoverToggler} toggle={handlePopoverToggle} /*trigger="legacy"*/ 
+                    placement="bottom" target="PopoverLegacy" style={{minWidth: '19em'}}>
+                <PopoverHeader className="py-3 d-flex justify-content-between">
+                    <span style={{display: 'block'}} >ShopingCart</span>
+                    <Button outline size="sm" color="info" 
+                        onClick={handlePopoverToggle}>Close</Button> 
+                </PopoverHeader>
                 <PopoverBody style={{maxHeight: '30em', overflow: 'auto'}}> 
                     <ListGroup >
                         { 
@@ -47,12 +51,12 @@ const DropCart = ({totalPrice, totalCount, cartItems, removeFromCartFunc, popove
                     <span>&nbsp; Amount: &nbsp; {totalPrice}</span> 
                     <span>&nbsp; Items: &nbsp; {totalCount}</span> 
                 </div>
-                <div className="text-justify">
+                <div className="d-flex justify-content-between">
                     <Link to="/cart" onClick={handlePopoverToggle}>
                         <Button size="sm" color="primary" >View Cart</Button>
                     </Link>
-                    <Link to="/cart">
-                        <Button size="sm" color="primary" >To Checkout</Button>
+                    <Link to="/cart" /*style={{pointerEvents: 'none'}}*/>
+                        <Button size="sm" color="primary" disabled>To Checkout</Button>
                     </Link>
                 </div>
                 </PopoverHeader>

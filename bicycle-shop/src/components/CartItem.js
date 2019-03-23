@@ -23,7 +23,7 @@ const CartItem = ({item, addToCartFunc, removeFromCartFunc, quantity, decreaseFu
                 </span>
             </Col>
             <Col xs="1">
-                <Button size="sm" color="danger" close onClick={removeFromCartFunc.bind(this, item.id)}/>
+                <Button close onClick={removeFromCartFunc.bind(this, item.id)}/>
             </Col>
         </Row>
     </ListGroupItem>
