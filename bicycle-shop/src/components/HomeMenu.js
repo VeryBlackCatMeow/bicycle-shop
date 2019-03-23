@@ -6,9 +6,9 @@ const HomeMenu = ( {menu, link, image} ) => {
     return(
         <Col className="col-12 col-sm-6 col-md-4 my-3">
             <Link to={link}>
-                <img src={image} className="img-thumbnail" alt="HomeMenuImage" style={{width: '100%'}} />
+                <img src={image} className="img-thumbnail" alt="HomeMenuImage"/>
+                <h5>{menu}</h5>
             </Link> 
-            <h5>{menu}</h5>
         </Col>
     );
 }

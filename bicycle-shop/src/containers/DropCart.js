@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Popover, PopoverHeader, PopoverBody, 
-                    Button,ListGroup} from 'reactstrap';
+                    Button,ListGroup, ListGroupItem} from 'reactstrap';
 
 import { removeFromCartAction } from '../actions/index.js'
 import DropCartItem from '../components/DropCartItem.js';
@@ -16,13 +16,13 @@ const DropCart = ({totalPrice, totalCount, cartItems, removeFromCartFunc, popove
                 ? 
                 <> 
                     <i className='fas fa-shopping-cart'></i>&nbsp;
-                    <span>Card</span>
+                    <span>Cart</span>
                 </>
                 : 
                 <>  
                     <i className='fas fa-shopping-cart'></i>&nbsp;
-                    <span className="head-cart-count">{totalCount}</span>
-                    <span className="head-cart-price"> {totalPrice}$</span>
+                    <div id="head-cart-count">{totalCount}</div>
+                    <span> {totalPrice}$</span>
                 </> 
             }
         </div>
@@ -35,7 +35,7 @@ const DropCart = ({totalPrice, totalCount, cartItems, removeFromCartFunc, popove
                         { 
                             !cartItems.length
                             ?
-                            'Your Cart Is Empty :('
+                            <ListGroupItem>'Your Cart Is Empty :('</ListGroupItem>
                             :
                             cartItems.map( (item) => (<DropCartItem key={item.id} {...item}
                                                         removeFromCartFunc={removeFromCartFunc}/>))
@@ -47,7 +47,7 @@ const DropCart = ({totalPrice, totalCount, cartItems, removeFromCartFunc, popove
                     <span>&nbsp; Amount: &nbsp; {totalPrice}</span> 
                     <span>&nbsp; Items: &nbsp; {totalCount}</span> 
                 </div>
-                <div style={{ textAlign: 'justify'}}>
+                <div className="text-justify">
                     <Link to="/cart" onClick={handlePopoverToggle}>
                         <Button size="sm" color="primary" >View Cart</Button>
                     </Link>

@@ -1,13 +1,7 @@
-.header {
-    background-color: rgb(75, 0, 130);
-    background: linear-gradient(to top right, rgb(75, 0, 130), rgb(105, 26, 224));
-    
-}
 .header a {
     text-decoration: none;
     color: white;
 }
-
 
 .head-logo,
 .head-search,
@@ -17,6 +11,7 @@
     align-items: center;
     height: 4em;
 }
+
 .head-nav-menu {
     height: 2.8em;
 }
@@ -24,58 +19,84 @@
 .head-logo a {
     display: block;
 }
-.head-logo a img {
-    vertical-align: middle;
-    height: 2.8em;
-}
-.head-logo a span {
-    vertical-align: middle;
-    font-size: 1.8em;
-}
+    .head-logo a img {
+        vertical-align: middle;
+        height: 2.8em;
+    }
+    .head-logo a span {
+        vertical-align: middle;
+        font-size: 1.8em;
+    }
 
 
 .head-search i {
     font-size: 1.5em;
     color: white;
 }
-.head-search input {
-    height: 2.1em;
-}
+    .head-search input {
+        height: 2.1em;
+    }
 
 
 .head-account-menu .nav-item{  /*отступ между ссылками*/
-    padding: 0.4em;
-    margin-left: 0.1em;
+    padding: .4em;
+    margin-left: .1em;
     background-color: black;
 }
-.head-account-menu i {
-    vertical-align: middle;
-    font-size: 1.5em;
-}
-.head-account-menu span {
-    vertical-align: middle;
-    font-size: 0.95em;
-}
+    .head-account-menu i {
+        vertical-align: middle;
+        font-size: 1.5em;
+    }
+    .head-account-menu span {
+        vertical-align: middle;
+        font-size: .95em;
+    }
+    #head-cart-count {
+        position: absolute;
+        left: 1.2em;
+        top: -.3em;
+        
+        min-width: 1.4em;
+        height: 1.4em;
+        border-radius: 50%;
+
+        text-align: center;
+        font-weight: bold; 
+        font-size: .8em;
+        line-height: 1.4em;
+
+        background-color:red;
+        color: white;
+    }
+
+
+    #PopoverLegacy{
+        position: relative;   
+    }
 
 
 .navbar-toggler {
     margin-left: auto;
     background-color:white;
 }
+    .navbar-toggler:focus {
+    outline: none;
+    }
+
 
 .head-nav-bar .nav {
     width: 100%;
     background-color: black;
-    padding: 0.3em;
+    padding: .3em;
 }
-.head-nav-bar a { 
-    background-color: rgba(75,0,130,.6);
-    padding: 0.2em 1em;
-}
-.head-nav-bar .active {
-    font-weight: bold; 
-    background: radial-gradient(ellipse closest-side at center, #fff,  rgb(108, 0, 130));
-}
+    .head-nav-bar a { 
+        background-color: rgba(75,0,130,.6);
+        padding: .2em 1em;
+    }
+    .head-nav-bar .active {
+        font-weight: bold; 
+        background: radial-gradient(ellipse closest-side at center, #fff,  rgb(108, 0, 130));
+    }
 
 
 .head-side-bar {
@@ -83,70 +104,50 @@
     right: 0px;
     width: 75%;
 }
-.head-side-bar a { 
-    display: block;
+    .head-side-bar a { 
+        display: block;
 
-    padding: 8px;
-    margin: 2px 5px;
-    
-    width: 100%;
+        padding: 8px;
+        margin: 2px 5px;
+        
+        width: 100%;
 
-    text-decoration: none;
+        text-decoration: none;
 
-    background-color: grey;
-    color: white; 
-}
-.head-side-bar .active {
-    font-weight: bold; 
-    border: solid black 1px;
-    color: red; 
-    background-color: black;
-}
-
-
-#PopoverLegacy .head-cart-count {
-    display: block;
-    float: left;
-
-    margin-right: -0.8em;
-    /*position: relative;
-    left: 0.1em;
-    top: 0.1em;*/
-    width: 1.7em;
-    height: 1.7em;
-
-    text-align: center;
-    font-size: 0.7em;
-    line-height: 1.7em;
-
-    border-radius: 50%;
-
-    background-color:red;
-    color: white;
-    
-}
-#PopoverLegacy .head-cart-price {
-    color:white;
-}
+        background-color: grey;
+        color: white; 
+    }
+    .head-side-bar .active {
+        font-weight: bold; 
+        border: solid black 1px;
+        color: red; 
+        background-color: black;
+    }
 
 
 @media (max-width: 1200px) {
     .head-account-menu .nav-item { 
-        padding: 0.2em;
+        padding: .2em;
     }
-    .head-account-menu i {
-        font-size: 1em;
-    }
+        .head-account-menu i {
+            font-size: 1em;
+        }
+        #head-cart-count {
+            left: .6em;
+        }
 }
 
 
 @media (max-width: 992px) {
     .head-account-menu .nav-item { 
-        padding: 0.4em;
+        padding: .4em;
     }
-    .head-account-menu i {
-        font-size: 1.5em;
-    }
+        .head-account-menu i {
+            font-size: 1.5em;
+        }
+        #head-cart-count {
+            left: 1.2em;
+        }
     .head-nav-menu {
         height: 4em;
     }
@@ -163,28 +164,28 @@
     .head-logo a img {
         height: 2em;
     }
-    .head-logo a span {
-        font-size: 1.5em;
-    }
+        .head-logo a span {
+            font-size: 1.5em;
+        }
 
     .head-search i {
         font-size: 1.1em;
     }
-    .head-search input {
-        height: 1.9em;
-    }
+        .head-search input {
+            height: 1.9em;
+        }
 
     .head-account-menu .nav-item{
-        padding: 0.2em;    
+        padding: .2em;    
     }
 
     .navbar-toggler {
         height: 1.6em;
     }
-    .navbar-toggler .navbar-toggler-icon {
-        margin-top: -0.2em;
-        height: 1.5em;
-    }
+        .navbar-toggler .navbar-toggler-icon {
+            margin-top: -.2em;
+            height: 1.5em;
+        }
 
 }
 
@@ -206,23 +207,21 @@
     }
 
     .head-account-menu .nav-item{
-        padding: 0em;    
+        padding: 0;    
     }
     .head-account-menu i {
         font-size: 1em;
     }
+    #head-cart-count {
+        left: .6em;
+    }
 
     .navbar-toggler {
         height: 1.4em;
-        margin-top: -0.1em;
+        margin-top: -.1em;
     }
     .navbar-toggler .navbar-toggler-icon {
-        margin-top: -0.4em;
+        margin-top: -.4em;
     }
 }
-  
-/*#PopoverLegacy img {
-    width: 4em;
-    margin-bottom: -3.8em
-}*/
 

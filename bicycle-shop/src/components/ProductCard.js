@@ -21,7 +21,7 @@ const ProductCard = (props) => { //width="100%" style={{height: '100%'}}
                             cartItems.some( a => (a.id===id) )
                             ? 
                             <Button color="secondary" block onClick={removeFromCartFunc.bind(this, id)}>
-                                <span className="btn-into">Added To Cart Already</span>
+                                <span className="btn-added">Added To Cart Already</span>
                                 <span className="btn-remove"> Remove From Cart</span>
                             </Button>
                             :

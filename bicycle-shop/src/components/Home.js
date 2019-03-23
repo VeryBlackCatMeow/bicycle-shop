@@ -5,6 +5,7 @@ import { Container, Row, Col, UncontrolledCarousel, Card, CardImg, CardBody,
 import axios from 'axios';
 
 import HomeMenu from '../components/HomeMenu.js';
+import '../styles/home.css'
 
 class Home extends Component {
     constructor(props) {
@@ -29,7 +30,7 @@ class Home extends Component {
         const homemenu = this.state.homemenu;
 
         return(
-            <Container> 
+            <Container className="home-page"> 
                 <Row className="py-3 align-items-end text-center">
                     <Col xs="12" md="9">
                         {
@@ -39,7 +40,7 @@ class Home extends Component {
                             :
                             null 
                         }
-                        <Row className="my-4 justify-content-center">
+                        <Row className="home-menu my-4 justify-content-center">
                             {
                                 homemenu
                                 ?
@@ -53,7 +54,7 @@ class Home extends Component {
                     <Col xs="5" md="3">
                         <Card>
                             <CardBody>
-                                <h4><CardTitle style={{color: '#4B0082'}}>В ВелоКосмосе можно подобрать велосипед индивидуально для каждого!</CardTitle></h4>
+                                <h4><CardTitle>В ВелоКосмосе можно подобрать велосипед индивидуально для каждого!</CardTitle></h4>
                             </CardBody>
                             <CardLink href="#">
                                 <CardImg src="/database/another/v2.jpg" className="img-thumbnail"  alt="Card image"/>
@@ -87,7 +88,7 @@ class Home extends Component {
 
 
                 </Row>
-                <Row  style={{backgroundColor: 'red'}}>
+                <Row>
                     <i className='fas fa-home' style={{fontSize: '24px'}}></i>
                     <i className='fas fa-phone-square' style={{fontSize: '24px'}}></i>
                     <i className='fas fa-phone' style={{fontSize: '24px'}}></i>

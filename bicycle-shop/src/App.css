@@ -2,6 +2,13 @@
   text-align: center;
 }
 
+.header,
+.footer {
+  background-color: rgb(75, 0, 130);
+  background: linear-gradient(to top right, rgb(75, 0, 130), rgb(105, 26, 224));
+  
+}
+
 .product-category:first-letter {
   text-transform: uppercase;
 }

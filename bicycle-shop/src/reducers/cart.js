@@ -21,7 +21,6 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 items: [...state.items, action.payload],
-                //lastItem: action.payload,
                 quantity: isNaN(state.quantity[action.payload.id])
                     ?{ ...state.quantity, [action.payload.id]: 1 }
                     :{ ...state.quantity, [action.payload.id]: state.quantity[action.payload.id]+1 },
@@ -39,11 +38,6 @@ export default (state = initialState, action) => {
                 items: decrease(state.items, action.payload),
                 quantity: { ...state.quantity, [action.payload]: state.quantity[action.payload]-1 },
             }
-        case 'SET_QUANTITY':
-            return {
-                ...state,
-            quantity: { ...state.quantity, [action.payload.name]: +(action.payload.value)},
-            };
         default:
             return state;
     }

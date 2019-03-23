@@ -43,7 +43,3 @@ export const decreaseAction = id => ({
     payload: id
 });
 
-export const setQuantityAction = count => ({
-    type: 'SET_QUANTITY',
-    payload: count
-});

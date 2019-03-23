@@ -59,7 +59,6 @@ const mapStateToProps = ( { cartreducers } ) => ({
 const mapDispatchToProps = (dispatch) => ({
     addToCartFunc: obj => dispatch(addToCartAction(obj)),
     removeFromCartFunc: id => dispatch(removeFromCartAction(id)),
-    //setQuantityFunc: count => dispatch(setQuantityAction(count)),
     decreaseFunc: id => dispatch(decreaseAction(id)),
 });
 
