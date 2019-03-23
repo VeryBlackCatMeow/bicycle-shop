@@ -40,13 +40,13 @@ class Header extends Component {
                     <Col xs="8" lg={{size:4, order: 3}}>      {/* Account Menu List */}
                         <Nav className="head-account-menu justify-content-end align-items-center">
                             <NavItem>
-                                <NavLink exact to="/rental" activeClassName="active">	
+                                <NavLink exact to="#" activeClassName="active">	
                                     <i className='fas fa-map-marker-alt'></i>&nbsp;
                                     <span>Stores</span>
                                 </NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink to="/bicycles" activeClassName="active">
+                                <NavLink to="#" activeClassName="active">
                                     <i className='fas fa-user-circle'></i>	&nbsp;
                                     <span>Account</span>
                                 </NavLink>

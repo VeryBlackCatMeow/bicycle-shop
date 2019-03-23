@@ -1,5 +1,6 @@
 .header {
-    background-color: #4B0082;
+    background-color: rgb(75, 0, 130);
+    background: linear-gradient(to top right, rgb(75, 0, 130), rgb(105, 26, 224));
     
 }
 .header a {
@@ -73,8 +74,7 @@
 }
 .head-nav-bar .active {
     font-weight: bold; 
-    border: solid black 1px; 
-    background-color: #4B0082;
+    background: radial-gradient(ellipse closest-side at center, #fff,  rgb(108, 0, 130));
 }
 
 

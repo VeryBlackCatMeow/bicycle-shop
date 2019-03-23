@@ -34,14 +34,18 @@ class Home extends Component {
                     <Col xs="12" md="9">
                         {
                             slides
-                            ? <UncontrolledCarousel items={slides} />
-                            : null 
+                            ?
+                            <UncontrolledCarousel items={slides} />
+                            :
+                            null 
                         }
                         <Row className="my-4 justify-content-center">
                             {
                                 homemenu
-                                ? homemenu.map( (menu, id) => (<HomeMenu key={id} {...menu} />))
-                                : null
+                                ?
+                                homemenu.map( (menu, id) => (<HomeMenu key={id} {...menu} />))
+                                :
+                                null
                             }
                         </Row>
                     </Col>

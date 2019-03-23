@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { removeFromCartAction } from '../actions/index.js'
-import { Row, Col, Popover,
-         PopoverHeader, PopoverBody, 
-         Button,
-         ListGroup, ListGroupItem} from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { Popover, PopoverHeader, PopoverBody, 
+                    Button,ListGroup} from 'reactstrap';
+
+import { removeFromCartAction } from '../actions/index.js'
+import DropCartItem from '../components/DropCartItem.js';
 
 const DropCart = ({totalPrice, totalCount, cartItems, removeFromCartFunc, popoverToggler, handlePopoverToggle}) => {
     return(
@@ -13,26 +13,31 @@ const DropCart = ({totalPrice, totalCount, cartItems, removeFromCartFunc, popove
         <div id="PopoverLegacy">
             {
                 totalPrice=== 0
-                ? <> 
+                ? 
+                <> 
                     <i className='fas fa-shopping-cart'></i>&nbsp;
                     <span>Card</span>
-                  </>
-                : <>  
+                </>
+                : 
+                <>  
                     <i className='fas fa-shopping-cart'></i>&nbsp;
                     <span className="head-cart-count">{totalCount}</span>
                     <span className="head-cart-price"> {totalPrice}$</span>
-                  </> 
+                </> 
             }
         </div>
         
-            <Popover isOpen={popoverToggler} toggle={handlePopoverToggle} /*trigger="legacy"*/ placement="bottom" target="PopoverLegacy">
-                <PopoverHeader className="py-3" >Shoping Cart</PopoverHeader>
-                <PopoverBody>
-                    <ListGroup>
+            <Popover isOpen={popoverToggler} toggle={handlePopoverToggle} /*trigger="legacy"*/ 
+                    placement="bottom" target="PopoverLegacy">
+                <PopoverHeader className="py-3">Shoping Cart</PopoverHeader>
+                <PopoverBody style={{maxHeight: '30em', overflow: 'auto'}}> 
+                    <ListGroup >
                         { 
                             !cartItems.length
-                            ? 'Your Cart Is Empty :('
-                            : cartItems.map( (item) => (<DropCartItem key={item.id} {...item}
+                            ?
+                            'Your Cart Is Empty :('
+                            :
+                            cartItems.map( (item) => (<DropCartItem key={item.id} {...item}
                                                         removeFromCartFunc={removeFromCartFunc}/>))
                         }
                     </ListGroup>
@@ -42,40 +47,19 @@ const DropCart = ({totalPrice, totalCount, cartItems, removeFromCartFunc, popove
                     <span>&nbsp; Amount: &nbsp; {totalPrice}</span> 
                     <span>&nbsp; Items: &nbsp; {totalCount}</span> 
                 </div>
-                <div>
+                <div style={{ textAlign: 'justify'}}>
                     <Link to="/cart" onClick={handlePopoverToggle}>
                         <Button size="sm" color="primary" >View Cart</Button>
                     </Link>
                     <Link to="/cart">
-                        <Button size="sm" color="primary">To Checkout</Button>
+                        <Button size="sm" color="primary" >To Checkout</Button>
                     </Link>
                 </div>
                 </PopoverHeader>
-
             </Popover>
     </>
 );}
 
-const DropCartItem = ({id, image, title, price, removeFromCartFunc}) => (
-    <ListGroupItem>
-        <Row>
-            <Col xs="4">
-                <img src={image} className="rounded-circle img-fluid" alt="Cart Item"/>
-            </Col>
-            <Col xs="6">
-                <Row>
-                <span>{title}</span> &nbsp;
-                </Row>
-                <Row>
-                <span>{price}</span> &nbsp;
-                </Row>
-            </Col>
-            <Col xs="2">
-                <Button size="sm" color="danger" close onClick={removeFromCartFunc.bind(this, id)}/>
-            </Col>
-        </Row>
-    </ListGroupItem>
-);
 
 const unique = (array) => {
     var newArr = [];

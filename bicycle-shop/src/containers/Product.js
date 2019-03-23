@@ -40,8 +40,10 @@ class Product extends Component {
                         <h5>{price} $</h5>
                         {
                             cartItems.some( a => (a.id===id) )
-                            ? <Button color="danger" block onClick={removeFromCartFunc.bind(this, id)}>Remove From Cart</Button>
-                            : <Button color="primary" block onClick={addToCartFunc.bind(this, item)}>Add To Cart</Button>
+                            ? 
+                            <Button color="danger" block onClick={removeFromCartFunc.bind(this, id)}>Remove From Cart</Button>
+                            : 
+                            <Button color="primary" block onClick={addToCartFunc.bind(this, item)}>Add To Cart</Button>
                         } 
                     </Col>
                 </Row>

@@ -7,6 +7,14 @@
   box-shadow: none;
 }
 
+.filt-button.btn-primary {
+  background: linear-gradient(to right, rgb(75, 0, 130), rgb(108, 0, 130));
+  border:  rgb(75, 0, 130);
+}
+.filt-button.btn-success {
+  background: radial-gradient(ellipse closest-side at center, #fff,  rgb(108, 0, 130));
+  border:  rgb(75, 0, 130);
+}
 
 .filt-name {
   float: left;

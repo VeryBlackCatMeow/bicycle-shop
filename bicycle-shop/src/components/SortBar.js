@@ -41,7 +41,7 @@ const SortBar = ({ setSortFunc, sortBy, setSearchFunc, searchBy }) => {
                         href='#'>Name
                     </NavLink>
                 </NavItem>
-                <NavItem style={{backgroundColor: 'grey'}}>
+                <NavItem>
                     <InputGroup>
                         <InputGroupAddon addonType="prepend">
                             <InputGroupText>Search</InputGroupText>

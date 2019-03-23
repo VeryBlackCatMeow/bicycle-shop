@@ -1,12 +1,26 @@
 .product-card:hover {
     color: blue;
     background-color:#DCDCDC;
-    border: 3px solid #4B0082;
-    /*outline: 2px solid #000;*/
+    
+    border: none;
+    outline: 2px solid rgb(108, 0, 130);
+    box-shadow: 0 0 0.8em rgb(108, 0, 130);
 
     transition: transform 1s;
     transform: scale(1.05);
 }
+
+.product-card .btn-primary {
+    background: linear-gradient(to right, rgb(75, 0, 130), rgb(108, 0, 130));
+    border:  rgb(75, 0, 130);
+}
+.product-card .btn-primary:focus {
+    box-shadow: 0 0 0 0.2em rgb(0, 0, 0, 0.5);
+}
+
+/*.product-card .btn-primary:focus {
+    box-shadow: none;
+  }*/
 
 .product-card .btn-primary:hover {
     background-color: blue;

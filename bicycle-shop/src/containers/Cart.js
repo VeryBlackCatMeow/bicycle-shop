@@ -1,22 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addToCartAction, removeFromCartAction, /*setQuantityAction,*/ decreaseAction } from '../actions/index.js'
-import { Container,  Row, Col,
-    Button,ListGroup, ListGroupItem} from 'reactstrap';
+import { Container, Button, ListGroup } from 'reactstrap';
 import { Link } from 'react-router-dom';
+
+import { addToCartAction, removeFromCartAction, decreaseAction } from '../actions/index.js'
+import CartItem from '../components/CartItem.js'
 
 const Cart = ({totalPrice, totalCount, cartItems, addToCartFunc, removeFromCartFunc, quantity, setQuantityFunc, decreaseFunc}) => {
 
-    if(!cartItems.length) {
-        return (
+    return  !cartItems.length 
+            ?
             <Container>
                 <div>Shoping Cart</div>
                 <div>'Your Cart Is Empty :('</div>
             </Container>
-        );
-    }
-    else {
-        return (
+            :
             <Container>
                 <div>Shoping Cart</div>
                 <div>
@@ -36,41 +34,7 @@ const Cart = ({totalPrice, totalCount, cartItems, addToCartFunc, removeFromCartF
                     </Link>
                 </div>
             </Container>
-        );
-    }
-};
-
-
-
-const CartItem = ({item, addToCartFunc, removeFromCartFunc, quantity, /*setQuantityFunc,*/ decreaseFunc}) => 
-        (
-        <ListGroupItem>
-            <Row>
-                <Col xs="3">
-                    <img src={item.image} className="rounded-circle img-fluid w-50" alt="Cart Item"/>
-                </Col>
-                <Col xs="4">
-                    <p>{item.title}</p>
-                    <p>{item.title}</p>
-                    <p>{item.title}</p>
-                </Col>
-                <Col xs="2">
-                    <span>{item.price} &nbsp; $</span> 
-                </Col>
-                <Col xs="2">
-                    <span>
-                        <Button size="sm" color="primary" onClick={decreaseFunc.bind(this, item.id)}  disabled={quantity[item.id] > 1 ? false : true}>-</Button>
-                        {quantity[item.id]}
-                        <Button size="sm" color="primary" onClick={addToCartFunc.bind(this, item)}>+</Button>
-                    </span>
-                </Col>
-                <Col xs="1">
-                    <Button size="sm" color="danger" close onClick={removeFromCartFunc.bind(this, item.id)}/>
-                </Col>
-            </Row>
-        </ListGroupItem>
-);
-
+}
 
 const unique = (array) => {
     var newArr = [];

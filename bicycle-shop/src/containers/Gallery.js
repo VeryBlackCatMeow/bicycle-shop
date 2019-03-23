@@ -49,7 +49,6 @@ const Gallery = (props) => {
                 <Col xs="3" lg="2">
                     <Filter extraProps={extraProps}/> 
                 </Col>
-                    
                 <Col xs="9" lg="10">
                     <h3 className="product-category">{props.match.params.category}</h3>
                     <Row>
