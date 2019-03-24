@@ -30,7 +30,7 @@ class Home extends Component {
         const homemenu = this.state.homemenu;
 
         return(
-            <Container className="home-page"> 
+            <Container className="home"> 
                 <Row className="py-3 align-items-end text-center">
                     <Col xs="12" md="9">
                         {

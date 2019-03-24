@@ -44,7 +44,7 @@ const Gallery = (props) => {
     const extraProps = filtersConfig(props.match.params.category);//тут буду прокидывать все настройки для элементов галлереи   
     
     return (
-        <Container>
+        <Container className="gallery">
             <Row> 
                 <Col xs="3" lg="2">
                     <Filter extraProps={extraProps}/> 

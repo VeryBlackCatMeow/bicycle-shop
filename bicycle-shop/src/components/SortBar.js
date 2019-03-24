@@ -10,7 +10,7 @@ import { Nav, NavItem, NavLink, Col,
 const SortBar = ({ setSortFunc, sortBy, setSearchFunc, searchBy }) => {
         return(
             <Col xs="12">
-            <Nav pills className="justify-content-between">
+            <Nav pills className="sort-bar justify-content-between">
                 <NavItem>
                     <NavLink 
                         //name='all' 

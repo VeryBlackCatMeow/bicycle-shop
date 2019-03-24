@@ -1,5 +1,17 @@
-.App {
+/*.App {
   text-align: center;
+}*/
+
+.wrapper {
+  min-width: 576px;
+  background-image: url(/database/another/backlong.jpg);
+  background-size: 100% 100%;
+}
+
+.gallery,
+.home,
+.about-us {
+  background-color: rgb(255, 255, 255, .95);
 }
 
 .header,
@@ -11,4 +23,14 @@
 
 .product-category:first-letter {
   text-transform: uppercase;
+}
+
+
+
+.sort-bar .nav-link {
+  color: rgb(75, 0, 130);
+}
+.sort-bar .nav-link.active {
+  background-color: rgb(75, 0, 130);
+  color: red;
 }
