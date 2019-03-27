@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import axios from 'axios';
 import { connect } from 'react-redux';
-import { setProductsAction, addToCartAction, removeFromCartAction, resetFiltersAction  } from '../actions/index.js'
+import { setProductsAction, addToCartAction, removeFromCartAction } from '../actions/index.js'
 import ProductCard from '../components/ProductCard';
 import Loading from '../components/Loading';
 import { withRouter } from 'react-router-dom';
@@ -11,30 +11,15 @@ import '../styles/showcase.css'
 class Showcase extends Component {
 
     componentDidMount = () => {
-        const { setProductsFunc, resetFiltersFunc, extraProps} = this.props;
-        const reset = {
-            searchBy: '',
-            sortBy: 'all',
-            filterBy: extraProps.filters.reduce((o, key) => ( {...o, [key]:[]} ), {})
-        } // все фильтры из массива в extraProps устанавливаем как свойства объекта в filterBy, со значением []
         axios.get(`/database/${this.props.match.params.category}.json`).then(({ data }) => {    
-            setProductsFunc(data);   
-            resetFiltersFunc(reset);
+        this.props.setProductsFunc(data);   
         });
     }
 
     componentDidUpdate(prevProps) {
         if (this.props.extraProps !== prevProps.extraProps) {
-    
-            const { setProductsFunc, resetFiltersFunc, extraProps} = this.props;
-            const reset = {
-                searchBy: '',
-                sortBy: 'all',
-                filterBy: extraProps.filters.reduce((o, key) => ( {...o, [key]:[]} ), {})
-            } // все фильтры из массива в extraProps устанавливаем как свойства объекта в filterBy, со значением []
             axios.get(`/database/${this.props.match.params.category}.json`).then(({ data }) => {    
-                setProductsFunc(data);   
-                resetFiltersFunc(reset);
+            this.props.setProductsFunc(data);   
             });
         }
     }
@@ -115,7 +100,6 @@ const mapDispatchToProps = (dispatch) => ({
     setProductsFunc: item => dispatch(setProductsAction(item)),
     addToCartFunc: obj => dispatch(addToCartAction(obj)),
     removeFromCartFunc: id => dispatch(removeFromCartAction(id)),
-    resetFiltersFunc: obj => dispatch(resetFiltersAction (obj)),
 });
                         //necessarily withRouter
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Showcase));

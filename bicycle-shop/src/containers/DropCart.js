@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Popover, PopoverHeader, PopoverBody, 
@@ -7,7 +7,9 @@ import { Popover, PopoverHeader, PopoverBody,
 import { removeFromCartAction } from '../actions/index.js'
 import DropCartItem from '../components/DropCartItem.js';
 
-const DropCart = ({totalPrice, totalCount, cartItems, removeFromCartFunc, popoverToggler, handlePopoverToggle}) => {
+const DropCart = ({totalPrice, totalCount, cartItems, removeFromCartFunc}) => {
+    const[popoverToggler, handlePopoverToggle] = useState(false);
+
     return(
     <> 
         <div id="PopoverLegacy">
@@ -27,7 +29,7 @@ const DropCart = ({totalPrice, totalCount, cartItems, removeFromCartFunc, popove
             }
         </div>
         
-            <Popover className="drop-cart" isOpen={popoverToggler} toggle={handlePopoverToggle} /*trigger="legacy"*/ 
+            <Popover className="drop-cart" isOpen={popoverToggler} toggle={() =>handlePopoverToggle(!popoverToggler)} /*trigger="legacy"*/ 
                     placement="bottom" target="PopoverLegacy" style={{minWidth: '19em'}}>
                 <PopoverHeader className="py-3 d-flex justify-content-between">
                     <span style={{display: 'block'}} >ShopingCart</span>
@@ -52,7 +54,7 @@ const DropCart = ({totalPrice, totalCount, cartItems, removeFromCartFunc, popove
                     <span>&nbsp; Items: &nbsp; {totalCount}</span> 
                 </div>
                 <div className="d-flex justify-content-between">
-                    <Link to="/cart" onClick={handlePopoverToggle}>
+                    <Link to="/cart" onClick={() =>handlePopoverToggle(!popoverToggler)}>
                         <Button size="sm" color="primary" >View Cart</Button>
                     </Link>
                     <Link to="/cart" /*style={{pointerEvents: 'none'}}*/>

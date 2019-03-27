@@ -4,15 +4,15 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 
-import { setFilterAction } from '../actions/index.js'
+import { setFilterAction, resetFiltersAction  } from '../actions/index.js'
 import FilterBlock  from '../components/FilterBlock.js';
 import '../styles/filter.css'
 
 class Filter extends Component {
     constructor(props) {
         super(props)
-
-        this.state = {    // all toggles are true
+                                // all toggles are true
+        this.state = {    
             blockToggle: true,
             menuToggle: true,  
             filterToggles: this.props.extraProps.filters.reduce((o, key) => ( {...o, [key]: true} ), {})
@@ -27,12 +27,22 @@ class Filter extends Component {
 
     componentDidUpdate = (prevProps) => {
         if (this.props.extraProps !== prevProps.extraProps) {
-            // reset all toggles (set true)
+            const {resetFiltersFunc, extraProps} = this.props;
+
+                                // reset all toggles (set true)
             this.setState({   
                 blockToggle: true,
                 menuToggle: true,  
-                filterToggles: this.props.extraProps.filters.reduce((o, key) => ( {...o, [key]: true} ), {})
-             });
+                filterToggles: extraProps.filters.reduce((o, key) => ( {...o, [key]: true} ), {})
+            });
+
+                                // reset all filters(set default settings)
+            const reset = {
+                searchBy: '',
+                sortBy: 'all',
+                filterBy: extraProps.filters.reduce((o, key) => ( {...o, [key]:[]} ), {})
+            }
+            resetFiltersFunc(reset);
         }
     }
 
@@ -83,7 +93,7 @@ class Filter extends Component {
         return(
             <>
             <div className="filt-block">
-                <Button className="filt-button" block color="primary" onClick={this.handleMenuToggle}>
+                <Button className="filt-button" block color="success" onClick={this.handleMenuToggle}>
                     <span className="filt-name">Gallery Menu</span>
                     <span className="filt-arrow"><i className={menuArrow}></i></span>
                 </Button>
@@ -124,7 +134,7 @@ const mapStateToProps = ( {productreducers, filtersreducers} ) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     setFilterFunc: filter => dispatch(setFilterAction(filter)),
-  
+    resetFiltersFunc: obj => dispatch(resetFiltersAction (obj)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filter);
