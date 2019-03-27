@@ -23,6 +23,22 @@ class Showcase extends Component {
         });
     }
 
+    componentDidUpdate(prevProps) {
+        if (this.props.extraProps !== prevProps.extraProps) {
+    
+            const { setProductsFunc, resetFiltersFunc, extraProps} = this.props;
+            const reset = {
+                searchBy: '',
+                sortBy: 'all',
+                filterBy: extraProps.filters.reduce((o, key) => ( {...o, [key]:[]} ), {})
+            } // все фильтры из массива в extraProps устанавливаем как свойства объекта в filterBy, со значением []
+            axios.get(`/database/${this.props.match.params.category}.json`).then(({ data }) => {    
+                setProductsFunc(data);   
+                resetFiltersFunc(reset);
+            });
+        }
+    }
+
     render() { 
         const { items, cartItems, addToCartFunc, removeFromCartFunc, itemCount } = this.props;
 

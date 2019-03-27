@@ -10,13 +10,12 @@ import '../styles/filter.css'
 
 class Filter extends Component {
     constructor(props) {
-        super(props);
-        const { extraProps } = this.props;
-        this.state = {   
+        super(props)
+
+        this.state = {    // all toggles are true
             blockToggle: true,
             menuToggle: true,  
-                                // all filterToggles are true
-            filterToggles: extraProps.filters.reduce((o, key) => ( {...o, [key]: true} ), {})
+            filterToggles: this.props.extraProps.filters.reduce((o, key) => ( {...o, [key]: true} ), {})
          };
     }
 
@@ -26,15 +25,26 @@ class Filter extends Component {
         });
     }
 
+    componentDidUpdate = (prevProps) => {
+        if (this.props.extraProps !== prevProps.extraProps) {
+            // reset all toggles (set true)
+            this.setState({   
+                blockToggle: true,
+                menuToggle: true,  
+                filterToggles: this.props.extraProps.filters.reduce((o, key) => ( {...o, [key]: true} ), {})
+             });
+        }
+    }
+
     handleBlockToggle = () => {
         this.setState({ 
-            blockToggle: !this.state.blockToggle,
+            blockToggle: !this.state.blockToggle
         });
     }
 
     handleMenuToggle = () => {
         this.setState({ 
-            menuToggle: !this.state.menuToggle,
+            menuToggle: !this.state.menuToggle
         });
     }
 
@@ -58,6 +68,7 @@ class Filter extends Component {
                         if (a >= b) return 1;
                         else return -1;
                         });
+                        
 
     render() {
         const { setFilterFunc, extraProps, items } = this.props
@@ -80,7 +91,7 @@ class Filter extends Component {
                     {
                         this.state.menu
                         ?
-                        this.state.menu.map((line) => (<h6><NavLink key={line.id} to={line.link} activeClassName="active">{line.menu}</NavLink></h6>))
+                        this.state.menu.map((line) => (<h6 key={line.id}><NavLink to={line.link} activeClassName="active">{line.menu}</NavLink></h6>))
                         :
                         null
                     }

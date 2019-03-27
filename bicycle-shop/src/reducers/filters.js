@@ -15,10 +15,12 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 filterBy: action.payload.checked
-                    ?{ ...state.filterBy,
+                    ?
+                    { ...state.filterBy,
                         [action.payload.name]: [...state.filterBy[action.payload.name],
                             action.payload.value] } // добавляем  фильтр(value) в массив в соответстующем свойстве(name) объекта
-                    :{...state.filterBy,
+                    :
+                    {...state.filterBy,
                         [action.payload.name]: state.filterBy[action.payload.name].filter(item => 
                             item !== action.payload.value)} // удаляем из свойства объекта ненужный элемент(фильтр) массива
             };
