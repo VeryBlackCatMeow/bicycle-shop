@@ -12,7 +12,7 @@ const Cart = ({totalPrice, totalCount, cartItems, addToCartFunc, removeFromCartF
             ?
             <Container>
                 <div>Shoping Cart</div>
-                <div>'Your Cart Is Empty :('</div>
+                <div>Your Cart Is Empty :(</div>
             </Container>
             :
             <Container>

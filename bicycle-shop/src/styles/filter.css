@@ -1,6 +1,18 @@
 .filt-block {
   margin-top: .6em;
 }
+.filt-block a {
+  text-decoration: none;
+  color: black;
+  margin: .5em;
+  padding: .2em 0;
+}
+.filt-block .active {
+  font-weight: bold;
+  color: white; 
+  background: radial-gradient(ellipse closest-side at center, #fff,  rgb(108, 0, 130));
+}
+
 
 .filt-button:focus, 
 .filt-button:active {

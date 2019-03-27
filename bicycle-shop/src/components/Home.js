@@ -4,7 +4,7 @@ import { Container, Row, Col, UncontrolledCarousel, Card, CardImg, CardBody,
     CardTitle, CardLink} from 'reactstrap';
 import axios from 'axios';
 
-import HomeMenu from '../components/HomeMenu.js';
+import HomeMenu from './HomeMenu.js';
 import '../styles/home.css'
 
 class Home extends Component {
@@ -26,25 +26,22 @@ class Home extends Component {
     }
 
     render() {
-        const slides = this.state.slides;
-        const homemenu = this.state.homemenu;
-
         return(
             <Container className="home"> 
                 <Row className="py-3 align-items-end text-center">
                     <Col xs="12" md="9">
                         {
-                            slides
+                            this.state.slides
                             ?
-                            <UncontrolledCarousel items={slides} />
+                            <UncontrolledCarousel items={this.state.slides} />
                             :
                             null 
                         }
                         <Row className="home-menu my-4 justify-content-center">
                             {
-                                homemenu
+                                this.state.homemenu
                                 ?
-                                homemenu.map( (menu, id) => (<HomeMenu key={id} {...menu} />))
+                                this.state.homemenu.map( (menu) => (<HomeMenu key={menu.id} {...menu}/>))
                                 :
                                 null
                             }

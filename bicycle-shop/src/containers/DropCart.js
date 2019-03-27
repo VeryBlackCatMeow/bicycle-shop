@@ -39,7 +39,7 @@ const DropCart = ({totalPrice, totalCount, cartItems, removeFromCartFunc, popove
                         { 
                             !cartItems.length
                             ?
-                            <ListGroupItem>'Your Cart Is Empty :('</ListGroupItem>
+                            <ListGroupItem>Your Cart Is Empty :(</ListGroupItem>
                             :
                             cartItems.map( (item) => (<DropCartItem key={item.id} {...item}
                                                         removeFromCartFunc={removeFromCartFunc}/>))

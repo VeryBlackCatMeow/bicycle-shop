@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { Button, Collapse } from 'reactstrap';
-import { setFilterAction } from '../actions/index.js'
 import { connect } from 'react-redux';
+import axios from 'axios';
+import { NavLink } from 'react-router-dom';
+
+import { setFilterAction } from '../actions/index.js'
 import FilterBlock  from '../components/FilterBlock.js';
 import '../styles/filter.css'
 
@@ -10,15 +13,28 @@ class Filter extends Component {
         super(props);
         const { extraProps } = this.props;
         this.state = {   
-            blockToggle: true, 
+            blockToggle: true,
+            menuToggle: true,  
                                 // all filterToggles are true
             filterToggles: extraProps.filters.reduce((o, key) => ( {...o, [key]: true} ), {})
          };
     }
 
+    componentDidMount = () => {
+        axios.get('/database/homemenu.json').then(({ data }) => {       
+            this.setState({ menu: data});
+        });
+    }
+
     handleBlockToggle = () => {
         this.setState({ 
             blockToggle: !this.state.blockToggle,
+        });
+    }
+
+    handleMenuToggle = () => {
+        this.setState({ 
+            menuToggle: !this.state.menuToggle,
         });
     }
 
@@ -52,7 +68,24 @@ class Filter extends Component {
             }          //собираем все возможные значения фильтров (фильтры из extraProps, значения из items)
         ));
         const blockArrow =!this.state.blockToggle ? 'down' : 'right';
+        const menuArrow =!this.state.menuToggle ? 'down' : 'right';
         return(
+            <>
+            <div className="filt-block">
+                <Button className="filt-button" block color="primary" onClick={this.handleMenuToggle}>
+                    <span className="filt-name">Gallery Menu</span>
+                    <span className="filt-arrow"><i className={menuArrow}></i></span>
+                </Button>
+                <Collapse isOpen={this.state.menuToggle}>
+                    {
+                        this.state.menu
+                        ?
+                        this.state.menu.map((line) => (<h6><NavLink key={line.id} to={line.link} activeClassName="active">{line.menu}</NavLink></h6>))
+                        :
+                        null
+                    }
+                </Collapse>
+            </div>
             <div className="filt-block">
                 <Button className="filt-button" block color="success" onClick={this.handleBlockToggle}>
                     <span className="filt-name">Filters</span>
@@ -68,6 +101,7 @@ class Filter extends Component {
                     }
                 </Collapse>
             </div>
+            </>
         );
     }
 }

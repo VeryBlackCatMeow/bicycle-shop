@@ -8,7 +8,7 @@ const HomeMenu = ( {menu, link, image} ) => {
             <Link to={link}>
                 <img src={image} className="img-thumbnail" alt="HomeMenuImage"/>
                 <h5>{menu}</h5>
-            </Link> 
+            </Link>
         </Col>
     );
 }
