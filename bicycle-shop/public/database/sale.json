@@ -2,14 +2,14 @@
     {
       "id": 5000,
       "category": "sale",
-      "product": "Jack",
-      "type": "",
-      "title": "MIG-50",
-      "brand": "MIG",
+      "product": "Bicycle",
+      "type": "Service",
+      "title": "Urban Carriage",
+      "brand": "Urban",
       "size": "",
       "color": ["Black", "Red"],
-      "wheelSize": "",
-      "price": 49.99,
+      "wheelSize": ["26"],
+      "price": 270.99,
       "currencyFormat": "$",
       "image": "/database/sale/5000.jpg",
       "description": ""
@@ -32,17 +32,17 @@
     {
       "id": 5002,
       "category": "sale",
-      "product": "Pump",
-      "type": "",
-      "title": "ZAZ-505",
-      "brand": "ZAZ",
+      "product": "Bicycle",
+      "type": "Sport",
+      "title": "Puzzle Paper",
+      "brand": "Puzzle",
       "size": "",
-      "color": ["Black", "Orange", "Silver"],
-      "wheelSize": "",
-      "price": 25.99,
+      "color": ["Brown", "Grey"],
+      "wheelSize": ["26"],
+      "price": 189.99,
       "currencyFormat": "$",
       "image": "/database/sale/5002.jpg",
-      "description": ""
+      "description": "Box"
     },
     {
       "id": 5003,
@@ -77,17 +77,17 @@
     {
       "id": 5005,
       "category": "sale",
-      "product": "Multitool",
-      "type": "",
-      "title": "OldSchool Chain",
-      "brand": "OldSchool",
+      "product": "Bicycle",
+      "type": "Ecology",
+      "title": "Master Tree",
+      "brand": "Master",
       "size": "",
-      "color": ["Silver"],
-      "wheelSize": "",
-      "price": 17.99,
+      "color": ["Brown"],
+      "wheelSize": ["26"],
+      "price": 420.99,
       "currencyFormat": "$",
       "image": "/database/sale/5005.jpg",
-      "description": "Don't Break The Chain"
+      "description": "Truly Tree"
     }
     
   ]

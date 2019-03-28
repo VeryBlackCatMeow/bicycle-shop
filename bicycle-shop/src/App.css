@@ -1,12 +1,18 @@
-/*.App {
-  text-align: center;
-}*/
-
 .wrapper {
   min-width: 576px;
   background-image: url(/database/another/backlong.jpg);
   background-size: cover;
 }
+
+/*#headhome {
+  background-image: url(Gallery/affix2.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 800px;
+  height:800px;
+  text-align:center;
+  padding-top: 310px;
+  text-shadow: 3px 3px #4B0082;
+}*/
 
 .gallery,
 .home,
@@ -34,3 +40,4 @@
   background-color: rgb(75, 0, 130);
   color: red;
 }
+

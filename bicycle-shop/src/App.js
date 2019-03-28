@@ -37,7 +37,12 @@ class App extends Component {
 export default App;
 
 /*
- <Container fluid="true">
+<div id="headhome" className="container">
+      <p>Стёр к чертям свои ноги?</p>
+      <p>А денег на тачку нет?</p>
+      <p>Тогда приходи к нам.</p>
+      <p>ВЕЛОКОСМОС поможет тебе!</p>
+</div>
 */
 /*
 <Route exact path="/bikes"

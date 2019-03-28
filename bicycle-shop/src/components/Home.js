@@ -5,6 +5,7 @@ import { Container, Row, Col, UncontrolledCarousel, Card, CardImg, CardBody,
 import axios from 'axios';
 
 import HomeMenu from './HomeMenu.js';
+import HomeJumbotron from './HomeJumbotron.js';
 import '../styles/home.css'
 
 class Home extends Component {
@@ -27,8 +28,9 @@ class Home extends Component {
 
     render() {
         return(
-            <Container className="home"> 
-                <Row className="py-3 align-items-end text-center">
+            <Container className="home">
+                <HomeJumbotron/> 
+                <Row className="py-3 text-center">
                     <Col xs="12" md="9">
                         {
                             this.state.slides
@@ -51,7 +53,7 @@ class Home extends Component {
                     <Col xs="5" md="3">
                         <Card>
                             <CardBody>
-                                <h4><CardTitle>В ВелоКосмосе можно подобрать велосипед индивидуально для каждого!</CardTitle></h4>
+                                <h4><CardTitle>We have bikes for everyone!</CardTitle></h4>
                             </CardBody>
                             <CardLink href="#">
                                 <CardImg src="/database/another/v2.jpg" className="img-thumbnail"  alt="Card image"/>
