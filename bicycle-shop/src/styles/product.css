@@ -2,8 +2,12 @@
     width: 100%;
 }
 
-
-/*.product .nav-item:hover {
-    background: blue;
+.product-navbar .nav-item:hover {
     cursor: pointer;
-}*/
+}
+    .product-navbar .nav-item .active {
+        font-weight: bold; 
+    }
+    .product-navbar .tab-content {
+        margin-top: 1em; 
+    }

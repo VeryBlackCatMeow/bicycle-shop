@@ -7,20 +7,6 @@ import NavMenu from '../components/NavMenu.js';
 import '../styles/header.css'
 
 const Header = () => {
-    
-    /*handleMenuToggle = () => {
-        this.setState({
-            navMenuToggler: !this.state.navMenuToggler
-        });
-      }
-
-    handlePopoverToggle = () => {
-        this.setState({
-            popoverToggler: !this.state.popoverToggler
-        });
-      }*/
-    
-    
     return( 
         <Container className="header sticky-top" fluid>
             <Container>
@@ -38,21 +24,15 @@ const Header = () => {
                     <Col xs="8" lg={{size:4, order: 3}}>      
                         <Nav className="head-account-menu justify-content-end align-items-center">
                             <NavItem>
-                                <NavLink exact to="#" activeClassName="active">	
-                                    <i className='fas fa-map-marker-alt'></i>&nbsp;
-                                    <span>Stores</span>
-                                </NavLink>
+                                <i className='fas fa-map-marker-alt'></i>&nbsp;
+                                <span>Stores</span>
                             </NavItem>
                             <NavItem>
-                                <NavLink to="#" activeClassName="active">
-                                    <i className='fas fa-user-circle'></i>	&nbsp;
-                                    <span>Account</span>
-                                </NavLink>
+                                <i className='fas fa-user-circle'></i>	&nbsp;
+                                <span>Account</span>
                             </NavItem>
                             <NavItem>	
-                                <NavLink to="#" activeClassName="active">
-                                    <DropCart/>
-                                </NavLink>
+                                <DropCart/>
                             </NavItem>
                         </Nav>
                     </Col>
@@ -75,7 +55,12 @@ const Header = () => {
             </Container>
         </Container>
     );
-
 }
 
 export default Header;
+
+/*handlePopoverToggle = () => {
+        this.setState({
+            popoverToggler: !this.state.popoverToggler
+        });
+}*/

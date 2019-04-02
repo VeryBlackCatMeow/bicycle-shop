@@ -17,7 +17,8 @@ const CartItem = ({item, addToCartFunc, removeFromCartFunc, quantity, decreaseFu
             </Col>
             <Col xs="2">
                 <span>
-                    <Button size="sm" color="primary" onClick={decreaseFunc.bind(this, item.id)}  disabled={quantity[item.id] > 1 ? false : true}>-</Button>
+                    <Button size="sm" color="primary" onClick={decreaseFunc.bind(this, item.id)} 
+                                        disabled={quantity[item.id] > 1 ? false : true}>-</Button>
                     {quantity[item.id]}
                     <Button size="sm" color="primary" onClick={addToCartFunc.bind(this, item)}>+</Button>
                 </span>

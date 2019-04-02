@@ -42,6 +42,8 @@
     padding: .4em;
     margin-left: .1em;
     background-color: black;
+    color: white;
+    cursor: pointer;
 }
     .head-account-menu i {
         vertical-align: middle;
