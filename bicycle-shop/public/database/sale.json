@@ -12,22 +12,22 @@
       "price": 270.99,
       "currencyFormat": "$",
       "image": "/database/sale/5000.jpg",
-      "description": ""
+      "description": "The Wall"
     },
     {
       "id": 5001,
       "category": "sale",
-      "product": "Multitool",
+      "product": "Savior",
       "type": "",
-      "title": "OldSchool",
-      "brand": "OldSchool",
+      "title": "Icon",
+      "brand": "Heaven",
       "size": "",
-      "color": ["Black", "Silver"],
+      "color": ["Galaxy"],
       "wheelSize": "",
-      "price": 9.99,
+      "price": 15.99,
       "currencyFormat": "$",
       "image": "/database/sale/5001.jpg",
-      "description": "Sandman"
+      "description": "Bless and Save"
     },
     {
       "id": 5002,
@@ -47,32 +47,32 @@
     {
       "id": 5003,
       "category": "sale",
-      "product": "Pump",
+      "product": "Anti-Theft",
       "type": "",
       "title": "Funeral Breathe",          
       "brand": "Funeral",
       "size": "",
-      "color": ["Brown"],
+      "color": ["Black", "Yellow"],
       "wheelSize": "",
-      "price": 499.99,
+      "price": 399.99,
       "currencyFormat": "$",
       "image": "/database/sale/5003.jpg",
-      "description": "Hammer of the Scotts"
+      "description": "Bonus: Honey"
     },
     {
       "id": 5004,
       "category": "sale",
-      "product": "Pump",
+      "product": "Lockcycle",
       "type": "",
-      "title": "Sealand Wind",
-      "brand": "Sealand",
+      "title": "Master Knot",
+      "brand": "Master",
       "size": "",
-      "color": ["White", "Grey"],
+      "color": ["Black", "Orange"],
       "wheelSize": "",
       "price": 999.99,
       "currencyFormat": "$",
       "image": "/database/sale/5004.jpg",
-      "description": "Running Wild"
+      "description": "Tie a Knot"
     },
     {
       "id": 5005,

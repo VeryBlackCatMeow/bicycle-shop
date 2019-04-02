@@ -1,33 +1,38 @@
-import React, { Component } from 'react';
-import { Card, CardImg, CardBody, Button, Container, Row, Col} from 'reactstrap';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import {  setProductsAction, addToCartAction, removeFromCartAction } from '../actions/index.js'
 import { withRouter } from 'react-router-dom'
 import axios from 'axios';
-import Loading from '../components/Loading';
+import { Container, Row, Col, Card, CardImg, CardBody, Button, 
+    TabContent, TabPane, Nav, NavItem, NavLink} from 'reactstrap';
+    //import { NavLink } from 'react-router-dom';
+import classnames from 'classnames';
 
-class Product extends Component {
-    
-    componentDidMount = () => {
-        const { setProductsFunc } = this.props;
-    
-        axios.get(`/database/${this.props.match.params.category}.json`).then(({ data }) => {    
+import {  setProductsAction, addToCartAction, removeFromCartAction } from '../actions/index.js'
+import Loading from '../components/Loading';
+import '../styles/product.css'
+
+const Product = (props) => {
+    const { setProductsFunc } = props;
+    const [activeTab, toggle] = useState('1');
+    useEffect(() => {
+        axios.get(`/database/${props.match.params.category}.json`).then(({ data }) => {    
             setProductsFunc(data);      
         });
-    }
+    });
 
-    render() { 
-        const {cartItems, addToCartFunc, removeFromCartFunc, items} = this.props;
-        const item = items.find( i => i.id === +(this.props.match.params.id));
+    
+        const {cartItems, addToCartFunc, removeFromCartFunc, items} = props;
+        const item = items.find( i => i.id === +(props.match.params.id));
         if(!item) return <Loading/>;
-        const { id, title, description, type, price, image } = item;
+        const { id, product, title, description, type, price, image } = item;
            
         return(
-            <Container>
+            <Container className="product">
+                <h1>{product} {title} <a>MYLINK</a></h1>
                 <Row>
                     <Col xs="12" md="6">
                         <Card>
-                            <CardImg top width="100%" src={image} alt="Product" />
+                            <CardImg top src={image} alt="Product" />
                             <CardBody>
                             
                             </CardBody>
@@ -41,15 +46,58 @@ class Product extends Component {
                         {
                             cartItems.some( a => (a.id===id) )
                             ? 
-                            <Button color="danger" block onClick={removeFromCartFunc.bind(this, id)}>Remove From Cart</Button>
+                            <Button color="danger" onClick={removeFromCartFunc.bind(this, id)}>Remove From Cart</Button>
                             : 
-                            <Button color="primary" block onClick={addToCartFunc.bind(this, item)}>Add To Cart</Button>
+                            <Button color="primary" onClick={addToCartFunc.bind(this, item)}>Add To Cart</Button>
                         } 
                     </Col>
+                    <a>MYLINK</a>
                 </Row>
+                <div className="product-navbar">
+                    <Nav tabs>
+                        <NavItem>
+                            <NavLink className={classnames({ active: activeTab === '1' })}
+                                        onClick={() => toggle('1')}
+                                >Description
+                            </NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink className={classnames({ active: activeTab === '2' })}
+                                        onClick={() => toggle('2')}
+                                >Specification
+                            </NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink className={classnames({ active: activeTab === '3' })}
+                                        onClick={() => toggle('3')}
+                                >Reviews
+                            </NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink className={classnames({ active: activeTab === '4' })}
+                                        onClick={() => toggle('4')}
+                                >Help & Advice
+                            </NavLink>
+                        </NavItem>
+                    </Nav>
+
+                    <TabContent activeTab={activeTab}>
+                        <TabPane tabId="1">
+                            <Row>
+                            <Col sm="12">
+                                <h4>Tab 1 Contents</h4>
+                            </Col>
+                            </Row>
+                        </TabPane>
+
+                        <TabPane tabId="2">
+                            <h4>Tab 2 Contents wfwfwffwfwfwwfwfwfwf</h4>
+                        </TabPane>
+                    </TabContent>
+                </div>
             </Container> 
         );
-    }
+    
 }
 
 const mapStateToProps = ( {cartreducers, productreducers} ) => ({
@@ -63,4 +111,4 @@ const mapDispatchToProps = (dispatch) => ({
     removeFromCartFunc: id => dispatch(removeFromCartAction(id)),
   });
 
-  export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Product));
+  export default connect(mapStateToProps, mapDispatchToProps)(Product);

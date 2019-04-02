@@ -3,7 +3,7 @@
     outline: 2px solid rgb(108, 0, 130);
     box-shadow: 0 0 0.8em rgb(108, 0, 130);
 
-    color: blue;
+    color: rgb(108, 0, 130);
     background-color:#DCDCDC;
 
     transition: transform 1s;
@@ -44,3 +44,12 @@
     .product-card .btn-secondary:hover .btn-remove {
         display: inline;
     }
+
+
+.product-card .card-title {
+    font-weight: bold; 
+}
+
+.product-card .card-price {
+    color: rgb(75, 0, 130); 
+}

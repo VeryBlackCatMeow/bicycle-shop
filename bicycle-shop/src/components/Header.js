@@ -29,7 +29,7 @@ const Header = () => {
                     <Col xs="4" lg={{size:3, order: 1}}>     
                         <div  className="head-logo">
                             <NavLink exact to="/">
-                                    <img src="logo.jpg" alt="logo"></img>&nbsp;
+                                    <img src="/logo.jpg" alt="logo"></img>&nbsp;
                                     <span>BikeGalaxy</span>
                             </NavLink>
                         </div> 

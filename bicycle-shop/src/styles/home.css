@@ -1,4 +1,4 @@
-.home-jumbotron .container-fluid {
+/*.home-jumbotron  {
     display: flex;
     background-image: url(/database/another/background.jpg);
     background-repeat: no-repeat;
@@ -10,6 +10,24 @@
     text-shadow: 3px 3px #4B0082;
     color:white;
     
+}*/
+
+.home-jumbotron {
+    min-width: 576px;
+    margin: 0;
+    padding: 16em 0;
+
+    background-image: url(/database/another/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    text-align: center;
+}
+.home-jumbotron h2 {
+    font-size: 2.5em;
+    line-height: 1.6em;
+    text-shadow: 3px 3px #4B0082;
+    color:white;
 }
 
 .home-menu a {
@@ -29,3 +47,9 @@
 .home .card-title {
     color: rgb(105, 26, 224);
 }
+
+/*@media (max-width: 1200px) {
+    .home-jumbotron {
+        padding: 10em;
+    }
+}*/

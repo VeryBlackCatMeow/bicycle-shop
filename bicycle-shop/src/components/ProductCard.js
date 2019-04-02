@@ -4,7 +4,7 @@ import { Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button, Col} from 'reactstrap';
     //className="d-flex justify-content-between align-items-center"
 const ProductCard = (props) => { //width="100%" style={{height: '100%'}}
-    const {id, title, description, type, price, image, category,
+    const {id, product, title, description, type, price, image, category,
                 cartItems, addToCartFunc, removeFromCartFunc/*, extraProps*/} = props;
     return(
         <Col className="col-12 col-md-6 col-lg-4 py-3"> 
@@ -14,9 +14,9 @@ const ProductCard = (props) => { //width="100%" style={{height: '100%'}}
                 </Link>  
                     <CardBody>
                         <CardTitle>{title}</CardTitle>
-                        <CardSubtitle>{description}</CardSubtitle>
-                        <CardText>{type}</CardText>
-                        <h5>{price} $</h5>
+                        <CardSubtitle>{type} {product}</CardSubtitle>
+                        <CardText></CardText>
+                        <h5 className="card-price">{price} $</h5>
                         {
                             cartItems.some( a => (a.id===id) )
                             ? 
@@ -34,4 +34,19 @@ const ProductCard = (props) => { //width="100%" style={{height: '100%'}}
 }
     export default ProductCard;
 
-/*d-block="true"  width="100%" style={{ margin: "auto", textAlign: 'center'}} */
+/* <CardBody>
+                        <CardTitle>{title}</CardTitle>
+                        <CardSubtitle>{description}</CardSubtitle>
+                        <CardText>{type}</CardText>
+                        <h5>{price} $</h5>
+                        {
+                            cartItems.some( a => (a.id===id) )
+                            ? 
+                            <Button color="secondary" block onClick={removeFromCartFunc.bind(this, id)}>
+                                <span className="btn-added">Added To Cart Already</span>
+                                <span className="btn-remove"> Remove From Cart</span>
+                            </Button>
+                            :
+                            <Button color="primary" block onClick={addToCartFunc.bind(this, props)}>Add To Cart</Button>
+                        } 
+                    </CardBody> */
