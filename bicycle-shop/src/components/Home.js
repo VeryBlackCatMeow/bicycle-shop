@@ -84,9 +84,8 @@ class Home extends Component {
                             </Col>
                         </Row>
                     </Col>
-
-
                 </Row>
+
                 <Row>
                     <i className='fas fa-home' style={{fontSize: '24px'}}></i>
                     <i className='fas fa-phone-square' style={{fontSize: '24px'}}></i>

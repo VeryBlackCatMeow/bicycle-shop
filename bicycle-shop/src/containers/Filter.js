@@ -101,7 +101,7 @@ class Filter extends Component {
                     {
                         this.state.menu
                         ?
-                        this.state.menu.map((line) => (<h6 key={line.id}><NavLink to={line.link} activeClassName="active">{line.menu}</NavLink></h6>))
+                        this.state.menu.map((line) => (<><NavLink key={line.id} to={line.link} activeClassName="active">{line.menu}</NavLink><br/></>))
                         :
                         null
                     }

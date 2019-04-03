@@ -34,7 +34,7 @@ const DropCart = ({totalPrice, totalCount, cartItems, removeFromCartFunc}) => {
                 <PopoverHeader className="py-3 d-flex justify-content-between">
                     <span style={{display: 'block'}} >ShopingCart</span>
                     <Button outline size="sm" color="info" 
-                        onClick={handlePopoverToggle}>Close</Button> 
+                        onClick={() =>handlePopoverToggle(!popoverToggler)}>Close</Button> 
                 </PopoverHeader>
                 <PopoverBody style={{maxHeight: '30em', overflow: 'auto'}}> 
                     <ListGroup >

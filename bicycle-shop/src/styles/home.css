@@ -48,6 +48,10 @@
     color: rgb(105, 26, 224);
 }
 
+.home .uncontrolled-carousel {
+    color: black;
+}
+
 /*@media (max-width: 1200px) {
     .home-jumbotron {
         padding: 10em;

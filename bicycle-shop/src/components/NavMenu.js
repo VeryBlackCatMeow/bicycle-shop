@@ -1,10 +1,20 @@
-import React, {useState} from 'react';
-import {Navbar, Nav, NavItem, NavbarToggler, Collapse, Button, Modal, 
-        ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import React, {useState, useEffect} from 'react';
 import { NavLink } from 'react-router-dom';
+import axios from 'axios';
+
+import {Navbar, Nav, NavItem, NavbarToggler, Collapse, Button, Modal, 
+    ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 const NavMenu = () => {
     const [navMenuToggler, handleMenuToggle] = useState(false);
+    const [mainMenu, setMainMenu] = useState(null);
+
+    useEffect(() => {
+        axios.get('/database/homemenu.json').then(({ data }) => {       
+            setMainMenu(data);
+        });
+    });
+
     return (
     <Navbar light expand="lg" className="head-nav-menu">
         <NavbarToggler onClick={()=>handleMenuToggle(!navMenuToggler)} />
@@ -26,10 +36,11 @@ const NavMenu = () => {
             </Nav>
         </Collapse>    
         
-        <Modal className="head-side-bar" isOpen={navMenuToggler} toggle={()=>handleMenuToggle(!navMenuToggler)}>
+        <Modal className="head-side-bar" isOpen={navMenuToggler} 
+                toggle={()=>handleMenuToggle(!navMenuToggler)}>
             <ModalHeader toggle={()=>handleMenuToggle(!navMenuToggler)}>Modal title
             </ModalHeader>
-            <ModalBody>
+            <ModalBody style={{maxHeight: '35em', overflow: 'auto'}}>
                 <Nav vertical>
                     <NavItem> 
                         <NavLink exact to="/" activeClassName="active" onClick={()=>handleMenuToggle(!navMenuToggler)}>Home</NavLink>
@@ -43,6 +54,34 @@ const NavMenu = () => {
                     <NavItem>      
                         <NavLink to="/rental" activeClassName="active" onClick={()=>handleMenuToggle(!navMenuToggler)}>Rent</NavLink>
                     </NavItem>
+                    <hr/>
+                    <NavItem>   
+                        <NavLink to="/about" activeClassName="active" onClick={()=>handleMenuToggle(!navMenuToggler)}>About Us</NavLink>
+                    </NavItem>
+                    <NavItem>      
+                        <NavLink to="/rental" activeClassName="active" onClick={()=>handleMenuToggle(!navMenuToggler)}>Rent</NavLink>
+                    </NavItem>
+                    <NavItem>   
+                        <NavLink to="/about" activeClassName="active" onClick={()=>handleMenuToggle(!navMenuToggler)}>About Us</NavLink>
+                    </NavItem>
+                    <NavItem>      
+                        <NavLink to="/rental" activeClassName="active" onClick={()=>handleMenuToggle(!navMenuToggler)}>Rent</NavLink>
+                    </NavItem>
+                    <hr/>
+                    {
+                        mainMenu
+                        ?
+                        mainMenu.map((line) => (
+                                <NavItem key={line.id}>
+                                    <NavLink to={line.link} 
+                                            activeClassName="active"
+                                            onClick={()=>handleMenuToggle(!navMenuToggler)}
+                                    >{line.menu}
+                                    </NavLink>
+                                </NavItem>))
+                        :
+                        null
+                    }
                 </Nav>
             </ModalBody>
             <ModalFooter>
