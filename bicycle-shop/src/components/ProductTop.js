@@ -5,6 +5,7 @@ import '../styles/product.css'
 
 const ProductTop = ({cartItems, addToCartFunc, removeFromCartFunc, item}) => {
     const { id, title, type, price, image } = item;
+
     return(
         <Row className="product-top-section">
             <Col xs="12" md="6">

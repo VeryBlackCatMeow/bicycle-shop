@@ -84,13 +84,14 @@ const filteringBy = (items, filterBy) => {
     return items;
 }
 
-const finalFiltration = (items, searchBy, sortBy, filterBy) =>  {
+const finalFilter = (items, searchBy, sortBy, filterBy) =>  {
     return sortingBy(filteringBy(searchingBy(items, searchBy), filterBy), sortBy)
 };
 
+
 const mapStateToProps = ( 
     {productreducers, filtersreducers, cartreducers}) => ({
-    items: finalFiltration(productreducers.items, filtersreducers.searchBy,
+    items: finalFilter(productreducers.items, filtersreducers.searchBy,
                             filtersreducers.sortBy, filtersreducers.filterBy),
     cartItems: cartreducers.items,
 

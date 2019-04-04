@@ -20,18 +20,20 @@ const Product = (props) => {
 
     const {cartItems, addToCartFunc, removeFromCartFunc, items} = props;
     const item = items.find( i => i.id === +(props.match.params.id));
-    if(!item) return <Loading/>;
            
-    return(
-        <Container className="product">
-            <h1>{item.product} {item.title}</h1>
-            <ProductTop item={item}
-                        cartItems={cartItems}
-                        addToCartFunc={addToCartFunc}
-                        removeFromCartFunc={removeFromCartFunc}/>
-            <ProductBar {...item}/>
-        </Container> 
-    );
+    return  item
+            ?
+            <Container className="product">
+                <h1>{item.product} {item.title}</h1>
+                <ProductTop item={item}
+                            cartItems={cartItems}
+                            addToCartFunc={addToCartFunc}
+                            removeFromCartFunc={removeFromCartFunc}/>
+                <ProductBar {...item}/>
+            </Container>
+            :
+            <Loading/>
+    
 }
 
 const mapStateToProps = ( {cartreducers, productreducers} ) => ({

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Container, Button, ListGroup } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
+import { unique } from '../funcLibrary/index.js'
 import { addToCartAction, removeFromCartAction, decreaseAction } from '../actions/index.js'
 import CartItem from '../components/CartItem.js'
 
@@ -22,8 +23,8 @@ const Cart = ({totalPrice, totalCount, cartItems, addToCartFunc, removeFromCartF
                         {             
                         cartItems.map( (item) => (<CartItem key={item.id} item={item} 
                                 removeFromCartFunc={removeFromCartFunc} addToCartFunc={addToCartFunc} 
-                                setQuantityFunc={setQuantityFunc} quantity={quantity}
-                                decreaseFunc={decreaseFunc} />))
+                                decreaseFunc={decreaseFunc} 
+                                quantity={quantity} />))
                         }
                     </ListGroup>
                 </div>
@@ -34,18 +35,6 @@ const Cart = ({totalPrice, totalCount, cartItems, addToCartFunc, removeFromCartF
                     </Link>
                 </div>
             </Container>
-}
-
-const unique = (array) => {
-    var newArr = [];
-    array.filter( item => {
-        var i = newArr.findIndex(x => (x.id === item.id));
-        if(i <= -1){
-        newArr.push({...item});
-        }
-    return null;
-    })
-    return newArr
 }
 
 const mapStateToProps = ( { cartreducers } ) => ({

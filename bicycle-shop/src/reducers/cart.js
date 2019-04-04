@@ -1,19 +1,9 @@
+import { decrease } from '../funcLibrary/index.js'
+
 const initialState = {
     items: [],
-    //lastItem: null,
     quantity: {}
 };
-
-const decrease = (items, action) => {
-    for(var i = items.length-1; i >= 0; i--) {
-        var item = items[i];
-        if(action === item.id) {
-            items.splice(i, 1);
-            break;
-        }
-    }
-    return items;
-}
 
 export default (state = initialState, action) => {
     switch (action.type) {

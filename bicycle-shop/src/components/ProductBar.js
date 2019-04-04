@@ -5,8 +5,9 @@ import classnames from 'classnames';
 
 import '../styles/product.css'
 
-const ProductBar = ({product, title, description, type}) => {
+const ProductBar = ( {product, title, description, type} ) => {
     const [activeTab, toggle] = useState('1');
+
     return(
         <div className="product-navbar mt-3">
             <Nav tabs>

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 
+import { sortByABC } from '../funcLibrary/index.js'
 import { setFilterAction, resetFiltersAction  } from '../actions/index.js'
 import FilterBlock  from '../components/FilterBlock.js';
 import '../styles/filter.css'
@@ -61,35 +62,31 @@ class Filter extends Component {
     handleFilterToggle = (e) => {
         let target = e.target;
         while (target !== this) {
-            /*if (target.className === 'filt-button btn btn-primary btn-block') {*/
-                if (target.className.indexOf('filt-button') >= 0) {
-                const name = target.name;
-                this.setState({ 
-                    filterToggles: {...this.state.filterToggles, 
-                                                [name]: !this.state.filterToggles[name] }
-                });
+            if (target.className.indexOf('filt-button') >= 0) {
+            const name = target.name;
+            this.setState({ 
+                filterToggles: {...this.state.filterToggles, 
+                                            [name]: !this.state.filterToggles[name] }
+            });
             return;
             }
         target = target.parentNode;
         }
     }
-
-    sorting = (items) => items.slice().sort( (a , b) => {
-                        if (a >= b) return 1;
-                        else return -1;
-                        });
-                        
-
+    
     render() {
         const { setFilterFunc, extraProps, items } = this.props
-        const filterBlocks =  extraProps.filters.map( i => ( 
-            {
+        const filterBlocks =  extraProps.filters.map( i => {
+            let x = sortByABC( [...new Set([].concat(...items.map(item =>item[i])))] ) //array of checkboxes names/values from items
+            return {
              name: i, 
-             list: this.sorting( [...new Set([].concat(...items.map(item =>item[i])))] ) //array of checkboxes names/values from items
+             list: x
             }          //собираем все возможные значения фильтров (фильтры из extraProps, значения из items)
-        ));
+        }   
+        );
         const blockArrow =!this.state.blockToggle ? 'down' : 'right';
         const menuArrow =!this.state.menuToggle ? 'down' : 'right';
+
         return(
             <>
             <div className="filt-block">
@@ -101,7 +98,7 @@ class Filter extends Component {
                     {
                         this.state.menu
                         ?
-                        this.state.menu.map((line) => (<><NavLink key={line.id} to={line.link} activeClassName="active">{line.menu}</NavLink><br/></>))
+                        this.state.menu.map((line) => (<h6 key={line.id}><NavLink to={line.link} activeClassName="active">{line.menu}</NavLink></h6>))
                         :
                         null
                     }

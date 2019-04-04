@@ -2,19 +2,12 @@ import React from 'react';
 import { Nav, NavItem, NavLink, Col,
     InputGroup, InputGroupText, InputGroupAddon, Input} from 'reactstrap';
 
-    /*handleItemClick = ({target: {name}}) => {
-        this.setState({activeNav: name});
-        const { setSortFunc } = this.props;
-        setSortFunc(name);
-    };  */
 const SortBar = ({ setSortFunc, sortBy, setSearchFunc, searchBy }) => {
         return(
             <Col xs="12">
             <Nav pills className="sort-bar justify-content-between">
                 <NavItem>
                     <NavLink 
-                        //name='all' 
-                        //active={activeNav==='all'}
                         active={sortBy==='all'}
                         onClick={setSortFunc.bind(this, 'all')}
                         href='#'>All

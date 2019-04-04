@@ -3,7 +3,6 @@ import {createPortal} from 'react-dom';
 import { Jumbotron, Container } from 'reactstrap';
 
 const HomeJumbotron = () => {
-
   return createPortal(
     <Jumbotron className="home-jumbotron" fluid>
       <Container fluid>
