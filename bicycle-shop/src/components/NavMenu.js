@@ -37,29 +37,17 @@ const NavMenu = () => {
         </Collapse>    
         
         <Modal className="head-side-bar" isOpen={navMenuToggler} 
-                toggle={()=>handleMenuToggle(!navMenuToggler)}>
+                toggle={()=>handleMenuToggle(!navMenuToggler)}
+                >
             <ModalHeader toggle={()=>handleMenuToggle(!navMenuToggler)}>Modal title
             </ModalHeader>
-            <ModalBody style={{maxHeight: '35em', overflow: 'auto'}}>
+            <ModalBody>
                 <Nav vertical>
                     <NavItem> 
                         <NavLink exact to="/" activeClassName="active" onClick={()=>handleMenuToggle(!navMenuToggler)}>Home</NavLink>
                     </NavItem>
                     <NavItem>
                         <NavLink to="/bicycles" activeClassName="active" onClick={()=>handleMenuToggle(!navMenuToggler)}>Bicycles</NavLink>
-                    </NavItem>
-                    <NavItem>   
-                        <NavLink to="/about" activeClassName="active" onClick={()=>handleMenuToggle(!navMenuToggler)}>About Us</NavLink>
-                    </NavItem>
-                    <NavItem>      
-                        <NavLink to="/rental" activeClassName="active" onClick={()=>handleMenuToggle(!navMenuToggler)}>Rent</NavLink>
-                    </NavItem>
-                    <hr/>
-                    <NavItem>   
-                        <NavLink to="/about" activeClassName="active" onClick={()=>handleMenuToggle(!navMenuToggler)}>About Us</NavLink>
-                    </NavItem>
-                    <NavItem>      
-                        <NavLink to="/rental" activeClassName="active" onClick={()=>handleMenuToggle(!navMenuToggler)}>Rent</NavLink>
                     </NavItem>
                     <NavItem>   
                         <NavLink to="/about" activeClassName="active" onClick={()=>handleMenuToggle(!navMenuToggler)}>About Us</NavLink>

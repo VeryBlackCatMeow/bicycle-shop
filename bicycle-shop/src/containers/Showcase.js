@@ -38,7 +38,6 @@ class Showcase extends Component {
     }
 }
 
-
 const sortingBy = (items, sortBy) => {
     switch(sortBy) {
         case 'high':
@@ -73,12 +72,27 @@ const searchingBy = (items, searchBy) => {
 
 const filteringBy = (items, filterBy) => {
     for ( let key in filterBy) {
-        if (filterBy[key].length !== 0){ 
+        if (filterBy[key].length !== 0) { 
             items = items.filter(item => {
                 for( let i = 0; i < filterBy[key].length; i++) {
                     if(item[key].indexOf(filterBy[key][i]) >= 0) return true;
                 }
             });
+        }
+    }
+    return items;
+}
+
+const filteringBy2 = (items, filterBy) => {
+    for ( let key in filterBy) {
+        for ( let line in key) {
+            if(line === true) { 
+                items = items.filter(item => {
+                    for( let i = 0; i < filterBy[key].length; i++) {
+                        if(item[key].indexOf(filterBy[key][i]) === line) return true;
+                    }
+                });
+            }
         }
     }
     return items;

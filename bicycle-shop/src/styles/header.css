@@ -124,6 +124,13 @@
         color: red; 
         background-color: black;
     }
+    /*.head-side-bar .modal-body {
+        max-height: 'window.height';
+    }*/
+    .head-side-bar .modal-body {
+        max-height: calc(100vh - 200px);
+        overflow: auto;
+    }
 
 
 @media (max-width: 1200px) {

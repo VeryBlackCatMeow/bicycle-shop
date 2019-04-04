@@ -12,12 +12,22 @@ import '../styles/filter.css'
 class Filter extends Component {
     constructor(props) {
         super(props)
+        const {resetFiltersFunc, extraProps} = this.props;
+
                                 // all toggles are true
         this.state = {    
             blockToggle: true,
             menuToggle: true,  
-            filterToggles: this.props.extraProps.filters.reduce((o, key) => ( {...o, [key]: true} ), {})
-         };
+            filterToggles: extraProps.filters.reduce((o, key) => ( {...o, [key]: true} ), {}),
+        };
+
+        this.reset = {
+            searchBy: '',
+            sortBy: 'all',
+            filterBy: extraProps.filters.reduce((o, key) => ( {...o, [key]:[]} ), {})
+        }
+
+        resetFiltersFunc(this.reset);
     }
 
     componentDidMount = () => {
@@ -38,12 +48,7 @@ class Filter extends Component {
             });
 
                                 // reset all filters(set default settings)
-            const reset = {
-                searchBy: '',
-                sortBy: 'all',
-                filterBy: extraProps.filters.reduce((o, key) => ( {...o, [key]:[]} ), {})
-            }
-            resetFiltersFunc(reset);
+            resetFiltersFunc(this.reset);
         }
     }
 
@@ -75,7 +80,7 @@ class Filter extends Component {
     }
     
     render() {
-        const { setFilterFunc, extraProps, items } = this.props
+        const { setFilterFunc, filterBy, extraProps, items } = this.props
         const filterBlocks =  extraProps.filters.map( i => {
             let x = sortByABC( [...new Set([].concat(...items.map(item =>item[i])))] ) //array of checkboxes names/values from items
             return {
@@ -115,6 +120,7 @@ class Filter extends Component {
                             key={index} filterBlock={filterBlock} 
                             handleFilterToggle={this.handleFilterToggle}
                             filterToggle={this.state.filterToggles[filterBlock.name]}
+                            filterBy = {filterBy}
                             setFilterFunc={setFilterFunc}/> )
                     }
                 </Collapse>

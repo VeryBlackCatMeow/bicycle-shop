@@ -1,7 +1,8 @@
 const initialState = {
     searchBy: '',
     sortBy: 'all',
-    filterBy: { type: [], brand: [], wheelSizes: [] }    
+    filterBy: {}, 
+    /*filterBy: { type: [], brand: [], wheelSizes: [] }  */  
 };
 
 export default (state = initialState, action) => {
@@ -41,12 +42,30 @@ export default (state = initialState, action) => {
     }
 }
 
-/*
+/* { [], [], []}
 case 'SET_FILTER':
             return {
                 ...state,
                 filterBy: action.payload.checked
-                    ?[ ...state.filterBy, { filterName: action.payload.name, value: action.payload.value} ]
-                    :state.filterBy.filter( f => f.filterName !== action.payload.name || f.value !== action.payload.value )
+                    ?
+                    { ...state.filterBy,
+                        [action.payload.name]: [...state.filterBy[action.payload.name],
+                            action.payload.value] } // добавляем  фильтр(value) в массив в соответстующем свойстве(name) объекта
+                    :
+                    {...state.filterBy,
+                        [action.payload.name]: state.filterBy[action.payload.name].filter(item => 
+                            item !== action.payload.value)} // удаляем из свойства объекта ненужный элемент(фильтр) массива
             };
-*/
+ */
+
+ /** { {}, {}, {} }
+   case 'SET_FILTER':
+            return {
+                ...state,
+                filterBy: { ...state.filterBy,
+                        [action.payload.name]: {...state.filterBy[action.payload.name], 
+                            [action.payload.value]: !state.filterBy[action.payload.name][action.payload.value] }
+                }
+                   
+            };
+  */

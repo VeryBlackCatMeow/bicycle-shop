@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
-import { Container, Row, Col} from 'reactstrap';
+import { Container } from 'reactstrap';
 
 import {  setProductsAction, addToCartAction, removeFromCartAction } from '../actions/index.js'
 import Loading from '../components/Loading';
