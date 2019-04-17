@@ -1,0 +1,22 @@
+.cart {
+    text-align: center;
+}
+    .cart a>.btn-primary {
+    float: right;
+    }
+    .cart .list-group-item.cart-item .btn-danger {
+        width: 2em;
+    }
+
+
+.drop-cart {
+    min-width: 19em;
+}
+    .drop-cart .popover-body {
+        max-height: 30em;
+        overflow: auto;
+    }
+    .drop-cart .popover-body::-webkit-scrollbar {
+    width: 0;
+    background-color: #F5F5F5;
+}

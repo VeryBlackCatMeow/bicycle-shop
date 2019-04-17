@@ -4,21 +4,14 @@
   background-size: cover;
 }
 
-/*#headhome {
-  background-image: url(Gallery/affix2.jpg);
-  background-repeat: no-repeat;
-  background-size: 100% 800px;
-  height:800px;
-  text-align:center;
-  padding-top: 310px;
-  text-shadow: 3px 3px #4B0082;
-}*/
-
 .gallery,
 .home,
 .product,
-.about-us {
+.about-us,
+.cart {
+  min-height: calc(100vh - 100px);
   background-color: rgb(255, 255, 255, .95);
+  padding-bottom: 1em;
 }
 
 .header,

@@ -46,9 +46,14 @@ const ProductBar = ( {product, title, description, type} ) => {
                     </Col>
                     </Row>
                 </TabPane>
-
                 <TabPane tabId="2">
-                    <h4>Tab 2 Contents wfwfwffwfwfwwfwfwfwf</h4>
+                    <h4>Specification Table....</h4>
+                </TabPane>
+                <TabPane tabId="3">
+                    <h4>Reviews.....</h4>
+                </TabPane>
+                <TabPane tabId="4">
+                    <h4>Help & Advice........</h4>
                 </TabPane>
             </TabContent>
         </div>

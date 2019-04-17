@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import Header from './components/Header.js';
-import Gallery from './containers/Gallery.js';
-import About from './components/About.js';
-import Home from './components/Home.js';
-import Product from './containers/Product.js';
-import Cart from './containers/Cart.js';
-import PageIsNotFound from './components/PageIsNotFound.js';
+import Header from './components/Header';
+import Gallery from './components/Gallery';
+import About from './components/About';
+import Home from './components/Home';
+import Product from './containers/Product';
+import Cart from './containers/Cart';
+import PageIsNotFound from './components/PageIsNotFound';
 import './App.css';
 
 import { Route, Switch } from 'react-router-dom';
@@ -22,7 +22,7 @@ class App extends Component {
                   <Route path="/about" component={About} />
                   <Route exact path="/cart" component={Cart} />
                   
-                  <Route exact path="/:category" component={Gallery}/>
+                  <Route exact path="/:category"  key={Math.random()} component={Gallery}/>
                   <Route exact path="/:category/:id" component={Product}/>
 
                   <Route path="*" component={PageIsNotFound}/>

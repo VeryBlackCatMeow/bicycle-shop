@@ -4,8 +4,8 @@ import { Container, Row, Col, UncontrolledCarousel, Card, CardImg,
                 CardBody,CardTitle, CardLink} from 'reactstrap';
 import axios from 'axios';
 
-import HomeMenu from './HomeMenu.js';
-import HomeJumbotron from './HomeJumbotron.js';
+import HomeMenu from './HomeMenu';
+import HomeJumbotron from './HomeJumbotron';
 import '../styles/home.css'
 
 class Home extends Component {

@@ -5,35 +5,32 @@ import { Link } from 'react-router-dom';
 
 import { unique } from '../funcLibrary/index.js'
 import { addToCartAction, removeFromCartAction, decreaseAction } from '../actions/index.js'
-import CartItem from '../components/CartItem.js'
+import CartItem from '../components/CartItem'
+import '../styles/cart.css';
 
 const Cart = ({totalPrice, totalCount, cartItems, addToCartFunc, removeFromCartFunc, quantity, setQuantityFunc, decreaseFunc}) => {
 
     return  !cartItems.length 
             ?
-            <Container>
-                <div>Shoping Cart</div>
-                <div>Your Cart Is Empty :(</div>
+            <Container className="cart">
+                <h2>Shoping Cart</h2><hr/><br/><br/>
+                <h5>Your Cart Is Empty :(</h5>
             </Container>
             :
-            <Container>
-                <div>Shoping Cart</div>
-                <div>
-                    <ListGroup>
-                        {             
-                        cartItems.map( (item) => (<CartItem key={item.id} item={item} 
-                                removeFromCartFunc={removeFromCartFunc} addToCartFunc={addToCartFunc} 
-                                decreaseFunc={decreaseFunc} 
-                                quantity={quantity} />))
-                        }
-                    </ListGroup>
-                </div>
-                <div> Amount: &nbsp; {totalPrice} &nbsp; Items: &nbsp; {totalCount}</div>
-                <div>
-                    <Link to="/checkout">
-                    <Button size="sm" color="primary" style={{ float: 'right'}}>Proceed To Checkout</Button>
-                    </Link>
-                </div>
+            <Container className="cart">
+                <h2>Shoping Cart</h2>
+                <ListGroup>
+                    {             
+                    cartItems.map( (item) => (<CartItem key={item.id} item={item} 
+                            removeFromCartFunc={removeFromCartFunc} addToCartFunc={addToCartFunc} 
+                            decreaseFunc={decreaseFunc} 
+                            quantity={quantity} />))
+                    }
+                </ListGroup>
+                <h3> Subtotal: &nbsp; {totalPrice} &nbsp; Items: &nbsp; {totalCount}</h3>
+                <Link to="/checkout">
+                    <Button disabled size="sm" color="primary">Proceed To Checkout</Button>
+                </Link>
             </Container>
 }
 

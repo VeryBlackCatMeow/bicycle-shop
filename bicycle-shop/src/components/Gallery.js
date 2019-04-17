@@ -1,9 +1,9 @@
 import React from 'react';
 import {Container, Row, Col } from 'reactstrap';
 
-import Showcase from './Showcase';
-import Filter from '../containers/Filter.js';
-import Sort from './Sort.js';
+import Showcase from '../containers/Showcase';
+import Filter from '../containers/Filter';
+import Sort from '../containers/Sort';
 
 const Gallery = (props) => {
     const filtersConfig = (category) => {
@@ -12,9 +12,9 @@ const Gallery = (props) => {
         const backpacks = { filters: ['color', 'capacity'] };
         const bicycles = { filters: ['type', 'brand', 'wheel Size', 'color'] };
         const components = { filters: ['product', 'type', 'brand', 'color'] };
-        const news = { filters: ['product'] };
+        const news = { filters: ['product', 'brand'] };
         const rental = { filters: ['type', 'brand', 'wheel Size', 'title'] };
-        const sale = { filters: ['product'] };
+        const sale = { filters: ['product', 'brand'] };
         const tools = { filters: ['product', 'brand', 'color']};
         
         switch (category) {
@@ -47,7 +47,7 @@ const Gallery = (props) => {
         <Container className="gallery">
             <Row> 
                 <Col xs="3" lg="2">
-                    <Filter key={Math.random()} extraProps={extraProps}/> 
+                    <Filter extraProps={extraProps}/> 
                 </Col>
                 <Col xs="9" lg="10">
                     <h3 className="product-category">{props.match.params.category}</h3>
@@ -55,7 +55,7 @@ const Gallery = (props) => {
                         <Sort/>
                     </Row>
                     <Row>  
-                        <Showcase key={Math.random()} extraProps={extraProps}/>
+                        <Showcase/>
                     </Row>  
                 </Col>
             </Row>

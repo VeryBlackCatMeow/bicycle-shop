@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 
 import { sortByABC } from '../funcLibrary/index.js'
 import { setFilterAction, resetFiltersAction  } from '../actions/index.js'
-import FilterBlock  from '../components/FilterBlock.js';
+import FilterBlock  from '../components/FilterBlock';
 import '../styles/filter.css'
 
 class Filter extends Component {
@@ -36,7 +36,7 @@ class Filter extends Component {
         });
     }
 
-    componentDidUpdate = (prevProps) => {
+    /*componentDidUpdate = (prevProps) => {
         if (this.props.extraProps !== prevProps.extraProps) {
             const {resetFiltersFunc, extraProps} = this.props;
 
@@ -50,7 +50,7 @@ class Filter extends Component {
                                 // reset all filters(set default settings)
             resetFiltersFunc(this.reset);
         }
-    }
+    }*/
 
     handleBlockToggle = () => {
         this.setState({ 

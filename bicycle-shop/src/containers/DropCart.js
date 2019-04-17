@@ -6,7 +6,8 @@ import { Popover, PopoverHeader, PopoverBody,
 
 import { unique } from '../funcLibrary/index.js'
 import { removeFromCartAction } from '../actions/index.js'
-import DropCartItem from '../components/DropCartItem.js';
+import DropCartItem from '../components/DropCartItem';
+import '../styles/cart.css';
 
 const DropCart = ({totalPrice, totalCount, cartItems, removeFromCartFunc}) => {
     const[popoverToggler, handlePopoverToggle] = useState(false);
@@ -30,14 +31,14 @@ const DropCart = ({totalPrice, totalCount, cartItems, removeFromCartFunc}) => {
             }
         </div>
         
-        <Popover className="drop-cart" isOpen={popoverToggler} toggle={() =>handlePopoverToggle(!popoverToggler)}
-                placement="bottom" target="PopoverLegacy" style={{minWidth: '19em'}}>
+        <Popover className="drop-cart" isOpen={popoverToggler} toggle={() => handlePopoverToggle(!popoverToggler)}
+                placement="bottom" target="PopoverLegacy">
             <PopoverHeader className="py-3 d-flex justify-content-between">
-                <span style={{display: 'block'}} >ShopingCart</span>
+                <span>Shoping Cart</span>
                 <Button outline size="sm" color="info" 
-                    onClick={() =>handlePopoverToggle(!popoverToggler)}>Close</Button> 
+                    onClick={() => handlePopoverToggle(!popoverToggler)}>Close</Button> 
             </PopoverHeader>
-            <PopoverBody style={{maxHeight: '30em', overflow: 'auto'}}> 
+            <PopoverBody> 
                 <ListGroup >
                     { 
                         !cartItems.length
@@ -50,18 +51,16 @@ const DropCart = ({totalPrice, totalCount, cartItems, removeFromCartFunc}) => {
                 </ListGroup>
             </PopoverBody>
             <PopoverHeader>
-            <div className="pb-3" > 
-                <span>&nbsp; Amount: &nbsp; {totalPrice}</span> 
+                <span>&nbsp; Total: &nbsp; {totalPrice}</span> &nbsp;
                 <span>&nbsp; Items: &nbsp; {totalCount}</span> 
-            </div>
-            <div className="d-flex justify-content-between">
-                <Link to="/cart" onClick={() =>handlePopoverToggle(!popoverToggler)}>
-                    <Button size="sm" color="primary" >View Cart</Button>
-                </Link>
-                <Link to="/cart" /*style={{pointerEvents: 'none'}}*/>
-                    <Button size="sm" color="primary" disabled>To Checkout</Button>
-                </Link>
-            </div>
+                <div className="pt-3 d-flex justify-content-between">
+                    <Link to="/cart" onClick={() => handlePopoverToggle(!popoverToggler)}>
+                        <Button size="sm" color="primary" >View Cart</Button>
+                    </Link>
+                    <Link to="/cart">
+                        <Button size="sm" color="primary" disabled>To Checkout</Button>
+                    </Link>
+                </div>
             </PopoverHeader>
         </Popover>
     </>

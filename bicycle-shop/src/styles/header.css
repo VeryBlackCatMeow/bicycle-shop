@@ -38,7 +38,7 @@
     }
 
 
-.head-account-menu .nav-item{  /*отступ между ссылками*/
+.head-account-menu .nav-item{
     padding: .4em;
     margin-left: .1em;
     background-color: black;
@@ -124,9 +124,6 @@
         color: red; 
         background-color: black;
     }
-    /*.head-side-bar .modal-body {
-        max-height: 'window.height';
-    }*/
     .head-side-bar .modal-body {
         max-height: calc(100vh - 200px);
         overflow: auto;
@@ -194,42 +191,6 @@
             margin-top: -.2em;
             height: 1.5em;
         }
-
 }
 
-
-
-/*@media (max-width: 576px) {
-    .head-logo,
-    .head-search,
-    .head-account-menu,
-    .head-nav-menu{
-        height: 2.5em;
-    }
-
-    .head-logo a img {
-        height: 1.5em;
-    }
-    .head-logo a span {
-        font-size: 1.2em;
-    }
-
-    .head-account-menu .nav-item{
-        padding: 0;    
-    }
-    .head-account-menu i {
-        font-size: 1em;
-    }
-    #head-cart-count {
-        left: .6em;
-    }
-
-    .navbar-toggler {
-        height: 1.4em;
-        margin-top: -.1em;
-    }
-    .navbar-toggler .navbar-toggler-icon {
-        margin-top: -.4em;
-    }
-}*/
 

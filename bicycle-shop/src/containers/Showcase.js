@@ -14,15 +14,16 @@ class Showcase extends Component {
         axios.get(`/database/${this.props.match.params.category}.json`).then(({ data }) => {    
         this.props.setProductsFunc(data);   
         });
+
     }
 
-    componentDidUpdate(prevProps) {
+    /*componentDidUpdate(prevProps) {
         if (this.props.extraProps !== prevProps.extraProps) {
             axios.get(`/database/${this.props.match.params.category}.json`).then(({ data }) => {    
             this.props.setProductsFunc(data);   
             });
         }
-    }
+    }*/
 
     render() { 
         const { items, cartItems, addToCartFunc, removeFromCartFunc, itemCount } = this.props;
@@ -76,23 +77,9 @@ const filteringBy = (items, filterBy) => {
             items = items.filter(item => {
                 for( let i = 0; i < filterBy[key].length; i++) {
                     if(item[key].indexOf(filterBy[key][i]) >= 0) return true;
-                }
+                } 
+                return false;
             });
-        }
-    }
-    return items;
-}
-
-const filteringBy2 = (items, filterBy) => {
-    for ( let key in filterBy) {
-        for ( let line in key) {
-            if(line === true) { 
-                items = items.filter(item => {
-                    for( let i = 0; i < filterBy[key].length; i++) {
-                        if(item[key].indexOf(filterBy[key][i]) === line) return true;
-                    }
-                });
-            }
         }
     }
     return items;
@@ -118,3 +105,20 @@ const mapDispatchToProps = (dispatch) => ({
 });
                         //necessarily withRouter
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Showcase));
+
+
+
+/*const filteringBy2 = (items, filterBy) => {
+    for ( let key in filterBy) {
+        for ( let line in key) {
+            if(line === true) { 
+                items = items.filter(item => {
+                    for( let i = 0; i < filterBy[key].length; i++) {
+                        if(item[key].indexOf(filterBy[key][i]) === line) return true;
+                    }
+                });
+            }
+        }
+    }
+    return items;
+}*/

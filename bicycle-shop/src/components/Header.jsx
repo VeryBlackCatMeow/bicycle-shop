@@ -2,8 +2,8 @@ import React from 'react';
 import { Container, Row, Col, InputGroup, InputGroupAddon, Input,
         Nav, NavItem} from 'reactstrap';
 import { NavLink } from 'react-router-dom';
-import DropCart from '../containers/DropCart.js';
-import NavMenu from '../components/NavMenu.js';
+import DropCart from '../containers/DropCart';
+import NavMenu from '../components/NavMenu';
 import '../styles/header.css'
 
 const Header = () => {
