@@ -35,7 +35,7 @@ const DropCart = ({totalPrice, totalCount, cartItems, removeFromCartFunc}) => {
                 placement="bottom" target="PopoverLegacy">
             <PopoverHeader className="py-3 d-flex justify-content-between">
                 <span>Shoping Cart</span>
-                <Button outline size="sm" color="info" 
+                <Button outline size="sm" color="primary" 
                     onClick={() => handlePopoverToggle(!popoverToggler)}>Close</Button> 
             </PopoverHeader>
             <PopoverBody> 

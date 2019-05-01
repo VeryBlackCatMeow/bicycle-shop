@@ -96,7 +96,7 @@ class Filter extends Component {
             <>
             <div className="filt-block">
                 <Button className="filt-button" block color="success" onClick={this.handleMenuToggle}>
-                    <span className="filt-name">Gallery Menu</span>
+                    <span className="filt-name">Categories</span>
                     <span className="filt-arrow"><i className={menuArrow}></i></span>
                 </Button>
                 <Collapse isOpen={this.state.menuToggle}>

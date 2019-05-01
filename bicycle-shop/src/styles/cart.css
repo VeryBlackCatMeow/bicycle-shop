@@ -17,6 +17,9 @@
         overflow: auto;
     }
     .drop-cart .popover-body::-webkit-scrollbar {
-    width: 0;
-    background-color: #F5F5F5;
-}
+    width: 6px;
+    }
+    .drop-cart .popover-body::-webkit-scrollbar-thumb {
+        background-color: rgb(0, 123, 255, 0.5);
+    }
+
