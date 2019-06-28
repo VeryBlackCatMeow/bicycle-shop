@@ -67,7 +67,7 @@ class Filter extends Component {
     handleFilterToggle = (e) => {
         let target = e.target;
         while (target !== this) {
-            if (target.className.indexOf('filt-button') >= 0) {
+            if (target.className.indexOf('filt-button') >= 0) { //if (target.className.~str.indexOf('filt-button'))
             const name = target.name;
             this.setState({ 
                 filterToggles: {...this.state.filterToggles, 

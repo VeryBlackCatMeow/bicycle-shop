@@ -12,7 +12,7 @@ const FilterBlock = ({handleFilterToggle, filterToggle, setFilterFunc, filterBlo
                     <span className="filt-arrow"><i className={blockArrow}></i></span>
                 </Button>
                 <Collapse isOpen={filterToggle}>
-                    <div onChange={ e => setFilterFunc(e.target)}>
+                    <div onChange={ e => setFilterFunc(e.target) }>
                         {         
                             filterBlock.list.map( (checkbox, index) => 
                                     <CustomInput key={index} id={checkbox} 

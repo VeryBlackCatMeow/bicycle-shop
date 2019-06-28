@@ -18,12 +18,17 @@ class Home extends Component {
     } 
 
     componentDidMount = () => {
-        axios.get('/database/carousel.json').then(({ data }) => {       
-            this.setState({ slides: data});
-        });
-        axios.get('/database/homemenu.json').then(({ data }) => {       
-            this.setState({ homemenu: data});
-        });
+        axios.get('/database/carousel.json')
+            .then(({ data }) => {
+                this.setState({ slides: data});
+            })
+            .catch(error => console.log(error));
+
+        axios.get('/database/homemenu.json')
+            .then(({ data }) => {       
+                this.setState({ homemenu: data});
+            })
+            .catch(error => console.log(error));
     }
 
     render() {
@@ -53,7 +58,7 @@ class Home extends Component {
                     <Col xs="5" md="3">
                         <Card>
                             <CardBody>
-                                <h4><CardTitle>We have bikes for everyone!</CardTitle></h4>
+                                <h4><CardTitle>Bikes for everyone!</CardTitle></h4>
                             </CardBody>
                             <CardLink href="#">
                                 <CardImg src="/database/another/v2.jpg" className="img-thumbnail"  alt="Card image"/>
@@ -64,14 +69,13 @@ class Home extends Component {
                     </Col>
                     
                     <Col className="col-7 col-md-12 pt-3">
-                        <h5>Наверное, у каждого из нас в детстве была мечта оказаться в КОСМОСЕ </h5>
-                        <h5>Теперь у вас появился шанс ее осуществить. Ведь мы уже открылись и ждем Вас!!!!</h5>
-                        <h5>Мы предлагаем только качественные сертифицированные товары по самым низким ценам!</h5>
-                        <h5>Мы считаемся одним из крупнейших магазинов в мире и сотрудничаем с представителями межгалактических торговых марок.</h5>
-                        <h5>Нашими клиентами являются не только жители Земли, но и многочисленные обитатели иных планет Солнечной системы,
-                            а так же соседних галактик и миров</h5>
-                        <h5>Наше обслуживание и сервис просто КОСМОС.Наши цены просто КОСМОС</h5>
-                        <h4>Покоряй вселенную вместе с ВелоКосмос</h4>
+                        <h5>Perhaps, everybody had a dream in a childhood about going to cosmos. </h5>
+                        <h5>Now you have a chance to make it real. We are already open and waiting for you!!!!</h5>
+                        <h5>We offer only quality certified products at the lowest prices!!</h5>
+                        <h5>Our clients are not only the inhabitants of the Earth, but also numerous
+                             inhabitants of other planets of the Solar system, as well as neighboring galaxies and worlds.</h5>
+                        <h5>Our products and services are very well</h5>
+                        <h4>Conquer the universe with BikeGalaxy</h4>
                         <Row>
                             <Col xs="12" md="4">
                                 <img className="img-thumbnail" src="/database/another/g2.jpg" alt="" />
