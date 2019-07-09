@@ -11,7 +11,7 @@ const Header = () => {
         <Container className="header sticky-top" fluid>
             <Container>
                 <Row>
-                                    {/*Logo */}
+                                    {/* Logo */}
                     <Col xs="4" lg={{size:3, order: 1}}>     
                         <div  className="head-logo">
                             <NavLink exact to="/">
@@ -36,7 +36,7 @@ const Header = () => {
                             </NavItem>
                         </Nav>
                     </Col>
-                                    {/*Search*/} 
+                                    {/* Search */} 
                     <Col xs="9" md="10" lg={{size:5, order: 2}}>
                         <div className="head-search">
                             <InputGroup  className="align-items-center" >

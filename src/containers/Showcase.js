@@ -41,20 +41,14 @@ class Showcase extends Component {
 
 const sortingBy = (items, sortBy) => {
     switch(sortBy) {
-        case 'high':
-            return items.slice().sort( (a , b) => {      //slice or concat()
-                    if (a.price <= b.price) return 1;
-                    else return -1;
-            });
+        case 'high':   //slice or concat()
+            return items.slice().sort( (a , b) => b.price - a.price);
         case 'low':
-            return items.slice().sort( (a , b) => {
-                    if (a.price >= b.price) return 1;
-                    else return -1;
-            });
+            return items.slice().sort( (a , b) => a.price - b.price);
         case 'name':
             return items.slice().sort( (a , b) => {
-                    if (a.title >= b.title) return 1;
-                    else return -1;
+                if (a.title >= b.title) return 1;
+                else return -1;
             });
         default:
             return items;        
@@ -105,20 +99,3 @@ const mapDispatchToProps = (dispatch) => ({
 });
                         //necessarily withRouter
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Showcase));
-
-
-
-/*const filteringBy2 = (items, filterBy) => {
-    for ( let key in filterBy) {
-        for ( let line in key) {
-            if(line === true) { 
-                items = items.filter(item => {
-                    for( let i = 0; i < filterBy[key].length; i++) {
-                        if(item[key].indexOf(filterBy[key][i]) === line) return true;
-                    }
-                });
-            }
-        }
-    }
-    return items;
-}*/

@@ -63,11 +63,11 @@ class Filter extends Component {
             menuToggle: !this.state.menuToggle
         });
     }
-
+    
     handleFilterToggle = (e) => {
         let target = e.target;
         while (target !== this) {
-            if (target.className.indexOf('filt-button') >= 0) { //if (target.className.~str.indexOf('filt-button'))
+            if (target.classList.contains('filt-button')) { //if (target.className.indexOf('filt-button') >= 0)
             const name = target.name;
             this.setState({ 
                 filterToggles: {...this.state.filterToggles, 
@@ -82,11 +82,11 @@ class Filter extends Component {
     render() {
         const { setFilterFunc, filterBy, extraProps, items } = this.props
         const filterBlocks =  extraProps.filters.map( i => {
-            let x = sortByABC( [...new Set([].concat(...items.map(item =>item[i])))] ) //array of checkboxes names/values from items
+            let x = sortByABC( [...new Set([].concat(...items.map(item =>item[i])))] ) //create an array of checkboxes names/values from items
             return {
              name: i, 
              list: x
-            }          //собираем все возможные значения фильтров (фильтры из extraProps, значения из items)
+            }          //take existing filter values(filters from extraProps, values from items)
         }   
         );
         const blockArrow =!this.state.blockToggle ? 'down' : 'right';
