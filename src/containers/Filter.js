@@ -31,9 +31,11 @@ class Filter extends Component {
     }
 
     componentDidMount = () => {
-        axios.get('/database/homemenu.json').then(({ data }) => {       
-            this.setState({ menu: data});
-        });
+        axios.get('/database/homemenu.json')
+            .then(({ data }) => {       
+                this.setState({ menu: data});
+            })
+            .catch(error => console.log(error));
     }
 
     /*componentDidUpdate = (prevProps) => {

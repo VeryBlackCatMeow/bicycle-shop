@@ -11,9 +11,11 @@ import '../styles/showcase.css'
 class Showcase extends Component {
 
     componentDidMount = () => {
-        axios.get(`/database/${this.props.match.params.category}.json`).then(({ data }) => {    
-        this.props.setProductsFunc(data);   
-        });
+        axios.get(`/database/${this.props.match.params.category}.json`)
+            .then(({ data }) => {    
+                this.props.setProductsFunc(data);   
+            })
+            .catch(error => console.log(error));
 
     }
 

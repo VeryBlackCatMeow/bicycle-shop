@@ -13,9 +13,11 @@ const Product = (props) => {
     const { setProductsFunc } = props;
     
     useEffect(() => {
-        axios.get(`/database/${props.match.params.category}.json`).then(({ data }) => {    
-            setProductsFunc(data);      
-        });
+        axios.get(`/database/${props.match.params.category}.json`)
+            .then(({ data }) => {    
+                setProductsFunc(data);      
+            })
+            .catch(error => console.log(error));
     });
 
     const {cartItems, addToCartFunc, removeFromCartFunc, items} = props;

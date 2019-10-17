@@ -1,5 +1,8 @@
 .filt-block {
   margin-top: .6em;
+  white-space: nowrap;  
+  overflow: hidden;
+  text-overflow: ellipsis; 
 }
 .filt-block a {
   

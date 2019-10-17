@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import Gallery from './components/Gallery';
 import About from './components/About';
 import Home from './components/Home';
@@ -15,8 +16,10 @@ class App extends Component {
    
     return (
         <div className="wrapper">
-          <Header/>
-          <div className="content">
+          <header>
+            <Header/>
+          </header>
+          <main role="main" className="content">
             <Switch>
                   <Route exact path="/" component={Home} />
                   <Route path="/about" component={About} />
@@ -27,7 +30,10 @@ class App extends Component {
 
                   <Route path="*" component={PageIsNotFound}/>
             </Switch>
-          </div>
+          </main>
+          <footer>
+            <Footer/>
+          </footer>
         </div>
     );
   }

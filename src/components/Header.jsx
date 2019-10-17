@@ -43,7 +43,7 @@ const Header = () => {
                                 <InputGroupAddon addonType="prepend">
                                     <i className='fas fa-search'></i>
                                 </InputGroupAddon>
-                                <Input placeholder="Temporarily Not Working :)"/>
+                                <Input placeholder="Temporarily not available :)"/>
                             </InputGroup>
                         </div> 
                     </Col> 

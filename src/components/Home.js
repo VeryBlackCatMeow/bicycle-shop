@@ -37,16 +37,18 @@ class Home extends Component {
                 <HomeJumbotron/> 
                 <Row className="py-3 text-center">
                     <Col xs="12" md="9">
-                        {
-                            this.state.slides
-                            ?
-                            <UncontrolledCarousel items={this.state.slides} />
-                            :
-                            null 
-                        }
+                        <Row className="home-carousel">
+                            {
+                                this.state.slides.length
+                                ?
+                                <Col><UncontrolledCarousel items={this.state.slides} /></Col>
+                                :
+                                <Col><img src="/database/another/g2.jpg" style={{height: '530px'}} alt="" /></Col>
+                            }
+                        </Row>
                         <Row className="home-menu my-4 justify-content-center">
                             {
-                                this.state.homemenu
+                                this.state.homemenu.length
                                 ?
                                 this.state.homemenu.map( (menu) => (<HomeMenu key={menu.id} {...menu}/>))
                                 :
@@ -89,13 +91,10 @@ class Home extends Component {
                         </Row>
                     </Col>
                 </Row>
-
-                <Row>
-                    <i className='fas fa-home' style={{fontSize: '24px'}}></i>
+                <i className='fas fa-home' style={{fontSize: '24px'}}></i>
                     <i className='fas fa-phone-square' style={{fontSize: '24px'}}></i>
                     <i className='fas fa-phone' style={{fontSize: '24px'}}></i>
-                    <i className='fas fa-bicycle' style={{fontSize: '24px'}}></i>
-                </Row>
+                <i className='fas fa-bicycle' style={{fontSize: '24px'}}></i>
              </Container> 
         );
 

@@ -10,13 +10,15 @@ const NavMenu = () => {
     const [mainMenu, setMainMenu] = useState(null);
 
     useEffect(() => {
-        axios.get('/database/homemenu.json').then(({ data }) => {       
-            setMainMenu(data);
-        });
+        axios.get('/database/homemenu.json')
+            .then(({ data }) => {       
+                setMainMenu(data);
+            })
+            .catch(error => console.log(error));
     });
 
     return (
-    <Navbar light expand="lg" className="head-nav-menu">
+    <Navbar role="navigation" light expand="lg" className="head-nav-menu">
         <NavbarToggler onClick={()=>handleMenuToggle(!navMenuToggler)} />
 
         <Collapse className="head-nav-bar" navbar>

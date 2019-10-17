@@ -10,6 +10,12 @@
     transform: scale(1.05);
 }
 
+.product-card .card-body > * {
+    white-space: nowrap;  
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
 .product-card .btn-primary {
     background: linear-gradient(to right, rgb(75, 0, 130), rgb(108, 0, 130));
     border:  rgb(75, 0, 130);
@@ -47,9 +53,25 @@
 
 
 .product-card .card-title {
-    font-weight: bold; 
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.product-card .card-subtitle {
+    text-align: center;
+    background: radial-gradient(ellipse closest-side at center, #fff,  rgb(172, 208, 235));
+}
+
+.product-card .card-text {
+    font-size: 0.9em;
 }
 
 .product-card .card-price {
+    text-align: right;
     color: rgb(75, 0, 130); 
 }
+
+
+
+

@@ -1,17 +1,3 @@
-/*.home-jumbotron  {
-    display: flex;
-    background-image: url(/database/another/background.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    justify-content:center;
-    align-items:center;
-    margin: 0;
-    padding: 0em;
-    text-shadow: 3px 3px #4B0082;
-    color:white;
-    
-}*/
-
 .home-jumbotron {
     min-width: 576px;
     margin: 0;

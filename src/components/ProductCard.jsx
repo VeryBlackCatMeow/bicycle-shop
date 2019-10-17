@@ -4,7 +4,7 @@ import { Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button, Col} from 'reactstrap';
 
 const ProductCard = (props) => {
-    const { id, product, title, type, price, image, category,
+    const { id, product, title, type, price, image, category, description,
                 cartItems, addToCartFunc, removeFromCartFunc } = props;
     return(
         <Col className="col-12 col-md-6 col-lg-4 py-3"> 
@@ -15,7 +15,7 @@ const ProductCard = (props) => {
                     <CardBody>
                         <CardTitle>{title}</CardTitle>
                         <CardSubtitle>{type} {product}</CardSubtitle>
-                        <CardText></CardText>
+                        <CardText>{description}</CardText>
                         <h5 className="card-price">{price} $</h5>
                         {
                             cartItems.some( a => (a.id===id) )
