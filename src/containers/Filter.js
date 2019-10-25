@@ -12,22 +12,22 @@ import '../styles/filter.css'
 class Filter extends Component {
     constructor(props) {
         super(props)
-        const {resetFiltersFunc, extraProps} = this.props;
-
-                                // all toggles are true
         this.state = {    
             blockToggle: true,
             menuToggle: true,  
-            filterToggles: extraProps.filters.reduce((o, key) => ( {...o, [key]: true} ), {}),
+            filterToggles: {},
+            filtersList: []
         };
+    }
 
-        this.reset = {
-            searchBy: '',
-            sortBy: 'all',
-            filterBy: extraProps.filters.reduce((o, key) => ( {...o, [key]:[]} ), {})
-        }
-
-        resetFiltersFunc(this.reset);
+    static getDerivedStateFromProps(props, state) {
+        if (state.filtersList !== props.filtersList) {
+            return {
+                filterToggles: props.filtersList.reduce((o, key) => ( {...o, [key]: true} ), {}), // all toggles are true
+                filtersList: props.filtersList
+            };
+          }
+        else return null;
     }
 
     componentDidMount = () => {
@@ -36,17 +36,25 @@ class Filter extends Component {
                 this.setState({ menu: data});
             })
             .catch(error => console.log(error));
+
+            const {resetFiltersFunc, filtersList} = this.props;
+            let reset = {
+                searchBy: '',
+                sortBy: 'all',
+                filterBy: filtersList.reduce((o, key) => ( {...o, [key]:[]} ), {})
+            }
+           resetFiltersFunc(reset);
     }
 
     /*componentDidUpdate = (prevProps) => {
-        if (this.props.extraProps !== prevProps.extraProps) {
-            const {resetFiltersFunc, extraProps} = this.props;
+        if (this.props.filtersList !== prevProps.filtersList) {
+            const {resetFiltersFunc, filtersList} = this.props;
 
                                 // reset all toggles (set true)
             this.setState({   
                 blockToggle: true,
                 menuToggle: true,  
-                filterToggles: extraProps.filters.reduce((o, key) => ( {...o, [key]: true} ), {})
+                filterToggles: filtersList.reduce((o, key) => ( {...o, [key]: true} ), {})
             });
 
                                 // reset all filters(set default settings)
@@ -82,13 +90,13 @@ class Filter extends Component {
     }
     
     render() {
-        const { setFilterFunc, filterBy, extraProps, items } = this.props
-        const filterBlocks =  extraProps.filters.map( i => {
+        const { setFilterFunc, filterBy, filtersList, items } = this.props
+        const filterBlocks =  filtersList.map( i => {
             let x = sortByABC( [...new Set([].concat(...items.map(item =>item[i])))] ) //create an array of checkboxes names/values from items
             return {
              name: i, 
              list: x
-            }          //take existing filter values(filters from extraProps, values from items)
+            }          //take existing filter values(filters from filtersList, values from items)
         }   
         );
         const blockArrow =!this.state.blockToggle ? 'down' : 'right';
