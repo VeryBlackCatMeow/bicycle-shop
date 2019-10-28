@@ -16,9 +16,7 @@ class App extends Component {
    
     return (
         <div className="wrapper">
-          <header>
-            <Header/>
-          </header>
+          <Header/>
           <main role="main" className="content">
             <Switch>
                   <Route exact path="/" component={Home} />
@@ -31,9 +29,7 @@ class App extends Component {
                   <Route path="*" component={PageIsNotFound}/>
             </Switch>
           </main>
-          <footer>
-            <Footer/>
-          </footer>
+          <Footer/>
         </div>
     );
   }

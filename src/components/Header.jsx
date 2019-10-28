@@ -8,7 +8,7 @@ import '../styles/header.css'
 
 const Header = () => {
     return( 
-        <Container className="header sticky-top" fluid>
+        <header className="header sticky-top">
             <Container>
                 <Row>
                                     {/* Logo */}
@@ -53,7 +53,7 @@ const Header = () => {
                     </Col> 
                 </Row>
             </Container>
-        </Container>
+        </header>
     );
 }
 

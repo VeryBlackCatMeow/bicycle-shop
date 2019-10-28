@@ -4,8 +4,9 @@ import { Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button, Col} from 'reactstrap';
 
 const ProductCard = (props) => {
-    const { id, product, title, type, price, image, category, description,
-                cartItems, addToCartFunc, removeFromCartFunc } = props;
+    const { cartItems, addToCartFunc, removeFromCartFunc, ...item } = props;
+    const { id, product, title, type, price, image, category, description} = item;
+
     return(
         <Col className="col-12 col-md-6 col-lg-4 py-3"> 
             <Card className="product-card">
@@ -25,7 +26,7 @@ const ProductCard = (props) => {
                                 <span className="btn-remove"> Remove From Cart</span>
                             </Button>
                             :
-                            <Button color="primary" block onClick={addToCartFunc.bind(this, props)}>Add To Cart</Button>
+                            <Button color="primary" block onClick={addToCartFunc.bind(this, item)}>Add To Cart</Button>
                         } 
                     </CardBody>
             </Card>

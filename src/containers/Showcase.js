@@ -28,20 +28,21 @@ class Showcase extends Component {
     }*/
 
     render() { 
-        const { items, cartItems, addToCartFunc, removeFromCartFunc, itemCount } = this.props;
+        const { items, cartItems, addToCartFunc, removeFromCartFunc} = this.props;
 
         return  !items.length
                 ? 
                 <Loading/>
                 : 
-                items.map( (item) => (<ProductCard key={item.id/*.toString()*/} {...item} 
+                items.map( item => (<ProductCard key={item.id}
+                            {...item} 
                             cartItems={cartItems}
-                            addToCartFunc={addToCartFunc} removeFromCartFunc={removeFromCartFunc }
-                            itemCount={itemCount}/>))
+                            addToCartFunc={addToCartFunc} 
+                            removeFromCartFunc={removeFromCartFunc }/>))
     }
 }
 
-const sortingBy = (items, sortBy) => {
+const sortItems = (items, sortBy) => {
     switch(sortBy) {
         case 'high':   //slice or concat()
             return items.slice().sort( (a , b) => b.price - a.price);
@@ -57,7 +58,7 @@ const sortingBy = (items, sortBy) => {
     }
 };
 
-const searchingBy = (items, searchBy) => {
+const searchItems = (items, searchBy) => {
     return items.filter( item=>
         item.product.toLowerCase().indexOf(searchBy.toLowerCase()) >= 0 ||
         item.type.toLowerCase().indexOf(searchBy.toLowerCase()) >= 0 ||
@@ -67,7 +68,7 @@ const searchingBy = (items, searchBy) => {
 }
 
 
-const filteringBy = (items, filterBy) => {
+const filterItems = (items, filterBy) => {
     for ( let key in filterBy) {
         if (filterBy[key].length !== 0) { 
             items = items.filter(item => {
@@ -82,7 +83,7 @@ const filteringBy = (items, filterBy) => {
 }
 
 const finalFilter = (items, searchBy, sortBy, filterBy) =>  {
-    return sortingBy(filteringBy(searchingBy(items, searchBy), filterBy), sortBy)
+    return sortItems(filterItems(searchItems(items, searchBy), filterBy), sortBy)
 };
 
 

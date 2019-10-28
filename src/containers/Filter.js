@@ -3,6 +3,7 @@ import { Button, Collapse } from 'reactstrap';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import { NavLink } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 import { sortByABC } from '../funcLibrary/index.js'
 import { setFilterAction, resetFiltersAction  } from '../actions/index.js'
@@ -150,4 +151,4 @@ const mapDispatchToProps = (dispatch) => ({
     resetFiltersFunc: obj => dispatch(resetFiltersAction (obj)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Filter);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Filter));
