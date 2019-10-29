@@ -100,12 +100,12 @@ class Filter extends Component {
             }          //take existing filter values(filters from filtersList, values from items)
         }   
         );
-        const blockArrow =!this.state.blockToggle ? 'down' : 'right';
-        const menuArrow =!this.state.menuToggle ? 'down' : 'right';
+        const blockArrow =!this.state.blockToggle ? 'arrow-down' : 'arrow-right';
+        const menuArrow =!this.state.menuToggle ? 'arrow-down' : 'arrow-right';
 
         return(
             <>
-            <div className="filt-block">
+            <div className="filt-block filt-categories">
                 <Button className="filt-button" block color="success" onClick={this.handleMenuToggle}>
                     <span className="filt-name">Categories</span>
                     <span className="filt-arrow"><i className={menuArrow}></i></span>

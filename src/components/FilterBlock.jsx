@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, CustomInput, Collapse } from 'reactstrap';
 
 const FilterBlock = ({handleFilterToggle, filterToggle, setFilterFunc, filterBlock, filterBy}) => {
-    const blockArrow =!filterToggle ? 'down' : 'right';
+    const blockArrow =!filterToggle ? 'arrow-down' : 'arrow-right';
     return  filterBlock && filterBlock.list.length>1
             ?
             <div className="filt-block">

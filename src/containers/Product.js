@@ -5,7 +5,7 @@ import { Container } from 'reactstrap';
 
 import {  setProductsAction, addToCartAction, removeFromCartAction } from '../actions/index.js'
 import Loading from '../components/Loading';
-import ProductTop from '../components/ProductTop';
+import ProductBody from '../components/ProductBody';
 import ProductBar from '../components/ProductBar';
 import '../styles/product.css'
 
@@ -27,7 +27,7 @@ const Product = (props) => {
             ?
             <Container className="product">
                 <h1>{item.product} {item.title}</h1>
-                <ProductTop item={item}
+                <ProductBody item={item}
                             cartItems={cartItems}
                             addToCartFunc={addToCartFunc}
                             removeFromCartFunc={removeFromCartFunc}/>

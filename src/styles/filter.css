@@ -4,7 +4,7 @@
   overflow: hidden;
   text-overflow: ellipsis; 
 }
-.filt-block a {
+.filt-block.filt-categories a {
   
   text-decoration: none;
   font-size: 1.1em;
@@ -12,7 +12,7 @@
   margin: .5em;
   padding: .2em 0;
 }
-.filt-block .active {
+.filt-block.filt-categories .active {
   font-weight: bold;
   color: rgb(108, 0, 130);
 }
@@ -50,19 +50,19 @@
     border-width: 0 2px 2px 0;
     transition: transform .2s;
   }
-    .filt-arrow .right {
+    .filt-arrow .arrow-right {
       transform: rotate(-45deg);
       -webkit-transform: rotate(-45deg);
     }
-    .filt-arrow .left {
+    .filt-arrow .arrow-left {
       transform: rotate(135deg);
       -webkit-transform: rotate(135deg);
     }
-    .filt-arrow .up {
+    .filt-arrow .arrow-up {
       transform: rotate(-135deg);
       -webkit-transform: rotate(-135deg);
     }
-    .filt-arrow .down {
+    .filt-arrow .arrow-down {
       transform: rotate(45deg);
       -webkit-transform: rotate(45deg);
     }

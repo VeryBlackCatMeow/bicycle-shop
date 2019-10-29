@@ -6,7 +6,7 @@ import { setProductsAction, addToCartAction, removeFromCartAction } from '../act
 import ProductCard from '../components/ProductCard';
 import Loading from '../components/Loading';
 import { withRouter } from 'react-router-dom';
-import '../styles/showcase.css'
+import '../styles/productCard.css'
 
 class Showcase extends Component {
 

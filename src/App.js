@@ -9,6 +9,8 @@ import Cart from './containers/Cart';
 import PageIsNotFound from './components/PageIsNotFound';
 import './App.css';
 
+import ScrollUpButton from './components/ScrollUpButton'
+
 import { Route, Switch } from 'react-router-dom';
 
 class App extends Component {
@@ -16,6 +18,7 @@ class App extends Component {
    
     return (
         <div className="wrapper">
+          <ScrollUpButton/>
           <Header/>
           <main role="main" className="content">
             <Switch>

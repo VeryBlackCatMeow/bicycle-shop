@@ -3,7 +3,7 @@ import { Row, Col, Card, CardImg, CardBody, Button } from 'reactstrap';
 
 import '../styles/product.css'
 
-const ProductTop = ({cartItems, addToCartFunc, removeFromCartFunc, item}) => {
+const ProductBody = ({cartItems, addToCartFunc, removeFromCartFunc, item}) => {
     const { id, title, type, price, image } = item;
 
     return(
@@ -32,4 +32,4 @@ const ProductTop = ({cartItems, addToCartFunc, removeFromCartFunc, item}) => {
     )
 }
 
-export default ProductTop;
+export default ProductBody;
