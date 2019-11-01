@@ -38,6 +38,17 @@
     }
 
 
+.head-search-list{
+    position: absolute;
+    z-index: 9999;
+    width: 95%;
+    background: white;
+}
+    .head-search-list a {
+        font-size: 1.3em;
+        color:black;
+    }
+
 .head-account-menu .nav-item{
     padding: .4em;
     margin-left: .1em;

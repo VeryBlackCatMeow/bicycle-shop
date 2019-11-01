@@ -3,6 +3,7 @@ import { Button, Collapse } from 'reactstrap';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import { NavLink } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 import { sortByABC } from '../funcLibrary/index.js'
 import { setFilterAction, resetFiltersAction  } from '../actions/index.js'
@@ -99,12 +100,12 @@ class Filter extends Component {
             }          //take existing filter values(filters from filtersList, values from items)
         }   
         );
-        const blockArrow =!this.state.blockToggle ? 'down' : 'right';
-        const menuArrow =!this.state.menuToggle ? 'down' : 'right';
+        const blockArrow =!this.state.blockToggle ? 'arrow-down' : 'arrow-right';
+        const menuArrow =!this.state.menuToggle ? 'arrow-down' : 'arrow-right';
 
         return(
             <>
-            <div className="filt-block">
+            <div className="filt-block filt-categories">
                 <Button className="filt-button" block color="success" onClick={this.handleMenuToggle}>
                     <span className="filt-name">Categories</span>
                     <span className="filt-arrow"><i className={menuArrow}></i></span>
@@ -150,4 +151,4 @@ const mapDispatchToProps = (dispatch) => ({
     resetFiltersFunc: obj => dispatch(resetFiltersAction (obj)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Filter);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Filter));

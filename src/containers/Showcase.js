@@ -6,7 +6,7 @@ import { setProductsAction, addToCartAction, removeFromCartAction } from '../act
 import ProductCard from '../components/ProductCard';
 import Loading from '../components/Loading';
 import { withRouter } from 'react-router-dom';
-import '../styles/showcase.css'
+import '../styles/productCard.css';
 
 class Showcase extends Component {
 
@@ -28,20 +28,21 @@ class Showcase extends Component {
     }*/
 
     render() { 
-        const { items, cartItems, addToCartFunc, removeFromCartFunc, itemCount } = this.props;
+        const { items, cartItems, addToCartFunc, removeFromCartFunc} = this.props;
 
         return  !items.length
                 ? 
                 <Loading/>
                 : 
-                items.map( (item) => (<ProductCard key={item.id/*.toString()*/} {...item} 
+                items.map( item => (<ProductCard key={item.id}
+                            {...item} 
                             cartItems={cartItems}
-                            addToCartFunc={addToCartFunc} removeFromCartFunc={removeFromCartFunc }
-                            itemCount={itemCount}/>))
+                            addToCartFunc={addToCartFunc} 
+                            removeFromCartFunc={removeFromCartFunc }/>))
     }
 }
 
-const sortingBy = (items, sortBy) => {
+const sortItems = (items, sortBy) => {
     switch(sortBy) {
         case 'high':   //slice or concat()
             return items.slice().sort( (a , b) => b.price - a.price);
@@ -57,8 +58,8 @@ const sortingBy = (items, sortBy) => {
     }
 };
 
-const searchingBy = (items, searchBy) => {
-    return items.filter( item=>
+const searchItems = (items, searchBy) => {
+    return items.filter( item =>
         item.product.toLowerCase().indexOf(searchBy.toLowerCase()) >= 0 ||
         item.type.toLowerCase().indexOf(searchBy.toLowerCase()) >= 0 ||
         item.brand.toLowerCase().indexOf(searchBy.toLowerCase()) >= 0 ||
@@ -67,12 +68,26 @@ const searchingBy = (items, searchBy) => {
 }
 
 
-const filteringBy = (items, filterBy) => {
-    for ( let key in filterBy) {
-        if (filterBy[key].length !== 0) { 
+// const filterItems = (items, filterBy) => {
+//     for ( let key in filterBy) {
+//         if (filterBy[key].length !== 0) { 
+//             items = items.filter(item => {
+//                 for( let i = 0; i < filterBy[key].length; i++) {
+//                     if(item[key].indexOf(filterBy[key][i]) >= 0) return true;
+//                 } 
+//                 return false;
+//             });
+//         }
+//     }
+//     return items;
+// }
+
+const filterItems = (items, filterBy) => {
+    for ( let filter in filterBy) {
+        if (filterBy[filter].length !== 0) { 
             items = items.filter(item => {
-                for( let i = 0; i < filterBy[key].length; i++) {
-                    if(item[key].indexOf(filterBy[key][i]) >= 0) return true;
+                for( let value in filterBy[filter]) {
+                    if(item[filter].indexOf(filterBy[filter][value]) != -1) return true;
                 } 
                 return false;
             });
@@ -82,7 +97,7 @@ const filteringBy = (items, filterBy) => {
 }
 
 const finalFilter = (items, searchBy, sortBy, filterBy) =>  {
-    return sortingBy(filteringBy(searchingBy(items, searchBy), filterBy), sortBy)
+    return sortItems(filterItems(searchItems(items, searchBy), filterBy), sortBy)
 };
 
 

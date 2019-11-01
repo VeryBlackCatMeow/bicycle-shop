@@ -3,6 +3,11 @@ export const setProductsAction = items => ({
     payload: items
 });
 
+export const setAllProductsAction = allItems => ({
+    type: 'SET_ALL_PRODUCTS',
+    payload: allItems
+})
+
 export const selectProductAction = item => ({
     type: 'SELECT_PRODUCT',
     payload: item
@@ -41,5 +46,10 @@ export const removeFromCartAction = id => ({
 export const decreaseAction = id => ({
     type: 'DECREASE_QUANTITY',
     payload: id
+});
+
+export const searchQueryAction = serchQuery => ({
+    type: 'SET_SEARCH_QUERY',
+    payload: serchQuery
 });
 

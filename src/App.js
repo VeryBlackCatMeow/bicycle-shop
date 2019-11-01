@@ -7,6 +7,7 @@ import Home from './components/Home';
 import Product from './containers/Product';
 import Cart from './containers/Cart';
 import PageIsNotFound from './components/PageIsNotFound';
+import ScrollUpButton from './components/ScrollUpButton';
 import './App.css';
 
 import { Route, Switch } from 'react-router-dom';
@@ -16,9 +17,8 @@ class App extends Component {
    
     return (
         <div className="wrapper">
-          <header>
-            <Header/>
-          </header>
+          <ScrollUpButton/>
+          <Header/>
           <main role="main" className="content">
             <Switch>
                   <Route exact path="/" component={Home} />
@@ -31,9 +31,7 @@ class App extends Component {
                   <Route path="*" component={PageIsNotFound}/>
             </Switch>
           </main>
-          <footer>
-            <Footer/>
-          </footer>
+          <Footer/>
         </div>
     );
   }
