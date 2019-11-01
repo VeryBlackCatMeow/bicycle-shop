@@ -3,6 +3,7 @@ import { Container, Row, Col, InputGroup, InputGroupAddon, Input,
         Nav, NavItem} from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 import DropCart from '../containers/DropCart';
+import Search from '../containers/Search';
 import NavMenu from '../components/NavMenu';
 import '../styles/header.css'
 
@@ -38,14 +39,7 @@ const Header = () => {
                     </Col>
                                     {/* Search */} 
                     <Col xs="9" md="10" lg={{size:5, order: 2}}>
-                        <div className="head-search">
-                            <InputGroup  className="align-items-center" >
-                                <InputGroupAddon addonType="prepend">
-                                    <i className='fas fa-search'></i>
-                                </InputGroupAddon>
-                                <Input placeholder="Temporarily not available :)"/>
-                            </InputGroup>
-                        </div> 
+                        <Search/>
                     </Col> 
                                 {/* Navigation Menu */} 
                     <Col xs="3" md="2" lg={{size:12, order: 4}}>

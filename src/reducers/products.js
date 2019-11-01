@@ -1,6 +1,6 @@
 const initialState = {
-    items: []
-    /*selectItem: null*/
+    items: [],
+    allItems: []
 };
 
 export default (state = initialState, action) => {
@@ -11,11 +11,11 @@ export default (state = initialState, action) => {
                 items: action.payload,
             };
 
-        /*case 'SELECT_PRODUCT':
+        case 'SET_ALL_PRODUCTS':
             return {
                 ...state,
-                selectItem: action.payload,
-            };*/
+                allItems: action.payload,
+            };
         default:
             return state;
     }
