@@ -60,7 +60,7 @@
 
 .product-card .card-subtitle {
     text-align: center;
-    background: radial-gradient(ellipse closest-side at center, #fff,  rgb(172, 208, 235));
+    background: radial-gradient(ellipse closest-side at center, #fff,  rgb(125, 179, 241));
 }
 
 .product-card .card-text {

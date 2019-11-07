@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, InputGroup, InputGroupAddon, Input,
+import { Container, Row, Col,
         Nav, NavItem} from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 import DropCart from '../containers/DropCart';
