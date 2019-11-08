@@ -38,15 +38,26 @@
     }
 
 
-.head-search-list{
+.head-search-list {
     position: absolute;
     z-index: 9999;
     width: 95%;
+    padding: 0 0;
+    overflow: hidden;
+    border-radius: .2em;
     background: white;
 }
     .head-search-list a {
+        display: block;
         font-size: 1.3em;
         color:black;
+    }
+    .head-search-list li {
+        list-style-type: none;
+        padding: 0 0.8em;
+    }
+    .head-search-list li:hover {
+        background:rgb(125, 179, 241);
     }
 
 .head-account-menu .nav-item{

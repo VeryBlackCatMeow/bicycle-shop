@@ -63,10 +63,9 @@ const NavMenu = () => {
                         ?
                         mainMenu.map((line) => (
                                 <NavItem key={line.id}>
-                                    <NavLink to={line.link} 
-                                            activeClassName="active"
-                                            onClick={()=>handleMenuToggle(!navMenuToggler)}
-                                    >{line.menu}
+                                    <NavLink to={line.link} activeClassName="active"
+                                            onClick={()=>handleMenuToggle(!navMenuToggler)}>
+                                        {line.menu}
                                     </NavLink>
                                 </NavItem>))
                         :

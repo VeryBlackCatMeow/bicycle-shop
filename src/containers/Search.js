@@ -1,14 +1,21 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {connect} from 'react-redux';
-import { Container, Row, Col, InputGroup, InputGroupAddon, Input,
-    Nav, NavItem} from 'reactstrap';
+import { Link, withRouter  } from 'react-router-dom';
+import { InputGroup, InputGroupAddon, Input,} from 'reactstrap';
 
 import { setAllProductsAction, searchQueryAction } from '../actions/index.js'
-import Loading from '../components/Loading';
 import '../styles/productCard.css';
 
 class Search extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            visible : false
+        };
+        this.searchInput = React.createRef();   //managing focus
+    }
+    
     componentDidMount = () => {
         let links = ['/bicycles', '/rental', '/components', '/tools', '/apparel', '/accessories', '/backpacks', '/news', '/sale'];
         let requests = links.map( link => axios.get(`/database${link}.json`) );
@@ -27,6 +34,29 @@ class Search extends Component {
             return this.props.setALLProductsFunc(allItems)
         })
         .catch(error => console.log(error));
+    }
+
+    onFocus = () => {
+        this.setState({
+            visible : true
+        });
+    }
+
+    onBlur = () => {
+        setTimeout(() => {
+            this.setState({
+                visible : false
+            });
+        }, 200);
+    }
+
+    submitFunc = (e) => {
+        if (e.key === 'Enter' /*&& this.props.searchQuery*/) {
+            this.props.history.push('/search');
+            this.searchInput.current.blur();
+            //this.props.searchFunc(' ');
+            //this.searchInput.value = '';
+          }
     }
 
     highlightText = (query, ...texts) => {
@@ -48,34 +78,43 @@ class Search extends Component {
                                 <i className='fas fa-search'></i>
                             </InputGroupAddon>
                             <Input value={searchQuery}
-                                    onChange={e => searchFunc(e.target.value)}/>
+                                    onChange={e => searchFunc(e.target.value)}
+                                    onFocus={ this.onFocus }
+                                    onBlur={ this.onBlur }
+                                    onKeyDown={this.submitFunc}
+                                    innerRef={this.searchInput}
+                                    />
                         </InputGroup>
                     </div>
-                    <div className="head-search-list">
+                    <ul className="head-search-list" style={{display: this.state.visible && searchQuery? 'table':'none'}}>
                     {   
-                    searchQuery
-                    ?
-                    allItems.slice(0, 10).map(item => (
-                        <h6 key={item.id}>
-                            <a href="/#">{ this.highlightText(searchQuery, item.type, item.product, item.title) }</a><br/>
-                        </h6>))                        
-                    :
-                    null
+                        allItems.slice(0, 10).map(item => (
+                            <li key={item.id}>
+                                <Link to={`/${item.category}/${item.id}`} >
+                                    { this.highlightText(searchQuery, item.type, item.product, item.title) }
+                                </Link>
+                            </li>))                       
                     }
-                    </div> 
+                    {
+                        !allItems.length
+                        ?
+                        <h6>Sorry, No Matches Found :-(</h6>
+                        :
+                        null
+                    }
+                    </ul> 
                 </>
         }
     
 }
 
-const searchAllItems = (allItems, searchQuery) => {
+export const searchAllItems = (allItems, searchQuery) => {
     return allItems.filter( item =>
         item.type.toLowerCase().indexOf(searchQuery.toLowerCase()) >= 0 ||
-        item.product.toLowerCase().indexOf(searchQuery.toLowerCase()) >=0 ||    
+        item.product.toLowerCase().indexOf(searchQuery.toLowerCase()) >= 0 ||    
         item.title.toLowerCase().indexOf(searchQuery.toLowerCase()) >= 0
     );
 }
-
 
 const mapStateToProps = ({productreducers, searchreducers}) => ({
     allItems: searchAllItems(productreducers.allItems, searchreducers.searchQuery),
@@ -87,4 +126,4 @@ const mapDispatchToProps = dispatch => ({
     searchFunc: searchQuery => dispatch(searchQueryAction(searchQuery))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Search);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Search));
