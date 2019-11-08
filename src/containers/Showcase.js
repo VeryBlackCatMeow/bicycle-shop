@@ -1,38 +1,61 @@
 import React, { Component } from 'react';
-
 import axios from 'axios';
 import { connect } from 'react-redux';
-import { setProductsAction, addToCartAction, removeFromCartAction } from '../actions/index.js'
-import ProductCard from '../components/ProductCard';
-import Loading from '../components/Loading';
 import { withRouter } from 'react-router-dom';
+
+import { setProductsAction, addToCartAction,
+        removeFromCartAction, setAllProductsAction } from '../actions/index.js'
+import ProductCard from '../components/ProductCard';
+import { searchAllItems } from '../containers/Search';
+
 import '../styles/productCard.css';
 
 class Showcase extends Component {
 
     componentDidMount = () => {
-        axios.get(`/database/${this.props.match.params.category}.json`)
+        const category = this.props.match.params.category;
+
+        if(category === 'allItems') {
+            let links = ['/bicycles', '/rental', '/components', '/tools', '/apparel', '/accessories', '/backpacks', '/news', '/sale'];
+            let requests = links.map( link => axios.get(`/database${link}.json`) );
+
+            Promise.allSettled(requests)
+            .then( responses => {
+            let allItems = [];
+            for(let response of responses) {
+                if(response.status === "fulfilled") {
+                    allItems = [...allItems, ...response.value.data]
+                }
+                if(response.status === "rejected") { 
+                    console.log(response.reason)
+                }
+            }
+            return this.props.setProductsFunc(allItems)
+            })
+            .catch(error => console.log(error))
+            }
+
+        else if(category === 'search') {
+            this.props.setProductsFunc(this.props.searchItems);
+        }
+
+        else{
+            axios.get(`/database/${category}.json`)
             .then(({ data }) => {    
                 this.props.setProductsFunc(data);   
             })
             .catch(error => console.log(error));
-
-    }
-
-    /*componentDidUpdate(prevProps) {
-        if (this.props.extraProps !== prevProps.extraProps) {
-            axios.get(`/database/${this.props.match.params.category}.json`).then(({ data }) => {    
-            this.props.setProductsFunc(data);   
-            });
         }
-    }*/
+        
+        }
 
     render() { 
         const { items, cartItems, addToCartFunc, removeFromCartFunc} = this.props;
 
         return  !items.length
                 ? 
-                <Loading/>
+                //<Loading/>
+                <h5>No products found. Please change your search filters and try again.</h5>
                 : 
                 items.map( item => (<ProductCard key={item.id}
                             {...item} 
@@ -67,27 +90,12 @@ const searchItems = (items, searchBy) => {
     );
 }
 
-
-// const filterItems = (items, filterBy) => {
-//     for ( let key in filterBy) {
-//         if (filterBy[key].length !== 0) { 
-//             items = items.filter(item => {
-//                 for( let i = 0; i < filterBy[key].length; i++) {
-//                     if(item[key].indexOf(filterBy[key][i]) >= 0) return true;
-//                 } 
-//                 return false;
-//             });
-//         }
-//     }
-//     return items;
-// }
-
 const filterItems = (items, filterBy) => {
     for ( let filter in filterBy) {
         if (filterBy[filter].length !== 0) { 
             items = items.filter(item => {
                 for( let value in filterBy[filter]) {
-                    if(item[filter].indexOf(filterBy[filter][value]) != -1) return true;
+                    if(item[filter].indexOf(filterBy[filter][value]) !== -1) return true;
                 } 
                 return false;
             });
@@ -102,10 +110,12 @@ const finalFilter = (items, searchBy, sortBy, filterBy) =>  {
 
 
 const mapStateToProps = ( 
-    {productreducers, filtersreducers, cartreducers}) => ({
+    {productreducers, filtersreducers, cartreducers, searchreducers}) => ({
     items: finalFilter(productreducers.items, filtersreducers.searchBy,
                             filtersreducers.sortBy, filtersreducers.filterBy),
     cartItems: cartreducers.items,
+    allItems: productreducers.allItems,
+    searchItems: searchAllItems(productreducers.allItems, searchreducers.searchQuery),
 
 });
 
@@ -113,6 +123,8 @@ const mapDispatchToProps = (dispatch) => ({
     setProductsFunc: item => dispatch(setProductsAction(item)),
     addToCartFunc: obj => dispatch(addToCartAction(obj)),
     removeFromCartFunc: id => dispatch(removeFromCartAction(id)),
+    setALLProductsFunc: allItems => dispatch(setAllProductsAction(allItems))
+    
 });
                         //necessarily withRouter
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Showcase));

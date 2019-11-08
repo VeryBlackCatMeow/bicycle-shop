@@ -111,6 +111,7 @@ class Filter extends Component {
                     <span className="filt-arrow"><i className={menuArrow}></i></span>
                 </Button>
                 <Collapse isOpen={this.state.menuToggle}>
+                    <h6><NavLink to='/allItems' activeClassName="active">All Items</NavLink></h6>
                     {
                         this.state.menu
                         ?
