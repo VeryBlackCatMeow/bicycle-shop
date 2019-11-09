@@ -5,7 +5,7 @@ import { Link, withRouter  } from 'react-router-dom';
 import { InputGroup, InputGroupAddon, Input,} from 'reactstrap';
 
 import { setAllProductsAction, searchQueryAction } from '../actions/index.js'
-import '../styles/productCard.css';
+import '../styles/search.css';
 
 class Search extends Component {
     constructor(props) {
@@ -21,19 +21,19 @@ class Search extends Component {
         let requests = links.map( link => axios.get(`/database${link}.json`) );
 
         Promise.allSettled(requests)
-        .then( responses => {
-            let allItems = [];
-            for(let response of responses) {
-                if(response.status === "fulfilled") {
-                    allItems = [...allItems, ...response.value.data]
+            .then( responses => {
+                let allItems = [];
+                for(let response of responses) {
+                    if(response.status === "fulfilled") {
+                        allItems = [...allItems, ...response.value.data]
+                    }
+                    if(response.status === "rejected") { 
+                        console.log(response.reason)
+                    }
                 }
-                if(response.status === "rejected") { 
-                    console.log(response.reason)
-                }
-            }
-            return this.props.setALLProductsFunc(allItems)
-        })
-        .catch(error => console.log(error));
+                return this.props.setALLProductsFunc(allItems)
+            })
+            .catch(error => console.log(error));
     }
 
     onFocus = () => {
@@ -51,11 +51,10 @@ class Search extends Component {
     }
 
     submitFunc = (e) => {
-        if (e.key === 'Enter' /*&& this.props.searchQuery*/) {
-            this.props.history.push('/search');
+        if (e.key === 'Enter') {
+            this.props.history.push(`/search/${this.props.searchQuery}`);
             this.searchInput.current.blur();
-            //this.props.searchFunc(' ');
-            //this.searchInput.value = '';
+            this.props.searchFunc('');
           }
     }
 
@@ -89,8 +88,8 @@ class Search extends Component {
                     <ul className="head-search-list" style={{display: this.state.visible && searchQuery? 'table':'none'}}>
                     {   
                         allItems.slice(0, 10).map(item => (
-                            <li key={item.id}>
-                                <Link to={`/${item.category}/${item.id}`} >
+                            <li key={item.id} className="search-list-item">
+                                <Link to={`/gallery/${item.category}/${item.id}`} >
                                     { this.highlightText(searchQuery, item.type, item.product, item.title) }
                                 </Link>
                             </li>))                       

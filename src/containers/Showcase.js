@@ -11,15 +11,15 @@ import { searchAllItems } from '../containers/Search';
 import '../styles/productCard.css';
 
 class Showcase extends Component {
-
     componentDidMount = () => {
-        const category = this.props.match.params.category;
+        const { category, query } = this.props.match.params;
+        const setProductsFunc = this.props.setProductsFunc;
+        const links = ['/bicycles', '/rental', '/components', '/tools', '/apparel', '/accessories', '/backpacks', '/news', '/sale'];
+        const requests = links.map( link => axios.get(`/database${link}.json`) );
 
-        if(category === 'allItems') {
-            let links = ['/bicycles', '/rental', '/components', '/tools', '/apparel', '/accessories', '/backpacks', '/news', '/sale'];
-            let requests = links.map( link => axios.get(`/database${link}.json`) );
-
-            Promise.allSettled(requests)
+        query || category === 'allItems'
+        ?
+        Promise.allSettled(requests)
             .then( responses => {
             let allItems = [];
             for(let response of responses) {
@@ -30,24 +30,20 @@ class Showcase extends Component {
                     console.log(response.reason)
                 }
             }
-            return this.props.setProductsFunc(allItems)
+            query
+            ?
+            setProductsFunc( searchAllItems(allItems, query) )
+            :
+            setProductsFunc(allItems)
             })
             .catch(error => console.log(error))
-            }
-
-        else if(category === 'search') {
-            this.props.setProductsFunc(this.props.searchItems);
-        }
-
-        else{
-            axios.get(`/database/${category}.json`)
+        :    
+        axios.get(`/database/${category}.json`)
             .then(({ data }) => {    
-                this.props.setProductsFunc(data);   
+                setProductsFunc(data);   
             })
             .catch(error => console.log(error));
-        }
-        
-        }
+    }
 
     render() { 
         const { items, cartItems, addToCartFunc, removeFromCartFunc} = this.props;
@@ -80,7 +76,7 @@ const sortItems = (items, sortBy) => {
             return items;        
     }
 };
-
+//will be deleted
 const searchItems = (items, searchBy) => {
     return items.filter( item =>
         item.product.toLowerCase().indexOf(searchBy.toLowerCase()) >= 0 ||
@@ -115,7 +111,7 @@ const mapStateToProps = (
                             filtersreducers.sortBy, filtersreducers.filterBy),
     cartItems: cartreducers.items,
     allItems: productreducers.allItems,
-    searchItems: searchAllItems(productreducers.allItems, searchreducers.searchQuery),
+    //searchItems: searchAllItems(productreducers.allItems, searchreducers.searchQuery),
 
 });
 
@@ -126,5 +122,5 @@ const mapDispatchToProps = (dispatch) => ({
     setALLProductsFunc: allItems => dispatch(setAllProductsAction(allItems))
     
 });
-                        //necessarily withRouter
+
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Showcase));

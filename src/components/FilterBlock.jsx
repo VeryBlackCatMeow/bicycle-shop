@@ -15,7 +15,7 @@ const FilterBlock = ({handleFilterToggle, filterToggle, setFilterFunc, filterBlo
                     <div onChange={ e => setFilterFunc(e.target) }>
                         {         
                             filterBlock.list.map( (checkbox, index) => 
-                                    <CustomInput key={index} id={checkbox} 
+                                    <CustomInput key={index} id={index} 
                                                 type="checkbox" name={filterBlock.name}
                                                 value={checkbox} label={checkbox}
                                                 /*checked={filterBy[filterBlock.name][checkbox]}*/

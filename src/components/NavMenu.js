@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
-
 import {Navbar, Nav, NavItem, NavbarToggler, Collapse, Button, Modal, 
     ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+
+import '../styles/navMenu.css';
 
 const NavMenu = () => {
     const [navMenuToggler, handleMenuToggle] = useState(false);
@@ -27,13 +28,13 @@ const NavMenu = () => {
                     <NavLink exact to="/" activeClassName="active">Home</NavLink>
                 </NavItem>
                 <NavItem>
-                    <NavLink to="/bicycles" activeClassName="active">Bicycles</NavLink>
+                    <NavLink to="/gallery/allItems" activeClassName="active">All Products</NavLink>
                 </NavItem>
                 <NavItem>   
                     <NavLink to="/about" activeClassName="active">About Us</NavLink>
                 </NavItem>
                 <NavItem>      
-                    <NavLink to="/rental" activeClassName="active">Rent</NavLink>
+                    <NavLink to="/locations" activeClassName="active">Locations</NavLink>
                 </NavItem>
             </Nav>
         </Collapse>    
@@ -49,13 +50,13 @@ const NavMenu = () => {
                         <NavLink exact to="/" activeClassName="active" onClick={()=>handleMenuToggle(!navMenuToggler)}>Home</NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink to="/bicycles" activeClassName="active" onClick={()=>handleMenuToggle(!navMenuToggler)}>Bicycles</NavLink>
+                        <NavLink to="/gallery/allItems" activeClassName="active" onClick={()=>handleMenuToggle(!navMenuToggler)}>All Products</NavLink>
                     </NavItem>
                     <NavItem>   
                         <NavLink to="/about" activeClassName="active" onClick={()=>handleMenuToggle(!navMenuToggler)}>About Us</NavLink>
                     </NavItem>
                     <NavItem>      
-                        <NavLink to="/rental" activeClassName="active" onClick={()=>handleMenuToggle(!navMenuToggler)}>Rent</NavLink>
+                        <NavLink to="/locations" activeClassName="active" onClick={()=>handleMenuToggle(!navMenuToggler)}>Locations</NavLink>
                     </NavItem>
                     <hr/>
                     {
