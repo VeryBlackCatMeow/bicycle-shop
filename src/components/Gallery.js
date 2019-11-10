@@ -17,8 +17,7 @@ const Gallery = (props) => {
         const rental = ['type', 'brand', 'wheel Size', 'title'];
         const sale = ['product', 'brand'];
         const tools = ['product', 'brand', 'color'];
-        const allItems = ['product', 'type'];
-        const search = ['product', 'type'];
+        const allItems = ['product', 'brand', 'type', 'color']; //wheelSize,Capacity !only from allItems
         
         switch (category) {
             case 'bicycles':
@@ -40,11 +39,9 @@ const Gallery = (props) => {
             case 'tools':
                 return tools;
             case 'allItems':
-                return allItems;
-            case 'search':
-                    return search;   
+                return allItems; 
             default:
-                return bicycles;
+                return allItems;
         }
     }
     

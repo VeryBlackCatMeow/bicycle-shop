@@ -39,12 +39,13 @@ class Filter extends Component {
             .catch(error => console.log(error));
 
             const {resetFiltersFunc, filtersList} = this.props;
+
             let reset = {
-                searchBy: '',
                 sortBy: 'all',
                 filterBy: filtersList.reduce((o, key) => ( {...o, [key]:[]} ), {})
             }
            resetFiltersFunc(reset);
+
     }
 
     /*componentDidUpdate = (prevProps) => {
@@ -78,7 +79,7 @@ class Filter extends Component {
     handleFilterToggle = (e) => {
         let target = e.target;
         while (target !== this) {
-            if (target.classList.contains('filt-button')) { //if (target.className.indexOf('filt-button') >= 0)
+            if (target.classList.contains('filt-button')) {
             const name = target.name;
             this.setState({ 
                 filterToggles: {...this.state.filterToggles, 
@@ -91,27 +92,27 @@ class Filter extends Component {
     }
     
     render() {
-        const { setFilterFunc, filterBy, filtersList, items } = this.props
-        const filterBlocks =  filtersList.map( i => {
-            let x = sortByABC( [...new Set([].concat(...items.map(item =>item[i])))] ) //create an array of checkboxes names/values from items
+        const { setFilterFunc, filterBy, filtersList, items } = this.props;
+        const filterBlocks =  filtersList.map( filterName => {
+            let filterCheckboxes = sortByABC( [...new Set([].concat(...items.map(item =>item[filterName])))] ) //create an array of checkboxes names/values from items
             return {
-             name: i, 
-             list: x
+             name: filterName, 
+             list: filterCheckboxes
             }          //take existing filter values(filters from filtersList, values from items)
-        }   
-        );
+        });
+
         const blockArrow =!this.state.blockToggle ? 'arrow-down' : 'arrow-right';
         const menuArrow =!this.state.menuToggle ? 'arrow-down' : 'arrow-right';
 
         return(
             <>
-            <div className="filt-block filt-categories">
+            <div className="filt-categories filt-box" >
                 <Button className="filt-button" block color="success" onClick={this.handleMenuToggle}>
-                    <span className="filt-name">Categories</span>
+                    <span className="filt-name">Category</span>
                     <span className="filt-arrow"><i className={menuArrow}></i></span>
                 </Button>
                 <Collapse isOpen={this.state.menuToggle}>
-                    <h6><NavLink to='/allItems' activeClassName="active">All Items</NavLink></h6>
+                    <h6><NavLink to='/gallery/allItems' activeClassName="active">All Items</NavLink></h6>
                     {
                         this.state.menu
                         ?
@@ -121,7 +122,7 @@ class Filter extends Component {
                     }
                 </Collapse>
             </div>
-            <div className="filt-block">
+            <div className="filt-list filt-box">
                 <Button className="filt-button" block color="success" onClick={this.handleBlockToggle}>
                     <span className="filt-name">Filters</span>
                     <span className="filt-arrow"><i className={blockArrow}></i></span>

@@ -1,10 +1,11 @@
-.filt-block {
+.filt-box {
   margin-top: .6em;
   white-space: nowrap;  
   overflow: hidden;
   text-overflow: ellipsis; 
 }
-.filt-block.filt-categories a {
+
+.filt-categories a {
   
   text-decoration: none;
   font-size: 1.1em;
@@ -12,7 +13,7 @@
   margin: .5em;
   padding: .2em 0;
 }
-.filt-block.filt-categories .active {
+.filt-categories .active {
   font-weight: bold;
   color: rgb(108, 0, 130);
 }
@@ -67,6 +68,18 @@
       -webkit-transform: rotate(45deg);
     }
 
+.filt-checkboxes label {
+  display: block;
+  text-indent: -1em;
+}
+.filt-checkboxes input {
+  width: 1em;
+  height: 1em;
+  margin: 0.3em 0.4em;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+}
 
 @media (max-width: 768px) {
   .filt-button {

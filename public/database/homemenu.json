@@ -2,55 +2,55 @@
     {
       "id": 0,
       "menu": "Bicycles",
-      "link": "/bicycles",
+      "link": "/gallery/bicycles",
       "image": "/database/homemenu/1.jpg"  
     },
     {
       "id": 1,
       "menu": "Components",
-      "link": "/components",
+      "link": "/gallery/components",
       "image": "/database/homemenu/2.jpg"  
     },
     {
       "id": 2,
       "menu": "Tools",
-      "link": "/tools",
+      "link": "/gallery/tools",
       "image": "/database/homemenu/3.jpg"  
     },
     {
       "id": 3,
       "menu": "Apparel",
-      "link": "/apparel",
+      "link": "/gallery/apparel",
       "image": "/database/homemenu/4.jpg"  
     },
     {
       "id": 4,
       "menu": "Accessories",
-      "link": "/accessories",
+      "link": "/gallery/accessories",
       "image": "/database/homemenu/5.jpg"  
     },
     {
       "id": 5,
       "menu": "Backpacks",
-      "link": "/backpacks",
+      "link": "/gallery/backpacks",
       "image": "/database/homemenu/6.jpg"  
     },
     {
       "id": 6,
       "menu": "News",
-      "link": "/news",
+      "link": "/gallery/news",
       "image": "/database/homemenu/7.jpg"  
     },
     {
       "id": 7,
       "menu": "Sale",
-      "link": "/sale",
+      "link": "/gallery/sale",
       "image": "/database/homemenu/8.jpg"  
     },
     {
       "id": 8,
       "menu": "Rental",
-      "link": "/rental",
+      "link": "/gallery/rental",
       "image": "/database/homemenu/9.jpg"  
     }
   ]

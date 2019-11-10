@@ -23,11 +23,6 @@ export const setFilterAction = filter => ({
     payload: filter
 });
 
-export const setSearchAction = query => ({
-    type: 'SET_SEARCH',
-    payload: query
-});
-
 export const resetFiltersAction = obj => ({
     type: 'RESET_FILTERS',
     payload: obj

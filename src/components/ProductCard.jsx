@@ -10,7 +10,7 @@ const ProductCard = (props) => {
     return(
         <Col className="col-12 col-md-6 col-lg-4 py-3"> 
             <Card className="product-card">
-                <Link to={`/${category}/${id}`}>
+                <Link to={`/gallery/${category}/${id}`}>
                     <CardImg top src={image} alt="Product" /> 
                 </Link>  
                     <CardBody>

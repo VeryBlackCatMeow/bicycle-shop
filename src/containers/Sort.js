@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { setSortAction, setSearchAction } from '../actions/index.js'
+
+import { setSortAction } from '../actions/index.js'
 import SortBar from '../components/SortBar';
 
     /*handleItemClick = ({target: {name}}) => {
@@ -8,9 +9,8 @@ import SortBar from '../components/SortBar';
         const { setSortFunc } = this.props;
         setSortFunc(name);
     };  */
-const Sort = ( {setSortFunc, sortBy, setSearchFunc, searchBy} ) => { 
-    return( <SortBar setSortFunc={setSortFunc} sortBy={sortBy} 
-        setSearchFunc={setSearchFunc } searchBy={searchBy} /> ); 
+const Sort = ( {setSortFunc, sortBy} ) => { 
+    return( <SortBar setSortFunc={setSortFunc} sortBy={sortBy} /> ); 
 }
 
 const mapStateToProps = ( { filtersreducers }) => ({
@@ -19,8 +19,7 @@ const mapStateToProps = ( { filtersreducers }) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    setSortFunc: sort => dispatch(setSortAction(sort)),
-    setSearchFunc: query => dispatch(setSearchAction(query)),
+    setSortFunc: sort => dispatch(setSortAction(sort))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Sort);

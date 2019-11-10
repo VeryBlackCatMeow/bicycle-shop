@@ -25,13 +25,3 @@
   text-transform: uppercase;
 }
 
-
-
-.sort-bar .nav-link {
-  color: rgb(75, 0, 130);
-}
-.sort-bar .nav-link.active {
-  background-color: rgb(75, 0, 130);
-  color: red;
-}
-

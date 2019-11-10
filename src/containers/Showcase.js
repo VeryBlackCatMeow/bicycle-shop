@@ -6,20 +6,19 @@ import { withRouter } from 'react-router-dom';
 import { setProductsAction, addToCartAction,
         removeFromCartAction, setAllProductsAction } from '../actions/index.js'
 import ProductCard from '../components/ProductCard';
-import { searchAllItems } from '../containers/Search';
-
+import { searchItems } from '../containers/Search';
 import '../styles/productCard.css';
 
 class Showcase extends Component {
-
     componentDidMount = () => {
-        const category = this.props.match.params.category;
+        const { category, query } = this.props.match.params;
+        const setProductsFunc = this.props.setProductsFunc;
+        const links = ['/bicycles', '/rental', '/components', '/tools', '/apparel', '/accessories', '/backpacks', '/news', '/sale'];
+        const requests = links.map( link => axios.get(`/database${link}.json`) );
 
-        if(category === 'allItems') {
-            let links = ['/bicycles', '/rental', '/components', '/tools', '/apparel', '/accessories', '/backpacks', '/news', '/sale'];
-            let requests = links.map( link => axios.get(`/database${link}.json`) );
-
-            Promise.allSettled(requests)
+        query || category === 'allItems'
+        ?
+        Promise.allSettled(requests)
             .then( responses => {
             let allItems = [];
             for(let response of responses) {
@@ -30,24 +29,20 @@ class Showcase extends Component {
                     console.log(response.reason)
                 }
             }
-            return this.props.setProductsFunc(allItems)
+            query
+            ?
+            setProductsFunc( searchItems(allItems, query) )
+            :
+            setProductsFunc(allItems)
             })
             .catch(error => console.log(error))
-            }
-
-        else if(category === 'search') {
-            this.props.setProductsFunc(this.props.searchItems);
-        }
-
-        else{
-            axios.get(`/database/${category}.json`)
+        :    
+        axios.get(`/database/${category}.json`)
             .then(({ data }) => {    
-                this.props.setProductsFunc(data);   
+                setProductsFunc(data);   
             })
             .catch(error => console.log(error));
-        }
-        
-        }
+    }
 
     render() { 
         const { items, cartItems, addToCartFunc, removeFromCartFunc} = this.props;
@@ -81,15 +76,6 @@ const sortItems = (items, sortBy) => {
     }
 };
 
-const searchItems = (items, searchBy) => {
-    return items.filter( item =>
-        item.product.toLowerCase().indexOf(searchBy.toLowerCase()) >= 0 ||
-        item.type.toLowerCase().indexOf(searchBy.toLowerCase()) >= 0 ||
-        item.brand.toLowerCase().indexOf(searchBy.toLowerCase()) >= 0 ||
-        item.category.toLowerCase().indexOf(searchBy.toLowerCase()) >= 0   
-    );
-}
-
 const filterItems = (items, filterBy) => {
     for ( let filter in filterBy) {
         if (filterBy[filter].length !== 0) { 
@@ -104,18 +90,18 @@ const filterItems = (items, filterBy) => {
     return items;
 }
 
-const finalFilter = (items, searchBy, sortBy, filterBy) =>  {
-    return sortItems(filterItems(searchItems(items, searchBy), filterBy), sortBy)
+const finalFilter = (items, sortBy, filterBy/*, searchQuery*/) =>  {
+    return sortItems(filterItems(/*searchItems*/items, /*searchQuery),*/ filterBy), sortBy)
 };
 
 
 const mapStateToProps = ( 
-    {productreducers, filtersreducers, cartreducers, searchreducers}) => ({
-    items: finalFilter(productreducers.items, filtersreducers.searchBy,
+    {productreducers, filtersreducers, cartreducers/*, searchreducers*/ }) => ({
+    items: finalFilter(productreducers.items,/* searchreducers.searchQuery,*/
                             filtersreducers.sortBy, filtersreducers.filterBy),
     cartItems: cartreducers.items,
     allItems: productreducers.allItems,
-    searchItems: searchAllItems(productreducers.allItems, searchreducers.searchQuery),
+    //searchItems: searchAllItems(productreducers.allItems, searchreducers.searchQuery),
 
 });
 
@@ -126,5 +112,5 @@ const mapDispatchToProps = (dispatch) => ({
     setALLProductsFunc: allItems => dispatch(setAllProductsAction(allItems))
     
 });
-                        //necessarily withRouter
+
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Showcase));
