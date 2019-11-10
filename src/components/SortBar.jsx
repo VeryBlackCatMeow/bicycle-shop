@@ -1,10 +1,12 @@
 import React from 'react';
 import { Nav, NavItem, NavLink, Col } from 'reactstrap';
 
-const SortBar = ({ setSortFunc, sortBy }) => {
+import '../styles/sortBar.css'
+
+const SortBar = ( {setSortFunc, sortBy} ) => {
         return(
             <Col xs="12">
-            <Nav pills className="sort-bar justify-content-between">
+            <Nav pills className="sort-bar justify-content-around">
                 <NavItem>
                     <NavLink 
                         active={sortBy==='all'}

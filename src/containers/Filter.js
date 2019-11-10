@@ -106,9 +106,9 @@ class Filter extends Component {
 
         return(
             <>
-            <div className="filt-block filt-categories">
+            <div className="filt-categories filt-box" >
                 <Button className="filt-button" block color="success" onClick={this.handleMenuToggle}>
-                    <span className="filt-name">Categories</span>
+                    <span className="filt-name">Category</span>
                     <span className="filt-arrow"><i className={menuArrow}></i></span>
                 </Button>
                 <Collapse isOpen={this.state.menuToggle}>
@@ -122,7 +122,7 @@ class Filter extends Component {
                     }
                 </Collapse>
             </div>
-            <div className="filt-block">
+            <div className="filt-list filt-box">
                 <Button className="filt-button" block color="success" onClick={this.handleBlockToggle}>
                     <span className="filt-name">Filters</span>
                     <span className="filt-arrow"><i className={blockArrow}></i></span>

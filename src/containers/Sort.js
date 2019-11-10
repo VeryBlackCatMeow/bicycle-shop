@@ -9,7 +9,7 @@ import SortBar from '../components/SortBar';
         const { setSortFunc } = this.props;
         setSortFunc(name);
     };  */
-const Sort = ( {setSortFunc, sortBy, setSearchFunc, searchBy} ) => { 
+const Sort = ( {setSortFunc, sortBy} ) => { 
     return( <SortBar setSortFunc={setSortFunc} sortBy={sortBy} /> ); 
 }
 

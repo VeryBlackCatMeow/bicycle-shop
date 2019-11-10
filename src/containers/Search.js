@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import {connect} from 'react-redux';
 import { Link, withRouter  } from 'react-router-dom';
-import { InputGroup, InputGroupAddon, Input,} from 'reactstrap';
+import { InputGroup, InputGroupAddon, InputGroupText, Input } from 'reactstrap';
 
 import { setAllProductsAction, searchQueryAction } from '../actions/index.js'
 import '../styles/search.css';
@@ -74,7 +74,9 @@ class Search extends Component {
                     <div className="head-search">
                         <InputGroup  className="align-items-center">
                             <InputGroupAddon addonType="prepend">
-                                <i className='fas fa-search'></i>
+                                <InputGroupText>
+                                    <i className='fas fa-search'></i>
+                                </InputGroupText>
                             </InputGroupAddon>
                             <Input value={searchQuery}
                                     onChange={e => searchFunc(e.target.value)}

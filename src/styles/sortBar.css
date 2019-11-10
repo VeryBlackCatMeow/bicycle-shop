@@ -1,0 +1,7 @@
+.sort-bar .nav-link {
+    color: rgb(75, 0, 130);
+  }
+  .sort-bar .nav-link.active {
+    background: linear-gradient(to right, rgb(75, 0, 130), rgb(108, 0, 130));
+    color: white;
+  }
