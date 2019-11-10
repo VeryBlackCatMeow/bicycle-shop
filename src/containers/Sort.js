@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+
 import { setSortAction, setSearchAction } from '../actions/index.js'
 import SortBar from '../components/SortBar';
 

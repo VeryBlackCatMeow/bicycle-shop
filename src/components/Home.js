@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-
+import axios from 'axios';
 import { Container, Row, Col, UncontrolledCarousel, Card, CardImg,
                 CardBody,CardTitle, CardLink} from 'reactstrap';
-import axios from 'axios';
 
 import HomeMenu from './HomeMenu';
 import HomeJumbotron from './HomeJumbotron';

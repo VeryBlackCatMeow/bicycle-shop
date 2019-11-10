@@ -7,7 +7,6 @@ import { setProductsAction, addToCartAction,
         removeFromCartAction, setAllProductsAction } from '../actions/index.js'
 import ProductCard from '../components/ProductCard';
 import { searchAllItems } from '../containers/Search';
-
 import '../styles/productCard.css';
 
 class Showcase extends Component {

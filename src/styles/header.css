@@ -16,99 +16,12 @@
     height: 2.8em;
 }
 
-.head-logo a {
-    display: block;
-}
-    .head-logo a img {
-        vertical-align: middle;
-        height: 2.8em;
-    }
-    .head-logo a span {
-        vertical-align: middle;
-        font-size: 1.8em;
-    }
-
-
-.head-account-menu .nav-item{
-    padding: .4em;
-    margin-left: .1em;
-    background-color: black;
-    color: white;
-    cursor: pointer;
-}
-    .head-account-menu i {
-        vertical-align: middle;
-        font-size: 1.5em;
-    }
-    .head-account-menu span {
-        vertical-align: middle;
-        font-size: .95em;
-    }
-    #head-cart-count {
-        position: absolute;
-        left: 1.2em;
-        top: -.3em;
-        
-        min-width: 1.4em;
-        height: 1.4em;
-        border-radius: 50%;
-
-        text-align: center;
-        font-weight: bold; 
-        font-size: .8em;
-        line-height: 1.4em;
-
-        background-color:red;
-        color: white;
-    }
-    #PopoverLegacy{
-        position: relative;   
-    }
-
-
-@media (max-width: 1200px) {
-    .head-account-menu .nav-item { 
-        padding: .2em;
-    }
-        .head-account-menu i {
-            font-size: 1em;
-        }
-        #head-cart-count {
-            left: .6em;
-        }
-}
-
-
-@media (max-width: 992px) {
-    .head-account-menu .nav-item { 
-        padding: .4em;
-    }
-        .head-account-menu i {
-            font-size: 1.5em;
-        }
-        #head-cart-count {
-            left: 1.2em;
-        }
-}
-
 @media (max-width: 768px) { 
     .head-logo,
     .head-search,
     .head-account-menu,
-    .head-nav-menu{
+    .head-nav-menu {
         height: 3em;
-    }
-
-    .head-logo a img {
-        height: 2em;
-    }
-        .head-logo a span {
-            font-size: 1.5em;
-        }
-
-
-    .head-account-menu .nav-item{
-        padding: .2em;    
     }
 }
 

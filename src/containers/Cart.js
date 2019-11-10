@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Container, Button, ListGroup } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { Container, Button, ListGroup } from 'reactstrap';
 
 import { unique } from '../funcLibrary/index.js'
 import { addToCartAction, removeFromCartAction, decreaseAction } from '../actions/index.js'

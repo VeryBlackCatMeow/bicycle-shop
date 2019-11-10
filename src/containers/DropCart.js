@@ -8,6 +8,7 @@ import { unique } from '../funcLibrary/index.js'
 import { removeFromCartAction } from '../actions/index.js'
 import DropCartItem from '../components/DropCartItem';
 import '../styles/cart.css';
+import '../styles/dropCart.css'
 
 const DropCart = ({totalPrice, totalCount, cartItems, removeFromCartFunc}) => {
     const[popoverToggler, handlePopoverToggle] = useState(false);
