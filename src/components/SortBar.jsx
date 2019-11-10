@@ -1,8 +1,7 @@
 import React from 'react';
-import { Nav, NavItem, NavLink, Col,
-    InputGroup, InputGroupText, InputGroupAddon, Input} from 'reactstrap';
+import { Nav, NavItem, NavLink, Col } from 'reactstrap';
 
-const SortBar = ({ setSortFunc, sortBy, setSearchFunc, searchBy }) => {
+const SortBar = ({ setSortFunc, sortBy }) => {
         return(
             <Col xs="12">
             <Nav pills className="sort-bar justify-content-between">
@@ -34,19 +33,9 @@ const SortBar = ({ setSortFunc, sortBy, setSearchFunc, searchBy }) => {
                         href='#'>Name
                     </NavLink>
                 </NavItem>
-                <NavItem>
-                    <InputGroup>
-                        <InputGroupAddon addonType="prepend">
-                            <InputGroupText>Search</InputGroupText>
-                        </InputGroupAddon>
-                        <Input value={searchBy} 
-                               onChange={e => setSearchFunc(e.target.value)}/>
-                    </InputGroup>
-                </NavItem>
             </Nav>
             </Col>
         );
 }
 
 export default SortBar;
-/**Avg customer review */

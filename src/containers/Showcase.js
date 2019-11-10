@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom';
 import { setProductsAction, addToCartAction,
         removeFromCartAction, setAllProductsAction } from '../actions/index.js'
 import ProductCard from '../components/ProductCard';
-import { searchAllItems } from '../containers/Search';
+import { searchItems } from '../containers/Search';
 import '../styles/productCard.css';
 
 class Showcase extends Component {
@@ -31,7 +31,7 @@ class Showcase extends Component {
             }
             query
             ?
-            setProductsFunc( searchAllItems(allItems, query) )
+            setProductsFunc( searchItems(allItems, query) )
             :
             setProductsFunc(allItems)
             })
@@ -75,15 +75,6 @@ const sortItems = (items, sortBy) => {
             return items;        
     }
 };
-//will be deleted
-const searchItems = (items, searchBy) => {
-    return items.filter( item =>
-        item.product.toLowerCase().indexOf(searchBy.toLowerCase()) >= 0 ||
-        item.type.toLowerCase().indexOf(searchBy.toLowerCase()) >= 0 ||
-        item.brand.toLowerCase().indexOf(searchBy.toLowerCase()) >= 0 ||
-        item.category.toLowerCase().indexOf(searchBy.toLowerCase()) >= 0   
-    );
-}
 
 const filterItems = (items, filterBy) => {
     for ( let filter in filterBy) {
@@ -99,14 +90,14 @@ const filterItems = (items, filterBy) => {
     return items;
 }
 
-const finalFilter = (items, searchBy, sortBy, filterBy) =>  {
-    return sortItems(filterItems(searchItems(items, searchBy), filterBy), sortBy)
+const finalFilter = (items, sortBy, filterBy/*, searchQuery*/) =>  {
+    return sortItems(filterItems(/*searchItems*/items, /*searchQuery),*/ filterBy), sortBy)
 };
 
 
 const mapStateToProps = ( 
-    {productreducers, filtersreducers, cartreducers, searchreducers}) => ({
-    items: finalFilter(productreducers.items, filtersreducers.searchBy,
+    {productreducers, filtersreducers, cartreducers/*, searchreducers*/ }) => ({
+    items: finalFilter(productreducers.items,/* searchreducers.searchQuery,*/
                             filtersreducers.sortBy, filtersreducers.filterBy),
     cartItems: cartreducers.items,
     allItems: productreducers.allItems,

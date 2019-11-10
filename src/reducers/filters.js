@@ -1,5 +1,4 @@
 const initialState = {
-    searchBy: '',
     sortBy: 'all',
     filterBy: {}, 
     /*filterBy: { type: [], brand: [], wheelSizes: [] }  */  
@@ -25,15 +24,9 @@ export default (state = initialState, action) => {
                         [action.payload.name]: state.filterBy[action.payload.name].filter(item => 
                             item !== action.payload.value)} // удаляем из свойства объекта ненужный элемент(фильтр) массива
             };
-        case 'SET_SEARCH':
-            return {
-                ...state,
-                searchBy: action.payload,
-            };
         case 'RESET_FILTERS':
             return {
                 ...state,
-                searchBy: action.payload.searchBy,
                 sortBy: action.payload.sortBy,
                 filterBy: action.payload.filterBy,
             };

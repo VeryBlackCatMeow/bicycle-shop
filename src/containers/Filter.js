@@ -41,7 +41,6 @@ class Filter extends Component {
             const {resetFiltersFunc, filtersList} = this.props;
 
             let reset = {
-                searchBy: '',
                 sortBy: 'all',
                 filterBy: filtersList.reduce((o, key) => ( {...o, [key]:[]} ), {})
             }

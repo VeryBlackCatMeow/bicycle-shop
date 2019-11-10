@@ -107,7 +107,7 @@ class Search extends Component {
     
 }
 
-export const searchAllItems = (allItems, searchQuery) => {
+export const searchItems = (allItems, searchQuery) => {
     return allItems.filter( item =>
         item.type.toLowerCase().indexOf(searchQuery.toLowerCase()) >= 0 ||
         item.product.toLowerCase().indexOf(searchQuery.toLowerCase()) >= 0 ||    
@@ -116,7 +116,7 @@ export const searchAllItems = (allItems, searchQuery) => {
 }
 
 const mapStateToProps = ({productreducers, searchreducers}) => ({
-    allItems: searchAllItems(productreducers.allItems, searchreducers.searchQuery),
+    allItems: searchItems(productreducers.allItems, searchreducers.searchQuery),
     searchQuery: searchreducers.searchQuery
 })
 
