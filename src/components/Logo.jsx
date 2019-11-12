@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-import '../styles/logo.css'
+import '../styles/logo.scss'
 
 const Logo = () => (
     <div  className="head-logo">

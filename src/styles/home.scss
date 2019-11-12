@@ -1,0 +1,31 @@
+@import '../styles/variables.scss';
+
+.home {
+    .uncontrolled-carousel {
+        color: black;
+    } 
+    
+    .card-title {
+        color: $lightGalaxy ;
+    } 
+    
+    .home-menu {
+        a {
+            display: block;
+            text-decoration: none;
+            color: rgb(0, 0, 0);
+
+            &:hover {
+                transition: transform 1s;
+                transform: scale(1.1);
+                color: $lightGalaxy    
+            }
+        }
+        
+        img {
+            width: 100%;
+        }
+    } 
+}
+
+

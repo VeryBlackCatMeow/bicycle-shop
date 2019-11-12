@@ -6,7 +6,7 @@ import { Container, Button, ListGroup } from 'reactstrap';
 import { unique } from '../funcLibrary/index.js'
 import { addToCartAction, removeFromCartAction, decreaseAction } from '../actions/index.js'
 import CartItem from '../components/CartItem'
-import '../styles/cart.css';
+import '../styles/cart.scss';
 
 const Cart = ({totalPrice, totalCount, cartItems, addToCartFunc, removeFromCartFunc, quantity, setQuantityFunc, decreaseFunc}) => {
 

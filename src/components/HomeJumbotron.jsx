@@ -2,18 +2,20 @@ import React from 'react';
 import {createPortal} from 'react-dom';
 import { Jumbotron, Container } from 'reactstrap';
 
+import '../styles/homeJumbotron.scss';
+
 const HomeJumbotron = () => {
-  return createPortal(
-    <Jumbotron className="home-jumbotron" fluid>
-      <Container fluid>
-        <h2>Rubbed off your soles to hell? </h2>
-        <h2>And have no money for a car?</h2>
-        <h2>So we know how to help you.</h2>
-        <h2>Welcome to BikeGalaxy!</h2>
-      </Container>
-    </Jumbotron>,
+    return createPortal(
+        <Jumbotron className="home-jumbotron" fluid>
+            <Container fluid>
+                <h2>Rubbed off your soles to hell? </h2>
+                <h2>And have no money for a car?</h2>
+                <h2>So we know how to help you.</h2>
+                <h2>Welcome to BikeGalaxy!</h2>
+            </Container>
+        </Jumbotron>,
     document.getElementById('portal')
-  );
+    );
 };
 
 export default HomeJumbotron;

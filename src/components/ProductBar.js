@@ -3,13 +3,13 @@ import { Row, Col, TabContent, TabPane, Nav, NavItem, NavLink} from 'reactstrap'
     //import { NavLink } from 'react-router-dom';
 import classnames from 'classnames';
 
-import '../styles/product.css'
+import '../styles/product.scss'
 
 const ProductBar = ( {product, title, description, type} ) => {
     const [activeTab, toggle] = useState('1');
 
     return(
-        <div className="product-navbar mt-3">
+        <div className="product-bar mt-3">
             <Nav tabs>
                 <NavItem>
                     <NavLink className={classnames({ active: activeTab === '1' })}

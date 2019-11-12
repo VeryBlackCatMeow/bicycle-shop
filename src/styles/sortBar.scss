@@ -1,0 +1,14 @@
+@import '../styles/variables.scss';
+
+.sort-bar {
+    .nav-item {
+        .nav-link {
+          color: $darkGalaxy;
+        }
+
+        .active {
+          background: linear-gradient(to right, $darkGalaxy, $galaxy);
+          color:$white;
+        }
+    }  
+} 

@@ -7,7 +7,7 @@ import {  setProductsAction, addToCartAction, removeFromCartAction } from '../ac
 import Loading from '../components/Loading';
 import ProductBody from '../components/ProductBody';
 import ProductBar from '../components/ProductBar';
-import '../styles/product.css'
+import '../styles/product.scss';
 
 const Product = (props) => {
     const { setProductsFunc } = props;
