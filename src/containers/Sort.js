@@ -4,11 +4,6 @@ import { connect } from 'react-redux';
 import { setSortAction } from '../actions/index.js'
 import SortBar from '../components/SortBar';
 
-    /*handleItemClick = ({target: {name}}) => {
-        this.setState({activeNav: name});
-        const { setSortFunc } = this.props;
-        setSortFunc(name);
-    };  */
 const Sort = ( {setSortFunc, sortBy} ) => { 
     return( <SortBar setSortFunc={setSortFunc} sortBy={sortBy} /> ); 
 }

@@ -28,9 +28,11 @@ const Cart = ({totalPrice, totalCount, cartItems, addToCartFunc, removeFromCartF
                     }
                 </ListGroup>
                 <h3> Subtotal: &nbsp; {totalPrice} &nbsp; Items: &nbsp; {totalCount}</h3>
-                <Link to="/checkout">
-                    <Button disabled size="sm" color="primary">Proceed To Checkout</Button>
-                </Link>
+                <div className="cart-bottom">
+                    <Link to="/checkout">
+                        <Button disabled size="sm" color="primary">Proceed To Checkout</Button>
+                    </Link>
+                </div>
             </Container>
 }
 

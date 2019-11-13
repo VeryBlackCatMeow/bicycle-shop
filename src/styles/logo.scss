@@ -1,35 +1,21 @@
-.head-logo {
-    a {
-        display: block;
-    
-        img {
-            vertical-align: middle;
-            height: 2.8em;
-            @media (max-width: 768px) {
-                height: 2em; 
-            }
-        }
+.head-logo a {
+    display: block;
 
-        span {
-            vertical-align: middle;
-            font-size: 1.8em;
-            @media (max-width: 768px) {
-                font-size: 1.5em;
-            }
+    img {
+        vertical-align: middle;
+        height: 2.8em;
+
+        @media (max-width: 768px) {
+            height: 2em; 
+        }
+    }
+
+    span {
+        vertical-align: middle;
+        font-size: 1.8em;
+
+        @media (max-width: 768px) {
+            font-size: 1.5em;
         }
     }
 }
-
-// @media (max-width: 768px) { 
-//     .head-logo { 
-//         a {
-//             img {
-//                 height: 2em;
-//             }
-
-//             span {
-//                 font-size: 1.5em;
-//             }
-//         }
-//     }
-// }

@@ -1,11 +1,16 @@
 @mixin max-screen($res) {
     @media screen and (max-width: $res) {
-      @content;
+        @content;
     }
-  }
+}
 
 @mixin transform($property) {
--webkit-transform: $property;
--ms-transform: $property;
-transform: $property;
+    -webkit-transform: $property;
+    -ms-transform: $property;
+    transform: $property;
+}
+
+@mixin link {
+    text-decoration: none;
+    color: $white;
 }

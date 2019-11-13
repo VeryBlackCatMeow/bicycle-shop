@@ -7,7 +7,7 @@ import { Popover, PopoverHeader, PopoverBody,
 import { unique } from '../funcLibrary/index.js'
 import { removeFromCartAction } from '../actions/index.js'
 import DropCartItem from '../components/DropCartItem';
-import '../styles/dropCart.css';
+import '../styles/dropCart.scss';
 
 const DropCart = ({totalPrice, totalCount, cartItems, removeFromCartFunc}) => {
     const[popoverToggler, handlePopoverToggle] = useState(false);

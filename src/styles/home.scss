@@ -1,8 +1,9 @@
 @import '../styles/variables.scss';
+@import '../styles/mixins.scss';
 
 .home {
     .uncontrolled-carousel {
-        color: black;
+        color: $black;
     } 
     
     .card-title {
@@ -13,11 +14,11 @@
         a {
             display: block;
             text-decoration: none;
-            color: rgb(0, 0, 0);
+            color: $black;
 
             &:hover {
                 transition: transform 1s;
-                transform: scale(1.1);
+                @include transform(scale(1.1));
                 color: $lightGalaxy    
             }
         }

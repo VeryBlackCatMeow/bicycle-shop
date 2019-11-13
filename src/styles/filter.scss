@@ -1,0 +1,109 @@
+@import '../styles/variables.scss';
+@import '../styles/mixins.scss';
+
+.filter-bar {
+    .filt-categories {
+        a {
+            text-decoration: none;
+            font-size: 1.1em;
+            color: $black;
+            margin: .5em;
+            padding: .2em 0;
+
+            &.active {
+                font-weight: bold;
+                color: rgb(59, 30, 65);
+                color: $darkGalaxy;
+            }
+        }
+    }
+
+    .filt-checkboxes {
+        label {
+            display: block;
+            text-indent: -1em;
+        }
+
+        input {
+            width: 1em;
+            height: 1em;
+            margin: 0.3em 0.4em;
+            vertical-align: middle;
+            position: relative;
+            top: -1px;
+        }
+    }
+
+    .filt-box {
+        margin-top: .6em;
+        white-space: nowrap;  
+        overflow: hidden;
+        text-overflow: ellipsis; 
+    }
+
+    // Buttons
+    .filt-button {
+        &:focus {
+            box-shadow: none;
+        } 
+
+        &.active {
+            box-shadow: none;
+        }
+
+        &.btn-primary {
+            background: linear-gradient(to right, $darkGalaxy, $galaxy);
+            border:  $darkGalaxy;
+        }
+    
+        &.btn-success {
+            background: radial-gradient(ellipse closest-side at center, $white, $galaxy);
+            border:  $darkGalaxy;
+        }
+
+        &:first-letter {
+            text-transform: uppercase;
+        }
+
+
+        @media (max-width: 768px) {
+            font-size: .8em;
+        }
+        
+        @media (max-width: 576px) {
+            font-size: .6em;
+        }
+
+        .filt-name {
+            float: left;
+        }
+
+        .filt-arrow {
+            float: right;
+    
+            i {
+                display: inline-block;
+                padding: .2em;
+                border: solid $white;
+                border-width: 0 2px 2px 0;
+                transition: transform .2s;
+    
+                &.arrow-right {
+                    @include transform(rotate(-45deg));
+                }
+                
+                &.arrow-left {
+                    @include transform(rotate(135deg));
+                }
+            
+                &.arrow-up {
+                    @include transform(rotate(-135deg));
+                }
+                
+                &.arrow-down {
+                    @include transform(rotate(45deg));
+                }
+            }
+        }
+    }
+}

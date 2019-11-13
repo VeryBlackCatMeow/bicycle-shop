@@ -7,12 +7,12 @@
     
     .product-bar {
         .nav-item {
-            :hover {
-                cursor: pointer;
-            }
-
             .active {
                 font-weight: bold; 
+            }
+            
+            &:hover {
+                cursor: pointer;
             }
         } 
 
