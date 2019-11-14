@@ -12,5 +12,11 @@
 
 @mixin link {
     text-decoration: none;
-    color: $white;
+    color: $milkyWay;
+}
+
+@mixin hiddenText {
+    white-space: nowrap;  
+    overflow: hidden;
+    text-overflow: ellipsis; 
 }

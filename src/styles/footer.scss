@@ -3,10 +3,10 @@
 
 .footer {
     padding: 1em 0 0.5em 0;
-    color: $white;
+    color: $milkyWay;
 
     hr {
-        background: $white;
+        background: $milkyWay;
         height: 0.08em;
     }
 
@@ -31,11 +31,11 @@
             margin: 0.2em;
             padding: 0.2em;
             border-radius: 30%;
-            background: $white;
+            background: $milkyWay;
 
             &:hover {
-                background: $black;
-                color: $white; 
+                background: $blackHole;
+                color: $milkyWay; 
             }
         }
 
@@ -73,11 +73,11 @@
             margin: 0.2em;
             padding: 0.2em;
             border-radius: 50%;
-            background: $white;
+            background: $milkyWay;
 
             &:hover {
-                background: $black;
-                color: $white; 
+                background: $blackHole;
+                color: $milkyWay; 
             }
         }
 
@@ -102,7 +102,7 @@
             margin: 0.2em;
             padding: 0.1em;
             border-radius: 20%;
-            background: $white;
+            background: $milkyWay;
         }
 
         .fa-cc-visa {

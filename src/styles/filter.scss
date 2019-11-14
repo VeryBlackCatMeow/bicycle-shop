@@ -6,7 +6,7 @@
         a {
             text-decoration: none;
             font-size: 1.1em;
-            color: $black;
+            color: $blackHole;
             margin: .5em;
             padding: .2em 0;
 
@@ -36,9 +36,7 @@
 
     .filt-box {
         margin-top: .6em;
-        white-space: nowrap;  
-        overflow: hidden;
-        text-overflow: ellipsis; 
+        @include hiddenText;
     }
 
     // Buttons
@@ -57,11 +55,11 @@
         }
     
         &.btn-success {
-            background: radial-gradient(ellipse closest-side at center, $white, $galaxy);
+            background: radial-gradient(ellipse closest-side at center, $milkyWay, $galaxy);
             border:  $darkGalaxy;
         }
 
-        &:first-letter {
+        :first-letter {
             text-transform: uppercase;
         }
 
@@ -84,7 +82,7 @@
             i {
                 display: inline-block;
                 padding: .2em;
-                border: solid $white;
+                border: solid $milkyWay;
                 border-width: 0 2px 2px 0;
                 transition: transform .2s;
     

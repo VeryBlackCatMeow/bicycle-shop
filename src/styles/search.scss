@@ -1,0 +1,63 @@
+@import '../styles/variables.scss';
+@import '../styles/mixins.scss';
+
+.head-search {
+    .input-group-text {
+        height: 2.1em;
+        background: $milkyWay;
+
+        @media (max-width: 768px) {        
+            height: 1.9em;
+        }
+
+        .fa-search {
+            font-size: 1.5em;
+            color: $galaxy;
+
+            @media (max-width: 768px) {        
+                font-size: 1.1em;
+            }
+        }
+    }
+    
+    input {
+        height: 2.1em;
+
+        &:focus, 
+        &:active {
+            box-shadow: none;
+            border: none;
+            @include transform(scale(.997));
+        }
+
+        @media (max-width: 768px) { 
+            height: 1.9em;
+        }
+    }
+}
+
+
+.head-search-list {
+    position: absolute;
+    z-index: 9999;
+    width: 95%;
+    padding: 0 0;
+    overflow: hidden;
+    border-radius: .2em;
+    background: $milkyWay;
+
+    .search-list-item {
+        list-style-type: none;
+        padding: 0 0.8em;
+
+        a {
+            display: block;
+            font-size: 1.3em;
+            color: $blackHole;
+        }
+
+        &:hover {
+            background: $clearSky;
+        }
+    }
+}

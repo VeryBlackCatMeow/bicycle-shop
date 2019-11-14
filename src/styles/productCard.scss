@@ -1,0 +1,76 @@
+@import '../styles/variables.scss';
+@import '../styles/mixins.scss';
+
+.product-card  {
+    &:hover {
+        border: none;
+        outline: 2px solid $galaxy;
+        box-shadow: 0 0 0.8em $galaxy;
+        color: $galaxy;
+        background-color: darken($milkyWay, 5%);
+        transition: transform 1s;
+        @include transform(scale(1.05));
+    }
+
+    .card-body {
+        > * {
+            @include hiddenText;
+        }
+
+        .card-title {
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        
+        .card-subtitle {
+            text-align: center;
+            background: radial-gradient(ellipse closest-side at center, $milkyWay,  $clearSky);
+        }
+        
+        .card-text {
+            font-size: 0.9em;
+        }
+        
+        .card-price {
+            text-align: right;
+            color: $darkGalaxy; 
+        }
+
+        //Buttons
+        .btn-primary {
+            background: linear-gradient(to right, $darkGalaxy, $galaxy);
+            border:  $darkGalaxy;
+
+            &:focus {
+                box-shadow: 0 0 0 .2em fade-out($blackHole, 0.5);
+            }
+
+            &:hover {
+                background: $blueSky;
+            }
+        }
+
+        .btn-secondary {
+            .btn-remove {
+                display: none;
+            }
+
+            &:hover {
+                background: $redStar;
+
+                .btn-remove {
+                    display: inline;
+                }
+
+                .btn-added {
+                    display: none;
+                }
+            }    
+        }
+    }
+}
+
+
+
+

@@ -3,7 +3,7 @@
 
 .home {
     .uncontrolled-carousel {
-        color: $black;
+        color: $blackHole;
     } 
     
     .card-title {
@@ -14,7 +14,7 @@
         a {
             display: block;
             text-decoration: none;
-            color: $black;
+            color: $blackHole;
 
             &:hover {
                 transition: transform 1s;

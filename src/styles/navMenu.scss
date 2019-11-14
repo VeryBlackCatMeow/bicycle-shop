@@ -1,0 +1,76 @@
+@import '../styles/variables.scss';
+@import '../styles/mixins.scss';
+
+
+.head-nav-menu {
+    .navbar-toggler {
+        margin-left: auto;
+        background-color: $milkyWay;
+
+        &:focus {
+            outline: none;
+        }
+
+        @media (max-width: 768px) { 
+            height: 1.6em;
+
+            .navbar-toggler-icon {
+                margin-top: -.2em;
+                height: 1.5em;
+            }
+        }
+    }
+    
+    .head-nav-bar .nav {
+        width: 100%;
+        background-color: $blackHole;
+        padding: .3em;
+
+        a { 
+            background-color: fade-out($darkGalaxy, 0.4);
+            padding: .2em 1em;
+        }
+
+        .active {
+            font-weight: bold; 
+            background: radial-gradient(ellipse closest-side at center, $milkyWay, $galaxy);
+        }
+    }
+}
+
+.head-side-bar {
+    position: fixed;
+    right: 0px;
+    width: 75%;
+
+    .modal-header {
+        background: darken($milkyWay, 5%);
+    }
+
+    .modal-body {
+        max-height: calc(100vh - 200px);
+        overflow: auto;
+
+        a { 
+            display: block;
+            padding: 8px;
+            margin: 2px 5px;
+            width: 100%;
+            text-decoration: none;
+            background-color: $greyNoise;
+            color: $milkyWay; 
+        }
+
+        .active {
+            font-weight: bold; 
+            border: solid $blackHole 1px;
+            color: $redStar; 
+            background-color: $blackHole;
+        }
+
+    }
+
+    .modal-footer {
+        background: darken($milkyWay, 5%);
+    }
+}
