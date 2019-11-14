@@ -1,0 +1,129 @@
+@import '../styles/variables.scss';
+@import '../styles/mixins.scss';
+
+.footer {
+    padding: 1em 0 0.5em 0;
+    color: $milkyWay;
+
+    hr {
+        background: $milkyWay;
+        height: 0.08em;
+    }
+
+    a {
+        @include link;
+    }
+
+    .foot-services {
+        a:hover {
+            color: $clearSky;
+        }
+
+        h5 {
+            color: $blueSky;
+        }
+
+    } 
+    
+    .foot-contacts {
+        i {
+            font-size: 2.5em;
+            margin: 0.2em;
+            padding: 0.2em;
+            border-radius: 30%;
+            background: $milkyWay;
+
+            &:hover {
+                background: $blackHole;
+                color: $milkyWay; 
+            }
+        }
+
+        .fa-skype {
+            color: rgb(0,167,231);
+        }
+        .fa-viber {
+            color: rgb(122,78,157);
+        }
+        .fa-whatsapp {
+            color: rgb(52,211,80);
+        }
+        .fa-telegram-plane {
+            color: rgb(67,189,233);
+        }
+        .fa-linkedin {
+            color: rgb(2,113,174);
+        }
+        .fa-at {
+            color: rgb(192,46,46);
+        }
+        .fa-github {
+            color: rgb(21,21,19);
+        }
+    } 
+
+    .foot-logo a {
+        font-size: 4em;
+        font-weight: bold;
+    }
+
+    .foot-follow-us {
+        i {
+            font-size: 1.7em;
+            margin: 0.2em;
+            padding: 0.2em;
+            border-radius: 50%;
+            background: $milkyWay;
+
+            &:hover {
+                background: $blackHole;
+                color: $milkyWay; 
+            }
+        }
+
+        .fa-google-plus {
+            color: rgb(215,74,55);
+        }
+        .fa-youtube {
+            color: rgb(247,0,0);   
+        }
+        .fa-facebook {
+            color: rgb(57,87,155);
+        }
+        .fa-twitter {
+            color: rgb(28,156,234);
+        }
+    }
+        
+
+    .foot-payment {
+        i {
+            font-size: 2em;
+            margin: 0.2em;
+            padding: 0.1em;
+            border-radius: 20%;
+            background: $milkyWay;
+        }
+
+        .fa-cc-visa {
+            color: rgb(30,31,110);
+        }
+        .fa-cc-paypal {
+            color: rgb(1,150,218);
+        }
+        .fa-cc-mastercard {
+            background: linear-gradient(to right, rgb(229,0,26), rgb(240,154,26));
+        }
+    }
+
+    .foot-copyright {
+        font-size: 1.1em;
+    
+        i {
+            font-size: 0.6em;
+            vertical-align: super;
+        }
+    }
+}
+
+

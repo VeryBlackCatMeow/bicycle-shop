@@ -5,7 +5,7 @@ import { Container, Row, Col, UncontrolledCarousel, Card, CardImg,
 
 import HomeMenu from './HomeMenu';
 import HomeJumbotron from './HomeJumbotron';
-import '../styles/home.css'
+import '../styles/home.scss';
 
 class Home extends Component {
     constructor(props) {

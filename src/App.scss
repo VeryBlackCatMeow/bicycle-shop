@@ -1,3 +1,5 @@
+@import './styles/variables.scss';
+
 .wrapper {
   min-width: 576px;
   background-image: url(/database/another/backlong.jpg);
@@ -10,15 +12,14 @@
 .about-us,
 .cart {
   min-height: calc(100vh - 100px);
-  background-color: rgb(255, 255, 255, .95);
+  background-color: fade-out($milkyWay, .05);
   padding-bottom: 1em;
 }
 
 .header,
 .footer {
-  background-color: rgb(75, 0, 130);
-  background: linear-gradient(to top right, rgb(75, 0, 130), rgb(105, 26, 224));
-  
+  background-color: $darkGalaxy;
+  background: linear-gradient(to top right, $darkGalaxy, $lightGalaxy);
 }
 
 .product-category:first-letter {

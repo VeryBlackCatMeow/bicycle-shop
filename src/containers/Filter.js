@@ -8,7 +8,7 @@ import { withRouter } from 'react-router-dom';
 import { sortByABC } from '../funcLibrary/index.js'
 import { setFilterAction, resetFiltersAction  } from '../actions/index.js'
 import FilterBlock  from '../components/FilterBlock';
-import '../styles/filter.css'
+import '../styles/filter.scss'
 
 class Filter extends Component {
     constructor(props) {
@@ -105,7 +105,7 @@ class Filter extends Component {
         const menuArrow =!this.state.menuToggle ? 'arrow-down' : 'arrow-right';
 
         return(
-            <>
+            <div className="filter-bar">
             <div className="filt-categories filt-box" >
                 <Button className="filt-button" block color="success" onClick={this.handleMenuToggle}>
                     <span className="filt-name">Category</span>
@@ -138,7 +138,7 @@ class Filter extends Component {
                     }
                 </Collapse>
             </div>
-            </>
+            </div>
         );
     }
 }

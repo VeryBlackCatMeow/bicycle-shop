@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 
-import '../styles/scrollUpButton.css';
+import '../styles/scrollUpButton.scss';
 
  const ScrollUpButton = () => {
     const [display, displayButton] = useState('none');

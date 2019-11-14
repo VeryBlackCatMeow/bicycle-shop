@@ -5,7 +5,7 @@ import Logo from '../components/Logo';
 import Search from '../containers/Search';
 import AccountMenu from '../components/AccountMenu';
 import NavMenu from '../components/NavMenu';
-import '../styles/header.css'
+import '../styles/header.scss'
 
 const Header = () => {
     return( 
@@ -16,7 +16,7 @@ const Header = () => {
                         <Logo/>
                     </Col> 
                     <Col xs="8" lg={{size:4, order: 3}}>      
-                     <AccountMenu/>
+                        <AccountMenu/>
                     </Col>
                     <Col xs="9" md="10" lg={{size:5, order: 2}}>
                         <Search/>

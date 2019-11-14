@@ -1,0 +1,24 @@
+.product {
+    .product-top-section {
+        .card-img-top {
+            width: 100%;
+        }
+    }
+    
+    .product-bar {
+        .nav-item {
+            .active {
+                font-weight: bold; 
+            }
+            
+            &:hover {
+                cursor: pointer;
+            }
+        } 
+
+        .tab-content {
+            margin-top: 1em; 
+        } 
+    }
+}
+    

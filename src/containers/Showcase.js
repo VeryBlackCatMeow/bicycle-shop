@@ -7,7 +7,7 @@ import { setProductsAction, addToCartAction,
         removeFromCartAction, setAllProductsAction } from '../actions/index.js'
 import ProductCard from '../components/ProductCard';
 import { searchItems } from '../containers/Search';
-import '../styles/productCard.css';
+import '../styles/productCard.scss';
 
 class Showcase extends Component {
     componentDidMount = () => {

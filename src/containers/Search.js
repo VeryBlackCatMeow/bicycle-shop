@@ -5,7 +5,7 @@ import { Link, withRouter  } from 'react-router-dom';
 import { InputGroup, InputGroupAddon, InputGroupText, Input } from 'reactstrap';
 
 import { setAllProductsAction, searchQueryAction } from '../actions/index.js'
-import '../styles/search.css';
+import '../styles/search.scss';
 
 class Search extends Component {
     constructor(props) {
@@ -71,22 +71,20 @@ class Search extends Component {
     render() {
         const { allItems, searchQuery, searchFunc } = this.props;
         return  <>
-                    <div className="head-search">
-                        <InputGroup  className="align-items-center">
-                            <InputGroupAddon addonType="prepend">
-                                <InputGroupText>
-                                    <i className='fas fa-search'></i>
-                                </InputGroupText>
-                            </InputGroupAddon>
-                            <Input value={searchQuery}
-                                    onChange={e => searchFunc(e.target.value)}
-                                    onFocus={ this.onFocus }
-                                    onBlur={ this.onBlur }
-                                    onKeyDown={this.submitFunc}
-                                    innerRef={this.searchInput}
-                                    />
-                        </InputGroup>
-                    </div>
+                    <InputGroup  className="head-search align-items-center">
+                        <InputGroupAddon addonType="prepend">
+                            <InputGroupText>
+                                <i className='fas fa-search'></i>
+                            </InputGroupText>
+                        </InputGroupAddon>
+                        <Input value={searchQuery}
+                                onChange={e => searchFunc(e.target.value)}
+                                onFocus={ this.onFocus }
+                                onBlur={ this.onBlur }
+                                onKeyDown={this.submitFunc}
+                                innerRef={this.searchInput}
+                                />
+                    </InputGroup>
                     <ul className="head-search-list" style={{display: this.state.visible && searchQuery? 'table':'none'}}>
                     {   
                         allItems.slice(0, 10).map(item => (

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Nav, NavItem, NavLink, Col } from 'reactstrap';
 
-import '../styles/sortBar.css'
+import '../styles/sortBar.scss'
 
 const SortBar = ( {setSortFunc, sortBy} ) => {
         return(

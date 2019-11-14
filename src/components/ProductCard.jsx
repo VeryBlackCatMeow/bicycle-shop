@@ -13,22 +13,22 @@ const ProductCard = (props) => {
                 <Link to={`/gallery/${category}/${id}`}>
                     <CardImg top src={image} alt="Product" /> 
                 </Link>  
-                    <CardBody>
-                        <CardTitle>{title}</CardTitle>
-                        <CardSubtitle>{type} {product}</CardSubtitle>
-                        <CardText>{description}</CardText>
-                        <h5 className="card-price">{price} $</h5>
-                        {
-                            cartItems.some( a => (a.id===id) )
-                            ? 
-                            <Button color="secondary" block onClick={removeFromCartFunc.bind(this, id)}>
-                                <span className="btn-added">Added To Cart Already</span>
-                                <span className="btn-remove"> Remove From Cart</span>
-                            </Button>
-                            :
-                            <Button color="primary" block onClick={addToCartFunc.bind(this, item)}>Add To Cart</Button>
-                        } 
-                    </CardBody>
+                <CardBody>
+                    <CardTitle>{title}</CardTitle>
+                    <CardSubtitle>{type} {product}</CardSubtitle>
+                    <CardText>{description}</CardText>
+                    <h5 className="card-price">{price} $</h5>
+                    {
+                        cartItems.some( a => (a.id===id) )
+                        ? 
+                        <Button color="secondary" block onClick={removeFromCartFunc.bind(this, id)}>
+                            <span className="btn-added">Added To Cart Already</span>
+                            <span className="btn-remove"> Remove From Cart</span>
+                        </Button>
+                        :
+                        <Button color="primary" block onClick={addToCartFunc.bind(this, item)}>Add To Cart</Button>
+                    } 
+                </CardBody>
             </Card>
         </Col>
     );

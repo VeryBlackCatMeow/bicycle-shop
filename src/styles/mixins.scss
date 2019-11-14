@@ -1,0 +1,22 @@
+@mixin max-screen($res) {
+    @media screen and (max-width: $res) {
+        @content;
+    }
+}
+
+@mixin transform($property) {
+    -webkit-transform: $property;
+    -ms-transform: $property;
+    transform: $property;
+}
+
+@mixin link {
+    text-decoration: none;
+    color: $milkyWay;
+}
+
+@mixin hiddenText {
+    white-space: nowrap;  
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}

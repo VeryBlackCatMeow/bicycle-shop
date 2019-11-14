@@ -2,7 +2,7 @@ import React from 'react';
 import { Nav, NavItem } from 'reactstrap';
 
 import DropCart from '../containers/DropCart';
-import '../styles/accountMenu.css'
+import '../styles/accountMenu.scss'
 
 const AccountMenu = () => (
     <Nav className="head-account-menu justify-content-end align-items-center">

@@ -4,7 +4,7 @@ import axios from 'axios';
 import {Navbar, Nav, NavItem, NavbarToggler, Collapse, Button, Modal, 
     ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
-import '../styles/navMenu.css';
+import '../styles/navMenu.scss';
 
 const NavMenu = () => {
     const [navMenuToggler, handleMenuToggle] = useState(false);
@@ -42,7 +42,8 @@ const NavMenu = () => {
         <Modal className="head-side-bar" isOpen={navMenuToggler} 
                 toggle={()=>handleMenuToggle(!navMenuToggler)}
                 >
-            <ModalHeader toggle={()=>handleMenuToggle(!navMenuToggler)}>Modal title
+            <ModalHeader toggle={()=>handleMenuToggle(!navMenuToggler)}>
+                BikeGalaxy
             </ModalHeader>
             <ModalBody>
                 <Nav vertical>

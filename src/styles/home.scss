@@ -1,0 +1,32 @@
+@import '../styles/variables.scss';
+@import '../styles/mixins.scss';
+
+.home {
+    .uncontrolled-carousel {
+        color: $blackHole;
+    } 
+    
+    .card-title {
+        color: $lightGalaxy ;
+    } 
+    
+    .home-menu {
+        a {
+            display: block;
+            text-decoration: none;
+            color: $blackHole;
+
+            &:hover {
+                transition: transform 1s;
+                @include transform(scale(1.1));
+                color: $lightGalaxy    
+            }
+        }
+        
+        img {
+            width: 100%;
+        }
+    } 
+}
+
+

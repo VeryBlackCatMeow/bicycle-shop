@@ -1,0 +1,44 @@
+@import '../styles/variables.scss';
+@import '../styles/mixins.scss';
+
+.scroll-up {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 4em;
+    height: 100%;
+    text-align: center;
+    background: fade-out($darkGalaxy, 0.4);
+    cursor: pointer;
+
+    &:hover {
+        background: fade-out($darkGalaxy, 0.2);
+      }
+
+    .scroll-up-arrow {
+        margin-top: 1em;
+        font-size: 2.6em;
+
+        i {
+            display: inline-block;
+            padding: .2em;
+            border: solid $milkyWay;
+            border-width: 0 4px 4px 0;
+            @include transform(rotate(-135deg));
+        }
+    }    
+}
+
+
+@media (max-width: 768px) {
+    .scroll-up {
+        top: 6em;
+        width: 100%;
+        height: 2.5em;
+
+        .scroll-up-arrow i {
+            vertical-align: super; 
+        }
+    }
+}

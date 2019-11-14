@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col, Card, CardImg, CardBody, Button } from 'reactstrap';
 
-import '../styles/product.css'
+import '../styles/product.scss'
 
 const ProductBody = ({cartItems, addToCartFunc, removeFromCartFunc, item}) => {
     const { id, title, type, price, image } = item;
