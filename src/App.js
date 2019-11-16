@@ -6,6 +6,7 @@ import About from './components/About';
 import Home from './components/Home';
 import Product from './containers/Product';
 import Cart from './containers/Cart';
+import Locations from './components/Locations';
 import PageIsNotFound from './components/PageIsNotFound';
 import ScrollUpButton from './components/ScrollUpButton';
 import './App.scss';
@@ -28,6 +29,8 @@ class App extends Component {
                   
                   <Route exact path="/gallery/:category"  key={Math.random()} component={Gallery}/>
                   <Route exact path="/gallery/:category/:id" component={Product}/>
+
+                  <Route path="/locations" component={Locations} />
 
                   <Route path="*" component={PageIsNotFound}/>
             </Switch>

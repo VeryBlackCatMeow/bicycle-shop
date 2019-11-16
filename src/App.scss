@@ -10,7 +10,8 @@
 .home,
 .product,
 .about-us,
-.cart {
+.cart,
+.locations {
   min-height: calc(100vh - 100px);
   background-color: fade-out($milkyWay, .05);
   padding-bottom: 1em;
