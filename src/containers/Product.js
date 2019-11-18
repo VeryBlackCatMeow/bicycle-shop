@@ -18,7 +18,7 @@ const Product = (props) => {
                 setProductsFunc(data);      
             })
             .catch(error => console.log(error));
-    });
+    }, [props.match.params.category, setProductsFunc]);
 
     const {cartItems, addToCartFunc, removeFromCartFunc, items} = props;
     const item = items.find( i => i.id === +(props.match.params.id));

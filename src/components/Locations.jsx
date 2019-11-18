@@ -1,30 +1,52 @@
 import React, {Component} from 'react';
 import { Container, Row, Col, ListGroup, ListGroupItem } from 'reactstrap';
-import ReactMapGL, {NavigationControl, FullscreenControl} from 'react-map-gl';
+import ReactMapGL, {NavigationControl, FullscreenControl,
+        Marker, Popup} from 'react-map-gl';
+
+import locations from '../locationsData.json';
 
 import '../styles/locations.scss';
- 
-const TOKEN = 'pk.eyJ1IjoiZGVhdGhveHkiLCJhIjoiY2syejFscno5MDQ5azNvanc5N2g4ZnJrbyJ9.NPVDAEs5G6mhALlq4LOGqQ';
  
 class  Locations extends Component {
     constructor() {
         super();
         this.state = {
+            mounted: false,
             viewport: {
-                longitude: 36.2, latitude: 49.9, zoom: 8,
+                latitude: 5.2046, longitude: -25.0162, zoom: 1,
                 width: '100%', height: '100%', 
-                pitch: 35, bearing: 7.6
+                //pitch: 35, bearing: 7.6
             },
-            mounted: false
+            selectedShop: null
           };
     }
 
     componentDidMount () {
-        this.setState({ mounted: true })
-      }
+        this.setState({ mounted: true });
+        window.addEventListener("keydown", this.listener);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener("keydown", this.listener);
+    }
+
+    setViewport = (viewport) => {
+        this.setState({viewport});
+    }
+
+    setSelectedShop = shop => {
+        this.setState({ selectedShop: shop })
+    }
+
+    listener = e => {
+        if (e.key === "Escape") {
+          this.setSelectedShop(null);
+        }
+    };
  
     render() {
-        const { mounted, viewport} = this.state;
+        const shops = locations.sources.points.data.features;
+        const { mounted, viewport, selectedShop} = this.state;
         return (
             <Container className="locations">
                 <Row>
@@ -32,22 +54,56 @@ class  Locations extends Component {
                 </Row>
                 <Row>
                     <Col xs="7">
-                        <div className='sidebarStyle'>
-                            Longitude: {viewport.longitude.toFixed(2)} |
-                            Latitude: {viewport.latitude.toFixed(2)} |
+                        <div className='coordinates'>
+                            Latitude: {viewport.latitude.toFixed(4)} |
+                            Longitude: {viewport.longitude.toFixed(4)} |
                             Zoom: {viewport.zoom.toFixed(2)}
                         </div>
                         <div className="mapContainer">
                             <ReactMapGL {...viewport} //onTouchMove={e=>this.handler(e)}
                                 mapboxApiAccessToken={TOKEN} mapStyle='mapbox://styles/mapbox/streets-v11'
-                                scrollZoom={false}
-                                onViewportChange={ viewport => { if(mounted) this.setState({viewport}) } }>
+                                onViewportChange={ viewport => { if(mounted) this.setViewport(viewport); } }>
                                 <div style={{position: 'absolute', right: 1, top: 2}}>
                                     <NavigationControl />
                                 </div>
                                 <div style={{position: 'absolute', left: 2, top: 2}}>
                                     <FullscreenControl container={document.querySelector('body')}/>
                                 </div>
+                                {
+                                    shops.map( shop => (
+                                        <Marker key = {shop.properties.shop_id} 
+                                            latitude={shop.geometry.coordinates[0]}
+                                            longitude={shop.geometry.coordinates[1]} /*offsetLeft={-20} offsetTop={-10}*/>
+                                            <div className="marker-button"
+                                                    onClick={e => {
+                                                        e.preventDefault();
+                                                        this.setSelectedShop(shop);
+                                                    }}>
+                                                <img src="/logo.jpg" alt="logo"></img>
+                                                <span>BikeGalaxy</span>
+                                            </div>
+                                        </Marker>
+                                    ))
+                                }
+                                {   
+                                    selectedShop
+                                    ? 
+                                    <Popup latitude={selectedShop.geometry.coordinates[0]}
+                                            longitude={selectedShop.geometry.coordinates[1]}
+                                            onClose={() => {
+                                                this.setSelectedShop(null);
+                                            }}>
+                                        <div>
+                                            <h5>{selectedShop.properties.name}</h5></div>
+                                            <span>City: {selectedShop.properties.city}</span><br/>
+                                            <span>Address:{selectedShop.properties.address}</span><br/>
+                                            <span>Call Us: {selectedShop.properties.call}</span><br/>
+                                            <span>Hours: {selectedShop.properties.hours}</span><br/>
+                                        
+                                    </Popup>
+                                    :
+                                    null
+                                }
                             </ReactMapGL>
                         </div>   
                     </Col>
@@ -68,6 +124,12 @@ class  Locations extends Component {
 }
 
 export default Locations;
+
+
+
+
+
+
 
  // componentDidMount() {
     //     const map = new mapboxgl.Map({
@@ -110,4 +172,6 @@ export default Locations;
     //         zoom: e.target.getZoom().toFixed(2)
     //     });
     // }
-    //eifel: long 2.295258, lat 48.857896     Statue of Liberty -74.044583, 40.689167,
+    // eifel: lat 48.857896, long 2.295258     Statue of Liberty 40.689167, -74.044583,
+
+    const TOKEN = "pk.eyJ1IjoiZGVhdGhveHkiLCJhIjoiY2syejFscno5MDQ5azNvanc5N2g4ZnJrbyJ9.NPVDAEs5G6mhALlq4LOGqQ"
