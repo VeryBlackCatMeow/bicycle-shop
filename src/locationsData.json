@@ -1,0 +1,99 @@
+{    
+    "version": "1",
+    "sources": {
+        "points": {
+            "type": "geojson",
+            "data": {
+                "type": "FeatureCollection",
+                "features": [
+                    {
+                        "type": "Feature", 
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [48.857896, 2.295258]
+                        },
+                        "properties": {
+                            "shop_id": 1,
+                            "city": "Washington",
+                            "name": "Solar System",
+                            "address": "8720 Russell Road",
+                            "call": "(098)-765-432",
+                            "hours": "10 - 19"
+                        }
+                    },
+                    {
+                        "type": "Feature", 
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [40.689167, -74.044583]
+                        },
+                        "properties": {
+                            "shop_id": 2,
+                            "city": "Paris",
+                            "name": "Milky Way",
+                            "address": "8720 Russell Road",
+                            "call": "(123)-456-789",
+                            "hours": "9 - 18"
+                        }
+                    },
+                    {
+                        "type": "Feature", 
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [29.977491, 31.132511]
+                        },
+                        "properties": {
+                            "shop_id": 3,
+                            "city": "Giza",
+                            "name": "Orion",
+                            "address": "8720 Russell Road",
+                            "call": "(555)-666-555",
+                            "hours": "11 - 20"
+                        }
+                    },
+                    {
+                        "type": "Feature", 
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [34.0800848, -118.5142185]
+                        },
+                        "properties": {
+                            "shop_id": 4,
+                            "city": "Hollywood",
+                            "name": "Galaxy Stars",
+                            "address": "8720 Russell Road",
+                            "call": "(777)-777-777",
+                            "hours": "12 - 20"
+                        }
+                    },
+                    {
+                        "type": "Feature", 
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [49.98081, 36.25272]
+                        },
+                        "properties": {
+                            "shop_id": 5,
+                            "city": "Kharkiv",
+                            "name": "Black Hole",
+                            "address": "8720 Russell Road",
+                            "call": "666-666-666",
+                            "hours": "9 - 21"
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "layers": [
+        {
+            "id": "my-layer",
+            "type": "circle",
+            "source": "points",
+            "paint": {
+                "circle-color": "#f00",
+                "circle-radius": "4"
+            }
+        }
+    ]
+}

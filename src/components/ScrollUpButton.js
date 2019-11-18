@@ -7,7 +7,7 @@ import '../styles/scrollUpButton.scss';
 
     useEffect(() => {
         window.addEventListener('scroll', trackScroll);
-    });
+    }, []);
     
     const trackScroll = () => {
         if (window.pageYOffset > 200) {

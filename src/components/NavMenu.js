@@ -16,7 +16,7 @@ const NavMenu = () => {
                 setMainMenu(data);
             })
             .catch(error => console.log(error));
-    });
+    }, []);
 
     return (
     <Navbar role="navigation" light expand="lg" className="head-nav-menu">
