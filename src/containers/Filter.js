@@ -11,25 +11,11 @@ import FilterBlock  from '../components/FilterBlock';
 import '../styles/filter.scss'
 
 class Filter extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {    
+    state = {    
             blockToggle: true,
             menuToggle: true,  
-            filterToggles: {},
-            filtersList: []
-        };
-    }
-
-    static getDerivedStateFromProps(props, state) {
-        if (state.filtersList !== props.filtersList) {
-            return {
-                filterToggles: props.filtersList.reduce((o, key) => ( {...o, [key]: true} ), {}), // all toggles are true
-                filtersList: props.filtersList
-            };
-          }
-        else return null;
-    }
+            filterToggles: {}
+    };
 
     componentDidMount = () => {
         axios.get('/database/homemenu.json')
@@ -38,31 +24,69 @@ class Filter extends Component {
             })
             .catch(error => console.log(error));
 
-            const {resetFiltersFunc, filtersList} = this.props;
-
-            let reset = {
-                sortBy: 'all',
-                filterBy: filtersList.reduce((o, key) => ( {...o, [key]:[]} ), {})
-            }
-           resetFiltersFunc(reset);
-
+        this.setFilters();
     }
 
-    /*componentDidUpdate = (prevProps) => {
-        if (this.props.filtersList !== prevProps.filtersList) {
-            const {resetFiltersFunc, filtersList} = this.props;
-
-                                // reset all toggles (set true)
-            this.setState({   
-                blockToggle: true,
-                menuToggle: true,  
-                filterToggles: filtersList.reduce((o, key) => ( {...o, [key]: true} ), {})
-            });
-
-                                // reset all filters(set default settings)
-            resetFiltersFunc(this.reset);
+    componentDidUpdate = (prevProps) => {
+        if (this.props.match.params.category !== prevProps.match.params.category) {
+            this.setFilters();
         }
-    }*/
+    }
+
+    setFilters = () => {
+        const {resetFiltersFunc} = this.props;
+        const filterList = this.setCategoryList(this.props.match.params.category);
+                        // reset all toggles (set true)
+        this.setState({   
+            blockToggle: true,
+            menuToggle: true,  
+            filterToggles: filterList.reduce((o, key) => ( {...o, [key]: true} ), {})
+        });
+                        // reset all filters(set default settings)
+        const reset = {
+            sortBy: 'all',
+            filterBy: filterList.reduce((o, key) => ( {...o, [key]:[]} ), {})
+        }
+        resetFiltersFunc(reset);
+    }
+
+    setCategoryList = (category) => {
+        const accessories = ['product', 'color'];
+        const apparel = ['product', 'type', 'brand', 'color', 'size'];
+        const backpacks = ['color', 'capacity'];
+        const bicycles = ['type', 'brand', 'wheel Size', 'color'];
+        const components = ['product', 'type', 'brand', 'color'];
+        const news = ['product', 'brand'];
+        const rental = ['type', 'brand', 'wheel Size', 'title'];
+        const sale = ['product', 'brand'];
+        const tools = ['product', 'brand', 'color'];
+        const allItems = ['product', 'brand', 'type', 'color'];
+        
+        switch (category) {
+            case 'bicycles':
+                return bicycles;
+            case 'rental':
+                return rental;
+            case 'accessories':
+                return accessories;
+            case 'backpacks':
+                return backpacks;
+            case 'apparel':
+                return apparel;
+            case 'components':
+                return components;
+            case 'news':
+                return news;
+            case 'sale':
+                return sale;
+            case 'tools':
+                return tools;
+            case 'allItems':
+                return allItems; 
+            default:
+                return allItems;
+        }
+    }    
 
     handleBlockToggle = () => {
         this.setState({ 
@@ -92,13 +116,14 @@ class Filter extends Component {
     }
     
     render() {
-        const { setFilterFunc, filterBy, filtersList, items } = this.props;
-        const filterBlocks =  filtersList.map( filterName => {
+        const { setFilterFunc, filterBy, items } = this.props;
+        const filterList = this.setCategoryList(this.props.match.params.category);
+        const filterBlocks =  filterList.map( filterName => {
             let filterCheckboxes = sortByABC( [...new Set([].concat(...items.map(item =>item[filterName])))] ) //create an array of checkboxes names/values from items
             return {
              name: filterName, 
              list: filterCheckboxes
-            }          //take existing filter values(filters from filtersList, values from items)
+            }          //take existing filter values(filters from filterList, values from items)
         });
 
         const blockArrow =!this.state.blockToggle ? 'arrow-down' : 'arrow-right';

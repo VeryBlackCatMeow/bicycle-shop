@@ -25,9 +25,9 @@ class App extends Component {
                   <Route exact path="/" component={Home} />
                   <Route path="/about" component={About} />
                   <Route exact path="/cart" component={Cart} />
-                  <Route exact path="/search/:query" key={Math.random()} component={Gallery}/>
+                  <Route exact path="/search/:query" component={Gallery}/>
                   
-                  <Route exact path="/gallery/:category"  key={Math.random()} component={Gallery}/>
+                  <Route exact path="/gallery/:category" component={Gallery}/>
                   <Route exact path="/gallery/:category/:id" component={Product}/>
 
                   <Route path="/locations" component={Locations} />

@@ -17,7 +17,8 @@ class Search extends Component {
     }
     
     componentDidMount = () => {
-        let links = ['/bicycles', '/rental', '/components', '/tools', '/apparel', '/accessories', '/backpacks', '/news', '/sale'];
+        let links = ['/bicycles', '/rental', '/components', '/tools', '/apparel',
+                    '/accessories', '/backpacks', '/news', '/sale'];
         let requests = links.map( link => axios.get(`/database${link}.json`) );
 
         Promise.allSettled(requests)
@@ -51,7 +52,7 @@ class Search extends Component {
     }
 
     submitFunc = (e) => {
-        if (e.key === 'Enter') {
+        if (e.key === 'Enter' && this.props.searchQuery) {
             this.props.history.push(`/search/${this.props.searchQuery}`);
             this.searchInput.current.blur();
             this.props.searchFunc('');
@@ -89,8 +90,8 @@ class Search extends Component {
                     {   
                         allItems.slice(0, 10).map(item => (
                             <li key={item.id} className="search-list-item">
-                                <Link to={`/gallery/${item.category}/${item.id}`} >
-                                    { this.highlightText(searchQuery, item.type, item.product, item.title) }
+                                <Link to={`/gallery/${item.category}/${item.id}`}>
+                                    { this.highlightText(searchQuery, item.type, item.product, item.brand, item.title) }
                                 </Link>
                             </li>))                       
                     }
@@ -110,7 +111,8 @@ class Search extends Component {
 export const searchItems = (allItems, searchQuery) => {
     return allItems.filter( item =>
         item.type.toLowerCase().indexOf(searchQuery.toLowerCase()) >= 0 ||
-        item.product.toLowerCase().indexOf(searchQuery.toLowerCase()) >= 0 ||    
+        item.product.toLowerCase().indexOf(searchQuery.toLowerCase()) >= 0 ||
+        item.brand.toLowerCase().indexOf(searchQuery.toLowerCase()) >= 0 ||  
         item.title.toLowerCase().indexOf(searchQuery.toLowerCase()) >= 0
     );
 }

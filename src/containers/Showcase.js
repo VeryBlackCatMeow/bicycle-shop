@@ -11,29 +11,41 @@ import '../styles/productCard.scss';
 
 class Showcase extends Component {
     componentDidMount = () => {
+        this.getProducts();
+    }
+
+    componentDidUpdate = (prevProps) => {
+        if (this.props.match.params !== prevProps.match.params) {
+            this.getProducts();
+        }
+    }
+    
+    getProducts = () => {
         const { category, query } = this.props.match.params;
         const setProductsFunc = this.props.setProductsFunc;
-        const links = ['/bicycles', '/rental', '/components', '/tools', '/apparel', '/accessories', '/backpacks', '/news', '/sale'];
+
+        const links = ['/bicycles', '/rental', '/components', '/tools', '/apparel',
+                        '/accessories', '/backpacks', '/news', '/sale'];
         const requests = links.map( link => axios.get(`/database${link}.json`) );
 
         query || category === 'allItems'
         ?
         Promise.allSettled(requests)
             .then( responses => {
-            let allItems = [];
-            for(let response of responses) {
-                if(response.status === "fulfilled") {
-                    allItems = [...allItems, ...response.value.data]
+                let allItems = [];
+                for(let response of responses) {
+                    if(response.status === "fulfilled") {
+                        allItems = [...allItems, ...response.value.data]
+                    }
+                    if(response.status === "rejected") { 
+                        console.log(response.reason)
+                    }
                 }
-                if(response.status === "rejected") { 
-                    console.log(response.reason)
-                }
-            }
-            query
-            ?
-            setProductsFunc( searchItems(allItems, query) )
-            :
-            setProductsFunc(allItems)
+                query
+                ?
+                setProductsFunc( searchItems(allItems, query) )
+                :
+                setProductsFunc(allItems)
             })
             .catch(error => console.log(error))
         :    
@@ -90,19 +102,16 @@ const filterItems = (items, filterBy) => {
     return items;
 }
 
-const finalFilter = (items, sortBy, filterBy/*, searchQuery*/) =>  {
-    return sortItems(filterItems(/*searchItems*/items, /*searchQuery),*/ filterBy), sortBy)
+const finalFilter = (items, sortBy, filterBy) =>  {
+    return sortItems(filterItems(items, filterBy), sortBy)
 };
 
-
 const mapStateToProps = ( 
-    {productreducers, filtersreducers, cartreducers/*, searchreducers*/ }) => ({
-    items: finalFilter(productreducers.items,/* searchreducers.searchQuery,*/
+    {productreducers, filtersreducers, cartreducers}) => ({
+    items: finalFilter(productreducers.items,
                             filtersreducers.sortBy, filtersreducers.filterBy),
     cartItems: cartreducers.items,
     allItems: productreducers.allItems,
-    //searchItems: searchAllItems(productreducers.allItems, searchreducers.searchQuery),
-
 });
 
 const mapDispatchToProps = (dispatch) => ({
