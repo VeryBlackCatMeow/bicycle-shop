@@ -2,8 +2,8 @@
 @import '../styles/mixins.scss';
 
 .locations {
-    .coordinates {
-        display: inline-block;
+    .loc-bar {
+        //display: inline-block;
         // z-index: 1 !important;
         margin: 1em;
         padding: .2em;
@@ -12,41 +12,94 @@
         font-weight: bold;
     }
      
-    .mapContainer {
+    .loc-map {
         margin: 1em;
         width: 100%;
-        height: 499px;
-    }
+        height: 90%;
 
-    .mapboxgl-marker {
-        .marker-button {
-            cursor: pointer;
-            font-size: 1em;
-            font-weight: bold;
-            color: $galaxy;
-        
-            img {
-                width: 1.8em;
-                height: 1.8em;
-                border-radius: .2em;
+        @media (max-width: 992px) {
+            width: 95%;
+            height: 45em;
+        }
+
+        .mapboxgl-marker {
+            .marker-button {
+                cursor: pointer;
+                font-size: 1em;
+                font-weight: bold;
+                color: $galaxy;
+            
+                img {
+                    width: 1.8em;
+                    height: 1.8em;
+                    border-radius: .2em;
+                }
             }
         }
     }
 
+    .loc-shoplist.list-group  {
+        .list-group-item {
+            cursor: pointer;
     
-
-    // .list-group-item {
-    //     h
-    // }
-
+            &.active {
+                background: $clearSky;
+            }   
+            
+            .loc-shop-img {
+                padding: 0;
+                
+                img {
+                    width: 100%;
+                }
+            }
+    
+            .loc-shop-info {
+                padding: 0 0 0 .5em;
+    
+                @media (max-width: 991px) {
+                    padding: 0 0 0 2em;
+                }
+    
+                .loc-shop-info-row{
+                    width: 100%;
+    
+                    @media (max-width: 1201px) {
+                        font-size: .95em;
+                        line-height: 1.2em;
+                    }
+        
+                    @media (max-width: 991px) {
+                        display: inline-block;
+                        width: 50%;
+                    }
+                }
+            }
+        }
+    }
+    
 }
 
 .mapboxgl-popup {
     .mapboxgl-popup-content {
+        font: normal 1em/1em 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
+        padding: 0;
+
         h5 {
-            color: $galaxy;
+            display: block;
+            padding: .6em; 
+            background: $galaxy;
+            color: $milkyWay;  
+            font-weight: bold;
         }
+
+        span {
+            display: block;
+            padding: 0 1em;
+        }
+
+        .mapboxgl-popup-close-button {
+            display: none;
+        } 
     }
 }
-
-

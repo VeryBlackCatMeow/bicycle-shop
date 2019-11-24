@@ -6,7 +6,7 @@ import About from './components/About';
 import Home from './components/Home';
 import Product from './containers/Product';
 import Cart from './containers/Cart';
-import Locations from './components/Locations';
+import Locations from './containers/Locations';
 import PageIsNotFound from './components/PageIsNotFound';
 import ScrollUpButton from './components/ScrollUpButton';
 import './App.scss';

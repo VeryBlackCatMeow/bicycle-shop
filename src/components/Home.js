@@ -90,15 +90,15 @@ class Home extends Component {
                         </Row>
                     </Col>
                 </Row>
-                <i className='fas fa-home' style={{fontSize: '24px'}}></i>
-                    <i className='fas fa-phone-square' style={{fontSize: '24px'}}></i>
-                    <i className='fas fa-phone' style={{fontSize: '24px'}}></i>
-                <i className='fas fa-bicycle' style={{fontSize: '24px'}}></i>
              </Container> 
         );
 
     }
 }
 
-
 export default Home;
+
+/*{ <i className='fas fa-home' style={{fontSize: '24px'}}></i>
+<i className='fas fa-phone-square' style={{fontSize: '24px'}}></i>
+<i className='fas fa-phone' style={{fontSize: '24px'}}></i>
+<i className='fas fa-bicycle' style={{fontSize: '24px'}}></i> }*/
