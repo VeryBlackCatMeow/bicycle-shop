@@ -5,7 +5,7 @@ import { Card, CardImg, CardText, CardBody,
 
 const ProductCard = (props) => {
     const { cartItems, addToCartFunc, removeFromCartFunc, ...item } = props;
-    const { id, product, title, type, price, image, category, description} = item;
+    const { id, product, title, brand, type, price, image, category, description} = item;
 
     return(
         <Col className="col-12 col-md-6 col-lg-4 py-3"> 
@@ -14,7 +14,7 @@ const ProductCard = (props) => {
                     <CardImg top src={image} alt="Product" /> 
                 </Link>  
                 <CardBody>
-                    <CardTitle>{title}</CardTitle>
+                    <CardTitle>{brand} {title}</CardTitle>
                     <CardSubtitle>{type} {product}</CardSubtitle>
                     <CardText>{description}</CardText>
                     <h5 className="card-price">{price} $</h5>

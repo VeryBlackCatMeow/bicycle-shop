@@ -12,16 +12,17 @@ const FilterBlock = ({handleFilterToggle, filterToggle, setFilterFunc, filterBlo
                     <span className="filt-arrow"><i className={blockArrow}></i></span>
                 </Button>
                 <Collapse isOpen={filterToggle}>
-                    <FormGroup check onChange={ e => setFilterFunc(e.target) }>
+                    <FormGroup check>
                         {         
                             filterBlock.list.map( (checkbox, index) => 
                                     <Label check key={index}>
-                                        <Input type="checkbox"
+                                        <Input type="checkbox" onChange={ e => setFilterFunc(e.target) }
                                                name={filterBlock.name} value={checkbox}
-                                                /*checked={filterBy[filterBlock.name][checkbox]}*//>
+                                               checked={filterBy[filterBlock.name]!==undefined?filterBy[filterBlock.name].some(i => i===checkbox):false}/>
                                         {checkbox}
                                     </Label>
                             )
+                            // checked={filterBy[filterBlock.name][checkbox]===undefined?false:filterBy[filterBlock.name][checkbox]}
                         }
                     </FormGroup>
                 </Collapse>

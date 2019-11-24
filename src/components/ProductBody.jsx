@@ -4,7 +4,7 @@ import { Row, Col, Card, CardImg, CardBody, Button } from 'reactstrap';
 import '../styles/product.scss'
 
 const ProductBody = ({cartItems, addToCartFunc, removeFromCartFunc, item}) => {
-    const { id, title, type, price, image } = item;
+    const { id, brand, title, type, price, product, image } = item;
 
     return(
         <Row className="product-top-section">
@@ -17,9 +17,9 @@ const ProductBody = ({cartItems, addToCartFunc, removeFromCartFunc, item}) => {
                 </Card>
             </Col>
             <Col xs="12" md="6">
-                <p>{title}</p>
-                <p>{type}</p>
-                <h5>{price} $</h5>
+                <h6>{type} {product}</h6>
+                <h4>{brand} {title}</h4>                
+                <h3>{price} $</h3>
                 {
                     cartItems.some( a => (a.id===id) )
                     ? 
