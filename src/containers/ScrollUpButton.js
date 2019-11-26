@@ -29,4 +29,5 @@ import '../styles/scrollUpButton.scss';
         </div>
     );
 }
+
 export default ScrollUpButton;

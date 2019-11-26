@@ -1,7 +1,7 @@
 import React from 'react';
 import { Nav, NavItem } from 'reactstrap';
 
-import DropCart from '../containers/DropCart';
+import Cart from '../containers/Cart';
 import '../styles/accountMenu.scss'
 
 const AccountMenu = () => (
@@ -15,7 +15,7 @@ const AccountMenu = () => (
             <span>Account</span>
         </NavItem>
         <NavItem>	
-            <DropCart/>
+            <Cart/>
         </NavItem>
     </Nav>
 )
