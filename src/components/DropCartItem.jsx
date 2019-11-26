@@ -9,10 +9,10 @@ const DropCartItem = ({id, image, title, price, removeFromCartFunc}) => (
             </Col>
             <Col xs="6">
                 <Row>
-                <span>{title}</span> &nbsp;
+                    <span>{title}</span> &nbsp;
                 </Row>
                 <Row>
-                <span>{price}</span> &nbsp;
+                    <span>{price}</span> &nbsp;
                 </Row>
             </Col>
             <Col xs="2">

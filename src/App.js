@@ -8,7 +8,7 @@ import Product from './containers/Product';
 import Cart from './containers/Cart';
 import Locations from './containers/Locations';
 import PageIsNotFound from './components/PageIsNotFound';
-import ScrollUpButton from './components/ScrollUpButton';
+import ScrollUpButton from './containers/ScrollUpButton';
 import './App.scss';
 
 import { Route, Switch } from 'react-router-dom';

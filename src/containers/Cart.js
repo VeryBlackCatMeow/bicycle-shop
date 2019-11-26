@@ -1,40 +1,35 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { Container, Button, ListGroup } from 'reactstrap';
+import { withRouter } from 'react-router-dom';
 
-import { unique } from '../funcLibrary/index.js'
-import { addToCartAction, removeFromCartAction, decreaseAction } from '../actions/index.js'
-import CartItem from '../components/CartItem'
+import { unique } from '../funcLibrary/index.js';
+import { addToCartAction, removeFromCartAction, decreaseAction } from '../actions/index.js';
+import DropCart  from '../components/DropCart';
+import CartPage from '../components/CartPage';
 import '../styles/cart.scss';
 
-const Cart = ({totalPrice, totalCount, cartItems, addToCartFunc, removeFromCartFunc, quantity, setQuantityFunc, decreaseFunc}) => {
+const Cart = (
+    {totalPrice, totalCount, cartItems, addToCartFunc,removeFromCartFunc, quantity, decreaseFunc, match}) => (
 
-    return  !cartItems.length 
-            ?
-            <Container className="cart">
-                <h2>Shoping Cart</h2><hr/><br/><br/>
-                <h5>Your Cart Is Empty :(</h5>
-            </Container>
-            :
-            <Container className="cart">
-                <h2>Shoping Cart</h2>
-                <ListGroup>
-                    {             
-                    cartItems.map( (item) => (<CartItem key={item.id} item={item} 
-                            removeFromCartFunc={removeFromCartFunc} addToCartFunc={addToCartFunc} 
-                            decreaseFunc={decreaseFunc} 
-                            quantity={quantity} />))
-                    }
-                </ListGroup>
-                <h3> Subtotal: &nbsp; {totalPrice} &nbsp; Items: &nbsp; {totalCount}</h3>
-                <div className="cart-bottom">
-                    <Link to="/checkout">
-                        <Button disabled size="sm" color="primary">Proceed To Checkout</Button>
-                    </Link>
-                </div>
-            </Container>
-}
+    match.path==='/cart'
+    ? 
+    <CartPage
+        totalPrice={totalPrice}
+        totalCount={totalCount}
+        cartItems={cartItems}
+        addToCartFunc={addToCartFunc}
+        removeFromCartFunc={removeFromCartFunc}
+        quantity={quantity}
+        decreaseFunc={decreaseFunc}
+    />
+    :
+    <DropCart
+        totalPrice={totalPrice}
+        totalCount={totalCount}
+        cartItems={cartItems}
+        removeFromCartFunc={removeFromCartFunc}
+    />
+);
 
 const mapStateToProps = ( { cartreducers } ) => ({
     totalPrice: cartreducers.items.reduce( (total, item) => 
@@ -50,7 +45,4 @@ const mapDispatchToProps = (dispatch) => ({
     decreaseFunc: id => dispatch(decreaseAction(id)),
 });
 
-
-export default connect(mapStateToProps, mapDispatchToProps)(Cart);
-
-//<Input type="text" value={quantity[item.id]} name={item.id} onChange={e => setQuantityFunc(e.target)} />
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Cart));

@@ -1,12 +1,10 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
-import { Container } from 'reactstrap';
 
 import {  setProductsAction, addToCartAction, removeFromCartAction } from '../actions/index.js'
 import Loading from '../components/Loading';
-import ProductBody from '../components/ProductBody';
-import ProductBar from '../components/ProductBar';
+import ProductPage from '../components/ProductPage';
 import '../styles/product.scss';
 
 const Product = (props) => {
@@ -25,14 +23,12 @@ const Product = (props) => {
            
     return  item
             ?
-            <Container className="product">
-                <h1>{item.product} {item.title}</h1>
-                <ProductBody item={item}
-                            cartItems={cartItems}
-                            addToCartFunc={addToCartFunc}
-                            removeFromCartFunc={removeFromCartFunc}/>
-                <ProductBar {...item}/>
-            </Container>
+            <ProductPage
+                item={item}
+                cartItems={cartItems}
+                addToCartFunc={addToCartFunc}
+                removeFromCartFunc={removeFromCartFunc}
+            />
             :
             <Loading/>
     
@@ -47,6 +43,6 @@ const mapDispatchToProps = (dispatch) => ({
     setProductsFunc: item => dispatch(setProductsAction(item)),
     addToCartFunc: obj => dispatch(addToCartAction(obj)),
     removeFromCartFunc: id => dispatch(removeFromCartAction(id)),
-  });
+});
 
-  export default connect(mapStateToProps, mapDispatchToProps)(Product);
+export default connect(mapStateToProps, mapDispatchToProps)(Product);
