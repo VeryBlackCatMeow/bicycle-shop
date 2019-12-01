@@ -41,13 +41,7 @@
 
     // Buttons
     .filt-button {
-        &:focus {
-            box-shadow: none;
-        } 
-
-        &.active {
-            box-shadow: none;
-        }
+        @include removeEffects;
 
         &.btn-primary {
             background: linear-gradient(to right, $darkGalaxy, $galaxy);

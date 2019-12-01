@@ -57,7 +57,7 @@ class Showcase extends Component {
     }
 
     render() { 
-        const { items, cartItems, addToCartFunc, removeFromCartFunc} = this.props;
+        const {items, cartItems, addToCartFunc, removeFromCartFunc} = this.props;
 
         return  !items.length
                 ? 

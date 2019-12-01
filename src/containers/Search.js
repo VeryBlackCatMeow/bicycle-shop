@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import {connect} from 'react-redux';
-import { Link, withRouter  } from 'react-router-dom';
-import { InputGroup, InputGroupAddon, InputGroupText, Input } from 'reactstrap';
+import { connect } from 'react-redux';
+import { withRouter  } from 'react-router-dom';
 
 import { setAllProductsAction, searchQueryAction } from '../actions/index.js'
+import SearchForm from '../components/SearchForm'
 import '../styles/search.scss';
 
 class Search extends Component {
@@ -51,7 +51,7 @@ class Search extends Component {
         }, 200);
     }
 
-    submitFunc = (e) => {
+    onSubmit = (e) => {
         if (e.key === 'Enter' && this.props.searchQuery) {
             this.props.history.push(`/search/${this.props.searchQuery}`);
             this.searchInput.current.blur();
@@ -71,41 +71,22 @@ class Search extends Component {
 
     render() {
         const { allItems, searchQuery, searchFunc } = this.props;
-        return  <>
-                    <InputGroup  className="head-search align-items-center">
-                        <InputGroupAddon addonType="prepend">
-                            <InputGroupText>
-                                <i className='fas fa-search'></i>
-                            </InputGroupText>
-                        </InputGroupAddon>
-                        <Input value={searchQuery}
-                                onChange={e => searchFunc(e.target.value)}
-                                onFocus={ this.onFocus }
-                                onBlur={ this.onBlur }
-                                onKeyDown={this.submitFunc}
-                                innerRef={this.searchInput}
-                                />
-                    </InputGroup>
-                    <ul className="head-search-list" style={{display: this.state.visible && searchQuery? 'table':'none'}}>
-                    {   
-                        allItems.slice(0, 10).map(item => (
-                            <li key={item.id} className="search-list-item">
-                                <Link to={`/gallery/${item.category}/${item.id}`}>
-                                    { this.highlightText(searchQuery, item.type, item.product, item.brand, item.title) }
-                                </Link>
-                            </li>))                       
-                    }
-                    {
-                        !allItems.length
-                        ?
-                        <h6>Sorry, No Matches Found :-(</h6>
-                        :
-                        null
-                    }
-                    </ul> 
-                </>
+        return  <SearchForm
+                    allItems={allItems}
+                    //search setup:
+                    searchQuery={searchQuery}
+                    searchFunc={searchFunc}
+                    //ref to input:
+                    searchInput={this.searchInput}
+                    //input listeners:
+                    onFocus={this.onFocus}
+                    onBlur={this.onBlur}
+                    onSubmit={this.onSubmit}
+                    //droplist:
+                    visible={this.state.visible}                      
+                    highlightText={this.highlightText}
+                />
         }
-    
 }
 
 export const searchItems = (allItems, searchQuery) => {
