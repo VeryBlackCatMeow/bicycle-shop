@@ -8,7 +8,7 @@ import LocationsList from '../components/LocationsList';
 const  LocationsPage = ( {TOKEN, viewport, setViewport, shops,
                 selectedShop, setSelectedShop, highlightedShop, handleHighlightShop} ) => (
     <Container className="locations">
-        <Row>
+        <Row className="justify-content-center">
             <h2>BikeGalaxy Locations:</h2>
         </Row>
         <Row>

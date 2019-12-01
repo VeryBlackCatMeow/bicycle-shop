@@ -3,17 +3,27 @@
 
 .locations {
     .loc-bar {
-        //display: inline-block;
         // z-index: 1 !important;
-        margin: 1em;
+        width: 100%;
+        margin: 0 0 1em .5em;
         padding: .2em;
-        background-color: beige;
+        background-color: $clearSky;
         color: black;
         font-weight: bold;
+
+        .loc-coor {
+            border-radius: .15em;
+            background: $milkyWay;
+        }
+
+        .btn-primary {
+            @include removeEffects;
+            background: $galaxy;
+        }
     }
      
     .loc-map {
-        margin: 1em;
+        margin: .5em;
         width: 100%;
         height: 90%;
 

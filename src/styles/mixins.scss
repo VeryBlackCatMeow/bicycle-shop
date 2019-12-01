@@ -20,3 +20,8 @@
     overflow: hidden;
     text-overflow: ellipsis; 
 }
+
+@mixin removeEffects {
+    box-shadow: none;
+    border: none;
+}
