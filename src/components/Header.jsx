@@ -4,7 +4,7 @@ import { Container, Row, Col } from 'reactstrap';
 import Logo from '../components/Logo';
 import Search from '../containers/Search';
 import AccountMenu from '../components/AccountMenu';
-import NavMenu from '../components/NavMenu';
+import NavMenu from '../containers/NavMenu';
 import '../styles/header.scss'
 
 const Header = () => {
