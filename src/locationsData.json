@@ -10,13 +10,13 @@
                         "type": "Feature", 
                         "geometry": {
                             "type": "Point",
-                            "coordinates": [48.857896, 2.295258]
+                            "coordinates": [40.689167, -74.044583] 
                         },
                         "properties": {
                             "shop_id": 1,
-                            "city": "Washington",
+                            "city": "New York",
                             "name": "Solar System",
-                            "address": "8720 Russell Road",
+                            "address": "Statue of Liberty",
                             "call": "(098)-765-432",
                             "hours": "10 - 19"
                         }
@@ -25,13 +25,13 @@
                         "type": "Feature", 
                         "geometry": {
                             "type": "Point",
-                            "coordinates": [40.689167, -74.044583]
+                            "coordinates": [48.857896, 2.295258]
                         },
                         "properties": {
                             "shop_id": 2,
                             "city": "Paris",
                             "name": "Milky Way",
-                            "address": "8720 Russell Road",
+                            "address": "Eiffel Tower",
                             "call": "(123)-456-789",
                             "hours": "9 - 18"
                         }
@@ -46,7 +46,7 @@
                             "shop_id": 3,
                             "city": "Giza",
                             "name": "Orion",
-                            "address": "8720 Russell Road",
+                            "address": "Piramids",
                             "call": "(555)-666-555",
                             "hours": "11 - 20"
                         }
@@ -61,7 +61,7 @@
                             "shop_id": 4,
                             "city": "Hollywood",
                             "name": "Galaxy Stars",
-                            "address": "8720 Russell Road",
+                            "address": "Walk of Fame",
                             "call": "(777)-777-777",
                             "hours": "12 - 20"
                         }
@@ -76,7 +76,7 @@
                             "shop_id": 5,
                             "city": "Kharkiv",
                             "name": "Black Hole",
-                            "address": "8720 Russell Road",
+                            "address": "Freedom Square",
                             "call": "666-666-666",
                             "hours": "9 - 21"
                         }
