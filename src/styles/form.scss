@@ -1,0 +1,34 @@
+.modal-form {
+    top: 8em;
+
+    .form {  
+        margin: auto; 
+        background-color: #FFDE00;
+        padding: 1em;
+
+        input, select {
+            width: 25em;
+        }
+
+        label {
+            font-size: 1em;
+        }
+
+        .submitpush:disabled {
+            top: 2em;
+            background-color: rgb(206, 209, 207);
+            border: rgb(206, 209, 207);
+        }
+        
+        .submitpush:enabled {
+            top: 2em;
+            background-color: rgb(16, 202, 56);
+            border: rgb(16, 202, 56);
+        }
+    } 
+
+}
+
+
+
+

@@ -2,6 +2,7 @@ import React from 'react';
 import { Nav, NavItem } from 'reactstrap';
 
 import Cart from '../containers/Cart';
+import Form from '../containers/Form';
 import '../styles/accountMenu.scss'
 
 const AccountMenu = () => (
@@ -11,8 +12,7 @@ const AccountMenu = () => (
             <span>Stores</span>
         </NavItem>
         <NavItem>
-            <i className='fas fa-user-circle'></i>	&nbsp;
-            <span>Account</span>
+            <Form/>
         </NavItem>
         <NavItem>	
             <Cart/>
