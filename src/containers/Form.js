@@ -1,12 +1,11 @@
 import React, {useState} from 'react';
 
-import { Modal, Button, Form as FormComp, FormGroup, Label, Input, FormFeedback} from 'reactstrap';
+import {Button, Form as FormComp, FormGroup, Label, Input, FormFeedback} from 'reactstrap';
 
 import '../styles/form.scss';
 
 const Form = () => {
 
-    const [modalToggler, handleModalToggle] = useState(false);
     const [fieldData, setFieldData] = useState({
         aname: '',
         surname: '',
@@ -23,7 +22,7 @@ const Form = () => {
         phoneError: '',
         emailError: '',
         passwordError: '',
-        formValid: false,
+        formValid: false
     });
 
     const handleInput = ({ target: {name, value} }) => {
@@ -88,20 +87,19 @@ const Form = () => {
     }
 
     const handleSubmit = () => { 
-        if (fieldData.formValid) {alert ('Hello,  '+ fieldData.aname + ', ' + fieldData.surname + '  phone: ' +
-            fieldData.phone + ',  e-mail: ' + fieldData.email);
+        if (fieldData.formValid) {
+            localStorage.account = JSON.stringify({
+               name: fieldData.aname, surname: fieldData.surname,
+            phone: fieldData.phone, email: + fieldData.email, password: fieldData.password
+            })
+            // alert ('Hello,  '+ fieldData.aname + ', ' + fieldData.surname + '  phone: ' +
+            // fieldData.phone + ',  e-mail: ' + fieldData.email);
         }       
     }
         
     return(
-    <> 
-    <div onClick={() => handleModalToggle(!modalToggler)}>
-        <i className='fas fa-user-circle'></i>	&nbsp;
-        <span>Account</span>
-    </div>    
-    
-    <Modal isOpen={modalToggler} toggle={() => handleModalToggle(!modalToggler)} className="modal-form">
-    <FormComp onSubmit = {handleSubmit} className="form" /*style={{display: modalToggler ? 'block' : 'none'}}*/>
+    <>      
+    <FormComp onSubmit = {handleSubmit} className="form">
         <FormGroup>
             <Label for="examplePassword">Name:</Label>
             <Input valid = {fieldData.anameValid ? true : false} invalid = {fieldData.anameError ? true : false}
@@ -135,7 +133,6 @@ const Form = () => {
         
         <Button className="submitpush" type='submit' disabled={!fieldData.formValid} /*onClick = {handleSubmit}*/>Send</Button>
     </FormComp>
-    </Modal>
     </>
     )
 }
