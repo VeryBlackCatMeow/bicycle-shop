@@ -48,3 +48,12 @@ export const searchQueryAction = serchQuery => ({
     payload: serchQuery
 });
 
+export const setCurrentPageAction = currentPage => ({
+    type: 'SET_CURRENT_PAGE',
+    payload: currentPage
+});
+
+export const setItemsPerPageAction = itemsPerPage => ({
+    type: 'SET_ITEMS_PER_PAGE',
+    payload: itemsPerPage
+});

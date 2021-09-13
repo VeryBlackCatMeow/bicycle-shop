@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import {Row, Col, Pagination, PaginationItem, PaginationLink, Input, Label } from 'reactstrap';
 
 import { setProductsAction, addToCartAction,
-        removeFromCartAction, setAllProductsAction } from '../actions/index.js'
+        removeFromCartAction, setAllProductsAction,
+        setCurrentPageAction, setItemsPerPageAction } from '../actions/index.js'
 import ProductCard from '../components/ProductCard';
 import { searchItems } from '../containers/Search';
 import '../styles/productCard.scss';
@@ -17,6 +19,7 @@ class Showcase extends Component {
     componentDidUpdate = (prevProps) => {
         if (this.props.match.params !== prevProps.match.params) {
             this.getProducts();
+            this.props.setCurrentPageFunc(1);
         }
     }
     
@@ -56,19 +59,70 @@ class Showcase extends Component {
             .catch(error => console.log(error));
     }
 
-    render() { 
-        const {items, cartItems, addToCartFunc, removeFromCartFunc} = this.props;
+    handleClick = (event) => {
+        this.props.setCurrentPageFunc(Number(event.target.id));  
+    }
 
-        return  !items.length
-                ? 
-                //<Loading/>
-                <h5>No products found. Please change your search filters and try again.</h5>
-                : 
-                items.map( item => (<ProductCard key={item.id}
-                            {...item} 
-                            cartItems={cartItems}
-                            addToCartFunc={addToCartFunc} 
-                            removeFromCartFunc={removeFromCartFunc }/>))
+    handleInput = (event) => {
+        this.props.setItemsPerPageFunc(Number(event.target.value));
+    }
+
+    render() { 
+        const {items, cartItems, addToCartFunc, removeFromCartFunc, currentPage, itemsPerPage} = this.props;
+
+        // Logic for displaying items
+        const indexOfLastitem = currentPage * itemsPerPage;
+        const indexOfFirstitem = indexOfLastitem - itemsPerPage;
+        const currentitems = items.slice(indexOfFirstitem, indexOfLastitem);
+
+        // Logic for displaying page numbers
+        const pageNumbers = [];
+        for (let i = 1; i <= Math.ceil(items.length / itemsPerPage); i++) {
+            pageNumbers.push(i);
+        }
+
+        return( 
+            !items.length
+            ? 
+            <h5>No products found. Please change your search filters and try again.</h5>
+            : 
+            <>
+            <Col>
+                <Row>         
+                    {             /* Displaying items */
+                    currentitems.map( item => (<ProductCard key={item.id}
+                                {...item} 
+                                cartItems={cartItems}
+                                addToCartFunc={addToCartFunc} 
+                                removeFromCartFunc={removeFromCartFunc }/>))
+                    }
+                </Row> 
+                <Row>   {     /*Choosing quantity of itemsPerPage */           }
+                    <Label sm={1.5} size="sm">Show: &nbsp;</Label>
+                    <Col sm={1.5}>
+                        <Input type="select" bsSize="sm" value={itemsPerPage} onChange={this.handleInput}>
+                            <option value='6'>6</option>
+                            <option value='9'>9</option>
+                            <option value='12'>12</option>
+                        </Input>
+                    </Col>
+                    <Col sm={9}>
+                    <Pagination size="sm">
+                        {         /* Displaying page numbers */
+                        pageNumbers.map(number => (
+                            <PaginationItem key={number} active={currentPage === number}>
+                                <PaginationLink id={number} onClick={this.handleClick}>
+                                    {number}
+                                </PaginationLink>
+                            </PaginationItem>
+                        ))
+                        }
+                    </Pagination>
+                    </Col>
+                </Row>
+            </Col>
+            </>
+        )
     }
 }
 
@@ -107,18 +161,22 @@ const finalFilter = (items, sortBy, filterBy) =>  {
 };
 
 const mapStateToProps = ( 
-    {productreducers, filtersreducers, cartreducers}) => ({
+    {productreducers, filtersreducers, cartreducers, paginationreducers}) => ({
     items: finalFilter(productreducers.items,
                             filtersreducers.sortBy, filtersreducers.filterBy),
     cartItems: cartreducers.items,
     allItems: productreducers.allItems,
+    currentPage: paginationreducers.currentPage,
+    itemsPerPage: paginationreducers.itemsPerPage
 });
 
 const mapDispatchToProps = (dispatch) => ({
     setProductsFunc: item => dispatch(setProductsAction(item)),
     addToCartFunc: obj => dispatch(addToCartAction(obj)),
     removeFromCartFunc: id => dispatch(removeFromCartAction(id)),
-    setALLProductsFunc: allItems => dispatch(setAllProductsAction(allItems))
+    setALLProductsFunc: allItems => dispatch(setAllProductsAction(allItems)),
+    setCurrentPageFunc: currentPage => dispatch(setCurrentPageAction(currentPage)),
+    setItemsPerPageFunc: itemsPerPage => dispatch(setItemsPerPageAction(itemsPerPage))
     
 });
 

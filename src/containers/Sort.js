@@ -1,10 +1,15 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { connect } from 'react-redux';
 
-import { setSortAction } from '../actions/index.js'
+import { setSortAction, setCurrentPageAction } from '../actions/index.js'
 import SortBar from '../components/SortBar';
 
-const Sort = ( {setSortFunc, sortBy} ) => { 
+const Sort = ( {setSortFunc, sortBy, setCurrentPageFunc} ) => {
+
+    useEffect(()=> {
+        setCurrentPageFunc(1);
+    }, [sortBy, setCurrentPageFunc])
+    
     return( <SortBar setSortFunc={setSortFunc} sortBy={sortBy} /> ); 
 }
 
@@ -14,7 +19,8 @@ const mapStateToProps = ( { filtersreducers }) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    setSortFunc: sort => dispatch(setSortAction(sort))
+    setSortFunc: sort => dispatch(setSortAction(sort)),
+    setCurrentPageFunc: currentPage => dispatch(setCurrentPageAction(currentPage))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Sort);

@@ -4,7 +4,7 @@ import axios from 'axios';
 import { withRouter } from 'react-router-dom';
 
 import { sortByABC } from '../funcLibrary/index.js'
-import { setFilterAction, resetFiltersAction  } from '../actions/index.js'
+import { setFilterAction, resetFiltersAction, setCurrentPageAction } from '../actions/index.js'
 import FilterBar from '../components/FilterBar';
 import '../styles/filter.scss'
 
@@ -28,6 +28,9 @@ class Filter extends Component {
     componentDidUpdate = (prevProps) => {
         if (this.props.match.params.category !== prevProps.match.params.category) {
             this.setFilters();
+        }
+        if (this.props.filterBy !== prevProps.filterBy) {
+            this.props.setCurrentPageFunc(1);
         }
     }
 
@@ -160,6 +163,7 @@ const mapStateToProps = ( {productreducers, filtersreducers} ) => ({
 const mapDispatchToProps = (dispatch) => ({
     setFilterFunc: filter => dispatch(setFilterAction(filter)),
     resetFiltersFunc: obj => dispatch(resetFiltersAction (obj)),
+    setCurrentPageFunc: currentPage => dispatch(setCurrentPageAction(currentPage))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Filter));

@@ -20,7 +20,8 @@ const Account = () => {
     const handleUnlogin = () => {
         delete localStorage.account;
         logUser({name: 'Sign Up'});
-        setPopoverOpen(!popoverOpen);
+        setPopoverOpen(false);
+        setIsLoggedIn(false);
     }
 
     if(isLoggedIn) {
