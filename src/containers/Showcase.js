@@ -21,6 +21,9 @@ class Showcase extends Component {
             this.getProducts();
             this.props.setCurrentPageFunc(1);
         }
+        if (this.props.itemsPerPage !== prevProps.itemsPerPage) {
+            this.props.setCurrentPageFunc(1);
+        }
     }
     
     getProducts = () => {
@@ -60,11 +63,46 @@ class Showcase extends Component {
     }
 
     handleClick = (event) => {
+        if(event.target.id === '...') return;
         this.props.setCurrentPageFunc(Number(event.target.id));  
     }
 
     handleInput = (event) => {
         this.props.setItemsPerPageFunc(Number(event.target.value));
+    }
+
+    setPageNumbers = (currentPage, lastPage) => {
+        var delta = 2,
+            range = [],
+            rangeWithDots = [],
+            l;
+    
+        range.push(1);  
+    
+        if (lastPage <= 1){
+         return range;
+        }
+    
+        for (let i = currentPage - delta; i <= currentPage + delta; i++) {
+            if (i < lastPage && i > 1) {
+                range.push(i);
+            }
+        }  
+        range.push(lastPage);
+    
+        for (let i of range) {
+            if (l) {
+                if (i - l === 2) {
+                    rangeWithDots.push(l + 1);
+                } else if (i - l !== 1) {
+                    rangeWithDots.push('...');
+                }
+            }
+            rangeWithDots.push(i);
+            l = i;
+        }
+    
+        return rangeWithDots;
     }
 
     render() { 
@@ -74,12 +112,16 @@ class Showcase extends Component {
         const indexOfLastitem = currentPage * itemsPerPage;
         const indexOfFirstitem = indexOfLastitem - itemsPerPage;
         const currentitems = items.slice(indexOfFirstitem, indexOfLastitem);
+        
+        // Logic for displaying page numbers (all pages)
+        // const pageNumbers = [];
+        // for (let i = 1; i <= Math.ceil(items.length / itemsPerPage); i++) {
+        //     pageNumbers.push(i);
+        // }
 
-        // Logic for displaying page numbers
-        const pageNumbers = [];
-        for (let i = 1; i <= Math.ceil(items.length / itemsPerPage); i++) {
-            pageNumbers.push(i);
-        }
+        // Logic for displaying page numbers (with dots)
+        const lastPage = Math.ceil(items.length / itemsPerPage);
+        const pageNumbers = this.setPageNumbers(currentPage, lastPage);
 
         return( 
             !items.length
@@ -106,18 +148,20 @@ class Showcase extends Component {
                             <option value='12'>12</option>
                         </Input>
                     </Col>
-                    <Col sm={9}>
-                    <Pagination size="sm">
-                        {         /* Displaying page numbers */
-                        pageNumbers.map(number => (
-                            <PaginationItem key={number} active={currentPage === number}>
-                                <PaginationLink id={number} onClick={this.handleClick}>
-                                    {number}
-                                </PaginationLink>
-                            </PaginationItem>
-                        ))
-                        }
-                    </Pagination>
+                    <Col sm={3}>
+                    </Col>
+                    <Col sm={6}>
+                        <Pagination size="sm" mx-auto="true">
+                            {         /* Displaying page numbers */
+                            pageNumbers.map( (number, index) => (
+                                <PaginationItem key={index} active={currentPage === number}>
+                                    <PaginationLink id={number} onClick={this.handleClick}>
+                                        {number}
+                                    </PaginationLink>
+                                </PaginationItem>
+                            ))
+                            }
+                        </Pagination>
                     </Col>
                 </Row>
             </Col>

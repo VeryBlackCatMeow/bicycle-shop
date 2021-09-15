@@ -14,8 +14,7 @@ const Sort = ( {setSortFunc, sortBy, setCurrentPageFunc} ) => {
 }
 
 const mapStateToProps = ( { filtersreducers }) => ({
-    sortBy: filtersreducers.sortBy,
-    searchBy: filtersreducers.searchBy,
+    sortBy: filtersreducers.sortBy
 });
 
 const mapDispatchToProps = (dispatch) => ({
