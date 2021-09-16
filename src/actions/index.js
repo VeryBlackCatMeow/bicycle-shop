@@ -57,3 +57,13 @@ export const setItemsPerPageAction = itemsPerPage => ({
     type: 'SET_ITEMS_PER_PAGE',
     payload: itemsPerPage
 });
+
+export const setIsLoggedInAction = isLoggedIn => ({
+    type: 'SET_IS_LOGGED_IN',
+    payload: isLoggedIn
+});
+
+export const setUserAction = user => ({
+    type: 'SET_USER',
+    payload: user
+});

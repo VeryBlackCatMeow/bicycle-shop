@@ -1,27 +1,29 @@
 import React, {useState, useEffect} from 'react';
 import { Modal, Popover, ListGroup, ListGroupItem } from 'reactstrap';
+import { useSelector, useDispatch } from 'react-redux';
 
+import { setIsLoggedInAction, setUserAction} from '../actions/index.js'
 import Form from '../containers/Form';
 import '../styles/accountMenu.scss';
 
 const Account = () => {
-    const [user, logUser] = useState({name: 'Sign Up'});
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const {isLoggedIn, user} = useSelector( state => state.userreducers);
+    const dispatch = useDispatch();
     const [modalToggler, handleModalToggle] = useState(false);
     const [popoverOpen, setPopoverOpen] = useState(false);
 
     useEffect(()=> {
         if(localStorage.account) {
-            logUser(JSON.parse(localStorage.account));
-            setIsLoggedIn(true);
+            dispatch(setUserAction(JSON.parse(localStorage.account)));
+            dispatch(setIsLoggedInAction(true));
         }
-    }, []);
+    }, [dispatch]);
 
     const handleUnlogin = () => {
         delete localStorage.account;
-        logUser({name: 'Sign Up'});
+        dispatch(setUserAction({name: 'Sign Up'}));
         setPopoverOpen(false);
-        setIsLoggedIn(false);
+        dispatch(setIsLoggedInAction(false));
     }
 
     if(isLoggedIn) {
