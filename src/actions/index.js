@@ -67,3 +67,8 @@ export const setUserAction = user => ({
     type: 'SET_USER',
     payload: user
 });
+
+export const addAllItemsAction = obj => ({
+    type: 'ADD_ALL_ITEMS',
+    payload: obj
+});

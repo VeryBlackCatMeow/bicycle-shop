@@ -25,3 +25,23 @@ export const sortByABC = (items) => items.slice().sort( (a , b) => {
     if (a >= b) return 1;
     else return -1;
     });
+
+export const createCookie = (name, value, days)=> {
+    var expires;
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toGMTString();
+    }
+    else {
+        expires = "";
+    }
+    document.cookie = name + "=" + value + expires + "; path=/";
+}
+
+export const getCookie = (name) => {
+    let matches = document.cookie.match(new RegExp(
+      "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"   // eslint-disable-line
+    ));
+    return matches ? decodeURIComponent(matches[1]) : undefined;
+  }
