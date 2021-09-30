@@ -22,7 +22,8 @@ const NavMenu = () => {
         {id: 1, name: "Home", url: "/"},
         {id: 2, name: "All Products", url: "/gallery/allItems"},
         {id: 3, name: "About Us", url: "/about"},
-        {id: 4, name: "Locations", url: "/locations"}
+        {id: 4, name: "Locations", url: "/locations"},
+        {id: 5, name: "Delivery", url: "/delivery"}
     ];
 
     return(

@@ -1,0 +1,46 @@
+.delivery {
+    display: grid;
+    grid-template-areas: 
+            'heading heading heading heading heading'
+            'left-column  content content content right-column'
+            'left-column  content content content right-column'
+            'left-column  video video video right-column';
+    gap: 1em;
+    padding: 1em;
+
+    div {
+        text-align: center;
+    }
+
+    .heading {
+        background-color: brown;
+        grid-area: heading;
+        padding: 1em;
+        
+    }
+
+    .left-column {
+        background-color: green;
+        grid-area: left-column;
+        padding: 1em;
+    }
+    
+    
+    .right-column {
+        background-color: chartreuse;
+        grid-area: right-column;
+        padding: 1em;
+    }
+    
+    .content {
+        background-color: aqua;
+        grid-area: content;
+        padding: 1em;
+    }
+
+    .video {
+        background-color: red;
+        grid-area: video;
+        padding: 1em;
+    }
+}
