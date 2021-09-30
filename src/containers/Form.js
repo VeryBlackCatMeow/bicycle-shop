@@ -89,11 +89,10 @@ const Form = () => {
     const handleSubmit = () => { 
         if (fieldData.formValid) {
             localStorage.account = JSON.stringify({
-               name: fieldData.aname, surname: fieldData.surname,
-            phone: fieldData.phone, email: + fieldData.email, password: fieldData.password
+                name: fieldData.aname, surname: fieldData.surname,
+                phone: fieldData.phone, email: fieldData.email, password: fieldData.password,
+                userlink: `${fieldData.aname}_${fieldData.surname}`
             })
-            // alert ('Hello,  '+ fieldData.aname + ', ' + fieldData.surname + '  phone: ' +
-            // fieldData.phone + ',  e-mail: ' + fieldData.email);
         }       
     }
         

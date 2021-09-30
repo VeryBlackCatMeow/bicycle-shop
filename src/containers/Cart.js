@@ -20,7 +20,6 @@ const Cart = (
     useEffect(()=> {
         createCookie('cart', JSON.stringify( {items: items, quantity: quantity} ));
         if(cartItems.length === 0)  createCookie('cart', JSON.stringify( {items: [], quantity: {} }));
-        console.log(document.cookie);
         }, [items, quantity,cartItems])
  
     return(

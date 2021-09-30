@@ -1,17 +1,21 @@
+@import '../styles/variables.scss';
+
 .modal-form {
     top: 8em;
+    border-radius: 5px;
 
     .form {  
-        margin: auto; 
-        background-color: #FFDE00;
+        margin: 1em; 
         padding: 1em;
+        background-color: $lightGalaxy;
 
         input, select {
-            width: 25em;
+            width: 27em;
         }
 
         label {
             font-size: 1em;
+            color: $milkyWay;
         }
 
         .submitpush:disabled {
@@ -24,6 +28,12 @@
             top: 2em;
             background-color: rgb(16, 202, 56);
             border: rgb(16, 202, 56);
+        }
+
+        @media (max-width: 576px) {
+            input, select {
+                width: 31em;
+            }
         }
     } 
 
