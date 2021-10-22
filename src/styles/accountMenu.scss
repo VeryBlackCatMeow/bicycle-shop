@@ -7,6 +7,10 @@
         background-color: $blackHole;
         color: $milkyWay;
         cursor: pointer;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 10em;
 
         @media (max-width: 1200px) {
             padding: .2em;

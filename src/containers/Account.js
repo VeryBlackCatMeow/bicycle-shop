@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
-import { Modal, Popover, ListGroup, ListGroupItem } from 'reactstrap';
 import { useSelector, useDispatch } from 'react-redux';
+import { useLocation, useHistory } from "react-router-dom";
+import { Modal, Popover, ListGroup, ListGroupItem } from 'reactstrap';
 
 import { setIsLoggedInAction, setUserAction} from '../actions/index.js'
 import Form from '../containers/Form';
@@ -19,13 +20,19 @@ const Account = () => {
         }
     }, [dispatch]);
 
+    const location = useLocation();
+    const history = useHistory();
+
     const handleUnlogin = () => {
         delete localStorage.account;
         dispatch(setUserAction({name: 'Sign Up'}));
         setPopoverOpen(false);
         dispatch(setIsLoggedInAction(false));
+        if(location.pathname.startsWith('/profile')) {
+            history.replace('/');
+        }
     }
-
+    
     if(isLoggedIn) {
         return(
             <>
@@ -35,7 +42,14 @@ const Account = () => {
             </div>
             <Popover placement="bottom" isOpen={popoverOpen} target="user" trigger="legacy">
                 <ListGroup className='account-list'>
-                    <ListGroupItem disabled tag="a" href="#" action>Profile</ListGroupItem>
+                    {
+                        location.pathname.startsWith('/profile')
+                        ?
+                        null
+                        :
+                        <ListGroupItem tag="a" href={`/profile/${user.userlink}`} action>Profile</ListGroupItem>
+                    }
+                    
                     <ListGroupItem disabled tag="a" href="#" action>Wishlist</ListGroupItem>
                     <ListGroupItem onClick={handleUnlogin} tag="a" href="#" action>Sign Out</ListGroupItem>
                 </ListGroup>
