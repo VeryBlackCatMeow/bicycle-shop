@@ -5,7 +5,7 @@
   "dependencies": {
     "axios": "^0.21.4",
     "bootstrap": "^4.6.0",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-map-gl": "^5.3.17",
