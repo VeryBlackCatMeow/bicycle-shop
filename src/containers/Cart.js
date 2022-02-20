@@ -10,18 +10,18 @@ import '../styles/cart.scss';
 
 const Cart = (
     {totalPrice, totalCount, cartItems, items, addToCartFunc,removeFromCartFunc, 
-        quantity, decreaseFunc, addAllItemsFunc, match}) => {
-    
-    useEffect(()=>{
-        const cookie = JSON.parse(getCookie('cart'));
-        if(cookie) addAllItemsFunc(cookie);
-    }, [addAllItemsFunc])        
+        quantity, decreaseFunc, addAllItemsFunc, match}) => {     
 
-    useEffect(()=> {
+    useEffect(()=>{
+        const cookie = getCookie('cart');        
+        if(cookie) addAllItemsFunc(JSON.parse(cookie));
+        }, [addAllItemsFunc])  
+
+    useEffect(()=>{
         createCookie('cart', JSON.stringify( {items: items, quantity: quantity} ));
         if(cartItems.length === 0)  createCookie('cart', JSON.stringify( {items: [], quantity: {} }));
-        }, [items, quantity,cartItems])
- 
+        }, [items, quantity, cartItems])
+
     return(
         match.path==='/cart'
         ? 
